@@ -20,6 +20,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "When Doves Cry"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/myc-dazzle-portrait.jpeg",
@@ -46,6 +49,10 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Kiss",
+   "Nothing Compares 2U"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/betsy-shannon-portrait.jpeg",
@@ -72,6 +79,10 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "She's Always in My Hair",
+   "When Doves Cry"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/nettrice-gaskins-portrait.jpeg",
@@ -94,13 +105,16 @@
   "season": "",
   "noindex": false,
   "card_image": "artworks-web/suzanne-wint-artwork-02.jpeg",
-  "card_alt": "portraits-web/suzanne-wint-portrait.jpeg",
+  "card_alt": "portraits-web/suzanne-wint-portrait-jb.jpeg",
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Girls and Boys"
+  ],
   "second_card": null,
   "card_video": "",
-  "portrait": "portraits-web/suzanne-wint-portrait.jpeg",
+  "portrait": "portraits-web/suzanne-wint-portrait-jb.jpeg",
   "connected": []
  },
  {
@@ -124,6 +138,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Baby I'm a Star"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/tim-harmon-portrait.jpeg",
@@ -150,6 +167,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Sometimes It Snows in April"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/bobby-huntley-portrait.jpeg",
@@ -176,6 +196,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "D.M.S.R."
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/j-bayliss-portrait.jpg",
@@ -202,6 +225,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "[too many to choose- see below!]"
+  ],
   "second_card": null,
   "card_video": "artworks-web/christopher-hall-artwork-2.mp4",
   "portrait": "portraits-web/christopher-hall-portrait.jpg",
@@ -228,6 +254,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Revelation"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/ec-balazs-portrait-1.jpeg",
@@ -254,6 +283,7 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/bethany-tobias-portrait.jpg",
@@ -280,6 +310,7 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/allison-claybaugh-portrait.jpg",
@@ -306,6 +337,7 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/kevin-mclaughlin-portrait.jpg",
@@ -333,6 +365,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Batdance"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/mr-nevermind-portrait.jpg",
@@ -354,11 +389,14 @@
   "walk_order_2": [],
   "season": "",
   "noindex": false,
-  "card_image": "artworks-web/kurt-shafai-artwork.png",
+  "card_image": "artworks-web/kurt-shafai-artwork.jpg",
   "card_alt": "portraits-web/kurt-shafai-portrait.jpeg",
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Wally"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/kurt-shafai-portrait.jpeg",
@@ -385,6 +423,7 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/kevin-nickelson-portrait.jpeg",
@@ -407,13 +446,14 @@
   "season": "",
   "noindex": false,
   "card_image": "artworks-web/jennifer-umolac-artwork.jpeg",
-  "card_alt": "events-web/jennifer-umolac-jb-01.jpg",
+  "card_alt": "portraits-web/jennifer-umolac-jb-portrait.jpg",
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
-  "portrait": "",
+  "portrait": "portraits-web/jennifer-umolac-jb-portrait.jpg",
   "connected": []
  },
  {
@@ -437,6 +477,10 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Adore",
+   "17 Days"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/robbin-lang-portrait.jpg",
@@ -465,6 +509,7 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/tami-foster-portrait-2.jpg",
@@ -492,8 +537,11 @@
   "card_image": "artworks-web/tammy-ortegon-artwork.jpg",
   "card_alt": "portraits-web/tammy-ortegon-portrait.jpeg",
   "card_position": "",
-  "card_alt_position": "",
+  "card_alt_position": "right center",
   "card_text": "",
+  "favourite_prince_song": [
+   "Raspberry Beret"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/tammy-ortegon-portrait.jpeg",
@@ -520,6 +568,7 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/kat-regas-portrait.jpg",
@@ -546,6 +595,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Hot Thing"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/bon-mott-portrait.jpg",
@@ -567,11 +619,12 @@
   "walk_order_2": [],
   "season": "",
   "noindex": false,
-  "card_image": "portraits-web/pamela-ayo-yetunde-portrait.jpg",
-  "card_alt": "events-web/pamela-ayo-yetunde-jb-04.jpeg",
+  "card_image": "artworks-web/pamela-ayo-yetunde-artwork.jpg",
+  "card_alt": "portraits-web/pamela-ayo-yetunde-portrait.jpg",
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/pamela-ayo-yetunde-portrait.jpg",
@@ -598,6 +651,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Purple Rain"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/shuyan-chen-portrait.jpeg",
@@ -624,6 +680,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "If I Was Your Girlfriend"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/cheza-willis-portrait.jpg",
@@ -650,6 +709,7 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/anita-white-portrait.jpeg",
@@ -676,6 +736,7 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/kaitlin-frick-portrait.jpeg",
@@ -702,6 +763,7 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/lisa-nilles-portrait.jpg",
@@ -728,6 +790,7 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/jason-bailey-portrait.jpeg",
@@ -754,6 +817,7 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/liz-bucheit-portrait.jpeg",
@@ -779,7 +843,8 @@
   "card_alt": "events-web/hawona-sullivan-janzen-jb-01.jpg",
   "card_position": "",
   "card_alt_position": "",
-  "card_text": "",
+  "card_text": "Dear Prince / Last night I saw purple wildflowers dancing on the side of the road. / Seven minutes later I saw a man in a purple vest, hat, and scarf selling purple eggplant and cabbages at a farmer's market. /",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/hawona-sullivan-janzen-portrait.jpeg",
@@ -806,6 +871,7 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/jill-boogren-portrait.jpeg",
@@ -827,11 +893,12 @@
   "walk_order_2": [],
   "season": "",
   "noindex": false,
-  "card_image": "portraits-web/rebecca-langason-portrait.jpeg",
-  "card_alt": "events-web/rebecca-langason-jb-01.jpg",
+  "card_image": "artworks-web/rebecca-langason-artwork.jpg",
+  "card_alt": "portraits-web/rebecca-langason-portrait.jpeg",
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/rebecca-langason-portrait.jpeg",
@@ -853,11 +920,14 @@
   "walk_order_2": [],
   "season": "",
   "noindex": false,
-  "card_image": "portraits-web/erica-chronowski-portrait.jpeg",
-  "card_alt": "events-web/erica-chronowski-jb-01.jpg",
+  "card_image": "artworks-web/erica-chronowski-artwork.jpeg",
+  "card_alt": "portraits-web/erica-chronowski-portrait.jpeg",
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Let's Go Crazy"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/erica-chronowski-portrait.jpeg",
@@ -884,6 +954,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Condition of the Heart"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/penni-goode-evans-portrait.jpeg",
@@ -910,6 +983,7 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/kami-ink-portrait.jpg",
@@ -938,6 +1012,7 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/brian-bourke-portrait.jpg",
@@ -964,6 +1039,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Way Back Home"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/brenda-clemons-portrait.jpg",
@@ -976,7 +1054,7 @@
   "first_name": "Sheri",
   "last_name": "Paci",
   "city": "Cowes",
-  "state_or_country": "Victoria Australia",
+  "state_or_country": "Australia",
   "title": "Forever in my life",
   "venues": [
    "Roberts Gallery"
@@ -990,6 +1068,10 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Controversy",
+   "Forever in my Life"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/sheri-paci-portrait.jpg",
@@ -1016,6 +1098,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Alphabet St (Lovesexy album)"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/francisco-flores-portrait.jpg",
@@ -1042,6 +1127,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "Now Playing: / ♪  Take Me To Paisley ♪",
+  "favourite_prince_song": [
+   "The Ballad of Dorothy Parker"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/hanna-ogren-portrait.jpg",
@@ -1071,6 +1159,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Condition of the Heart"
+  ],
   "second_card": {
    "positions": [
     17
@@ -1102,6 +1193,11 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Do U Lie",
+   "All My Dreams",
+   "Emancipation Disc II"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/maisha-gilyard-portrait.jpg",
@@ -1128,6 +1224,7 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/charvis-harrell-portrait.jpg",
@@ -1154,6 +1251,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "When Doves Cry"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/maeve-gimpl-portrait.jpg",
@@ -1183,6 +1283,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Black Sweat"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/kish-daniels-portrait.jpeg",
@@ -1208,10 +1311,13 @@
   "season": "",
   "noindex": false,
   "card_image": "portraits-web/jojo-ninja-ventus-portrait.jpg",
-  "card_alt": "artworks-web/kish-daniels-artwork.jpeg",
+  "card_alt": "",
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "When Doves Cry"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/jojo-ninja-ventus-portrait.jpg",
@@ -1240,7 +1346,10 @@
   "card_alt": "portraits-web/paul-thomlinson-portrait-2.jpeg",
   "card_position": "",
   "card_alt_position": "",
-  "card_text": "♪ Goodnight Sweet Prince ♪ / If there's purple rain in purple heaven, I know you must be soaking wet / While we're still down here, blasting 7, / and Little Red Corvette.",
+  "card_text": "Now Playing: / ♪ Goodnight Sweet Prince ♪",
+  "favourite_prince_song": [
+   "The Most Beautiful Girl in the World"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/paul-thomlinson-portrait.jpeg",
@@ -1267,6 +1376,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Adore"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/coco-cubbage-portrait.jpg",
@@ -1293,6 +1405,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Purple Rain"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "",
@@ -1315,13 +1430,16 @@
   "season": "",
   "noindex": false,
   "card_image": "artworks-web/lila-d-washington-artwork.jpg",
-  "card_alt": "",
+  "card_alt": "portraits-web/lila-d-washington-portrait.jpg",
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "One Night Alone..Live!"
+  ],
   "second_card": null,
   "card_video": "",
-  "portrait": "",
+  "portrait": "portraits-web/lila-d-washington-portrait.jpg",
   "connected": []
  },
  {
@@ -1332,7 +1450,7 @@
   "last_name": "Boelhower",
   "city": "Hastings",
   "state_or_country": "MN",
-  "title": "April 21 2016",
+  "title": "April 21, 2016",
   "venues": [
    "Roberts Gallery"
   ],
@@ -1344,7 +1462,10 @@
   "card_alt": "",
   "card_position": "",
   "card_alt_position": "",
-  "card_text": "You sang that it sometimes snows in / April. Did you know we would feel / that cold the day you died?",
+  "card_text": "April 21, 2016 / You sang that it sometimes snows in / April. Did you know we would feel / that cold the day you died?",
+  "favourite_prince_song": [
+   "Pope"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/jamey-boelhower-portrait.jpg",
@@ -1368,9 +1489,12 @@
   "noindex": false,
   "card_image": "artworks-web/sonja-dapper-artwork.jpeg",
   "card_alt": "portraits-web/sonja-dapper-portrait.jpg",
-  "card_position": "",
+  "card_position": "center 85%",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Let's Go Crazy"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/sonja-dapper-portrait.jpg",
@@ -1392,11 +1516,12 @@
   "walk_order_2": [],
   "season": "",
   "noindex": false,
-  "card_image": "portraits-web/kristen-zschomler-portrait.jpeg",
-  "card_alt": "portraits-web/ec-balazs-portrait-1.jpeg",
+  "card_image": "install-web/kristen-zschomler-dp-1.jpeg",
+  "card_alt": "portraits-web/kristen-zschomler-portrait.jpeg",
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/kristen-zschomler-portrait.jpeg",
@@ -1418,11 +1543,12 @@
   "walk_order_2": [],
   "season": "",
   "noindex": false,
-  "card_image": "artworks-web/stephanie-carlson-artwork.jpg",
+  "card_image": "artworks-web/stephanie-carlson-artwork-kt-02.jpeg",
   "card_alt": "portraits-web/stephanie-carlson-portrait.jpeg",
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/stephanie-carlson-portrait.jpeg",
@@ -1454,6 +1580,7 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": {
    "positions": [
     12
@@ -1490,6 +1617,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Purple Rain"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/angela-davis-portrait.jpeg",
@@ -1516,6 +1646,7 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/mary-johnson-portrait.jpeg",
@@ -1541,13 +1672,14 @@
   "season": "",
   "noindex": false,
   "card_image": "artworks-web/rich-benson-dp-03.jpg",
-  "card_alt": "portraits-web/rich-benson-portrait.jpg",
+  "card_alt": "portraits-web/rich-benson-portrait-kt.jpeg",
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
-  "portrait": "portraits-web/rich-benson-portrait.jpg",
+  "portrait": "portraits-web/rich-benson-portrait-kt.jpeg",
   "connected": [
    "terry-jackson",
    "troy-gua",
@@ -1562,7 +1694,7 @@
   "last_name": "Jackson",
   "city": "Minneapolis",
   "state_or_country": "MN",
-  "title": "Photos from North Minneapolis and the beginnings of the Minneapolis Sound",
+  "title": "Memories & Photos",
   "venues": [
    "Roberts Gallery"
   ],
@@ -1570,11 +1702,12 @@
   "walk_order_2": [],
   "season": "",
   "noindex": false,
-  "card_image": "artworks-web/terry-jackson-artwork-01.jpeg",
+  "card_image": "portraits-web/terry-jackson-portrait-2.jpeg",
   "card_alt": "portraits-web/terry-jackson-portrait.jpeg",
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/terry-jackson-portrait.jpeg",
@@ -1604,6 +1737,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Diamonds and Pearls"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/adrian-perryman-portrait.jpg",
@@ -1631,6 +1767,10 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Gold",
+   "Free"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/alexander-lauber-portrait.jpg",
@@ -1656,7 +1796,10 @@
   "card_alt": "",
   "card_position": "",
   "card_alt_position": "",
-  "card_text": "",
+  "card_text": "Innocence and Prince/ probably nine was too young / to be listening to Controversy / and coordinating dance routines / to his upbeat Private Joy /",
+  "favourite_prince_song": [
+   "Cloreen Bacon Skin"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/alicia-lee-portrait.jpeg",
@@ -1670,7 +1813,7 @@
   "last_name": "de Beer",
   "city": "Apeldoorn",
   "state_or_country": "The Netherlands",
-  "title": "",
+  "title": "This photo is me on my birthday at Paisley Park.",
   "venues": [
    "Roberts Gallery"
   ],
@@ -1683,6 +1826,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Controversy"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/astrid-de-beer-portrait.jpeg",
@@ -1709,6 +1855,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Purple Rain"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/barbara-rogers-portrait.jpg",
@@ -1730,11 +1879,14 @@
   "walk_order_2": [],
   "season": "",
   "noindex": false,
-  "card_image": "portraits-web/brass-solidarity-jb-01.jpg",
-  "card_alt": "portraits-web/brass-solidarity-portrait-02.jpeg",
+  "card_image": "install-web/brass-solidarity-jb-02.jpg",
+  "card_alt": "portraits-web/brass-solidarity-jb-01.jpg",
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Baltimore"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/brass-solidarity-jb-01.jpg",
@@ -1761,6 +1913,7 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/heidi-vader-portrait.jpeg",
@@ -1782,11 +1935,12 @@
   "walk_order_2": [],
   "season": "",
   "noindex": false,
-  "card_image": "artworks-web/janelle-doyle-mosaic.jpeg",
+  "card_image": "artworks-web/janelle-doyle-artwork.jpeg",
   "card_alt": "portraits-web/janelle-kay-doyle-portrait.jpg",
-  "card_position": "",
+  "card_position": "left center",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/janelle-kay-doyle-portrait.jpg",
@@ -1813,6 +1967,12 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Purple Rain",
+   "Take Me with You",
+   "Raspberry Beret",
+   "Gold"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/lorraine-lassig-banks-portrait.jpg",
@@ -1839,6 +1999,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "For You (album)"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/manny-kirby-portrait.jpeg",
@@ -1852,7 +2015,7 @@
   "last_name": "Lahaye",
   "city": "Villeneuve-Loubet",
   "state_or_country": "France",
-  "title": "",
+  "title": "I could share many stories.",
   "venues": [
    "Roberts Gallery"
   ],
@@ -1865,6 +2028,10 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Bambi",
+   "Black Sweat, Joy in Repetition"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/mieke-lahaye-portrait.jpeg",
@@ -1887,10 +2054,11 @@
   "season": "",
   "noindex": false,
   "card_image": "portraits-web/renee-westbrook-portrait.jpg",
-  "card_alt": "events-web/terry-jackson-jb-02.jpg",
+  "card_alt": "",
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/renee-westbrook-portrait.jpg",
@@ -1904,7 +2072,7 @@
   "last_name": "Connor",
   "city": "Minneapolis",
   "state_or_country": "MN",
-  "title": "",
+  "title": "Prince has inspired my dancing and fashion choices immensely.",
   "venues": [
    "Roberts Gallery"
   ],
@@ -1917,6 +2085,10 @@
   "card_position": "18% 18%",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Kiss",
+   "When Doves Cry"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/tracy-connor-portrait.jpg",
@@ -1940,9 +2112,12 @@
   "noindex": false,
   "card_image": "artworks-web/vicki-perry-artwork.jpg",
   "card_alt": "portraits-web/vicki-perry-portrait.jpg",
-  "card_position": "",
+  "card_position": "center bottom",
   "card_alt_position": "",
   "card_text": "",
+  "favourite_prince_song": [
+   "Adore"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/vicki-perry-portrait.jpg",
@@ -1969,6 +2144,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "My Good Friend Prince",
+  "favourite_prince_song": [
+   "Sometimes It Snows in April"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/giuseppe-craca-portrait.jpeg",

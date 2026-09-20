@@ -20,6 +20,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<script data-goatcounter="https://pmparchive.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 <style>
   :root{
     --deep:#3b1054; --mid:#5c2d8e; --soft:#7b52a8; --tint:#f5f0fb; --border:#e0d0f0;
@@ -66,22 +68,23 @@
   .card:focus-visible .card-media{outline:2px solid var(--gold);outline-offset:3px;}
 
   .card-media{position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;background:var(--ground-light);}
-  .card-media img,.card-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 18%;transition:opacity 1.1s ease;}
+  .card-media img,.card-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 18%;transition:opacity 4s ease;}
   .img-artwork{opacity:1;z-index:2;}
   .img-portrait{opacity:0;z-index:1;}
+  /* portrait stays hidden until dramatic reveal */  /* always live behind artwork — breathe reveals it */
   .card.can-dissolve.show-portrait .img-artwork{opacity:0;}
   .card.can-dissolve.show-portrait .img-portrait{opacity:1;}
   .card.holds-still .img-artwork{opacity:1 !important;}   /* one image: never fades to the ground (rule 2) */
   .img-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:3.2rem;color:var(--lilac);background:var(--ground-light);}
   /* ---- text card (§20) — CSS lifted from mosaic-text-cards-Sept18.html, option 2 ---- */
-  .card-text{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:8% 9% 11%;transition:opacity 1.1s ease;}
+  .card-text{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:8% 9% 11%;transition:opacity 4s ease;}
   .card.can-dissolve.show-portrait .card-text{opacity:0;}
   /* p40 variant (mosaic-text-cards-Sept18.html, "40% with gradient"): the
      portrait is held beneath the text at 40% / saturate(.7) with a
      bottom-to-top scrim in the ground colour; hover (show-portrait) brings the
      portrait to full and removes the scrim. Sept 18 2026 (fifth pass). */
-  .card.text-card .img-portrait{opacity:.40;filter:saturate(.7);transition:opacity 1.1s ease,filter 1.1s ease;}
-  .card.text-card .card-text::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(26,15,46,.85) 0%,rgba(26,15,46,.35) 55%,rgba(26,15,46,0) 100%);z-index:-1;transition:opacity 1.1s ease;}
+  .card.text-card .img-portrait{opacity:.40;filter:saturate(.7);transition:opacity 4s ease,filter 4s ease;}
+  .card.text-card .card-text::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(26,15,46,.85) 0%,rgba(26,15,46,.35) 55%,rgba(26,15,46,0) 100%);z-index:-1;transition:opacity 4s ease;}
   .card.text-card.can-dissolve.show-portrait .img-portrait{opacity:1;filter:none;}
   .card.text-card.can-dissolve.show-portrait .card-text::before{opacity:0;}
   .card-text .line{font-family:'DM Serif Display',serif;font-weight:400;font-style:italic;font-size:clamp(0.98rem,1.3vw,1.28rem);line-height:1.38;color:#fdfaff;margin:0;}
@@ -117,27 +120,25 @@
   body.view-list .list{display:block;}
   .row{border-bottom:1px solid rgba(196,160,224,0.15);}
   .row.is-hidden{display:none;}
-  .row a{display:grid;grid-template-columns:minmax(180px,1.2fr) minmax(0,1.6fr) minmax(0,1fr) minmax(0,0.9fr);gap:18px;align-items:baseline;padding:13px 4px;text-decoration:none;color:inherit;transition:background .2s;}
+  .row a{display:grid;grid-template-columns:44px minmax(160px,1.1fr) minmax(0,1.4fr) minmax(0,1fr) minmax(0,0.9fr) minmax(0,0.9fr);gap:16px;align-items:center;padding:13px 4px;text-decoration:none;color:inherit;transition:background .2s;}
   .row a:hover,.row a:focus-visible{background:rgba(255,255,255,0.03);outline:none;}
-  .row-name{font-family:'DM Serif Display',serif;font-size:1.05rem;color:#fdfaff;}
-  /* name-style variants for Emma to pick from (Sept 18 second pass) — the
-     A/B/C control in the list header sets data-namestyle on <body>; remove
-     the control and the two losing rules once chosen */
-  body[data-namestyle="light"] .row-name{font-family:'DM Sans',sans-serif;font-weight:300;font-size:1.02rem;letter-spacing:0.01em;}
-  body[data-namestyle="gold"] .row-name{color:var(--gold);}
-  .row a:hover .row-name{color:var(--gold);}
-  body[data-namestyle="gold"] .row a:hover .row-name{color:#fff;}
-  .namestyle{display:none;gap:6px;align-items:center;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:#75638e;}
-  body.view-list .namestyle{display:inline-flex;}
-  .namestyle button{background:transparent;border:1px solid rgba(196,160,224,0.35);color:#cdb8e4;font:inherit;padding:5px 9px;border-radius:3px;cursor:pointer;}
-  .namestyle button[aria-pressed="true"]{color:var(--gold);border-color:var(--gold);}
+  .row-name{font-family:'DM Serif Display',serif;font-size:1.05rem;}
+  /* names locked to gold (Sept 19 2026 — option C); hover to white */
+  .row-name{color:var(--gold);}
+  .row a:hover .row-name{color:#fff;}
   .row-title{font-size:0.88rem;color:#cdb8e4;font-style:italic;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
   .row-city,.row-venue{font-size:0.82rem;color:#a58fc0;}
-  .list-head{display:grid;grid-template-columns:minmax(180px,1.2fr) minmax(0,1.6fr) minmax(0,1fr) minmax(0,0.9fr);gap:18px;padding:0 4px 10px;margin-bottom:0;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:#75638e;border-bottom:1px solid rgba(196,160,224,0.25);}
+  .row-song{font-size:0.84rem;color:#cdb8e4;}
+  .row-song .nt{color:var(--gold);font-size:0.9em;}
+  .row-thumb{width:44px;height:44px;object-fit:cover;object-position:center 18%;border-radius:2px;background:var(--ground-light);display:block;}
+  .row-thumb-ph{display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;color:var(--lilac);font-size:1.1rem;}
+  .list-head{display:grid;grid-template-columns:44px minmax(160px,1.1fr) minmax(0,1.4fr) minmax(0,1fr) minmax(0,0.9fr) minmax(0,0.9fr);gap:16px;padding:0 4px 10px;margin-bottom:0;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:#75638e;border-bottom:1px solid rgba(196,160,224,0.25);}
   @media (max-width:760px){
-    .row a,.list-head{grid-template-columns:1fr 1fr;gap:4px 14px;}
-    .row-title{grid-column:1 / -1;white-space:normal;}
-    .list-head span:nth-child(2){display:none;}
+    .row a{grid-template-columns:44px 1fr 1fr;gap:3px 12px;align-items:start;}
+    .row-thumb{grid-row:1 / span 4;}
+    .row-name{grid-column:2 / -1;}
+    .row-title,.row-song{grid-column:2 / -1;white-space:normal;}
+    .list-head{display:none !important;}
   }
   .empty-note{display:none;color:#a58fc0;font-style:italic;padding:30px 0;}
   .empty-note.is-visible{display:block;}
@@ -148,6 +149,63 @@
   footer .credit{font-size:0.78rem;color:#75638e;}
   footer .credit a{font-size:inherit;}
 
+
+  /* ---- footer credits (Sept 19 2026) — night-ground version of credits.html ---- */
+  footer{flex-direction:column;align-items:stretch;}
+  .credits{max-width:62ch;}
+  .credits-line{margin:0 0 10px;font-size:0.85rem;line-height:1.7;color:#cdb8e4;}
+  .credits-line .cr-label{color:var(--lilac);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;margin-right:.35em;}
+  .credits-line .cr-grp{display:inline-block;}
+  .credits-line .cr-sep{color:#75638e;margin:0 .45em;}
+  .credits-more summary{list-style:none;cursor:pointer;display:inline-block;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);padding:4px 0;}
+  .credits-more summary::-webkit-details-marker{display:none;}
+  .credits-more summary:hover,.credits-more summary:focus-visible{color:#fff;outline:none;}
+  .credits-more .caret{display:inline-block;transition:transform .3s ease;}
+  .credits-more[open] .caret{transform:rotate(180deg);}
+  .credits-full{padding:18px 0 8px;color:#e9dff5;font-size:0.92rem;line-height:1.75;}
+  .credits-full h2{font-family:'DM Serif Display',serif;font-weight:400;font-size:1.15rem;color:#fff;margin:2rem 0 .9rem;}
+  .credits-full h2:first-child{margin-top:.4rem;}
+  .credits-full h2::after{content:"";display:block;width:48px;height:2px;background:var(--gold);margin-top:.5rem;}
+  .credits-full p{margin:0 0 .9rem;}
+  .credits-full .credit-names strong{font-weight:400;color:var(--lilac);}
+  .credits-full .credit-note{font-size:0.82rem;color:#a58fc0;}
+  .credits-full .venue{margin-bottom:1.2rem;}
+  .credits-full .venue-name{font-family:'DM Serif Display',serif;font-size:1.02rem;color:#fff;margin:0;}
+  .credits-full .venue p{margin-top:.25rem;}
+  .credits-full a{color:var(--gold);text-decoration:none;font-size:inherit;letter-spacing:0;}
+  .credits-full a:hover{color:#fff;}
+  .credits-full .closing{margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(196,160,224,0.18);}
+  .credits-full .closing p:last-child{font-family:'DM Serif Display',serif;font-size:1.1rem;color:#fff;margin-top:1.2rem;}
+  .credits-full .credits-page-link{margin-top:1.4rem;font-size:0.82rem;}
+  .footer-base{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-top:26px;padding-top:20px;border-top:1px solid rgba(196,160,224,0.12);}
+
+  /* ---- Betsy-style mat (CARD_POSITION_OVERRIDES value 'mat') ---- */
+  .card-media img.matted{object-fit:contain;object-position:center;padding:9%;background:var(--deep);}
+
+  /* ---- ambient breathing (Sept 20 2026) — all cards slowly pulse ---- */
+  @keyframes breathe{
+    0%,100%{opacity:1;}
+    50%{opacity:0.55;}
+  }
+  .card.can-dissolve .img-artwork{
+    animation:breathe var(--breathe-dur,22s) ease-in-out var(--breathe-delay,0s) infinite;
+  }
+  .card.can-dissolve.show-portrait .img-artwork{animation:none;}
+  .card.can-dissolve.video-playing .img-artwork{animation:none;}
+  .card.holds-still .img-artwork{animation:none !important;}
+
+  /* ---- poem card title/body treatment (Sept 20 2026) ---- */
+  .card-text .line.poem-title{font-style:normal;font-size:clamp(1.05rem,1.4vw,1.35rem);margin-bottom:.3em;color:#fdfaff;}
+  .card-text .line.poem-body{font-style:italic;}
+  .card-text .line.poem-body:nth-child(n+4){
+    -webkit-mask-image:linear-gradient(to bottom,#fff 0%,transparent 100%);
+    mask-image:linear-gradient(to bottom,#fff 0%,transparent 100%);
+  }
+  .card-text .line.poem-body:last-child{
+    -webkit-mask-image:linear-gradient(to bottom,#fff 0%,transparent 85%);
+    mask-image:linear-gradient(to bottom,#fff 0%,transparent 85%);
+  }
+
   @media (prefers-reduced-motion:reduce){
     .card-media img,.card-media video,.gold-rule,.card-text{transition:none;}
   }
@@ -156,7 +214,7 @@
 <body>
 
 <header>
-  <p class="eyebrow">The People&#x27;s Museum for Prince — Living Archive</p>
+  <p class="eyebrow"><a href="credits.html" style="color:inherit;text-decoration:none;">The People&#x27;s Museum for Prince</a> — <a href="credits.html" style="color:var(--gold);text-decoration:none;">Living Archive</a></p>
   <h1>The People's Museum</h1>
   <p class="subhead">Minneapolis · 2026</p>
   <p class="intro-line">74 artists, writers, poets, filmmakers and collectors who made The People&#x27;s Museum for Prince in Minneapolis, June 2026 — at Roberts Gallery, ColorWheel Gallery and the Capri. Each name opens their page; follow the tour from one to the next.</p>
@@ -173,12 +231,6 @@
       <div class="toggle" role="group" aria-label="View">
         <button type="button" id="btnMosaic" aria-pressed="true">Mosaic</button>
         <button type="button" id="btnList" aria-pressed="false">List</button>
-      </div>
-      <div class="namestyle" role="group" aria-label="Name style (preview)">
-        <span>Names</span>
-        <button type="button" data-ns="serif" aria-pressed="true">A serif</button>
-        <button type="button" data-ns="light" aria-pressed="false">B light</button>
-        <button type="button" data-ns="gold" aria-pressed="false">C gold</button>
       </div>
       <div class="venue-wrap">
         <label for="venue" style="position:absolute;left:-9999px;">Venue</label>
@@ -245,7 +297,7 @@
        data-slug="suzanne-wint" data-name="Suzanne Wint" data-first="Suzanne" data-last="Wint"
        data-city="St Paul, MN" data-venues="the Capri">
       <div class="card-media">
-        <img class="img-artwork" src="artworks-web/suzanne-wint-artwork-02.jpeg" alt="Happiness in Its (Un)cut Form — artwork by Suzanne Wint" loading="lazy"><img class="img-portrait" src="portraits-web/suzanne-wint-portrait.jpeg" alt="Portrait of Suzanne Wint" loading="lazy">
+        <img class="img-artwork" src="artworks-web/suzanne-wint-artwork-02.jpeg" alt="Happiness in Its (Un)cut Form — artwork by Suzanne Wint" loading="lazy"><img class="img-portrait" src="portraits-web/suzanne-wint-portrait-jb.jpeg" alt="Portrait of Suzanne Wint" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -401,7 +453,7 @@
        data-slug="jennifer-umolac" data-name="Jennifer Umolac" data-first="Jennifer" data-last="Umolac"
        data-city="Minneapolis, MN" data-venues="Roberts Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="artworks-web/jennifer-umolac-artwork.jpeg" alt="Prince portable shrine — artwork by Jennifer Umolac" loading="lazy"><img class="img-portrait" src="events-web/jennifer-umolac-jb-01.jpg" alt="Artwork by Jennifer Umolac" loading="lazy">
+        <img class="img-artwork" src="artworks-web/jennifer-umolac-artwork.jpeg" alt="Prince portable shrine — artwork by Jennifer Umolac" loading="lazy"><img class="img-portrait" src="portraits-web/jennifer-umolac-jb-portrait.jpg" alt="Portrait of Jennifer Umolac" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -437,7 +489,7 @@
        data-slug="tammy-ortegon" data-name="Tammy Ortegon" data-first="Tammy" data-last="Ortegon"
        data-city="Minneapolis, MN" data-venues="Roberts Gallery|ColorWheel Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="artworks-web/tammy-ortegon-artwork.jpg" alt="Raspberry Beret — artwork by Tammy Ortegon" loading="lazy"><img class="img-portrait" src="portraits-web/tammy-ortegon-portrait.jpeg" alt="Portrait of Tammy Ortegon" loading="lazy">
+        <img class="img-artwork" src="artworks-web/tammy-ortegon-artwork.jpg" alt="Raspberry Beret — artwork by Tammy Ortegon" loading="lazy"><img class="img-portrait" src="portraits-web/tammy-ortegon-portrait.jpeg" alt="Portrait of Tammy Ortegon" loading="lazy" style="object-position:right center;">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -473,7 +525,7 @@
        data-slug="pamela-ayo-yetunde" data-name="Pamela Ayo Yetunde" data-first="Pamela" data-last="Yetunde"
        data-city="Chicago, IL" data-venues="Roberts Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="portraits-web/pamela-ayo-yetunde-portrait.jpg" alt="Portrait of Pamela Ayo Yetunde" loading="lazy"><img class="img-portrait" src="events-web/pamela-ayo-yetunde-jb-04.jpeg" alt="Artwork by Pamela Ayo Yetunde" loading="lazy">
+        <img class="img-artwork" src="artworks-web/pamela-ayo-yetunde-artwork.jpg" alt="Dearly Beloved: Prince, Spirituality, &amp; This Thing Called Life — artwork by Pamela Ayo Yetunde" loading="lazy"><img class="img-portrait" src="portraits-web/pamela-ayo-yetunde-portrait.jpg" alt="Portrait of Pamela Ayo Yetunde" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -593,7 +645,7 @@
        data-slug="rebecca-langason" data-name="Rebecca Langason" data-first="Rebecca" data-last="Langason"
        data-city="Savannah, GA" data-venues="Roberts Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="portraits-web/rebecca-langason-portrait.jpeg" alt="Portrait of Rebecca Langason" loading="lazy"><img class="img-portrait" src="events-web/rebecca-langason-jb-01.jpg" alt="Artwork by Rebecca Langason" loading="lazy">
+        <img class="img-artwork" src="artworks-web/rebecca-langason-artwork.jpg" alt="April 21 Memories — artwork by Rebecca Langason" loading="lazy"><img class="img-portrait" src="portraits-web/rebecca-langason-portrait.jpeg" alt="Portrait of Rebecca Langason" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -605,7 +657,7 @@
        data-slug="erica-chronowski" data-name="Erica Chronowski" data-first="Erica" data-last="Chronowski"
        data-city="Minneapolis, MN" data-venues="Roberts Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="portraits-web/erica-chronowski-portrait.jpeg" alt="Portrait of Erica Chronowski" loading="lazy"><img class="img-portrait" src="events-web/erica-chronowski-jb-01.jpg" alt="Artwork by Erica Chronowski" loading="lazy">
+        <img class="img-artwork" src="artworks-web/erica-chronowski-artwork.jpeg" alt="Purple Rain-Inspired Jacket — artwork by Erica Chronowski" loading="lazy"><img class="img-portrait" src="portraits-web/erica-chronowski-portrait.jpeg" alt="Portrait of Erica Chronowski" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -663,14 +715,14 @@
     </a>
     <a class="card can-dissolve" href="participants/sheri-paci.html"
        data-slug="sheri-paci" data-name="Sheri Paci" data-first="Sheri" data-last="Paci"
-       data-city="Cowes, Victoria Australia" data-venues="Roberts Gallery">
+       data-city="Cowes, Australia" data-venues="Roberts Gallery">
       <div class="card-media">
         <img class="img-artwork" src="portraits-web/sheri-paci-portrait.jpg" alt="Portrait of Sheri Paci" loading="lazy"><img class="img-portrait" src="events-web/sheri-paci-jb-01.jpg" alt="Artwork by Sheri Paci" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
         <h3>Sheri Paci</h3>
-        <p class="city">Cowes, Victoria Australia</p>
+        <p class="city">Cowes, Australia</p>
       </div>
     </a>
     <a class="card can-dissolve" href="participants/francisco-flores.html"
@@ -757,11 +809,11 @@
         <p class="city">St Paul, MN</p>
       </div>
     </a>
-    <a class="card can-dissolve" href="participants/jojo-ventus-ninja.html"
+    <a class="card holds-still" href="participants/jojo-ventus-ninja.html"
        data-slug="jojo-ventus-ninja" data-name="JoJo Ventus Ninja" data-first="JoJo" data-last="Ventus Ninja"
        data-city="Minneapolis, MN" data-venues="Roberts Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="portraits-web/jojo-ninja-ventus-portrait.jpg" alt="Portrait of JoJo Ventus Ninja" loading="lazy"><img class="img-portrait" src="artworks-web/kish-daniels-artwork.jpeg" alt="Artwork by JoJo Ventus Ninja" loading="lazy">
+        <img class="img-artwork" src="portraits-web/jojo-ninja-ventus-portrait.jpg" alt="Portrait of JoJo Ventus Ninja" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -773,7 +825,7 @@
        data-slug="paul-thomlinson" data-name="Paul Thomlinson" data-first="Paul" data-last="Thomlinson"
        data-city="Springfield, MO" data-venues="Roberts Gallery">
       <div class="card-media">
-        <div class="card-text"><p class="song"><span class="t"><span class="n u">♪</span>Goodnight Sweet <span class="nb">Prince<span class="n u after">♪</span></span></span></p><p class="line"><span>If there&#x27;s purple rain in purple heaven, I know you must be soaking wet</span></p><p class="line"><span>While we&#x27;re still down here, blasting 7,</span></p><p class="line"><span>and Little Red Corvette.</span></p></div><img class="img-portrait" src="portraits-web/paul-thomlinson-portrait.jpeg" alt="Portrait of Paul Thomlinson" loading="lazy">
+        <div class="card-text"><p class="line"><span>Now Playing:</span></p><p class="song"><span class="t"><span class="n u">♪</span>Goodnight Sweet <span class="nb">Prince<span class="n u after">♪</span></span></span></p></div><img class="img-portrait" src="portraits-web/paul-thomlinson-portrait.jpeg" alt="Portrait of Paul Thomlinson" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -805,11 +857,11 @@
         <p class="city">Carver, MN</p>
       </div>
     </a>
-    <a class="card holds-still" href="participants/lila-d-washington.html"
+    <a class="card can-dissolve" href="participants/lila-d-washington.html"
        data-slug="lila-d-washington" data-name="Lila D. Washington" data-first="Lila D." data-last="Washington"
        data-city="Houston, TX" data-venues="Roberts Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="artworks-web/lila-d-washington-artwork.jpg" alt="Lila and Sterling 4EVER — artwork by Lila D. Washington" loading="lazy">
+        <img class="img-artwork" src="artworks-web/lila-d-washington-artwork.jpg" alt="Lila and Sterling 4EVER — artwork by Lila D. Washington" loading="lazy"><img class="img-portrait" src="portraits-web/lila-d-washington-portrait.jpg" alt="Portrait of Lila D. Washington" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -821,7 +873,7 @@
        data-slug="jamey-boelhower" data-name="Jamey Boelhower" data-first="Jamey" data-last="Boelhower"
        data-city="Hastings, MN" data-venues="Roberts Gallery">
       <div class="card-media">
-        <div class="card-text"><p class="line"><span>You sang that it sometimes snows in</span></p><p class="line"><span>April. Did you know we would feel</span></p><p class="line"><span>that cold the day you died?</span></p></div><img class="img-portrait" src="portraits-web/jamey-boelhower-portrait.jpg" alt="Portrait of Jamey Boelhower" loading="lazy">
+        <div class="card-text"><p class="line poem-title"><span>April 21 2016</span></p><p class="line poem-body"><span>You sang that it sometimes snows in</span></p><p class="line poem-body"><span>April. Did you know we would feel</span></p><p class="line poem-body"><span>that cold the day you died?</span></p></div><img class="img-portrait" src="portraits-web/jamey-boelhower-portrait.jpg" alt="Portrait of Jamey Boelhower" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -833,7 +885,7 @@
        data-slug="sonja-dapper" data-name="Sonja Dapper" data-first="Sonja" data-last="Dapper"
        data-city="St Paul, MN" data-venues="Roberts Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="artworks-web/sonja-dapper-artwork.jpeg" alt="Prince — artwork by Sonja Dapper" loading="lazy"><img class="img-portrait" src="portraits-web/sonja-dapper-portrait.jpg" alt="Portrait of Sonja Dapper" loading="lazy">
+        <img class="img-artwork" src="artworks-web/sonja-dapper-artwork.jpeg" alt="Prince — artwork by Sonja Dapper" loading="lazy" style="object-position:center 85%;"><img class="img-portrait" src="portraits-web/sonja-dapper-portrait.jpg" alt="Portrait of Sonja Dapper" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -845,7 +897,7 @@
        data-slug="kristen-zschomler-ecbalazs" data-name="Kristen Zschomler &amp; E.C.Balázs" data-first="Kristen Zschomler &amp; E.C.Balázs" data-last=""
        data-city="St Paul, MN" data-venues="Roberts Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="portraits-web/kristen-zschomler-portrait.jpeg" alt="Portrait of Kristen Zschomler &amp; E.C.Balázs" loading="lazy"><img class="img-portrait" src="portraits-web/ec-balazs-portrait-1.jpeg" alt="Portrait of Kristen Zschomler &amp; E.C.Balázs" loading="lazy">
+        <img class="img-artwork" src="install-web/kristen-zschomler-dp-1.jpeg" alt="Houses of Prince — artwork by Kristen Zschomler &amp; E.C.Balázs" loading="lazy"><img class="img-portrait" src="portraits-web/kristen-zschomler-portrait.jpeg" alt="Portrait of Kristen Zschomler &amp; E.C.Balázs" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -905,7 +957,7 @@
        data-slug="rich-benson" data-name="Rich Benson" data-first="Rich" data-last="Benson"
        data-city="Minneapolis, MN" data-venues="Roberts Gallery|the Capri">
       <div class="card-media">
-        <img class="img-artwork" src="artworks-web/rich-benson-dp-03.jpg" alt="Grand Central photograph, 1975 — artwork by Rich Benson" loading="lazy"><img class="img-portrait" src="portraits-web/rich-benson-portrait.jpg" alt="Portrait of Rich Benson" loading="lazy">
+        <img class="img-artwork" src="artworks-web/terry-jackson-artwork-01.jpeg" alt="Grand Central photograph, 1975 — artwork by Rich Benson" loading="lazy"><img class="img-portrait" src="portraits-web/rich-benson-portrait-kt.jpeg" alt="Portrait of Rich Benson" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -917,7 +969,7 @@
        data-slug="terry-jackson" data-name="Terry Jackson" data-first="Terry" data-last="Jackson"
        data-city="Minneapolis, MN" data-venues="Roberts Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="artworks-web/terry-jackson-artwork-01.jpeg" alt="Photos from North Minneapolis and the beginnings of the Minneapolis Sound — artwork by Terry Jackson" loading="lazy"><img class="img-portrait" src="portraits-web/terry-jackson-portrait.jpeg" alt="Portrait of Terry Jackson" loading="lazy">
+        <img class="img-artwork" src="artworks-web/terry-jackson-artwork-01.jpeg" alt="Memories &amp; Photos — artwork by Terry Jackson" loading="lazy"><img class="img-portrait" src="portraits-web/terry-jackson-portrait.jpeg" alt="Portrait of Terry Jackson" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -965,7 +1017,7 @@
        data-slug="astrid-de-beer" data-name="Astrid de Beer" data-first="Astrid" data-last="de Beer"
        data-city="Apeldoorn, The Netherlands" data-venues="Roberts Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="artworks-web/astrid-de-beer-artwork-01.jpeg" alt="Artwork by Astrid de Beer" loading="lazy"><img class="img-portrait" src="portraits-web/astrid-de-beer-portrait.jpeg" alt="Portrait of Astrid de Beer" loading="lazy">
+        <img class="img-artwork" src="artworks-web/astrid-de-beer-artwork-01.jpeg" alt="This photo is me on my birthday at Paisley Park. — artwork by Astrid de Beer" loading="lazy"><img class="img-portrait" src="portraits-web/astrid-de-beer-portrait.jpeg" alt="Portrait of Astrid de Beer" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -989,7 +1041,7 @@
        data-slug="brass-solidarity" data-name="Brass Solidarity" data-first="Brass" data-last="Solidarity"
        data-city="Minneapolis, MN" data-venues="Roberts Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="portraits-web/brass-solidarity-jb-01.jpg" alt="Portrait of Brass Solidarity" loading="lazy"><img class="img-portrait" src="portraits-web/brass-solidarity-portrait-02.jpeg" alt="Portrait of Brass Solidarity" loading="lazy">
+        <img class="img-artwork" src="install-web/brass-solidarity-jb-02.jpg" alt="Music for the Movement — artwork by Brass Solidarity" loading="lazy"><img class="img-portrait" src="portraits-web/brass-solidarity-jb-01.jpg" alt="Portrait of Brass Solidarity" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -1013,7 +1065,7 @@
        data-slug="janelle-kay-doyle" data-name="Janelle Kay Doyle" data-first="Janelle" data-last="Kay Doyle"
        data-city="Minneapolis, MN" data-venues="ColorWheel Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="artworks-web/janelle-doyle-mosaic.jpeg" alt="Cinderella — artwork by Janelle Kay Doyle" loading="lazy"><img class="img-portrait" src="portraits-web/janelle-kay-doyle-portrait.jpg" alt="Portrait of Janelle Kay Doyle" loading="lazy">
+        <img class="img-artwork" src="artworks-web/janelle-doyle-artwork.jpeg" alt="Cinderella — artwork by Janelle Kay Doyle" loading="lazy" style="object-position:left center"><img class="img-portrait" src="portraits-web/janelle-kay-doyle-portrait.jpg" alt="Portrait of Janelle Kay Doyle" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -1049,7 +1101,7 @@
        data-slug="mieke-lahaye" data-name="Mieke Lahaye" data-first="Mieke" data-last="Lahaye"
        data-city="Villeneuve-Loubet, France" data-venues="Roberts Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="artworks-web/mieke-lahaye-artwork.jpg" alt="Artwork by Mieke Lahaye" loading="lazy"><img class="img-portrait" src="portraits-web/mieke-lahaye-portrait.jpeg" alt="Portrait of Mieke Lahaye" loading="lazy">
+        <img class="img-artwork" src="artworks-web/mieke-lahaye-artwork.jpg" alt="I could share many stories. — artwork by Mieke Lahaye" loading="lazy"><img class="img-portrait" src="portraits-web/mieke-lahaye-portrait.jpeg" alt="Portrait of Mieke Lahaye" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -1057,11 +1109,11 @@
         <p class="city">Villeneuve-Loubet, France</p>
       </div>
     </a>
-    <a class="card can-dissolve" href="participants/renee-westbrook.html"
+    <a class="card holds-still" href="participants/renee-westbrook.html"
        data-slug="renee-westbrook" data-name="Renée Westbrook" data-first="Renée" data-last="Westbrook"
        data-city="Los Angeles, California" data-venues="Roberts Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="portraits-web/renee-westbrook-portrait.jpg" alt="Portrait of Renée Westbrook" loading="lazy"><img class="img-portrait" src="events-web/terry-jackson-jb-02.jpg" alt="Artwork by Renée Westbrook" loading="lazy">
+        <img class="img-artwork" src="portraits-web/renee-westbrook-portrait.jpg" alt="Portrait of Renée Westbrook" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -1085,7 +1137,7 @@
        data-slug="vicky-perry" data-name="Vicky Perry" data-first="Vicky" data-last="Perry"
        data-city="Walnut Creek, CA" data-venues="Roberts Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="artworks-web/vicki-perry-artwork.jpg" alt="2016 Memories — artwork by Vicky Perry" loading="lazy"><img class="img-portrait" src="portraits-web/vicki-perry-portrait.jpg" alt="Portrait of Vicky Perry" loading="lazy">
+        <img class="img-artwork" src="artworks-web/vicki-perry-artwork.jpg" alt="2016 Memories — artwork by Vicky Perry" loading="lazy" style="object-position:center bottom;"><img class="img-portrait" src="portraits-web/vicki-perry-portrait.jpg" alt="Portrait of Vicky Perry" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -1097,7 +1149,7 @@
        data-slug="giuseppe-craca" data-name="Giuseppe Craca" data-first="Giuseppe" data-last="Craca"
        data-city="Bad Wildbad, Germany" data-venues="Roberts Gallery">
       <div class="card-media">
-        <div class="card-text"><p class="line"><span>My Good Friend Prince</span></p></div><img class="img-portrait" src="portraits-web/giuseppe-craca-portrait.jpeg" alt="Portrait of Giuseppe Craca" loading="lazy">
+        <div class="card-text"><p class="line poem-title"><span>My Good Friend Prince</span></p></div><img class="img-portrait" src="portraits-web/giuseppe-craca-portrait.jpeg" alt="Portrait of Giuseppe Craca" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -1108,670 +1160,818 @@
   </div>
 
   <div class="list-wrap">
-    <div class="list-head" id="listHead" style="display:none;"><span>Name</span><span>Work</span><span>City</span><span>Venue</span></div>
+    <div class="list-head" id="listHead" style="display:none;"><span></span><span>Name</span><span>Title</span><span>Song</span><span>City</span><span>Venue</span></div>
     <ul class="list" id="list">
       <li class="row" data-name="Jason Bailey" data-first="Jason" data-last="Bailey"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery" data-song="">
         <a href="participants/jason-bailey.html">
+          <img class="row-thumb" src="portraits-web/jason-bailey-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Jason Bailey</span>
           <span class="row-title">In Honor of Prince</span>
+          <span class="row-song"></span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="E.C.Balázs" data-first="E.C." data-last="Balázs"
-          data-city="Melbourne, Australia" data-venues="the Capri">
+          data-city="Melbourne, Australia" data-venues="the Capri" data-song="Revelation">
         <a href="participants/ecbalazs.html">
+          <img class="row-thumb" src="portraits-web/ec-balazs-portrait-1.jpeg" alt="" loading="lazy">
           <span class="row-name">E.C.Balázs</span>
           <span class="row-title">Dearly Beloved</span>
+          <span class="row-song"><span class="nt">♪</span> Revelation</span>
           <span class="row-city">Melbourne, Australia</span>
           <span class="row-venue">the Capri</span>
         </a>
       </li>
       <li class="row" data-name="J Bayliss" data-first="J" data-last="Bayliss"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery" data-song="D.M.S.R.">
         <a href="participants/j-bayliss.html">
+          <img class="row-thumb" src="portraits-web/j-bayliss-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">J Bayliss</span>
           <span class="row-title">Scenes from Minneapolis, 2016-2026</span>
+          <span class="row-song"><span class="nt">♪</span> D.M.S.R.</span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Rich Benson" data-first="Rich" data-last="Benson"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery|the Capri">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery|the Capri" data-song="">
         <a href="participants/rich-benson.html">
+          <img class="row-thumb" src="portraits-web/rich-benson-portrait-kt.jpeg" alt="" loading="lazy">
           <span class="row-name">Rich Benson</span>
           <span class="row-title">Grand Central photograph, 1975</span>
+          <span class="row-song"></span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">Roberts Gallery &amp; the Capri</span>
         </a>
       </li>
       <li class="row" data-name="Jamey Boelhower" data-first="Jamey" data-last="Boelhower"
-          data-city="Hastings, MN" data-venues="Roberts Gallery">
+          data-city="Hastings, MN" data-venues="Roberts Gallery" data-song="Pope">
         <a href="participants/jamey-boelhower.html">
+          <img class="row-thumb" src="portraits-web/jamey-boelhower-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Jamey Boelhower</span>
           <span class="row-title">April 21 2016</span>
+          <span class="row-song"><span class="nt">♪</span> Pope</span>
           <span class="row-city">Hastings, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Jill Boogren" data-first="Jill" data-last="Boogren"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery" data-song="">
         <a href="participants/jill-boogren.html">
+          <img class="row-thumb" src="portraits-web/jill-boogren-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Jill Boogren</span>
           <span class="row-title">Thursday April 21st 2016</span>
+          <span class="row-song"></span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Brian Bourke" data-first="Brian" data-last="Bourke"
-          data-city="Melbourne, Australia" data-venues="Roberts Gallery">
+          data-city="Melbourne, Australia" data-venues="Roberts Gallery" data-song="">
         <a href="participants/brian-bourke.html">
+          <img class="row-thumb" src="portraits-web/brian-bourke-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Brian Bourke</span>
           <span class="row-title">My Mother and Prince</span>
+          <span class="row-song"></span>
           <span class="row-city">Melbourne, Australia</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Brenda Bower-Clemons" data-first="Brenda" data-last="Bower-Clemons"
-          data-city="Powhatan, VA" data-venues="Roberts Gallery">
+          data-city="Powhatan, VA" data-venues="Roberts Gallery" data-song="Way Back Home">
         <a href="participants/brenda-bower-clemons.html">
+          <img class="row-thumb" src="portraits-web/brenda-clemons-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Brenda Bower-Clemons</span>
           <span class="row-title">Way Back Home</span>
+          <span class="row-song"><span class="nt">♪</span> Way Back Home</span>
           <span class="row-city">Powhatan, VA</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Liz Bucheit" data-first="Liz" data-last="Bucheit"
-          data-city="Lanesboro, MN" data-venues="Roberts Gallery">
+          data-city="Lanesboro, MN" data-venues="Roberts Gallery" data-song="">
         <a href="participants/liz-bucheit.html">
+          <img class="row-thumb" src="portraits-web/liz-bucheit-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Liz Bucheit</span>
           <span class="row-title">Heart of Ellida</span>
+          <span class="row-song"></span>
           <span class="row-city">Lanesboro, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Stephanie Carlson" data-first="Stephanie" data-last="Carlson"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery" data-song="">
         <a href="participants/stephanie-carlson.html">
+          <img class="row-thumb" src="portraits-web/stephanie-carlson-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Stephanie Carlson</span>
           <span class="row-title">Artifacts from school days with Prince</span>
+          <span class="row-song"></span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Shuyan Chen" data-first="Shuyan" data-last="Chen"
-          data-city="Woodbury, MN" data-venues="Roberts Gallery">
+          data-city="Woodbury, MN" data-venues="Roberts Gallery" data-song="Purple Rain">
         <a href="participants/shuyan-chen.html">
+          <img class="row-thumb" src="portraits-web/shuyan-chen-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Shuyan Chen</span>
           <span class="row-title">Rhythm</span>
+          <span class="row-song"><span class="nt">♪</span> Purple Rain</span>
           <span class="row-city">Woodbury, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Erica Chronowski" data-first="Erica" data-last="Chronowski"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery" data-song="Let&#x27;s Go Crazy">
         <a href="participants/erica-chronowski.html">
+          <img class="row-thumb" src="portraits-web/erica-chronowski-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Erica Chronowski</span>
           <span class="row-title">Purple Rain-Inspired Jacket</span>
+          <span class="row-song"><span class="nt">♪</span> Let&#x27;s Go Crazy</span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Allison Claybaugh" data-first="Allison" data-last="Claybaugh"
-          data-city="Shoreview, MN" data-venues="Roberts Gallery">
+          data-city="Shoreview, MN" data-venues="Roberts Gallery" data-song="">
         <a href="participants/allison-claybaugh.html">
+          <img class="row-thumb" src="portraits-web/allison-claybaugh-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Allison Claybaugh</span>
           <span class="row-title">The Dance</span>
+          <span class="row-song"></span>
           <span class="row-city">Shoreview, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Tracy Connor" data-first="Tracy" data-last="Connor"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery" data-song="Kiss When Doves Cry">
         <a href="participants/tracy-connor.html">
+          <img class="row-thumb" src="portraits-web/tracy-connor-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Tracy Connor</span>
-          <span class="row-title"></span>
+          <span class="row-title">Prince has inspired my dancing and fashion choices immensely.</span>
+          <span class="row-song"><span class="nt">♪</span> Kiss · <span class="nt">♪</span> When Doves Cry</span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Giuseppe Craca" data-first="Giuseppe" data-last="Craca"
-          data-city="Bad Wildbad, Germany" data-venues="Roberts Gallery">
+          data-city="Bad Wildbad, Germany" data-venues="Roberts Gallery" data-song="Sometimes It Snows in April">
         <a href="participants/giuseppe-craca.html">
+          <img class="row-thumb" src="portraits-web/giuseppe-craca-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Giuseppe Craca</span>
           <span class="row-title">My Good Friend Prince</span>
+          <span class="row-song"><span class="nt">♪</span> Sometimes It Snows in April</span>
           <span class="row-city">Bad Wildbad, Germany</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Coco Cubbage" data-first="Coco" data-last="Cubbage"
-          data-city="Gardena, CA" data-venues="Roberts Gallery">
+          data-city="Gardena, CA" data-venues="Roberts Gallery" data-song="Adore">
         <a href="participants/coco-cubbage.html">
+          <img class="row-thumb" src="portraits-web/coco-cubbage-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Coco Cubbage</span>
           <span class="row-title">When I first heard Prince on the radio</span>
+          <span class="row-song"><span class="nt">♪</span> Adore</span>
           <span class="row-city">Gardena, CA</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Kish Daniels" data-first="Kish" data-last="Daniels"
-          data-city="St Paul, MN" data-venues="Roberts Gallery">
+          data-city="St Paul, MN" data-venues="Roberts Gallery" data-song="Black Sweat">
         <a href="participants/kish-daniels.html">
+          <img class="row-thumb" src="portraits-web/kish-daniels-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Kish Daniels</span>
           <span class="row-title">When Doves Cry</span>
+          <span class="row-song"><span class="nt">♪</span> Black Sweat</span>
           <span class="row-city">St Paul, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Sonja Dapper" data-first="Sonja" data-last="Dapper"
-          data-city="St Paul, MN" data-venues="Roberts Gallery">
+          data-city="St Paul, MN" data-venues="Roberts Gallery" data-song="Let&#x27;s Go Crazy">
         <a href="participants/sonja-dapper.html">
+          <img class="row-thumb" src="portraits-web/sonja-dapper-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Sonja Dapper</span>
           <span class="row-title">Prince</span>
+          <span class="row-song"><span class="nt">♪</span> Let&#x27;s Go Crazy</span>
           <span class="row-city">St Paul, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Angela Davis" data-first="Angela" data-last="Davis"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery|ColorWheel Gallery">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery|ColorWheel Gallery" data-song="Purple Rain">
         <a href="participants/angela-davis.html">
+          <img class="row-thumb" src="portraits-web/angela-davis-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Angela Davis</span>
           <span class="row-title">Young Prince</span>
+          <span class="row-song"><span class="nt">♪</span> Purple Rain</span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">Roberts Gallery &amp; ColorWheel Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Myc Dazzle" data-first="Myc" data-last="Dazzle"
-          data-city="Maplewood, MN" data-venues="the Capri">
+          data-city="Maplewood, MN" data-venues="the Capri" data-song="When Doves Cry">
         <a href="participants/myc-dazzle.html">
+          <img class="row-thumb" src="portraits-web/myc-dazzle-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Myc Dazzle</span>
           <span class="row-title">When Doves Cry</span>
+          <span class="row-song"><span class="nt">♪</span> When Doves Cry</span>
           <span class="row-city">Maplewood, MN</span>
           <span class="row-venue">the Capri</span>
         </a>
       </li>
       <li class="row" data-name="Astrid de Beer" data-first="Astrid" data-last="de Beer"
-          data-city="Apeldoorn, The Netherlands" data-venues="Roberts Gallery">
+          data-city="Apeldoorn, The Netherlands" data-venues="Roberts Gallery" data-song="Controversy">
         <a href="participants/astrid-de-beer.html">
+          <img class="row-thumb" src="portraits-web/astrid-de-beer-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Astrid de Beer</span>
-          <span class="row-title"></span>
+          <span class="row-title">This photo is me on my birthday at Paisley Park.</span>
+          <span class="row-song"><span class="nt">♪</span> Controversy</span>
           <span class="row-city">Apeldoorn, The Netherlands</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Francisco Flores" data-first="Francisco" data-last="Flores"
-          data-city="Chicago, IL" data-venues="Roberts Gallery">
+          data-city="Chicago, IL" data-venues="Roberts Gallery" data-song="Alphabet St (Lovesexy album)">
         <a href="participants/francisco-flores.html">
+          <img class="row-thumb" src="portraits-web/francisco-flores-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Francisco Flores</span>
           <span class="row-title">The Blue Angel</span>
+          <span class="row-song"><span class="nt">♪</span> Alphabet St (Lovesexy album)</span>
           <span class="row-city">Chicago, IL</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Tami Foster" data-first="Tami" data-last="Foster"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery" data-song="">
         <a href="participants/tami-foster.html">
+          <img class="row-thumb" src="portraits-web/tami-foster-portrait-2.jpg" alt="" loading="lazy">
           <span class="row-name">Tami Foster</span>
           <span class="row-title">Prince Story</span>
+          <span class="row-song"></span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Kaitlin Frick" data-first="Kaitlin" data-last="Frick"
-          data-city="Seattle, WA" data-venues="Roberts Gallery">
+          data-city="Seattle, WA" data-venues="Roberts Gallery" data-song="">
         <a href="participants/kaitlin-frick.html">
+          <img class="row-thumb" src="portraits-web/kaitlin-frick-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Kaitlin Frick</span>
           <span class="row-title">Paisley Park in Winter (Grace is Close to Home)</span>
+          <span class="row-song"></span>
           <span class="row-city">Seattle, WA</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Nettrice Gaskins" data-first="Nettrice" data-last="Gaskins"
-          data-city="Roxbury, MA" data-venues="the Capri">
+          data-city="Roxbury, MA" data-venues="the Capri" data-song="She&#x27;s Always in My Hair When Doves Cry">
         <a href="participants/nettrice-gaskins.html">
+          <img class="row-thumb" src="portraits-web/nettrice-gaskins-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Nettrice Gaskins</span>
           <span class="row-title">TAFKAP Collage</span>
+          <span class="row-song"><span class="nt">♪</span> She&#x27;s Always in My Hair · <span class="nt">♪</span> When Doves Cry</span>
           <span class="row-city">Roxbury, MA</span>
           <span class="row-venue">the Capri</span>
         </a>
       </li>
       <li class="row" data-name="Maisha Gilyard" data-first="Maisha" data-last="Gilyard"
-          data-city="Miami, FL" data-venues="Roberts Gallery">
+          data-city="Miami, FL" data-venues="Roberts Gallery" data-song="Do U Lie All My Dreams Emancipation Disc II">
         <a href="participants/maisha-gilyard.html">
+          <img class="row-thumb" src="portraits-web/maisha-gilyard-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Maisha Gilyard</span>
           <span class="row-title">Digital Icon</span>
+          <span class="row-song"><span class="nt">♪</span> Do U Lie · <span class="nt">♪</span> All My Dreams · <span class="nt">♪</span> Emancipation Disc II</span>
           <span class="row-city">Miami, FL</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Maeve Gimpl" data-first="Maeve" data-last="Gimpl"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery" data-song="When Doves Cry">
         <a href="participants/maeve-gimpl.html">
+          <img class="row-thumb" src="portraits-web/maeve-gimpl-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Maeve Gimpl</span>
           <span class="row-title">When Doves Cry</span>
+          <span class="row-song"><span class="nt">♪</span> When Doves Cry</span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Penni Goode Evans" data-first="Penni" data-last="Goode Evans"
-          data-city="Chattanooga, TN" data-venues="Roberts Gallery">
+          data-city="Chattanooga, TN" data-venues="Roberts Gallery" data-song="Condition of the Heart">
         <a href="participants/penni-goode-evans.html">
+          <img class="row-thumb" src="portraits-web/penni-goode-evans-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Penni Goode Evans</span>
           <span class="row-title">Paisley Park</span>
+          <span class="row-song"><span class="nt">♪</span> Condition of the Heart</span>
           <span class="row-city">Chattanooga, TN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Troy Gua" data-first="Troy" data-last="Gua"
-          data-city="Seattle, WA" data-venues="Roberts Gallery|the Capri">
+          data-city="Seattle, WA" data-venues="Roberts Gallery|the Capri" data-song="">
         <a href="participants/troy-gua.html">
+          <img class="row-thumb" src="portraits-web/troy-gua-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Troy Gua</span>
           <span class="row-title">Le Petit Prince- North Minneapolis series</span>
+          <span class="row-song"></span>
           <span class="row-city">Seattle, WA</span>
           <span class="row-venue">Roberts Gallery &amp; the Capri</span>
         </a>
       </li>
       <li class="row" data-name="Christopher Hall" data-first="Christopher" data-last="Hall"
-          data-city="Sheffield, UK" data-venues="Roberts Gallery">
+          data-city="Sheffield, UK" data-venues="Roberts Gallery" data-song="[too many to choose- see below!]">
         <a href="participants/christopher-hall.html">
+          <img class="row-thumb" src="portraits-web/christopher-hall-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Christopher Hall</span>
           <span class="row-title">All Of The Silence From My Prince Vinyl</span>
+          <span class="row-song"><span class="nt">♪</span> [too many to choose- see below!]</span>
           <span class="row-city">Sheffield, UK</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Timothy Harmon" data-first="Timothy" data-last="Harmon"
-          data-city="Minneapolis, MN" data-venues="the Capri">
+          data-city="Minneapolis, MN" data-venues="the Capri" data-song="Baby I&#x27;m a Star">
         <a href="participants/timothy-harmon.html">
+          <img class="row-thumb" src="portraits-web/tim-harmon-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Timothy Harmon</span>
           <span class="row-title">In Memoriam</span>
+          <span class="row-song"><span class="nt">♪</span> Baby I&#x27;m a Star</span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">the Capri</span>
         </a>
       </li>
       <li class="row" data-name="Charvis Harrell" data-first="Charvis" data-last="Harrell"
-          data-city="Cloquet, MN" data-venues="Roberts Gallery">
+          data-city="Cloquet, MN" data-venues="Roberts Gallery" data-song="">
         <a href="participants/charvis-harrell.html">
+          <img class="row-thumb" src="portraits-web/charvis-harrell-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Charvis Harrell</span>
           <span class="row-title">Skipper&lt;br&gt;Baller&lt;br&gt;Untitled&lt;br&gt;Wise Is The One That Sees The World With Their Third Eye</span>
+          <span class="row-song"></span>
           <span class="row-city">Cloquet, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Bobby Huntley II" data-first="Bobby" data-last="Huntley II"
-          data-city="Atlanta, GA" data-venues="the Capri">
+          data-city="Atlanta, GA" data-venues="the Capri" data-song="Sometimes It Snows in April">
         <a href="participants/bobby-huntley-ii.html">
+          <img class="row-thumb" src="portraits-web/bobby-huntley-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Bobby Huntley II</span>
           <span class="row-title">Sometimes it Snows in April</span>
+          <span class="row-song"><span class="nt">♪</span> Sometimes It Snows in April</span>
           <span class="row-city">Atlanta, GA</span>
           <span class="row-venue">the Capri</span>
         </a>
       </li>
       <li class="row" data-name="Kami Ink" data-first="Kami" data-last="Ink"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery" data-song="">
         <a href="participants/kami-ink.html">
+          <img class="row-thumb" src="portraits-web/kami-ink-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Kami Ink</span>
           <span class="row-title">The Dropped Call 2026</span>
+          <span class="row-song"></span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Terry Jackson" data-first="Terry" data-last="Jackson"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery" data-song="">
         <a href="participants/terry-jackson.html">
+          <img class="row-thumb" src="portraits-web/terry-jackson-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Terry Jackson</span>
-          <span class="row-title">Photos from North Minneapolis and the beginnings of the Minneapolis Sound</span>
+          <span class="row-title">Memories &amp; Photos</span>
+          <span class="row-song"></span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Mary Johnson" data-first="Mary" data-last="Johnson"
-          data-city="Rochester, MN" data-venues="Roberts Gallery">
+          data-city="Rochester, MN" data-venues="Roberts Gallery" data-song="">
         <a href="participants/mary-johnson.html">
+          <img class="row-thumb" src="portraits-web/mary-johnson-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Mary Johnson</span>
           <span class="row-title">In the Beginning&lt;br&gt;Afro</span>
+          <span class="row-song"></span>
           <span class="row-city">Rochester, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Janelle Kay Doyle" data-first="Janelle" data-last="Kay Doyle"
-          data-city="Minneapolis, MN" data-venues="ColorWheel Gallery">
+          data-city="Minneapolis, MN" data-venues="ColorWheel Gallery" data-song="">
         <a href="participants/janelle-kay-doyle.html">
+          <img class="row-thumb" src="portraits-web/janelle-kay-doyle-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Janelle Kay Doyle</span>
           <span class="row-title">Cinderella</span>
+          <span class="row-song"></span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">ColorWheel Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Manny Kirby" data-first="Manny" data-last="Kirby"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery" data-song="For You (album)">
         <a href="participants/manny-kirby.html">
+          <img class="row-thumb" src="portraits-web/manny-kirby-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Manny Kirby</span>
           <span class="row-title">Closing night DJ</span>
+          <span class="row-song"><span class="nt">♪</span> For You (album)</span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Kristen Zschomler &amp; E.C.Balázs" data-first="Kristen Zschomler &amp; E.C.Balázs" data-last=""
-          data-city="St Paul, MN" data-venues="Roberts Gallery">
+          data-city="St Paul, MN" data-venues="Roberts Gallery" data-song="">
         <a href="participants/kristen-zschomler-ecbalazs.html">
+          <img class="row-thumb" src="portraits-web/kristen-zschomler-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Kristen Zschomler &amp; E.C.Balázs</span>
           <span class="row-title">Houses of Prince</span>
+          <span class="row-song"></span>
           <span class="row-city">St Paul, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Mieke Lahaye" data-first="Mieke" data-last="Lahaye"
-          data-city="Villeneuve-Loubet, France" data-venues="Roberts Gallery">
+          data-city="Villeneuve-Loubet, France" data-venues="Roberts Gallery" data-song="Bambi Black Sweat, Joy in Repetition">
         <a href="participants/mieke-lahaye.html">
+          <img class="row-thumb" src="portraits-web/mieke-lahaye-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Mieke Lahaye</span>
-          <span class="row-title"></span>
+          <span class="row-title">I could share many stories.</span>
+          <span class="row-song"><span class="nt">♪</span> Bambi · <span class="nt">♪</span> Black Sweat, Joy in Repetition</span>
           <span class="row-city">Villeneuve-Loubet, France</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Robbin Lang" data-first="Robbin" data-last="Lang"
-          data-city="Traverse City, MI" data-venues="Roberts Gallery">
+          data-city="Traverse City, MI" data-venues="Roberts Gallery" data-song="Adore 17 Days">
         <a href="participants/robbin-lang.html">
+          <img class="row-thumb" src="portraits-web/robbin-lang-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Robbin Lang</span>
           <span class="row-title">Always In My Hair</span>
+          <span class="row-song"><span class="nt">♪</span> Adore · <span class="nt">♪</span> 17 Days</span>
           <span class="row-city">Traverse City, MI</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Rebecca Langason" data-first="Rebecca" data-last="Langason"
-          data-city="Savannah, GA" data-venues="Roberts Gallery">
+          data-city="Savannah, GA" data-venues="Roberts Gallery" data-song="">
         <a href="participants/rebecca-langason.html">
+          <img class="row-thumb" src="portraits-web/rebecca-langason-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Rebecca Langason</span>
           <span class="row-title">April 21 Memories</span>
+          <span class="row-song"></span>
           <span class="row-city">Savannah, GA</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Lorraine Lassig-Banks" data-first="Lorraine" data-last="Lassig-Banks"
-          data-city="Maplewood, MN" data-venues="Roberts Gallery">
+          data-city="Maplewood, MN" data-venues="Roberts Gallery" data-song="Purple Rain Take Me with You Raspberry Beret Gold">
         <a href="participants/lorraine-lassig-banks.html">
+          <img class="row-thumb" src="portraits-web/lorraine-lassig-banks-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Lorraine Lassig-Banks</span>
           <span class="row-title">April 21 Reflection</span>
+          <span class="row-song"><span class="nt">♪</span> Purple Rain · <span class="nt">♪</span> Take Me with You · <span class="nt">♪</span> Raspberry Beret · <span class="nt">♪</span> Gold</span>
           <span class="row-city">Maplewood, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Alexander Lauber" data-first="Alexander" data-last="Lauber"
-          data-city="Dreieich, Germany" data-venues="ColorWheel Gallery|Roberts Gallery">
+          data-city="Dreieich, Germany" data-venues="ColorWheel Gallery|Roberts Gallery" data-song="Gold Free">
         <a href="participants/alexander-lauber.html">
+          <img class="row-thumb" src="portraits-web/alexander-lauber-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Alexander Lauber</span>
           <span class="row-title">The Purple Rain House</span>
+          <span class="row-song"><span class="nt">♪</span> Gold · <span class="nt">♪</span> Free</span>
           <span class="row-city">Dreieich, Germany</span>
           <span class="row-venue">ColorWheel Gallery &amp; Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Alicia Lee" data-first="Alicia" data-last="Lee"
-          data-city="River Falls, WI" data-venues="Roberts Gallery">
+          data-city="River Falls, WI" data-venues="Roberts Gallery" data-song="Cloreen Bacon Skin">
         <a href="participants/alicia-lee.html">
+          <img class="row-thumb" src="portraits-web/alicia-lee-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Alicia Lee</span>
           <span class="row-title">Innocence and Prince</span>
+          <span class="row-song"><span class="nt">♪</span> Cloreen Bacon Skin</span>
           <span class="row-city">River Falls, WI</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Kevin McLaughlin" data-first="Kevin" data-last="McLaughlin"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery" data-song="">
         <a href="participants/kevin-mclaughlin.html">
+          <img class="row-thumb" src="portraits-web/kevin-mclaughlin-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Kevin McLaughlin</span>
           <span class="row-title">Purple Plain</span>
+          <span class="row-song"></span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Bon Mott" data-first="Bon" data-last="Mott"
-          data-city="St Paul, MN" data-venues="Roberts Gallery">
+          data-city="St Paul, MN" data-venues="Roberts Gallery" data-song="Hot Thing">
         <a href="participants/bon-mott.html">
+          <img class="row-thumb" src="portraits-web/bon-mott-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Bon Mott</span>
           <span class="row-title">The night _/\_ danced with Prince led to a doctorate in lightning</span>
+          <span class="row-song"><span class="nt">♪</span> Hot Thing</span>
           <span class="row-city">St Paul, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Mr NeverMind" data-first="Mr" data-last="NeverMind"
-          data-city="Excelsior, MN" data-venues="Roberts Gallery|ColorWheel Gallery">
+          data-city="Excelsior, MN" data-venues="Roberts Gallery|ColorWheel Gallery" data-song="Batdance">
         <a href="participants/mr-nevermind.html">
+          <img class="row-thumb" src="portraits-web/mr-nevermind-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Mr NeverMind</span>
           <span class="row-title">Batdance</span>
+          <span class="row-song"><span class="nt">♪</span> Batdance</span>
           <span class="row-city">Excelsior, MN</span>
           <span class="row-venue">Roberts Gallery &amp; ColorWheel Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Kevin Nickelson" data-first="Kevin" data-last="Nickelson"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery" data-song="">
         <a href="participants/kevin-nickelson.html">
+          <img class="row-thumb" src="portraits-web/kevin-nickelson-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Kevin Nickelson</span>
           <span class="row-title">Portrait of Algiers by K.L.Peterson</span>
+          <span class="row-song"></span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Lisa Nilles" data-first="Lisa" data-last="Nilles"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery" data-song="">
         <a href="participants/lisa-nilles.html">
+          <img class="row-thumb" src="portraits-web/lisa-nilles-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Lisa Nilles</span>
           <span class="row-title">Purple Resurrection</span>
+          <span class="row-song"></span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Hanna Ögren" data-first="Hanna" data-last="Ogren"
-          data-city="Umea, Sweden" data-venues="Roberts Gallery">
+          data-city="Umea, Sweden" data-venues="Roberts Gallery" data-song="The Ballad of Dorothy Parker">
         <a href="participants/hanna-ogren.html">
+          <img class="row-thumb" src="portraits-web/hanna-ogren-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Hanna Ögren</span>
           <span class="row-title">Take Me to Paisley</span>
+          <span class="row-song"><span class="nt">♪</span> The Ballad of Dorothy Parker</span>
           <span class="row-city">Umea, Sweden</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Tammy Ortegon" data-first="Tammy" data-last="Ortegon"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery|ColorWheel Gallery">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery|ColorWheel Gallery" data-song="Raspberry Beret">
         <a href="participants/tammy-ortegon.html">
+          <img class="row-thumb" src="portraits-web/tammy-ortegon-portrait.jpeg" alt="" loading="lazy" style="object-position:right center;">
           <span class="row-name">Tammy Ortegon</span>
           <span class="row-title">Raspberry Beret</span>
+          <span class="row-song"><span class="nt">♪</span> Raspberry Beret</span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">Roberts Gallery &amp; ColorWheel Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Sheri Paci" data-first="Sheri" data-last="Paci"
-          data-city="Cowes, Victoria Australia" data-venues="Roberts Gallery">
+          data-city="Cowes, Australia" data-venues="Roberts Gallery" data-song="Controversy Forever in my Life">
         <a href="participants/sheri-paci.html">
+          <img class="row-thumb" src="portraits-web/sheri-paci-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Sheri Paci</span>
           <span class="row-title">Forever in my life</span>
-          <span class="row-city">Cowes, Victoria Australia</span>
+          <span class="row-song"><span class="nt">♪</span> Controversy · <span class="nt">♪</span> Forever in my Life</span>
+          <span class="row-city">Cowes, Australia</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Vicky Perry" data-first="Vicky" data-last="Perry"
-          data-city="Walnut Creek, CA" data-venues="Roberts Gallery">
+          data-city="Walnut Creek, CA" data-venues="Roberts Gallery" data-song="Adore">
         <a href="participants/vicky-perry.html">
+          <img class="row-thumb" src="portraits-web/vicki-perry-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Vicky Perry</span>
           <span class="row-title">2016 Memories</span>
+          <span class="row-song"><span class="nt">♪</span> Adore</span>
           <span class="row-city">Walnut Creek, CA</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Adrian Perryman" data-first="Adrian" data-last="Perryman"
-          data-city="St Paul, MN" data-venues="Roberts Gallery">
+          data-city="St Paul, MN" data-venues="Roberts Gallery" data-song="Diamonds and Pearls">
         <a href="participants/adrian-perryman.html">
+          <img class="row-thumb" src="portraits-web/adrian-perryman-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Adrian Perryman</span>
           <span class="row-title">Prince cosplayer</span>
+          <span class="row-song"><span class="nt">♪</span> Diamonds and Pearls</span>
           <span class="row-city">St Paul, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Kat Regas" data-first="Kat" data-last="Regas"
-          data-city="Shoreview, MN" data-venues="Roberts Gallery">
+          data-city="Shoreview, MN" data-venues="Roberts Gallery" data-song="">
         <a href="participants/kat-regas.html">
+          <img class="row-thumb" src="portraits-web/kat-regas-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Kat Regas</span>
           <span class="row-title">A Strong Spirit Transcends Rules</span>
+          <span class="row-song"></span>
           <span class="row-city">Shoreview, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Barbara Rogers" data-first="Barbara" data-last="Rogers"
-          data-city="Orlando, FL" data-venues="Roberts Gallery">
+          data-city="Orlando, FL" data-venues="Roberts Gallery" data-song="Purple Rain">
         <a href="participants/barbara-rogers.html">
+          <img class="row-thumb" src="portraits-web/barbara-rogers-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Barbara Rogers</span>
           <span class="row-title">My Prince Super Bowl Halftime Show Experience</span>
+          <span class="row-song"><span class="nt">♪</span> Purple Rain</span>
           <span class="row-city">Orlando, FL</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Christopher Scott" data-first="Christopher" data-last="Scott"
-          data-city="Carver, MN" data-venues="Roberts Gallery">
+          data-city="Carver, MN" data-venues="Roberts Gallery" data-song="Purple Rain">
         <a href="participants/christopher-scott.html">
+          <img class="row-thumb" src="artworks-web/christopher-scott-artwork.png" alt="" loading="lazy">
           <span class="row-name">Christopher Scott</span>
           <span class="row-title">April 21, 2016</span>
+          <span class="row-song"><span class="nt">♪</span> Purple Rain</span>
           <span class="row-city">Carver, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Peyton Scott Russell" data-first="Peyton" data-last="Scott Russell"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery|the Capri">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery|the Capri" data-song="Condition of the Heart">
         <a href="participants/peyton-scott-russell.html">
+          <img class="row-thumb" src="portraits-web/peyton-scott-russell-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Peyton Scott Russell</span>
           <span class="row-title">His Royal Badness</span>
+          <span class="row-song"><span class="nt">♪</span> Condition of the Heart</span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">Roberts Gallery &amp; the Capri</span>
         </a>
       </li>
       <li class="row" data-name="Kurt Shafai" data-first="Kurt" data-last="Shafai"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery" data-song="Wally">
         <a href="participants/kurt-shafai.html">
+          <img class="row-thumb" src="portraits-web/kurt-shafai-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Kurt Shafai</span>
           <span class="row-title">Computer Blue</span>
+          <span class="row-song"><span class="nt">♪</span> Wally</span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Betsy Shannon" data-first="Betsy" data-last="Shannon"
-          data-city="Minneapolis, MN" data-venues="the Capri">
+          data-city="Minneapolis, MN" data-venues="the Capri" data-song="Kiss Nothing Compares 2U">
         <a href="participants/betsy-shannon.html">
+          <img class="row-thumb" src="portraits-web/betsy-shannon-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Betsy Shannon</span>
           <span class="row-title">Shining On</span>
+          <span class="row-song"><span class="nt">♪</span> Kiss · <span class="nt">♪</span> Nothing Compares 2U</span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">the Capri</span>
         </a>
       </li>
       <li class="row" data-name="Brass Solidarity" data-first="Brass" data-last="Solidarity"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery" data-song="Baltimore">
         <a href="participants/brass-solidarity.html">
+          <img class="row-thumb" src="portraits-web/brass-solidarity-jb-01.jpg" alt="" loading="lazy">
           <span class="row-name">Brass Solidarity</span>
           <span class="row-title">Music for the Movement</span>
+          <span class="row-song"><span class="nt">♪</span> Baltimore</span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Hawona Sullivan Janzen" data-first="Hawona" data-last="Sullivan Janzen"
-          data-city="St Paul, MN" data-venues="Roberts Gallery">
+          data-city="St Paul, MN" data-venues="Roberts Gallery" data-song="">
         <a href="participants/hawona-sullivan-janzen.html">
+          <img class="row-thumb" src="portraits-web/hawona-sullivan-janzen-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Hawona Sullivan Janzen</span>
           <span class="row-title">Dear Prince</span>
+          <span class="row-song"></span>
           <span class="row-city">St Paul, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Paul Thomlinson" data-first="Paul" data-last="Thomlinson"
-          data-city="Springfield, MO" data-venues="Roberts Gallery">
+          data-city="Springfield, MO" data-venues="Roberts Gallery" data-song="The Most Beautiful Girl in the World">
         <a href="participants/paul-thomlinson.html">
+          <img class="row-thumb" src="portraits-web/paul-thomlinson-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Paul Thomlinson</span>
           <span class="row-title">3 songs for Prince</span>
+          <span class="row-song"><span class="nt">♪</span> The Most Beautiful Girl in the World</span>
           <span class="row-city">Springfield, MO</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Bethany Tobias" data-first="Bethany" data-last="Tobias"
-          data-city="Ridgeland, SC" data-venues="Roberts Gallery">
+          data-city="Ridgeland, SC" data-venues="Roberts Gallery" data-song="">
         <a href="participants/bethany-tobias.html">
+          <img class="row-thumb" src="portraits-web/bethany-tobias-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Bethany Tobias</span>
           <span class="row-title">Purple Rain</span>
+          <span class="row-song"></span>
           <span class="row-city">Ridgeland, SC</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Jennifer Umolac" data-first="Jennifer" data-last="Umolac"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery" data-song="">
         <a href="participants/jennifer-umolac.html">
+          <img class="row-thumb" src="portraits-web/jennifer-umolac-jb-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Jennifer Umolac</span>
           <span class="row-title">Prince portable shrine</span>
+          <span class="row-song"></span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Heidi Vader" data-first="Heidi" data-last="Vader"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery" data-song="">
         <a href="participants/heidi-vader.html">
+          <img class="row-thumb" src="portraits-web/heidi-vader-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Heidi Vader</span>
           <span class="row-title">Founder, Purple Playground and Academy of Prince</span>
+          <span class="row-song"></span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="JoJo Ventus Ninja" data-first="JoJo" data-last="Ventus Ninja"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery" data-song="When Doves Cry">
         <a href="participants/jojo-ventus-ninja.html">
+          <img class="row-thumb" src="portraits-web/jojo-ninja-ventus-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">JoJo Ventus Ninja</span>
           <span class="row-title">When Doves Cry</span>
+          <span class="row-song"><span class="nt">♪</span> When Doves Cry</span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Lila D. Washington" data-first="Lila D." data-last="Washington"
-          data-city="Houston, TX" data-venues="Roberts Gallery">
+          data-city="Houston, TX" data-venues="Roberts Gallery" data-song="One Night Alone..Live!">
         <a href="participants/lila-d-washington.html">
+          <img class="row-thumb" src="portraits-web/lila-d-washington-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Lila D. Washington</span>
           <span class="row-title">Lila and Sterling 4EVER</span>
+          <span class="row-song"><span class="nt">♪</span> One Night Alone..Live!</span>
           <span class="row-city">Houston, TX</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Renée Westbrook" data-first="Renée" data-last="Westbrook"
-          data-city="Los Angeles, California" data-venues="Roberts Gallery">
+          data-city="Los Angeles, California" data-venues="Roberts Gallery" data-song="">
         <a href="participants/renee-westbrook.html">
+          <img class="row-thumb" src="portraits-web/renee-westbrook-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Renée Westbrook</span>
           <span class="row-title">STANDING WITH PRINCE</span>
+          <span class="row-song"></span>
           <span class="row-city">Los Angeles, California</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Anita White" data-first="Anita" data-last="White"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery" data-song="">
         <a href="participants/anita-white.html">
+          <img class="row-thumb" src="portraits-web/anita-white-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Anita White</span>
           <span class="row-title">Ode to Prince 1958-2016</span>
+          <span class="row-song"></span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Cheza Willis" data-first="Cheza" data-last="Willis"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery" data-song="If I Was Your Girlfriend">
         <a href="participants/cheza-willis.html">
+          <img class="row-thumb" src="portraits-web/cheza-willis-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Cheza Willis</span>
           <span class="row-title">Prince-Inspired Selfie Portrait</span>
+          <span class="row-song"><span class="nt">♪</span> If I Was Your Girlfriend</span>
           <span class="row-city">Minneapolis, MN</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Suzanne Wint" data-first="Suzanne" data-last="Wint"
-          data-city="St Paul, MN" data-venues="the Capri">
+          data-city="St Paul, MN" data-venues="the Capri" data-song="Girls and Boys">
         <a href="participants/suzanne-wint.html">
+          <img class="row-thumb" src="portraits-web/suzanne-wint-portrait-jb.jpeg" alt="" loading="lazy">
           <span class="row-name">Suzanne Wint</span>
           <span class="row-title">Happiness in Its (Un)cut Form</span>
+          <span class="row-song"><span class="nt">♪</span> Girls and Boys</span>
           <span class="row-city">St Paul, MN</span>
           <span class="row-venue">the Capri</span>
         </a>
       </li>
       <li class="row" data-name="Pamela Ayo Yetunde" data-first="Pamela" data-last="Yetunde"
-          data-city="Chicago, IL" data-venues="Roberts Gallery">
+          data-city="Chicago, IL" data-venues="Roberts Gallery" data-song="">
         <a href="participants/pamela-ayo-yetunde.html">
+          <img class="row-thumb" src="portraits-web/pamela-ayo-yetunde-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Pamela Ayo Yetunde</span>
           <span class="row-title">Dearly Beloved: Prince, Spirituality, &amp; This Thing Called Life</span>
+          <span class="row-song"></span>
           <span class="row-city">Chicago, IL</span>
           <span class="row-venue">Roberts Gallery</span>
         </a>
@@ -1782,8 +1982,78 @@
 </main>
 
 <footer>
-  <a href="index.html">← Back to Entrance</a>
-  <span class="credit">The People&#x27;s Museum for Prince — 2026 · <a href="https://peoplesmuseumforprince.org">peoplesmuseumforprince.org</a></span>
+  <div class="credits">
+    <p class="credits-line"><span class="cr-grp"><span class="cr-label">Museum photography</span> Daniel Pratt, Kirk Thoren</span> <span class="cr-sep">·</span> <span class="cr-grp"><span class="cr-label">Events photography</span> Jill Boogren, Kirk Thoren</span></p>
+    <details class="credits-more">
+      <summary>Full credits <span class="caret" aria-hidden="true">▾</span></summary>
+      <div class="credits-full">
+<h2>Photography</h2>
+
+  <p class="credit-intro">Thank you to our photographers who generously gifted their services to the museum:</p>
+
+  <p class="credit-names"><strong>Museum Photography:</strong> Daniel Pratt, Kirk Thoren</p>
+  <p class="credit-names"><strong>Events Photography:</strong> Jill Boogren, Kirk Thoren</p>
+
+  <p class="credit-note">Artwork photography is contributed by participants. Other credits listed where known. All rights remain with the photographers.</p>
+
+  <h2>Venue Partners</h2>
+
+  <div class="venue">
+    <p class="venue-name">Capri Theater</p>
+    <p>Maija Garcia, Matt Kudas, and all the team at the Capri. <a href="https://thecapri.org">Visit the Capri →</a></p>
+  </div>
+
+  <div class="venue">
+    <p class="venue-name">Roberts Gallery</p>
+    <p>Peyton Scott Russell, Staci Horwitz, and thank you to the studio community, especially Bill Jeter, Linda Maylish and George Roberts for such a warm welcome. Thank you Jimi Vudu and Daesk Scott Russell. <a href="https://robertsgallerympls.com/">Visit Roberts Gallery →</a></p>
+  </div>
+
+  <div class="venue">
+    <p class="venue-name">ColorWheel Gallery</p>
+    <p>Tammy Ortegon, who generously hosted the People's Museum satellite exhibition in South Minneapolis at her community gallery, and offered three special free Prince events featuring pages from her beloved coloring books, Prince music and celebrations at ColorWheel and Roberts Gallery. <a href="https://www.facebook.com/ColorWheelGalleryMpls">Visit ColorWheel →</a></p>
+  </div>
+
+  <h2>With Thanks</h2>
+
+  <div class="thanks">
+
+    <p>Thank you to Jennifer Umolac for project coordination magic — from shipping to flowers to catering, the van that moves all things, welcoming visitors, meals and friendship throughout.</p>
+
+    <p>Thank you Jill Boogren, Rebecca Langason and Kirk Thoren for your generous support throughout the journey.</p>
+
+    <p>Thank you, Brass Solidarity — your presence and spirit elevated our opening day and helped us all lift off into a deep honoring and celebration of Prince on his birthday.</p>
+
+    <p>Thank you Mike Hallenbeck for the crucial Prince music sound edit for our film night!</p>
+
+    <p>Thank you Andrea Swensson, Maija Garcia, Maeve Gimpl, JoJo Ventus Ninja, Alicia Lee, Hawona Sullivan Janzen and Peyton Scott Russell for being a special part of <a href="https://www.peoplesmuseumforprince.org/forever-in-my-life">Forever in My Life, a special night of Prince film and art at the Capri Theater</a>.</p>
+
+    <p>Thank you Stephanie Carlson for sharing your incredible archive of school days with Prince, and your treasured valentine from Prince. Thank you for inviting your school friends and creating a beautiful day of reunion.</p>
+
+    <p>Thank you Pamela Ayo Yetunde for coming all the way from Chicago to be our special guest for the session on Prince and spirituality, offering a powerful reading from her book <a href="https://www.pamelaayoyetunde.com/prince"><em>Dearly Beloved</em></a>, and helping us create a sense of the sacred on our closing day.</p>
+
+    <p>Thank you <a href="https://soundaroundtours.com/">Kristen Zschomler</a> for hosting free tours of Prince's North Minneapolis for the museum community (even in the noonday heat) and participating in the North Minneapolis community day.</p>
+
+    <p>Thank you Manny Kirby, Terry Jackson and Jason Bailey for providing music for our events!</p>
+
+    <p>Thank you Samu Carvajal for creating the museum logo.</p>
+
+    <p>Thank you, Claude, for support through the process of creating the museum and the archive.</p>
+
+  </div>
+
+  <div class="closing">
+    <p>Thank you to all the participants and all the visitors who together create the People's Museum for Prince.</p>
+    <p>We are all part of Prince's legacy and your story matters.</p>
+    <p>Thank you, Prince.</p>
+  </div>
+        <p class="credits-page-link"><a href="credits.html">Open the credits page →</a></p>
+      </div>
+    </details>
+  </div>
+  <div class="footer-base">
+    <a href="credits.html">Credits</a>
+    <span class="credit">The People&#x27;s Museum for Prince — 2026 · <a href="https://peoplesmuseumforprince.org">peoplesmuseumforprince.org</a></span>
+  </div>
 </footer>
 
 <script>
@@ -1810,7 +2080,7 @@
     if (v && (el.getAttribute('data-venues') || '').split('|').indexOf(v) === -1) return false;
     if (!q) return true;
     var hay = norm([el.getAttribute('data-name'), el.getAttribute('data-first'),
-                    el.getAttribute('data-last'), el.getAttribute('data-city')].join(' '));
+                    el.getAttribute('data-last'), el.getAttribute('data-city'), el.getAttribute('data-song')].join(' '));
     return q.split(/\s+/).every(function(part){ return hay.indexOf(part) !== -1; });
   }
   function applyFilter(){
@@ -1872,20 +2142,72 @@
     // 10 slots with a ~68% portrait duty cycle keeps 6–8 cards on their
     // portrait at any moment across the 56 that can dissolve; the 1.1 s
     // dissolve itself means a couple more are always mid-fade.
-    var SLOTS = Math.min(10, dissolvable.length);
-    var HOLD_MIN = 5000, HOLD_MAX = 7500;   // ms shown as portrait
-    var REST_MIN = 2500, REST_MAX = 3500;   // ms back on artwork before the slot moves on
+    // Sept 20 2026: 20 dramatic slots + ambient breathing on all cards. Slow, hypnotic.
+    // Per-row guarantee — whenever no card in a visible row is alive,
+    // the next free slot takes one from it, so every row has movement.
+
+    var SLOTS = Math.min(20, dissolvable.length);
+    var HOLD_MIN = 5000, HOLD_MAX = 7000;   // ms shown as portrait
+    var REST_MIN = 8000, REST_MAX = 12000;   // ms back on artwork before the slot moves on
     function rnd(a, b){ return a + Math.random() * (b - a); }
-    function pick(){
-      var pool = dissolvable.filter(function(c){
-        return !auto[c.__key] && !c.__hover && !c.classList.contains('is-hidden') && !c.classList.contains('video-playing');
+    function free(c){
+      return !auto[c.__key] && !c.__hover && !c.classList.contains('is-hidden') && !c.classList.contains('video-playing');
+    }
+    function visibleRows(){
+      // group visible dissolvable cards by their offsetTop (row)
+      var vis = dissolvable.filter(function(c){ return !c.classList.contains('is-hidden'); });
+      if (!vis.length) return [];
+      var rows = [], cur = null;
+      vis.forEach(function(c){
+        var t = c.offsetTop;
+        if (!cur || Math.abs(t - cur.top) > 4) { cur = {top:t, cards:[]}; rows.push(cur); }
+        cur.cards.push(c);
       });
+      return rows;
+    }
+    function pick(){
+      // guarantee at least one dissolve per visible row
+      var rows = visibleRows();
+      for (var i = 0; i < rows.length; i++){
+        var r = rows[i];
+        var alive = r.cards.some(function(c){ return auto[c.__key]; });
+        if (!alive) {
+          var rp = r.cards.filter(free);
+          if (rp.length) return rp[Math.floor(Math.random() * rp.length)];
+        }
+      }
+      var pool = dissolvable.filter(free);
       if (!pool.length) return null;
       return pool[Math.floor(Math.random() * pool.length)];
     }
     function runSlot(){
-      var card = pick();
-      if (!card) { setTimeout(runSlot, 3000); return; }
+      var c = pick(); if (!c) { setTimeout(runSlot, 3000); return; }
+      var k = c.__key;
+      auto[k] = true;
+      c.classList.add('holds-still');     // pause breathing for this card
+
+      // Phase 1: fade artwork to dark (2s into the 4s CSS transition it's mostly dark)
+      c.classList.add('fade-to-dark');
+      setTimeout(function(){
+        // Phase 2: portrait emerges from dark
+        c.classList.add('show-portrait');
+        c.classList.remove('fade-to-dark');
+        var hold = rnd(HOLD_MIN, HOLD_MAX);
+        setTimeout(function(){
+          // Phase 3: fade portrait away (goes dark again)
+          c.classList.add('fade-back');
+          c.classList.remove('show-portrait');
+          setTimeout(function(){
+            // Phase 4: artwork returns from dark
+            c.classList.remove('fade-back');
+            c.classList.remove('holds-still');  // resume breathing
+            delete auto[k];
+          }, 4500);  // let artwork fade fully back
+        }, hold);
+      }, 2200);  // dark gap before portrait appears
+
+      var total = 2200 + rnd(HOLD_MIN,HOLD_MAX) + 4500 + rnd(REST_MIN,REST_MAX);
+      setTimeout(runSlot, 3000); return; }
       var st = { state: true };
       auto[card.__key] = st;
       card.classList.add('show-portrait');
@@ -1899,45 +2221,48 @@
       }, rnd(HOLD_MIN, HOLD_MAX));
     }
     for (var s = 0; s < SLOTS; s++) {
-      setTimeout(runSlot, 700 + s * rnd(700, 1400));
+      setTimeout(runSlot, s === 0 ? 400 : 400 + s * rnd(800, 1600));
     }
+    // stagger the ambient breathing so cards are at different points in the fade
+    dissolvable.forEach(function(c){
+      c.style.setProperty('--breathe-dur', (22 + Math.random() * 18).toFixed(1) + 's');
+      c.style.setProperty('--breathe-delay', -(Math.random() * 35).toFixed(1) + 's');
+    });
   }
 
-  // ---- name-style preview control (list view) ----
-  Array.prototype.forEach.call(document.querySelectorAll('.namestyle button'), function(btn){
-    btn.addEventListener('click', function(){
-      body.setAttribute('data-namestyle', btn.getAttribute('data-ns'));
-      Array.prototype.forEach.call(document.querySelectorAll('.namestyle button'), function(b){
-        b.setAttribute('aria-pressed', String(b === btn));
-      });
-    });
-  });
 
-  // ---- hover-to-play video cards (Chris Hall) ----
-  Array.prototype.forEach.call(grid.querySelectorAll('.has-video'), function(card){
-    var src = card.getAttribute('data-video');
-    var vid = null;
-    function ensure(){
-      if (vid) return vid;
-      vid = document.createElement('video');
+  // ---- video cards (Chris Hall) — Sept 19 2026: auto-play on desktop only ----
+  // Desktop (fine pointer + hover, wider than 760px): the loop plays by itself,
+  // muted, while the card is on screen, and pauses when scrolled away. Phones
+  // and tablets never load the video — the card dissolves like any other.
+  // Under prefers-reduced-motion it falls back to hover-to-play on desktop.
+  var desktop = window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine) and (min-width:761px)').matches;
+  if (desktop) {
+    Array.prototype.forEach.call(grid.querySelectorAll('.has-video'), function(card){
+      var vid = document.createElement('video');
       vid.className = 'card-video';
-      vid.src = src; vid.muted = true; vid.loop = true; vid.playsInline = true; vid.preload = 'metadata';
-      vid.setAttribute('aria-hidden', 'true');
+      vid.muted = true; vid.loop = true; vid.playsInline = true; vid.preload = 'none';
+      vid.setAttribute('muted', ''); vid.setAttribute('playsinline', ''); vid.setAttribute('aria-hidden', 'true');
+      vid.src = card.getAttribute('data-video');
       card.querySelector('.card-media').appendChild(vid);
-      return vid;
-    }
-    card.addEventListener('mouseenter', function(){
-      var v = ensure();
-      var p = v.play();
-      if (p && p.catch) p.catch(function(){});
-      card.classList.add('video-playing');
-      card.classList.remove('show-portrait');   // the video is the reveal here, not the portrait
+      function play(){
+        var p = vid.play();
+        if (p && p.catch) p.catch(function(){});
+        card.classList.add('video-playing');
+        card.classList.remove('show-portrait');
+      }
+      function stop(){ vid.pause(); card.classList.remove('video-playing'); }
+      if (reduceMotion || !('IntersectionObserver' in window)) {
+        card.addEventListener('mouseenter', play);
+        card.addEventListener('mouseleave', stop);
+        if (!reduceMotion) play();
+        return;
+      }
+      new IntersectionObserver(function(ents){
+        ents.forEach(function(e){ if (e.isIntersecting) play(); else stop(); });
+      }, { threshold: 0.35 }).observe(card);
     });
-    card.addEventListener('mouseleave', function(){
-      if (vid) { vid.pause(); }
-      card.classList.remove('video-playing');
-    });
-  });
+  }
 })();
 </script>
 
