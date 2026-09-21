@@ -34,7 +34,11 @@
 
   /* ---- Top bar ---- */
   header{padding:48px 6vw 28px;max-width:1600px;margin:0 auto;}
-  header .eyebrow{font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--lilac);margin:0 0 10px;}
+  header .eyebrow{font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--lilac);margin:0 0 10px;display:flex;flex-wrap:wrap;gap:4px 20px;justify-content:space-between;align-items:baseline;}
+  header .eyebrow .lv{color:var(--gold);}
+  header .eyebrow-nav a{color:inherit;text-decoration:none;}
+  header .eyebrow-nav a:hover,header .eyebrow-nav a:focus-visible{color:var(--gold);outline:none;}
+  header .eyebrow-nav .sep{opacity:.45;margin:0 .6em;}
   header h1{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(2.1rem,4.5vw,3.1rem);margin:0 0 6px;color:#fff;}
   header p.subhead{font-style:italic;color:var(--lilac);font-size:1.05rem;margin:0 0 14px;}
   header p.intro-line{max-width:62ch;color:#cdb8e4;font-size:0.95rem;line-height:1.65;margin:0 0 28px;}
@@ -51,6 +55,11 @@
   .toggle button[aria-pressed="true"]{background:rgba(200,169,110,0.16);color:var(--gold);}
   .toggle button:hover{color:#fff;}
   .venue-wrap{display:none;}
+  .motion-toggle{background:transparent;border:1px solid rgba(196,160,224,0.35);border-radius:3px;color:#cdb8e4;font-family:'DM Sans',sans-serif;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;padding:10px 16px;cursor:pointer;transition:background .2s,color .2s,border-color .2s;}
+  .motion-toggle:hover,.motion-toggle:focus-visible{color:#fff;border-color:var(--gold);outline:none;}
+  body.motion-off .motion-toggle{background:rgba(200,169,110,0.16);color:var(--gold);border-color:rgba(200,169,110,0.45);}
+  /* stilled: no breathing, and the script stops waking cards */
+  body.motion-off .card.can-dissolve .img-artwork{animation:none;}
   body.view-list .venue-wrap{display:block;}
   .venue-wrap select{background:var(--ground-light);border:1px solid rgba(196,160,224,0.35);color:#f2eaf9;padding:10px 12px;border-radius:3px;font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:300;outline:none;}
   .venue-wrap select:focus{border-color:var(--gold);}
@@ -68,13 +77,16 @@
   .card:focus-visible .card-media{outline:2px solid var(--gold);outline-offset:3px;}
 
   .card-media{position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;background:var(--ground-light);}
-  .card-media img,.card-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 18%;transition:opacity 4s ease;}
+  .card-media img,.card-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 18%;transition:opacity 4s ease,filter 1.5s ease;}
   .img-artwork{opacity:1;z-index:2;}
   .img-portrait{opacity:0;z-index:1;}
   /* portrait stays hidden until dramatic reveal */  /* always live behind artwork — breathe reveals it */
   .card.can-dissolve.show-portrait .img-artwork{opacity:0;}
   .card.can-dissolve.show-portrait .img-portrait{opacity:1;}
-  .card.holds-still .img-artwork{opacity:1 !important;}   /* one image: never fades to the ground (rule 2) */
+  /* holds-still = this card never moves: one-image cards, and any card added
+     by hand to keep it still. The !important is what makes it reliable, so
+     the script must never add or remove this class — it skips these cards. */
+  .card.holds-still .img-artwork{opacity:1 !important;}
   .img-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:3.2rem;color:var(--lilac);background:var(--ground-light);}
   /* ---- text card (§20) — CSS lifted from mosaic-text-cards-Sept18.html, option 2 ---- */
   .card-text{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:8% 9% 11%;transition:opacity 4s ease;}
@@ -106,7 +118,7 @@
   .card-video{opacity:0;z-index:4;pointer-events:none;transition:opacity .6s ease;}
   .card.video-playing .card-video{opacity:1;}
 
-  .gold-rule{position:absolute;left:0;bottom:0;height:2px;width:28%;background:var(--gold);z-index:5;transition:width .5s ease;}
+  .gold-rule{position:absolute;left:0;bottom:0;height:2px;width:28%;background:var(--gold);z-index:5;transition:width .5s ease,opacity .5s ease;}
   .card:hover .gold-rule,.card:focus-visible .gold-rule,.card.show-portrait .gold-rule{width:100%;}
 
   .card-caption{padding:14px 2px 0;}
@@ -120,7 +132,7 @@
   body.view-list .list{display:block;}
   .row{border-bottom:1px solid rgba(196,160,224,0.15);}
   .row.is-hidden{display:none;}
-  .row a{display:grid;grid-template-columns:44px minmax(160px,1.1fr) minmax(0,1.4fr) minmax(0,1fr) minmax(0,0.9fr) minmax(0,0.9fr);gap:16px;align-items:center;padding:13px 4px;text-decoration:none;color:inherit;transition:background .2s;}
+  .row a{display:grid;grid-template-columns:72px minmax(160px,1.1fr) minmax(0,1.4fr) minmax(0,1fr) minmax(0,0.9fr) minmax(0,0.9fr);gap:16px;align-items:center;padding:13px 4px;text-decoration:none;color:inherit;transition:background .2s;}
   .row a:hover,.row a:focus-visible{background:rgba(255,255,255,0.03);outline:none;}
   .row-name{font-family:'DM Serif Display',serif;font-size:1.05rem;}
   /* names locked to gold (Sept 19 2026 — option C); hover to white */
@@ -130,11 +142,12 @@
   .row-city,.row-venue{font-size:0.82rem;color:#a58fc0;}
   .row-song{font-size:0.84rem;color:#cdb8e4;}
   .row-song .nt{color:var(--gold);font-size:0.9em;}
-  .row-thumb{width:44px;height:44px;object-fit:cover;object-position:center 18%;border-radius:2px;background:var(--ground-light);display:block;}
-  .row-thumb-ph{display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;color:var(--lilac);font-size:1.1rem;}
-  .list-head{display:grid;grid-template-columns:44px minmax(160px,1.1fr) minmax(0,1.4fr) minmax(0,1fr) minmax(0,0.9fr) minmax(0,0.9fr);gap:16px;padding:0 4px 10px;margin-bottom:0;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:#75638e;border-bottom:1px solid rgba(196,160,224,0.25);}
+  .row-thumb{width:72px;height:72px;object-fit:cover;object-position:center 18%;border-radius:2px;background:var(--ground-light);display:block;}
+  .row-thumb-ph{display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;color:var(--lilac);font-size:1.7rem;}
+  .list-head{display:grid;grid-template-columns:72px minmax(160px,1.1fr) minmax(0,1.4fr) minmax(0,1fr) minmax(0,0.9fr) minmax(0,0.9fr);gap:16px;padding:0 4px 10px;margin-bottom:0;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:#75638e;border-bottom:1px solid rgba(196,160,224,0.25);}
   @media (max-width:760px){
-    .row a{grid-template-columns:44px 1fr 1fr;gap:3px 12px;align-items:start;}
+    .row a{grid-template-columns:84px 1fr 1fr;gap:3px 12px;align-items:start;}
+    .row-thumb{width:84px;height:84px;}
     .row-thumb{grid-row:1 / span 4;}
     .row-name{grid-column:2 / -1;}
     .row-title,.row-song{grid-column:2 / -1;white-space:normal;}
@@ -182,16 +195,67 @@
   /* ---- Betsy-style mat (CARD_POSITION_OVERRIDES value 'mat') ---- */
   .card-media img.matted{object-fit:contain;object-position:center;padding:9%;background:var(--deep);}
 
-  /* ---- ambient breathing (Sept 20 2026) — all cards slowly pulse ---- */
+  /* ---- autonomous dissolve, overlapped handoff (Sept 21 2026) ----
+     Phase 1  .cycle-dark      artwork sinks away
+     Phase 2  .cycle-portrait  portrait starts rising BEFORE the artwork has
+                               fully gone, so the frame is never empty
+     Phase 3  portrait holds
+     Phase 4  .cycle-return    portrait sinks, artwork rises into it the same way
+     The overlap is set in the script (W.overlap). At 0 the two images hand over
+     through darkness; raised, they cross. The easing clears and arrives early
+     and settles slowly, so the crossing moment is brief and faint rather than
+     two images sitting on top of each other. */
+  :root{
+    --dissolve-out:5s;      /* an image sinking away */
+    --dissolve-in:6s;       /* an image rising in its place */
+    --dissolve-ease:cubic-bezier(0,0,.55,1);
+  }
+  .card.can-dissolve.in-cycle .img-artwork,
+  .card.can-dissolve.in-cycle .img-portrait,
+  .card.can-dissolve.in-cycle .card-text{transition-timing-function:var(--dissolve-ease);}
+  .card.can-dissolve.cycle-dark .img-artwork,
+  .card.can-dissolve.cycle-dark .img-portrait,
+  .card.can-dissolve.cycle-dark .card-text{opacity:0;transition-duration:var(--dissolve-out);}
+  .card.can-dissolve.cycle-portrait .img-portrait{opacity:1;filter:none;transition-duration:var(--dissolve-in);}
+  /* coming back: the artwork rises while the portrait is still on its way out */
+  .card.can-dissolve.cycle-return .img-artwork,
+  .card.can-dissolve.cycle-return .card-text{transition-duration:var(--dissolve-in);}
+  .card.can-dissolve.cycle-return .img-portrait{transition-duration:var(--dissolve-out);}
+  .card.text-card.can-dissolve.cycle-return .img-portrait{transition-duration:var(--dissolve-in);}
+
+  /* A card left resting on its portrait until its next turn (W.stayOnPortrait).
+     Same look as the reveal, but without the cycle classes, so the gold rule
+     eases back and the card is simply sitting on its other side. */
+  .card.can-dissolve.on-portrait .img-artwork{opacity:0;}
+  .card.can-dissolve.on-portrait .img-portrait{opacity:1;filter:none;}
+  .card.can-dissolve.on-portrait .card-text{opacity:0;}
+  .card.can-dissolve.on-portrait .gold-rule{transition-duration:var(--dissolve-out);}
+  /* hovering one of those shows the artwork, so hover always turns the card over */
+  .card.can-dissolve.on-portrait.show-artwork .img-artwork{opacity:1;}
+  .card.can-dissolve.on-portrait.show-artwork .img-portrait{opacity:0;}
+  .card.can-dissolve.on-portrait.show-artwork .card-text{opacity:1;}
+  /* gold rule draws across with the reveal and retracts with it */
+  .card.can-dissolve.in-cycle .gold-rule{transition-duration:var(--dissolve-out);}
+  /* On an autonomous reveal the rule grows, but only part way and a little
+     dimmed. Full-width gold stays the answer to hover, so the page's own
+     movement never competes with the visitor's. Knobs: width = how far it
+     grows on its own, opacity = how present it is. Delete this line entirely
+     and the gold bar only ever responds to hover. */
+  .card.can-dissolve.cycle-portrait .gold-rule{width:62%;opacity:.55;transition-duration:var(--dissolve-in);}
+
+  /* ---- ambient breathing — light moving over the work, not a fade ----
+     Brightness, never opacity. An opacity breath shows the ground color
+     through the image (the fading-to-purple problem) and competes with the
+     dissolve above for the same property, which causes a snap when a card
+     wakes. Brightness is independent, so a card can breathe and dissolve at
+     the same time. Only cards on or near the screen breathe (.live). */
   @keyframes breathe{
-    0%,100%{opacity:1;}
-    50%{opacity:0.55;}
+    0%,100%{filter:brightness(1) saturate(1);}
+    50%{filter:brightness(0.72) saturate(0.94);}
   }
-  .card.can-dissolve .img-artwork{
-    animation:breathe var(--breathe-dur,22s) ease-in-out var(--breathe-delay,0s) infinite;
+  .card.can-dissolve.live .img-artwork{
+    animation:breathe var(--breathe-dur,48s) ease-in-out var(--breathe-delay,0s) infinite;
   }
-  .card.can-dissolve.show-portrait .img-artwork{animation:none;}
-  .card.can-dissolve.video-playing .img-artwork{animation:none;}
   .card.holds-still .img-artwork{animation:none !important;}
 
   /* ---- poem card title/body treatment (Sept 20 2026) ---- */
@@ -208,16 +272,17 @@
 
   @media (prefers-reduced-motion:reduce){
     .card-media img,.card-media video,.gold-rule,.card-text{transition:none;}
+    .card.can-dissolve.live .img-artwork{animation:none;}
   }
 </style>
 </head>
 <body>
 
 <header>
-  <p class="eyebrow"><a href="credits.html" style="color:inherit;text-decoration:none;">The People&#x27;s Museum for Prince</a> — <a href="credits.html" style="color:var(--gold);text-decoration:none;">Living Archive</a></p>
+  <p class="eyebrow"><span class="eyebrow-name">The People&#x27;s Museum for Prince — <span class="lv">Living Archive</span></span><span class="eyebrow-nav"><a href="credits.html">Credits</a><span class="sep">/</span><a href="https://peoplesmuseumforprince.org">Museum</a></span></p>
   <h1>The People's Museum</h1>
   <p class="subhead">Minneapolis · 2026</p>
-  <p class="intro-line">74 artists, writers, poets, filmmakers and collectors who made The People&#x27;s Museum for Prince in Minneapolis, June 2026 — at Roberts Gallery, ColorWheel Gallery and the Capri. Each name opens their page; follow the tour from one to the next.</p>
+  <p class="intro-line">Welcome to the living archive! 74 artists, writers, poets, filmmakers and collectors who made The People&#x27;s Museum for Prince in Minneapolis, June 2026 — at Roberts Gallery, ColorWheel Gallery and the Capri. Start your museum visit anywhere by visiting a participant page, then follow the tour from one to the next.</p>
 
   <div class="controls">
     <div>
@@ -232,6 +297,7 @@
         <button type="button" id="btnMosaic" aria-pressed="true">Mosaic</button>
         <button type="button" id="btnList" aria-pressed="false">List</button>
       </div>
+      <button type="button" id="btnMotion" class="motion-toggle" hidden>Pause motion</button>
       <div class="venue-wrap">
         <label for="venue" style="position:absolute;left:-9999px;">Venue</label>
         <select id="venue">
@@ -429,7 +495,7 @@
        data-slug="kurt-shafai" data-name="Kurt Shafai" data-first="Kurt" data-last="Shafai"
        data-city="Minneapolis, MN" data-venues="Roberts Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="artworks-web/kurt-shafai-artwork.png" alt="Computer Blue — artwork by Kurt Shafai" loading="lazy"><img class="img-portrait" src="portraits-web/kurt-shafai-portrait.jpeg" alt="Portrait of Kurt Shafai" loading="lazy">
+        <img class="img-artwork" src="artworks-web/kurt-shafai-artwork.jpg" alt="Computer Blue — artwork by Kurt Shafai" loading="lazy"><img class="img-portrait" src="portraits-web/kurt-shafai-portrait.jpeg" alt="Portrait of Kurt Shafai" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -489,7 +555,7 @@
        data-slug="tammy-ortegon" data-name="Tammy Ortegon" data-first="Tammy" data-last="Ortegon"
        data-city="Minneapolis, MN" data-venues="Roberts Gallery|ColorWheel Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="artworks-web/tammy-ortegon-artwork.jpg" alt="Raspberry Beret — artwork by Tammy Ortegon" loading="lazy"><img class="img-portrait" src="portraits-web/tammy-ortegon-portrait.jpeg" alt="Portrait of Tammy Ortegon" loading="lazy" style="object-position:right center;">
+        <img class="img-artwork" src="artworks-web/tammy-ortegon-artwork.jpg" alt="Raspberry Beret — artwork by Tammy Ortegon" loading="lazy"><img class="img-portrait" src="portraits-web/tammy-ortegon-portrait.jpeg" alt="Portrait of Tammy Ortegon" loading="lazy" style="object-position:right center">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -617,11 +683,11 @@
         <p class="city">Lanesboro, MN</p>
       </div>
     </a>
-    <a class="card can-dissolve" href="participants/hawona-sullivan-janzen.html"
+    <a class="card can-dissolve text-card" href="participants/hawona-sullivan-janzen.html"
        data-slug="hawona-sullivan-janzen" data-name="Hawona Sullivan Janzen" data-first="Hawona" data-last="Sullivan Janzen"
        data-city="St Paul, MN" data-venues="Roberts Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="portraits-web/hawona-sullivan-janzen-portrait.jpeg" alt="Portrait of Hawona Sullivan Janzen" loading="lazy"><img class="img-portrait" src="events-web/hawona-sullivan-janzen-jb-01.jpg" alt="Artwork by Hawona Sullivan Janzen" loading="lazy">
+        <div class="card-text"><p class="line poem-title"><span>Dear Prince</span></p><p class="line poem-body"><span>Last night I saw purple wildflowers dancing on the side of the road.</span></p><p class="line poem-body"><span>Seven minutes later I saw a man in a purple vest, hat, and scarf selling purple eggplant and cabbages at a farmer&#x27;s market.</span></p></div><img class="img-portrait" src="portraits-web/hawona-sullivan-janzen-portrait.jpeg" alt="Portrait of Hawona Sullivan Janzen" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -873,7 +939,7 @@
        data-slug="jamey-boelhower" data-name="Jamey Boelhower" data-first="Jamey" data-last="Boelhower"
        data-city="Hastings, MN" data-venues="Roberts Gallery">
       <div class="card-media">
-        <div class="card-text"><p class="line poem-title"><span>April 21 2016</span></p><p class="line poem-body"><span>You sang that it sometimes snows in</span></p><p class="line poem-body"><span>April. Did you know we would feel</span></p><p class="line poem-body"><span>that cold the day you died?</span></p></div><img class="img-portrait" src="portraits-web/jamey-boelhower-portrait.jpg" alt="Portrait of Jamey Boelhower" loading="lazy">
+        <div class="card-text"><p class="line poem-title"><span>April 21, 2016</span></p><p class="line poem-body"><span>You sang that it sometimes snows in</span></p><p class="line poem-body"><span>April. Did you know we would feel</span></p><p class="line poem-body"><span>that cold the day you died?</span></p></div><img class="img-portrait" src="portraits-web/jamey-boelhower-portrait.jpg" alt="Portrait of Jamey Boelhower" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -885,7 +951,7 @@
        data-slug="sonja-dapper" data-name="Sonja Dapper" data-first="Sonja" data-last="Dapper"
        data-city="St Paul, MN" data-venues="Roberts Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="artworks-web/sonja-dapper-artwork.jpeg" alt="Prince — artwork by Sonja Dapper" loading="lazy" style="object-position:center 85%;"><img class="img-portrait" src="portraits-web/sonja-dapper-portrait.jpg" alt="Portrait of Sonja Dapper" loading="lazy">
+        <img class="img-artwork" src="artworks-web/sonja-dapper-artwork.jpeg" alt="Prince — artwork by Sonja Dapper" loading="lazy" style="object-position:center 85%"><img class="img-portrait" src="portraits-web/sonja-dapper-portrait.jpg" alt="Portrait of Sonja Dapper" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -909,7 +975,7 @@
        data-slug="stephanie-carlson" data-name="Stephanie Carlson" data-first="Stephanie" data-last="Carlson"
        data-city="Minneapolis, MN" data-venues="Roberts Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="artworks-web/stephanie-carlson-artwork.jpg" alt="Artifacts from school days with Prince — artwork by Stephanie Carlson" loading="lazy"><img class="img-portrait" src="portraits-web/stephanie-carlson-portrait.jpeg" alt="Portrait of Stephanie Carlson" loading="lazy">
+        <img class="img-artwork" src="artworks-web/stephanie-carlson-artwork-kt-02.jpeg" alt="Artifacts from school days with Prince — artwork by Stephanie Carlson" loading="lazy"><img class="img-portrait" src="portraits-web/stephanie-carlson-portrait.jpeg" alt="Portrait of Stephanie Carlson" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -957,7 +1023,7 @@
        data-slug="rich-benson" data-name="Rich Benson" data-first="Rich" data-last="Benson"
        data-city="Minneapolis, MN" data-venues="Roberts Gallery|the Capri">
       <div class="card-media">
-        <img class="img-artwork" src="artworks-web/terry-jackson-artwork-01.jpeg" alt="Grand Central photograph, 1975 — artwork by Rich Benson" loading="lazy"><img class="img-portrait" src="portraits-web/rich-benson-portrait-kt.jpeg" alt="Portrait of Rich Benson" loading="lazy">
+        <img class="img-artwork" src="artworks-web/rich-benson-dp-03.jpg" alt="Grand Central photograph, 1975 — artwork by Rich Benson" loading="lazy"><img class="img-portrait" src="portraits-web/rich-benson-portrait-kt.jpeg" alt="Portrait of Rich Benson" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -969,7 +1035,7 @@
        data-slug="terry-jackson" data-name="Terry Jackson" data-first="Terry" data-last="Jackson"
        data-city="Minneapolis, MN" data-venues="Roberts Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="artworks-web/terry-jackson-artwork-01.jpeg" alt="Memories &amp; Photos — artwork by Terry Jackson" loading="lazy"><img class="img-portrait" src="portraits-web/terry-jackson-portrait.jpeg" alt="Portrait of Terry Jackson" loading="lazy">
+        <img class="img-artwork" src="portraits-web/terry-jackson-portrait-2.jpeg" alt="Portrait of Terry Jackson" loading="lazy"><img class="img-portrait" src="portraits-web/terry-jackson-portrait.jpeg" alt="Portrait of Terry Jackson" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -1001,11 +1067,11 @@
         <p class="city">Dreieich, Germany</p>
       </div>
     </a>
-    <a class="card holds-still" href="participants/alicia-lee.html"
+    <a class="card can-dissolve text-card" href="participants/alicia-lee.html"
        data-slug="alicia-lee" data-name="Alicia Lee" data-first="Alicia" data-last="Lee"
        data-city="River Falls, WI" data-venues="Roberts Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="portraits-web/alicia-lee-portrait.jpeg" alt="Portrait of Alicia Lee" loading="lazy">
+        <div class="card-text"><p class="line poem-title"><span>Innocence and Prince</span></p><p class="line poem-body"><span>probably nine was too young</span></p><p class="line poem-body"><span>to be listening to Controversy</span></p><p class="line poem-body"><span>and coordinating dance routines</span></p><p class="line poem-body"><span>to his upbeat Private Joy</span></p></div><img class="img-portrait" src="portraits-web/alicia-lee-portrait.jpeg" alt="Portrait of Alicia Lee" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -1137,7 +1203,7 @@
        data-slug="vicky-perry" data-name="Vicky Perry" data-first="Vicky" data-last="Perry"
        data-city="Walnut Creek, CA" data-venues="Roberts Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="artworks-web/vicki-perry-artwork.jpg" alt="2016 Memories — artwork by Vicky Perry" loading="lazy" style="object-position:center bottom;"><img class="img-portrait" src="portraits-web/vicki-perry-portrait.jpg" alt="Portrait of Vicky Perry" loading="lazy">
+        <img class="img-artwork" src="artworks-web/vicki-perry-artwork.jpg" alt="2016 Memories — artwork by Vicky Perry" loading="lazy" style="object-position:center bottom"><img class="img-portrait" src="portraits-web/vicki-perry-portrait.jpg" alt="Portrait of Vicky Perry" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -1211,7 +1277,7 @@
         <a href="participants/jamey-boelhower.html">
           <img class="row-thumb" src="portraits-web/jamey-boelhower-portrait.jpg" alt="" loading="lazy">
           <span class="row-name">Jamey Boelhower</span>
-          <span class="row-title">April 21 2016</span>
+          <span class="row-title">April 21, 2016</span>
           <span class="row-song"><span class="nt">♪</span> Pope</span>
           <span class="row-city">Hastings, MN</span>
           <span class="row-venue">Roberts Gallery</span>
@@ -1308,7 +1374,7 @@
       <li class="row" data-name="Tracy Connor" data-first="Tracy" data-last="Connor"
           data-city="Minneapolis, MN" data-venues="Roberts Gallery" data-song="Kiss When Doves Cry">
         <a href="participants/tracy-connor.html">
-          <img class="row-thumb" src="portraits-web/tracy-connor-portrait.jpg" alt="" loading="lazy">
+          <img class="row-thumb" src="portraits-web/tracy-connor-portrait.jpg" alt="" loading="lazy" style="object-position:18% 18%">
           <span class="row-name">Tracy Connor</span>
           <span class="row-title">Prince has inspired my dancing and fashion choices immensely.</span>
           <span class="row-song"><span class="nt">♪</span> Kiss · <span class="nt">♪</span> When Doves Cry</span>
@@ -1726,7 +1792,7 @@
       <li class="row" data-name="Tammy Ortegon" data-first="Tammy" data-last="Ortegon"
           data-city="Minneapolis, MN" data-venues="Roberts Gallery|ColorWheel Gallery" data-song="Raspberry Beret">
         <a href="participants/tammy-ortegon.html">
-          <img class="row-thumb" src="portraits-web/tammy-ortegon-portrait.jpeg" alt="" loading="lazy" style="object-position:right center;">
+          <img class="row-thumb" src="portraits-web/tammy-ortegon-portrait.jpeg" alt="" loading="lazy" style="object-position:right center">
           <span class="row-name">Tammy Ortegon</span>
           <span class="row-title">Raspberry Beret</span>
           <span class="row-song"><span class="nt">♪</span> Raspberry Beret</span>
@@ -2070,8 +2136,12 @@
   var emptyNote = document.getElementById('emptyNote');
   var btnMosaic = document.getElementById('btnMosaic');
   var btnList = document.getElementById('btnList');
+  var btnMotion = document.getElementById('btnMotion');
   var total = rows.length;   // people, not cards (second cards repeat a person)
   var isList = false;
+  // filled in by the dissolve section below; no-ops until then
+  var cancelCycle = function(){};
+  var onFilterChange = function(){};
 
   function norm(s){
     return (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -2098,6 +2168,7 @@
     });
     resultCount.textContent = shown + ' of ' + total + ' shown';
     emptyNote.classList.toggle('is-visible', shown === 0);
+    onFilterChange();     // card positions have moved: re-measure the waves
   }
   function setView(listMode, pushHash){
     isList = listMode;
@@ -2116,118 +2187,295 @@
   btnList.addEventListener('click', function(){ setView(true); });
   if (location.hash === '#list') setView(true, false);
 
-  // ---- hover dissolve (cards with two images) ----
+  // ---- hover: always shows the other side of the card ----
   var dissolvable = cards.filter(function(c){ return c.classList.contains('can-dissolve'); });
-  var auto = {};   // slug+index -> {active, state} for the autonomous cycling below
-  dissolvable.forEach(function(card, idx){
-    card.__key = idx;
+  dissolvable.forEach(function(card){
     card.addEventListener('mouseenter', function(){
-      card.classList.add('show-portrait');
+      cancelCycle(card);
       card.__hover = true;
+      // a card resting on its portrait shows the artwork instead, so hover
+      // always reveals whichever image you are not currently looking at
+      card.classList.add(card.classList.contains('on-portrait') ? 'show-artwork' : 'show-portrait');
     });
     card.addEventListener('mouseleave', function(){
       card.__hover = false;
-      var st = auto[card.__key];
-      card.classList.toggle('show-portrait', !!(st && st.state));
+      card.classList.remove('show-portrait', 'show-artwork');
     });
   });
 
-  // ---- autonomous cycling: 6–8 cards alive at any moment, staggered, slow ----
-  // A card is picked at random from those with two images (and currently
-  // visible), dissolves to its portrait, holds, dissolves back, then rests and
-  // hands its slot to another card. Slots start staggered so nothing is ever
-  // in step. Hovered cards are left alone. Off under prefers-reduced-motion.
+  // ---- autonomous dissolve: spaced scatter (Sept 21 2026, second pass) ----
+  //
+  // No wave. One card at a time is woken on a loose interval, but never two
+  // in the same row at once and never two touching, so movement reads as
+  // scattered across the grid rather than as a row lighting up together.
+  // Cards that have waited longest are preferred, so over time everyone in
+  // the mosaic gets their turn rather than the same few repeating.
+  //
+  // Tuning, in the order worth reaching for:
+  //   gapMin / gapMax   how long after one card starts before the next does.
+  //                     Inside a card, its portrait begins rising at
+  //                     fadeOut - overlap (2.8s now), so a gap near that
+  //                     chains the cards: each one starts as the last turns over.
+  //   beatMin / beatMax how long the portrait stays once it has fully risen.
+  //   rowApart          clear panels required between two cards moving in the
+  //                     same row. 2 = never side by side.
+  //   nearApart         same, for the row above and below. 1 = never directly
+  //                     above or below another moving card; diagonals allowed.
+  //                     Raising either of these slows the real cadence, because
+  //                     fewer cards are free to start.
+  //   overlap           how early the next image starts rising (0 = handover
+  //                     through darkness, higher = the two images cross).
+  var W = {
+    tick:        240,       // ms between checks
+    gapMin:     2600,       // ms between one card starting and the next
+    gapMax:     4000,
+    rowApart:      2,       // clear panels between moving cards in one row
+    nearApart:     1,       // and in the rows above and below
+    fadeOut:    5000,       // keep in step with --dissolve-out
+    fadeIn:     6000,       // keep in step with --dissolve-in
+    overlap:    2200,       // the next image starts rising this long before the last has gone
+    beatMin:    1600,       // portrait fully present, after it has risen
+    beatMax:    3200,
+    stayOnPortrait: 0,      // 0 = every card returns to its artwork
+    cooldown:  40000,       // a card will not be woken again inside this
+    openAt:      400,       // first card starts moving this soon after load
+    openStep:   1500,       // the next ones follow at roughly this interval
+    openCards:     3,
+    openFirst:    ''        // slug of the card to open on. Empty = the first
+                            // card in the grid, whatever walk_order puts there.
+  };
+
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduceMotion && dissolvable.length) {
-    // 10 slots with a ~68% portrait duty cycle keeps 6–8 cards on their
-    // portrait at any moment across the 56 that can dissolve; the 1.1 s
-    // dissolve itself means a couple more are always mid-fade.
-    // Sept 20 2026: 20 dramatic slots + ambient breathing on all cards. Slow, hypnotic.
-    // Per-row guarantee — whenever no card in a visible row is alive,
-    // the next free slot takes one from it, so every row has movement.
 
-    var SLOTS = Math.min(20, dissolvable.length);
-    var HOLD_MIN = 5000, HOLD_MAX = 7000;   // ms shown as portrait
-    var REST_MIN = 8000, REST_MAX = 12000;   // ms back on artwork before the slot moves on
-    function rnd(a, b){ return a + Math.random() * (b - a); }
-    function free(c){
-      return !auto[c.__key] && !c.__hover && !c.classList.contains('is-hidden') && !c.classList.contains('video-playing');
-    }
-    function visibleRows(){
-      // group visible dissolvable cards by their offsetTop (row)
+    function clock(){ return window.performance && performance.now ? performance.now() : Date.now(); }
+    var nextWake = 0;
+
+    // row and column of every card, read off the laid-out grid
+    function measure(){
       var vis = dissolvable.filter(function(c){ return !c.classList.contains('is-hidden'); });
-      if (!vis.length) return [];
-      var rows = [], cur = null;
+      var row = -1, top = null, col = 0;
       vis.forEach(function(c){
-        var t = c.offsetTop;
-        if (!cur || Math.abs(t - cur.top) > 4) { cur = {top:t, cards:[]}; rows.push(cur); }
-        cur.cards.push(c);
+        if (top === null || Math.abs(c.offsetTop - top) > 4) { row++; col = 0; top = c.offsetTop; }
+        c.__row = row; c.__col = col++;
       });
-      return rows;
     }
-    function pick(){
-      // guarantee at least one dissolve per visible row
-      var rows = visibleRows();
-      for (var i = 0; i < rows.length; i++){
-        var r = rows[i];
-        var alive = r.cards.some(function(c){ return auto[c.__key]; });
-        if (!alive) {
-          var rp = r.cards.filter(free);
-          if (rp.length) return rp[Math.floor(Math.random() * rp.length)];
+
+    function moving(){
+      return dissolvable.filter(function(c){ return c.__busy; });
+    }
+
+    // The spacing rule: never two moving side by side in a row, and never one
+    // directly above another. Diagonals are allowed, which is what lets the
+    // cards chain quickly without a row ever appearing to go in unison.
+    function spaced(c){
+      var others = moving();
+      for (var i = 0; i < others.length; i++) {
+        var o = others[i];
+        if (o === c) continue;
+        var dr = Math.abs(o.__row - c.__row), dc = Math.abs(o.__col - c.__col);
+        if (dr === 0 && dc < W.rowApart) return false;
+        if (dr === 1 && dc < W.nearApart) return false;
+      }
+      return true;
+    }
+
+    function eligible(c){
+      return !c.__busy && !c.__hover && c.__live
+        && !c.classList.contains('is-hidden')
+        && !c.classList.contains('holds-still')
+        && !c.classList.contains('video-playing')
+        && (clock() - (c.__last || -1e9)) > W.cooldown;
+    }
+
+    // prefer whoever has waited longest, then pick among them, so the
+    // choice looks random but the whole mosaic gets seen
+    function choose(){
+      var pool = dissolvable.filter(function(c){ return eligible(c) && spaced(c); });
+      if (!pool.length) return null;
+      pool.sort(function(a, b){ return (a.__last || -1e9) - (b.__last || -1e9); });
+      var longest = pool.slice(0, Math.max(1, Math.ceil(pool.length * 0.4)));
+      return longest[Math.floor(Math.random() * longest.length)];
+    }
+
+    function run(c){
+      c.__busy = true;
+      c.__last = clock();
+      var handoff = Math.max(0, W.fadeOut - W.overlap);   // when the next image starts rising
+      var beat = W.beatMin + Math.random() * (W.beatMax - W.beatMin);
+      var back = c.classList.contains('on-portrait');     // this card is resting on its portrait
+      // a text card never rests on its portrait: the words are the point of it
+      var stay = !back && !c.classList.contains('text-card') && Math.random() < W.stayOnPortrait;
+
+      c.classList.add('in-cycle');
+
+      if (back) {                                  // portrait sinks, artwork rises into it
+        c.classList.remove('on-portrait');
+        c.classList.add('cycle-dark');
+        c.__t1 = setTimeout(function(){
+          c.classList.add('cycle-return');
+          c.classList.remove('cycle-dark');
+          c.__t2 = setTimeout(function(){
+            c.classList.remove('in-cycle', 'cycle-return');
+            c.__busy = false;
+          }, W.fadeIn + 400);
+        }, handoff);
+        return;
+      }
+
+      c.classList.add('cycle-dark');               // artwork sinks
+      c.__t1 = setTimeout(function(){
+        c.classList.add('cycle-portrait');         // portrait rises into it
+        c.__t2 = setTimeout(function(){
+          if (stay) {                              // and is left there until its next turn
+            c.classList.add('on-portrait');
+            c.classList.remove('in-cycle', 'cycle-dark', 'cycle-portrait');
+            c.__busy = false;
+            return;
+          }
+          c.classList.remove('cycle-portrait');    // portrait sinks again
+          c.__t3 = setTimeout(function(){
+            c.classList.add('cycle-return');
+            c.classList.remove('cycle-dark');      // artwork rises into it
+            c.__t4 = setTimeout(function(){
+              c.classList.remove('in-cycle', 'cycle-return');
+              c.__busy = false;
+            }, W.fadeIn + 400);
+          }, handoff);
+        }, W.fadeIn + beat);
+      }, handoff);
+    }
+
+    function wake(c, delay){
+      c.__busy = true;        // claimed straight away, so the spacing rule sees it
+      c.__t0 = setTimeout(function(){ run(c); }, delay || 0);
+    }
+
+    cancelCycle = function(c){
+      clearTimeout(c.__t0); clearTimeout(c.__t1); clearTimeout(c.__t2);
+      clearTimeout(c.__t3); clearTimeout(c.__t4);
+      c.classList.remove('in-cycle', 'cycle-dark', 'cycle-portrait', 'cycle-return');
+      c.__busy = false;
+      c.__last = clock();     // and it rests before it can be chosen again
+    };
+
+    function tick(){
+      if (document.hidden || !motionOn) return;
+      var t = clock();
+      if (t < nextWake) return;
+      var c = choose();
+      if (c) { run(c); nextWake = t + W.gapMin + Math.random() * (W.gapMax - W.gapMin); }
+      else   { nextWake = t + 600; }     // blocked by the spacing rule: try again shortly
+    }
+
+    // only cards on or near the screen breathe or dissolve, and their portrait
+    // is fetched ahead of time so it is never still loading when it rises
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          var c = e.target;
+          c.__live = e.isIntersecting;
+          c.classList.toggle('live', e.isIntersecting);
+          if (e.isIntersecting && !c.__pre) {
+            c.__pre = 1;
+            var p = c.querySelector('.img-portrait');
+            if (p && p.getAttribute('src')) { var im = new Image(); im.src = p.getAttribute('src'); }
+          }
+        });
+      }, { rootMargin: '20% 0px 20% 0px' });
+      dissolvable.forEach(function(c){ io.observe(c); });
+    } else {
+      dissolvable.forEach(function(c){ c.__live = true; c.classList.add('live'); });
+    }
+
+    // Ambient breathing. Each card is put at a different point of its cycle
+    // using a golden-ratio step rather than at random, which guarantees that
+    // neighbours are never near the same brightness at the same time.
+    dissolvable.forEach(function(c, n){
+      var dur = 38 + Math.random() * 34;
+      c.style.setProperty('--breathe-dur', dur.toFixed(1) + 's');
+      c.style.setProperty('--breathe-delay', -(((n * 0.6180339887) % 1) * dur).toFixed(1) + 's');
+    });
+
+    onFilterChange = function(){
+      dissolvable.forEach(function(c){ if (c.classList.contains('is-hidden') && c.__busy) cancelCycle(c); });
+      measure();
+    };
+
+    measure();
+
+    // ---- stillness control ----
+    // Peaceful is still motion. Anyone who finds it too much can stop it, and
+    // the choice is remembered on their next visit.
+    var motionOn = true;
+    function setMotion(on){
+      motionOn = on;
+      btnMotion.textContent = on ? 'Pause motion' : 'Resume motion';
+      try { localStorage.setItem('pmp-motion', on ? 'on' : 'off'); } catch (e) {}
+      if (on) { body.classList.remove('motion-off'); nextWake = clock() + 600; return; }
+      dissolvable.forEach(function(c){
+        if (c.__busy) cancelCycle(c);                 // settle back to the artwork
+        var img = c.querySelector('.img-artwork');
+        if (img) img.style.filter = getComputedStyle(img).filter;   // pin the breath where it is
+      });
+      body.classList.add('motion-off');               // then stop it
+      requestAnimationFrame(function(){
+        dissolvable.forEach(function(c){
+          var img = c.querySelector('.img-artwork');
+          if (img) img.style.filter = '';             // and ease back to full light
+        });
+      });
+    }
+    btnMotion.hidden = false;
+    btnMotion.addEventListener('click', function(){
+      setMotion(body.classList.contains('motion-off'));
+    });
+    try { if (localStorage.getItem('pmp-motion') === 'off') setMotion(false); } catch (e) {}
+
+    // the card the page opens on: the nominated slug, else the first in the grid
+    function firstCard(){
+      var i;
+      if (W.openFirst) {
+        for (i = 0; i < dissolvable.length; i++) {
+          if (dissolvable[i].getAttribute('data-slug') === W.openFirst && eligible(dissolvable[i])) {
+            return dissolvable[i];
+          }
         }
       }
-      var pool = dissolvable.filter(free);
-      if (!pool.length) return null;
-      return pool[Math.floor(Math.random() * pool.length)];
+      for (i = 0; i < dissolvable.length; i++) {
+        if (eligible(dissolvable[i])) return dissolvable[i];
+      }
+      return null;
     }
-    function runSlot(){
-      var c = pick(); if (!c) { setTimeout(runSlot, 3000); return; }
-      var k = c.__key;
-      auto[k] = true;
-      c.classList.add('holds-still');     // pause breathing for this card
 
-      // Phase 1: fade artwork to dark (2s into the 4s CSS transition it's mostly dark)
-      c.classList.add('fade-to-dark');
-      setTimeout(function(){
-        // Phase 2: portrait emerges from dark
-        c.classList.add('show-portrait');
-        c.classList.remove('fade-to-dark');
-        var hold = rnd(HOLD_MIN, HOLD_MAX);
-        setTimeout(function(){
-          // Phase 3: fade portrait away (goes dark again)
-          c.classList.add('fade-back');
-          c.classList.remove('show-portrait');
+    // Opening. A few cards already on screen start moving almost at once, so
+    // a visitor landing on the page sees it is alive. The first is nominated,
+    // the rest follow the spacing rule, so it reads as scattered not sequential.
+    setTimeout(function(){
+      if (!motionOn) return;
+      var h = window.innerHeight || 800;
+      dissolvable.forEach(function(c){
+        var r = c.getBoundingClientRect();
+        if (r.bottom > 40 && r.top < h - 40 && !c.classList.contains('is-hidden')) c.__live = true;
+      });
+      for (var n = 0; n < W.openCards; n++) {
+        (function(n){
           setTimeout(function(){
-            // Phase 4: artwork returns from dark
-            c.classList.remove('fade-back');
-            c.classList.remove('holds-still');  // resume breathing
-            delete auto[k];
-          }, 4500);  // let artwork fade fully back
-        }, hold);
-      }, 2200);  // dark gap before portrait appears
+            if (!motionOn) return;
+            var c = (n === 0 ? firstCard() : null) || choose();
+            if (c) run(c);
+          }, n * W.openStep);
+        })(n);
+      }
+      nextWake = clock() + W.openCards * W.openStep + W.gapMin;
+    }, W.openAt);
 
-      var total = 2200 + rnd(HOLD_MIN,HOLD_MAX) + 4500 + rnd(REST_MIN,REST_MAX);
-      setTimeout(runSlot, 3000); return; }
-      var st = { state: true };
-      auto[card.__key] = st;
-      card.classList.add('show-portrait');
-      setTimeout(function(){
-        st.state = false;
-        if (!card.__hover) card.classList.remove('show-portrait');
-        setTimeout(function(){
-          delete auto[card.__key];
-          runSlot();
-        }, rnd(REST_MIN, REST_MAX));
-      }, rnd(HOLD_MIN, HOLD_MAX));
-    }
-    for (var s = 0; s < SLOTS; s++) {
-      setTimeout(runSlot, s === 0 ? 400 : 400 + s * rnd(800, 1600));
-    }
-    // stagger the ambient breathing so cards are at different points in the fade
-    dissolvable.forEach(function(c){
-      c.style.setProperty('--breathe-dur', (22 + Math.random() * 18).toFixed(1) + 's');
-      c.style.setProperty('--breathe-delay', -(Math.random() * 35).toFixed(1) + 's');
+    var resized;
+    window.addEventListener('resize', function(){
+      clearTimeout(resized);
+      resized = setTimeout(measure, 300);
     });
+    setInterval(tick, W.tick);
   }
 
 
@@ -2248,6 +2496,7 @@
       function play(){
         var p = vid.play();
         if (p && p.catch) p.catch(function(){});
+        cancelCycle(card);                      // the video replaces the dissolve
         card.classList.add('video-playing');
         card.classList.remove('show-portrait');
       }
