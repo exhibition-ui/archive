@@ -472,7 +472,7 @@
   "walk_order_2": [],
   "season": "",
   "noindex": false,
-  "card_image": "artworks-web/robbin-lang-artwork.jpeg",
+  "card_image": "artworks-web/robbin-lang-artwork-dp-01.jpeg",
   "card_alt": "portraits-web/robbin-lang-portrait.jpg",
   "card_position": "",
   "card_alt_position": "",
@@ -527,8 +527,7 @@
   "state_or_country": "MN",
   "title": "Raspberry Beret",
   "venues": [
-   "Roberts Gallery",
-   "ColorWheel Gallery"
+   "Roberts Gallery"
   ],
   "walk_order": 200,
   "walk_order_2": [],

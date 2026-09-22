@@ -174,9 +174,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 .tour-band{margin-top:3.5rem;background:#1a0f2e;color:#f2eaf9;padding:2.5rem 1.5rem 2rem;}
 .tour-inner{max-width:800px;margin:0 auto;}
 .tour-band .gold-rule{margin:0 0 1.5rem;}
-.tour-label{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--lilac);margin-bottom:1.1rem;}
-.tour-nav{display:flex;justify-content:space-between;align-items:stretch;gap:1.5rem;}
-.tour-link{display:flex;align-items:center;gap:0.9rem;text-decoration:none;color:#f2eaf9;flex:1;min-width:0;}
+/* Desktop tour band (Sept 22 2026): centered, not edge-to-edge — the tour
+   goes both directions, so a centered pair reads better than two names
+   pinned to the page's left/right margins. .tour-link no longer flex:1
+   (which stretched each link to half of .tour-inner's 800px), so the pair
+   sizes to its own content and .tour-nav's justify-content:center brings
+   them together in the middle. */
+.tour-label{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--lilac);margin-bottom:1.1rem;text-align:center;}
+.tour-nav{display:flex;justify-content:center;align-items:stretch;gap:3rem;}
+.tour-link{display:flex;align-items:center;gap:0.9rem;text-decoration:none;color:#f2eaf9;flex:0 1 auto;min-width:0;}
 .tour-link.next{flex-direction:row-reverse;text-align:right;}
 .tour-thumb{width:96px;height:96px;flex-shrink:0;object-fit:cover;object-position:center top;border-radius:2px;background:#241537;display:block;transition:transform 0.25s;}
 .tour-thumb-placeholder{width:96px;height:96px;flex-shrink:0;border-radius:2px;background:#241537;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:2rem;color:var(--lilac);}
@@ -191,7 +197,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 .tour-name{font-family:var(--serif);font-size:1.15rem;line-height:1.25;color:#fff;display:block;}
 .tour-link:hover .tour-name{color:var(--gold);}
 .tour-city{font-size:0.78rem;color:var(--lilac);display:block;margin-top:0.15rem;}
-.tour-all{margin-top:1.75rem;font-size:0.88rem;}
+.tour-all{margin-top:1.75rem;font-size:0.88rem;text-align:center;}
 .tour-all a{color:var(--lilac);text-decoration:none;border-bottom:1px solid rgba(196,160,224,0.35);padding-bottom:1px;}
 .tour-all a:hover{color:#fff;border-color:var(--gold);}
 .see-also{margin-top:1.25rem;font-size:0.85rem;color:var(--lilac);}
@@ -203,7 +209,6 @@ footer{max-width:800px;margin:2.25rem auto 0;padding:1.25rem 0 0;border-top:1px 
 footer a{color:var(--lilac);text-decoration:none;}
 footer a:hover{color:var(--gold);}
 footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4em;opacity:0.85;}
-footer .footer-name{letter-spacing:0.02em;}
 
 /* MOBILE */
 @media(max-width:560px){
@@ -219,38 +224,38 @@ footer .footer-name{letter-spacing:0.02em;}
   .identity-songs-meta{margin-top:1rem;padding-top:0;}
   .hero-wrap{margin-top:48px;}
   .tour-band{padding:2rem 1rem 1.5rem;}
-  /* Mobile tour band (Sept 22 2026) — the old rule here only shrank sizes,
-     which is why "Previous"/"Next" plus names cramped into two columns read
-     as crossed. Fix: one row, 3 grid columns (prev thumb | shared name
-     column | next thumb), each .tour-link exploded with display:contents so
-     its thumb and text become independent grid children instead of a single
-     flex item — .tour-link.next's flex-direction:row-reverse (desktop only,
-     unaffected here) no longer has to be fought. Previous/next name lines
-     share the middle column, prev top-left with its arrow, next bottom-right
-     with its arrow; the "Previous"/"Next" words are dropped, arrow glyphs
-     stay. See tour_link_html() for the glyph/label markup split. */
+  /* Mobile tour band — complete redesign (Sept 22 2026, second pass). The
+     first pass's single-row 3-column layout (thumbs at the ends, both names
+     sharing a middle column) read as ambiguous — which name belongs to
+     which thumbnail wasn't obvious at a glance. Replaced with Emma's
+     simpler spec: two plain columns, each .tour-link its own vertical
+     stack — thumbnail on top, its name directly underneath, arrow attached
+     to the name. No grid trick needed this time: .tour-link just switches
+     from a horizontal flex row (desktop) to a vertical one, so thumb and
+     text naturally stack; .tour-link.next's desktop-only row-reverse is
+     overridden back to column so both sides read the same way. */
   .tour-nav{
     display:grid;
-    grid-template-columns:72px 1fr 72px;
-    grid-template-rows:auto auto;
-    align-items:center;
-    column-gap:0.75rem;
-    row-gap:0.3rem;
+    grid-template-columns:1fr 1fr;
+    column-gap:1rem;
+    align-items:start;
   }
-  .tour-link{display:contents;}
-  .tour-link.prev .tour-thumb,.tour-link.prev .tour-thumb-placeholder{grid-column:1;grid-row:1/3;}
-  .tour-link.next .tour-thumb,.tour-link.next .tour-thumb-placeholder{grid-column:3;grid-row:1/3;}
-  .tour-link.prev .tour-text{grid-column:2;grid-row:1;justify-content:flex-start;}
-  .tour-link.next .tour-text{grid-column:2;grid-row:2;justify-content:flex-end;}
+  .tour-link{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:0.5rem;
+    text-align:left;
+  }
+  .tour-link.next{flex-direction:column;text-align:left;}
   .tour-thumb,.tour-thumb-placeholder{width:72px;height:72px;}
   .tour-thumb-text{padding:5px 6px 6px;}
   .tour-thumb-text .tt-line,.tour-thumb-text .tt-song{font-size:0.58rem;-webkit-line-clamp:3;}
-  /* nowrap, not wrap: at 320px a wrapped flex item was putting the arrow
-     glyph alone on its own line above the name (the exact crossed-reading
-     problem this fix exists to remove). min-width:0 + ellipsis on the name
-     lets it truncate instead of breaking the arrow away from it — real
-     names fit; only a name near the column's full width would ever clip. */
-  .tour-text{display:flex;align-items:baseline;flex-wrap:nowrap;gap:0.3em;min-width:0;}
+  /* nowrap, not wrap: a wrapped flex item put the arrow glyph alone on its
+     own line above a long name at 320px in the first pass. min-width:0 +
+     ellipsis on the name lets it truncate instead of breaking the arrow
+     away from it — real names fit; only a name near the column's full
+     width would ever clip. */
+  .tour-text{display:flex;align-items:baseline;flex-wrap:nowrap;gap:0.3em;min-width:0;width:100%;}
   .tour-arrow{display:inline;margin-bottom:0;order:1;flex-shrink:0;}
   .tour-name{font-size:0.92rem;display:inline;order:2;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
   .tour-link.next .tour-arrow{order:2;}
@@ -333,13 +338,13 @@ footer .footer-name{letter-spacing:0.02em;}
   <div class="tour-inner">
     <div class="gold-rule"></div>
     <div class="tour-label">Continue the tour</div><div class="tour-nav"><a class="tour-link prev" href="alexander-lauber.html" rel="prev"><img class="tour-thumb" src="../artworks-web/alexander-lauber-artwork-1.jpeg" alt="Alexander Lauber" loading="lazy"><span class="tour-text"><span class="tour-arrow"><span class="tour-arrow-glyph">&larr;</span><span class="tour-arrow-label"> Previous</span></span><span class="tour-name">Alexander Lauber</span><span class="tour-city">Dreieich, Germany</span></span></a><a class="tour-link next" href="astrid-de-beer.html" rel="next"><img class="tour-thumb" src="../artworks-web/astrid-de-beer-artwork-01.jpeg" alt="Astrid de Beer" loading="lazy"><span class="tour-text"><span class="tour-arrow"><span class="tour-arrow-label">Next </span><span class="tour-arrow-glyph">&rarr;</span></span><span class="tour-name">Astrid de Beer</span><span class="tour-city">Apeldoorn, The Netherlands</span></span></a></div>
-    <div class="tour-all"><a href="../participants.html">&larr; Back to Mosaic</a></div>
+    <div class="tour-all"><a href="../participants.html">Return to Mosaic</a></div>
     
   </div>
   <footer>
-  <p class="footer-name"><img src="../assets/pmp-eye.jpg" alt="" class="footer-eye" onerror="this.style.display='none'">The People's Museum for Prince</p>
+  <p>The People's Museum for Prince</p>
   <p>Living Archive &middot; <a href="https://peoplesmuseumforprince.org">peoplesmuseumforprince.org</a></p>
-  <p>&copy; 2026</p>
+  <p class="footer-copyright"><img src="../assets/pmp-eye.jpg" alt="" class="footer-eye" onerror="this.style.display='none'"> &copy; 2026</p>
 </footer>
 </div>
 </body>

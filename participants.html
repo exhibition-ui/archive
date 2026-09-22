@@ -44,6 +44,19 @@
   header p.intro-line{max-width:62ch;color:#cdb8e4;font-size:0.95rem;line-height:1.65;margin:0 0 10px;}
   header p.intro-line:last-of-type{margin-bottom:28px;}
   header p.intro-line-cue{margin-top:6px;color:var(--lilac);}
+  /* Mobile landing (Sept 22 2026) — the full WELCOME_TEXT paragraph pushed
+     every mosaic card below the fold on a phone. At <=760px: hide the full
+     text, show just the eye mark (a visual anchor, no words needed) and the
+     one-sentence navigation cue reused from WELCOME_TEXT's second
+     paragraph. Desktop is completely unchanged — both mobile-only elements
+     are display:none until the media query below turns them on. */
+  header .header-eye{display:none;}
+  header p.intro-mobile{display:none;}
+  @media (max-width:760px){
+    header p.intro-line{display:none;}
+    header .header-eye{display:block;width:44px;height:44px;object-fit:contain;margin:6px auto 14px;opacity:0.92;}
+    header p.intro-mobile{display:block;max-width:62ch;color:var(--lilac);font-size:0.92rem;line-height:1.55;margin:0 0 20px;}
+  }
 
   .controls{display:flex;flex-wrap:wrap;gap:16px 20px;align-items:flex-start;justify-content:space-between;border-top:1px solid rgba(196,160,224,0.25);border-bottom:1px solid rgba(196,160,224,0.25);padding:18px 0;}
   .search-wrap{position:relative;flex:1;min-width:220px;max-width:380px;}
@@ -284,7 +297,9 @@
   <p class="eyebrow"><span class="eyebrow-name">The People&#x27;s Museum for Prince — <span class="lv">Living Archive</span></span><span class="eyebrow-nav"><a href="credits.html">Credits</a><span class="sep">/</span><a href="https://peoplesmuseumforprince.org">Museum</a></span></p>
   <h1>The People's Museum</h1>
   <p class="subhead">Minneapolis · 2026</p>
+  <img src="assets/pmp-eye.jpg" alt="" class="header-eye" onerror="this.style.display='none'">
   <p class="intro-line">Welcome to the Living Archive of The People&#x27;s Museum for Prince. This mosaic presents the 74 artists, writers, poets, filmmakers and collectors who together created the museum in Minneapolis, June 2026 — at Roberts Gallery, the Capri Theater and ColorWheel Gallery. The mosaic will grow over time as we continue to add new features.</p><p class="intro-line intro-line-cue">Start your museum visit anywhere you choose, then follow the tour from one to the next.</p>
+  <p class="intro-mobile">Start your museum visit anywhere you choose, then follow the tour from one to the next.</p>
 
   <div class="controls">
     <div>
@@ -533,7 +548,7 @@
        data-slug="robbin-lang" data-name="Robbin Lang" data-first="Robbin" data-last="Lang"
        data-city="Traverse City, MI" data-venues="Roberts Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="artworks-web/robbin-lang-artwork.jpeg" alt="Always In My Hair — artwork by Robbin Lang" loading="lazy"><img class="img-portrait" src="portraits-web/robbin-lang-portrait.jpg" alt="Portrait of Robbin Lang" loading="lazy">
+        <img class="img-artwork" src="artworks-web/robbin-lang-artwork-dp-01.jpeg" alt="Always In My Hair — artwork by Robbin Lang" loading="lazy"><img class="img-portrait" src="portraits-web/robbin-lang-portrait.jpg" alt="Portrait of Robbin Lang" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -555,7 +570,7 @@
     </a>
     <a class="card holds-still" href="participants/tammy-ortegon.html"
        data-slug="tammy-ortegon" data-name="Tammy Ortegon" data-first="Tammy" data-last="Ortegon"
-       data-city="Minneapolis, MN" data-venues="Roberts Gallery|ColorWheel Gallery">
+       data-city="Minneapolis, MN" data-venues="Roberts Gallery">
       <div class="card-media">
         <img class="img-artwork" src="artworks-web/tammy-ortegon-artwork.jpg" alt="Raspberry Beret — artwork by Tammy Ortegon" loading="lazy">
         <span class="gold-rule"></span>
@@ -1792,14 +1807,14 @@
         </a>
       </li>
       <li class="row" data-name="Tammy Ortegon" data-first="Tammy" data-last="Ortegon"
-          data-city="Minneapolis, MN" data-venues="Roberts Gallery|ColorWheel Gallery" data-song="Raspberry Beret">
+          data-city="Minneapolis, MN" data-venues="Roberts Gallery" data-song="Raspberry Beret">
         <a href="participants/tammy-ortegon.html">
           <img class="row-thumb" src="portraits-web/tammy-ortegon-portrait.jpeg" alt="" loading="lazy">
           <span class="row-name">Tammy Ortegon</span>
           <span class="row-title">Raspberry Beret</span>
           <span class="row-song"><span class="nt">♪</span> Raspberry Beret</span>
           <span class="row-city">Minneapolis, MN</span>
-          <span class="row-venue">Roberts Gallery &amp; ColorWheel Gallery</span>
+          <span class="row-venue">Roberts Gallery</span>
         </a>
       </li>
       <li class="row" data-name="Sheri Paci" data-first="Sheri" data-last="Paci"
