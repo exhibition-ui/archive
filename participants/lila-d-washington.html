@@ -119,7 +119,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 .bio a{color:var(--mid);}
 
 /* SECONDARY NOTE — bio_2 outside the two-person template (credit/context note) */
-.secondary-note{font-size:0.85rem;color:var(--muted);font-style:italic;line-height:1.75;margin-bottom:1.75rem;max-width:64ch;}
+.secondary-note{font-size:0.95rem;color:var(--muted);font-style:italic;line-height:1.8;margin-bottom:1.75rem;max-width:38rem;}
 .secondary-note a{color:var(--mid);}
 
 /* ARTWORK BLOCKS — single (Troy style, title below, story text) */
@@ -202,6 +202,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 footer{max-width:800px;margin:2.25rem auto 0;padding:1.25rem 0 0;border-top:1px solid rgba(196,160,224,0.2);text-align:center;font-size:0.78rem;color:var(--lilac);line-height:1.8;}
 footer a{color:var(--lilac);text-decoration:none;}
 footer a:hover{color:var(--gold);}
+footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4em;opacity:0.85;}
+footer .footer-name{letter-spacing:0.02em;}
 
 /* MOBILE */
 @media(max-width:560px){
@@ -217,11 +219,43 @@ footer a:hover{color:var(--gold);}
   .identity-songs-meta{margin-top:1rem;padding-top:0;}
   .hero-wrap{margin-top:48px;}
   .tour-band{padding:2rem 1rem 1.5rem;}
-  .tour-nav{gap:1rem;}
+  /* Mobile tour band (Sept 22 2026) — the old rule here only shrank sizes,
+     which is why "Previous"/"Next" plus names cramped into two columns read
+     as crossed. Fix: one row, 3 grid columns (prev thumb | shared name
+     column | next thumb), each .tour-link exploded with display:contents so
+     its thumb and text become independent grid children instead of a single
+     flex item — .tour-link.next's flex-direction:row-reverse (desktop only,
+     unaffected here) no longer has to be fought. Previous/next name lines
+     share the middle column, prev top-left with its arrow, next bottom-right
+     with its arrow; the "Previous"/"Next" words are dropped, arrow glyphs
+     stay. See tour_link_html() for the glyph/label markup split. */
+  .tour-nav{
+    display:grid;
+    grid-template-columns:72px 1fr 72px;
+    grid-template-rows:auto auto;
+    align-items:center;
+    column-gap:0.75rem;
+    row-gap:0.3rem;
+  }
+  .tour-link{display:contents;}
+  .tour-link.prev .tour-thumb,.tour-link.prev .tour-thumb-placeholder{grid-column:1;grid-row:1/3;}
+  .tour-link.next .tour-thumb,.tour-link.next .tour-thumb-placeholder{grid-column:3;grid-row:1/3;}
+  .tour-link.prev .tour-text{grid-column:2;grid-row:1;justify-content:flex-start;}
+  .tour-link.next .tour-text{grid-column:2;grid-row:2;justify-content:flex-end;}
   .tour-thumb,.tour-thumb-placeholder{width:72px;height:72px;}
   .tour-thumb-text{padding:5px 6px 6px;}
   .tour-thumb-text .tt-line,.tour-thumb-text .tt-song{font-size:0.58rem;-webkit-line-clamp:3;}
-  .tour-name{font-size:0.98rem;}
+  /* nowrap, not wrap: at 320px a wrapped flex item was putting the arrow
+     glyph alone on its own line above the name (the exact crossed-reading
+     problem this fix exists to remove). min-width:0 + ellipsis on the name
+     lets it truncate instead of breaking the arrow away from it — real
+     names fit; only a name near the column's full width would ever clip. */
+  .tour-text{display:flex;align-items:baseline;flex-wrap:nowrap;gap:0.3em;min-width:0;}
+  .tour-arrow{display:inline;margin-bottom:0;order:1;flex-shrink:0;}
+  .tour-name{font-size:0.92rem;display:inline;order:2;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .tour-link.next .tour-arrow{order:2;}
+  .tour-link.next .tour-name{order:1;}
+  .tour-arrow-label{display:none;}
   .tour-city{display:none;}
 }
 </style>
@@ -233,7 +267,7 @@ footer a:hover{color:var(--gold);}
   <div class="nav-eye"><a href="../participants.html"><img src="../assets/pmp-eye.jpg" alt="The People&#x27;s Museum for Prince" onerror="this.style.display='none'"></a></div>
   <div class="nav-participant">Lila D. Washington</div>
   <div class="nav-links">
-    <a href="../participants.html">All participants</a>
+    <a href="../participants.html">Mosaic</a>
     <span class="nav-sep">/</span>
     <a href="../credits.html">Credits</a>
     <span class="nav-sep">/</span>
@@ -257,9 +291,9 @@ footer a:hover{color:var(--gold);}
 </div>
 <div class="gold-rule"></div>
 <div class="story"><p>The story: I was 16, he was 15. We are in a photo booth at Astroworld in Houston, Texas. Before it was associated with Travis Scott, it was a part of the Six Flags family of amusement parks. We hung out there EVERY weekend during the summers. Our parents would drop us off in the morning and pick us up at night. No supervision. And we were absolutely safe. I have been knowing him since the 2nd grade. We were BFFs who became more in middle school because we were the popular kids. He was a football player and I was a cheerleader. This followed us throughout high school and beyond. HOWEVER, when people see me in my hometown, the first two questions are invariably, 'How are you? How is Sterling?' I am almost 60! (Incidentally 2026 is our 40th high school reunion year, so I gotta get my mind right if I plan on attending). I must smile at these questions now because he has been dead for almost 6 years now. And had the nerve to die before my Mama transitioned on Thanksgiving 2024. The past decade has been rough! Anyway, he and I loved Prince, and we had always talked about making the pilgrimage to Chanhassen together. But, again, we were in other relationships, so it never happened. We only chatted 2 times a year. On 2/17 and on 6/5. To honor our special friendship, I sent this photo to Moises Suriel to be included in some of his artwork. That way, Sterling and I could always be together with our favorite artist, Prince Rogers Nelson.</p></div>
-
 <div class="gold-rule"></div>
 <div class="bio"><p>Prince's music is imprinted on my soul. I have been listening to songs from One Nite Alone...Live! Sterling Eugene Boyd (June 5, 1968 - June 23, 2020) was my first best friend in life. He and I bonded over music, and Prince was one of our favorite artists to listen to.</p></div>
+
 
 <div class="museum-section"><h2 class="museum-heading">At the Museum — Roberts Gallery</h2><div class="install-stack"><img class="install-full" src="../install-web/coco-cubbage-kt-01.jpg" alt="Installation view — Lila D. Washington, Lila and Sterling 4EVER" loading="lazy"></div></div>
 
@@ -271,13 +305,14 @@ footer a:hover{color:var(--gold);}
 <div class="tour-band">
   <div class="tour-inner">
     <div class="gold-rule"></div>
-    <div class="tour-label">Continue the tour</div><div class="tour-nav"><a class="tour-link prev" href="christopher-scott.html" rel="prev"><img class="tour-thumb" src="../artworks-web/christopher-scott-artwork.png" alt="Christopher Scott" loading="lazy"><span class="tour-text"><span class="tour-arrow">&larr; Previous</span><span class="tour-name">Christopher Scott</span><span class="tour-city">Carver, MN</span></span></a><a class="tour-link next" href="jamey-boelhower.html" rel="next"><div class="tour-thumb tour-thumb-text" aria-hidden="true"><span class="tt-line">April 21, 2016</span></div><span class="tour-text"><span class="tour-arrow">Next &rarr;</span><span class="tour-name">Jamey Boelhower</span><span class="tour-city">Hastings, MN</span></span></a></div>
-    <div class="tour-all"><a href="../participants.html">&larr; Back to all participants</a></div>
+    <div class="tour-label">Continue the tour</div><div class="tour-nav"><a class="tour-link prev" href="christopher-scott.html" rel="prev"><img class="tour-thumb" src="../artworks-web/christopher-scott-artwork.png" alt="Christopher Scott" loading="lazy"><span class="tour-text"><span class="tour-arrow"><span class="tour-arrow-glyph">&larr;</span><span class="tour-arrow-label"> Previous</span></span><span class="tour-name">Christopher Scott</span><span class="tour-city">Carver, MN</span></span></a><a class="tour-link next" href="jamey-boelhower.html" rel="next"><div class="tour-thumb tour-thumb-text" aria-hidden="true"><span class="tt-line">April 21, 2016</span></div><span class="tour-text"><span class="tour-arrow"><span class="tour-arrow-label">Next </span><span class="tour-arrow-glyph">&rarr;</span></span><span class="tour-name">Jamey Boelhower</span><span class="tour-city">Hastings, MN</span></span></a></div>
+    <div class="tour-all"><a href="../participants.html">&larr; Back to Mosaic</a></div>
     
   </div>
   <footer>
-  <p>The People's Museum for Prince &mdash; 2026</p>
-  <p><a href="https://peoplesmuseumforprince.org">peoplesmuseumforprince.org</a> &middot; <a href="../participants.html">Archive</a></p>
+  <p class="footer-name"><img src="../assets/pmp-eye.jpg" alt="" class="footer-eye" onerror="this.style.display='none'">The People's Museum for Prince</p>
+  <p>Living Archive &middot; <a href="https://peoplesmuseumforprince.org">peoplesmuseumforprince.org</a></p>
+  <p>&copy; 2026</p>
 </footer>
 </div>
 </body>

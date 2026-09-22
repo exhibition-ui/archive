@@ -119,7 +119,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 .bio a{color:var(--mid);}
 
 /* SECONDARY NOTE — bio_2 outside the two-person template (credit/context note) */
-.secondary-note{font-size:0.85rem;color:var(--muted);font-style:italic;line-height:1.75;margin-bottom:1.75rem;max-width:64ch;}
+.secondary-note{font-size:0.95rem;color:var(--muted);font-style:italic;line-height:1.8;margin-bottom:1.75rem;max-width:38rem;}
 .secondary-note a{color:var(--mid);}
 
 /* ARTWORK BLOCKS — single (Troy style, title below, story text) */
@@ -202,6 +202,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 footer{max-width:800px;margin:2.25rem auto 0;padding:1.25rem 0 0;border-top:1px solid rgba(196,160,224,0.2);text-align:center;font-size:0.78rem;color:var(--lilac);line-height:1.8;}
 footer a{color:var(--lilac);text-decoration:none;}
 footer a:hover{color:var(--gold);}
+footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4em;opacity:0.85;}
+footer .footer-name{letter-spacing:0.02em;}
 
 /* MOBILE */
 @media(max-width:560px){
@@ -217,11 +219,43 @@ footer a:hover{color:var(--gold);}
   .identity-songs-meta{margin-top:1rem;padding-top:0;}
   .hero-wrap{margin-top:48px;}
   .tour-band{padding:2rem 1rem 1.5rem;}
-  .tour-nav{gap:1rem;}
+  /* Mobile tour band (Sept 22 2026) — the old rule here only shrank sizes,
+     which is why "Previous"/"Next" plus names cramped into two columns read
+     as crossed. Fix: one row, 3 grid columns (prev thumb | shared name
+     column | next thumb), each .tour-link exploded with display:contents so
+     its thumb and text become independent grid children instead of a single
+     flex item — .tour-link.next's flex-direction:row-reverse (desktop only,
+     unaffected here) no longer has to be fought. Previous/next name lines
+     share the middle column, prev top-left with its arrow, next bottom-right
+     with its arrow; the "Previous"/"Next" words are dropped, arrow glyphs
+     stay. See tour_link_html() for the glyph/label markup split. */
+  .tour-nav{
+    display:grid;
+    grid-template-columns:72px 1fr 72px;
+    grid-template-rows:auto auto;
+    align-items:center;
+    column-gap:0.75rem;
+    row-gap:0.3rem;
+  }
+  .tour-link{display:contents;}
+  .tour-link.prev .tour-thumb,.tour-link.prev .tour-thumb-placeholder{grid-column:1;grid-row:1/3;}
+  .tour-link.next .tour-thumb,.tour-link.next .tour-thumb-placeholder{grid-column:3;grid-row:1/3;}
+  .tour-link.prev .tour-text{grid-column:2;grid-row:1;justify-content:flex-start;}
+  .tour-link.next .tour-text{grid-column:2;grid-row:2;justify-content:flex-end;}
   .tour-thumb,.tour-thumb-placeholder{width:72px;height:72px;}
   .tour-thumb-text{padding:5px 6px 6px;}
   .tour-thumb-text .tt-line,.tour-thumb-text .tt-song{font-size:0.58rem;-webkit-line-clamp:3;}
-  .tour-name{font-size:0.98rem;}
+  /* nowrap, not wrap: at 320px a wrapped flex item was putting the arrow
+     glyph alone on its own line above the name (the exact crossed-reading
+     problem this fix exists to remove). min-width:0 + ellipsis on the name
+     lets it truncate instead of breaking the arrow away from it — real
+     names fit; only a name near the column's full width would ever clip. */
+  .tour-text{display:flex;align-items:baseline;flex-wrap:nowrap;gap:0.3em;min-width:0;}
+  .tour-arrow{display:inline;margin-bottom:0;order:1;flex-shrink:0;}
+  .tour-name{font-size:0.92rem;display:inline;order:2;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .tour-link.next .tour-arrow{order:2;}
+  .tour-link.next .tour-name{order:1;}
+  .tour-arrow-label{display:none;}
   .tour-city{display:none;}
 }
 </style>
@@ -233,7 +267,7 @@ footer a:hover{color:var(--gold);}
   <div class="nav-eye"><a href="../participants.html"><img src="../assets/pmp-eye.jpg" alt="The People&#x27;s Museum for Prince" onerror="this.style.display='none'"></a></div>
   <div class="nav-participant">Kaitlin Frick</div>
   <div class="nav-links">
-    <a href="../participants.html">All participants</a>
+    <a href="../participants.html">Mosaic</a>
     <span class="nav-sep">/</span>
     <a href="../credits.html">Credits</a>
     <span class="nav-sep">/</span>
@@ -257,9 +291,9 @@ footer a:hover{color:var(--gold);}
 </div>
 <div class="gold-rule"></div>
 <div class="story"><p>On a snowy Saturday back in 2013, my partner Clara and I ran some errands. It was the tail end of a volatile year. For six months I had been in an existential crisis of sorts and wanted nothing more than to move away from Minnesota. When Clara suggested we could hit up the southwest suburbs for our provisions, I lit up. Could we take Highway 5? And stop by Paisley Park?! A few months earlier, we had visited the purple palace for the first time, as our Prince was beginning to re-engage with fans in the space. We waited for hours in the rain, making beautiful, new friends before finding ourselves 20 feet from our hero's soundstage. In what was one of the most surreal nights of my life (certainly the funkiest), Prince made music that was bigger than any anguish or anxiety I'd been feeling; at Paisley Park, my preoccupations didn't stand a chance. My heart grew purple with pride. That's what I was thinking about as we pulled off in front of Paisley Park. I climbed a small snowbank, creeping real close to the fence. What I saw took my breath away. I loved the gracefulness of the fence lines and the stillness of the fresh snow blanketing the ground. I snapped a photo and ran back to the car. I posted it to my Instagram, captioning it Purple Snow. A year later I returned to the image in the studio. I settled in with a couple copper plates and began to work it into an intaglio print. As I etched, scraped and burnished, I sought refuge in the image, not as a place of escape as much as a source of pride. Paisley Park was a manifestation of Prince's love for this state, and that touched me deeply. April 21, 2016 was the heaviest of days. I left work early and walked home, weeping in the rain. The entire city was struck with grief. The fence at Paisley Park grew thick with flowers, photos, balloons, and poetry. I hadn't finished my print yet, but I knew its meaning had shifted in an instant, from presence to absence. The title Grace is Close to Home is a lyric from a favorite song of mine by the electronic duo Mount Kimbie. Paisley Park had been a foothold for me during a dark time, and instilled in me a sense of pride that will never be displaced.</p></div>
-
 <div class="gold-rule"></div>
 <div class="bio"><p><strong>Kaitlin Frick</strong> is a music fan and nonprofit worker currently based in Seattle.</p></div>
+
 <div class="artwork-block"><img class="artwork-img" src="../artworks-web/kaitlin-frick-artwork.jpg" alt="Kaitlin Frick — Paisley Park in Winter (Grace is Close to Home)" loading="lazy"><div class="artwork-medium-line">Etching · 2016</div></div>
 <div class="museum-section"><h2 class="museum-heading">At the Museum — Roberts Gallery</h2><div class="install-stack"><img class="install-full" src="../install-web/kaitlin-frick-jb-02.jpg" alt="Installation view — Kaitlin Frick, Paisley Park in Winter (Grace is Close to Home)" loading="lazy">
 <img class="install-full" src="../install-web/kaitlin-frick-kt-03.jpg" alt="Installation view — Kaitlin Frick, Paisley Park in Winter (Grace is Close to Home)" loading="lazy"></div><img class="event-img-full" src="../events-web/kaitlin-frick-jb-01.jpg" alt="Event photo — Kaitlin Frick at The People&#x27;s Museum for Prince" loading="lazy">
@@ -273,13 +307,14 @@ footer a:hover{color:var(--gold);}
 <div class="tour-band">
   <div class="tour-inner">
     <div class="gold-rule"></div>
-    <div class="tour-label">Continue the tour</div><div class="tour-nav"><a class="tour-link prev" href="anita-white.html" rel="prev"><img class="tour-thumb" src="../artworks-web/anita-white-artwork-1.jpg" alt="Anita White" loading="lazy"><span class="tour-text"><span class="tour-arrow">&larr; Previous</span><span class="tour-name">Anita White</span><span class="tour-city">Minneapolis, MN</span></span></a><a class="tour-link next" href="lisa-nilles.html" rel="next"><img class="tour-thumb" src="../artworks-web/lisa-niles-artwork.jpeg" alt="Lisa Nilles" loading="lazy"><span class="tour-text"><span class="tour-arrow">Next &rarr;</span><span class="tour-name">Lisa Nilles</span><span class="tour-city">Minneapolis, MN</span></span></a></div>
-    <div class="tour-all"><a href="../participants.html">&larr; Back to all participants</a></div>
+    <div class="tour-label">Continue the tour</div><div class="tour-nav"><a class="tour-link prev" href="anita-white.html" rel="prev"><img class="tour-thumb" src="../artworks-web/anita-white-artwork-1.jpg" alt="Anita White" loading="lazy"><span class="tour-text"><span class="tour-arrow"><span class="tour-arrow-glyph">&larr;</span><span class="tour-arrow-label"> Previous</span></span><span class="tour-name">Anita White</span><span class="tour-city">Minneapolis, MN</span></span></a><a class="tour-link next" href="lisa-nilles.html" rel="next"><img class="tour-thumb" src="../artworks-web/lisa-niles-artwork.jpeg" alt="Lisa Nilles" loading="lazy"><span class="tour-text"><span class="tour-arrow"><span class="tour-arrow-label">Next </span><span class="tour-arrow-glyph">&rarr;</span></span><span class="tour-name">Lisa Nilles</span><span class="tour-city">Minneapolis, MN</span></span></a></div>
+    <div class="tour-all"><a href="../participants.html">&larr; Back to Mosaic</a></div>
     
   </div>
   <footer>
-  <p>The People's Museum for Prince &mdash; 2026</p>
-  <p><a href="https://peoplesmuseumforprince.org">peoplesmuseumforprince.org</a> &middot; <a href="../participants.html">Archive</a></p>
+  <p class="footer-name"><img src="../assets/pmp-eye.jpg" alt="" class="footer-eye" onerror="this.style.display='none'">The People's Museum for Prince</p>
+  <p>Living Archive &middot; <a href="https://peoplesmuseumforprince.org">peoplesmuseumforprince.org</a></p>
+  <p>&copy; 2026</p>
 </footer>
 </div>
 </body>
