@@ -226,7 +226,7 @@
   "card_alt_position": "",
   "card_text": "",
   "favourite_prince_song": [
-   "[too many to choose- see below!]"
+   "Beautiful, Loved and Blessed"
   ],
   "second_card": null,
   "card_video": "artworks-web/christopher-hall-artwork-2.mp4",
@@ -919,7 +919,7 @@
   "walk_order_2": [],
   "season": "",
   "noindex": false,
-  "card_image": "artworks-web/erica-chronowski-artwork.jpeg",
+  "card_image": "artworks-web/erica-chronowski-artwork-01.jpeg",
   "card_alt": "portraits-web/erica-chronowski-portrait.jpeg",
   "card_position": "",
   "card_alt_position": "",
@@ -1111,7 +1111,7 @@
   "url": "participants/hanna-ogren.html",
   "first_name": "Hanna",
   "last_name": "Ogren",
-  "city": "Umea",
+  "city": "Umeå",
   "state_or_country": "Sweden",
   "title": "Take Me to Paisley",
   "venues": [
@@ -1210,7 +1210,7 @@
   "last_name": "Harrell",
   "city": "Cloquet",
   "state_or_country": "MN",
-  "title": "Skipper<br>Baller<br>Untitled<br>Wise Is The One That Sees The World With Their Third Eye",
+  "title": "Skipper / Baller / Untitled / Wise Is The One That Sees The World With Their Third Eye",
   "venues": [
    "Roberts Gallery"
   ],
@@ -1279,7 +1279,7 @@
   "noindex": false,
   "card_image": "artworks-web/kish-daniels-artwork-2.jpeg",
   "card_alt": "portraits-web/kish-daniels-portrait.jpeg",
-  "card_position": "",
+  "card_position": "64% center",
   "card_alt_position": "",
   "card_text": "",
   "favourite_prince_song": [
@@ -1333,7 +1333,7 @@
   "last_name": "Thomlinson",
   "city": "Springfield",
   "state_or_country": "MO",
-  "title": "3 songs for Prince",
+  "title": "Goodnight, Sweet Prince / Same Lifetime / Pretty Much Purple",
   "venues": [
    "Roberts Gallery"
   ],
@@ -1542,7 +1542,7 @@
   "walk_order_2": [],
   "season": "",
   "noindex": false,
-  "card_image": "artworks-web/stephanie-carlson-artwork-kt-02.jpeg",
+  "card_image": "artworks-web/stephanie-carlson-artwork-kt-mosaic.jpeg",
   "card_alt": "portraits-web/stephanie-carlson-portrait.jpeg",
   "card_position": "",
   "card_alt_position": "",
@@ -1632,7 +1632,7 @@
   "last_name": "Johnson",
   "city": "Rochester",
   "state_or_country": "MN",
-  "title": "In the Beginning<br>Afro",
+  "title": "In the Beginning / Afro",
   "venues": [
    "Roberts Gallery"
   ],
@@ -1812,7 +1812,7 @@
   "last_name": "de Beer",
   "city": "Apeldoorn",
   "state_or_country": "The Netherlands",
-  "title": "This photo is me on my birthday at Paisley Park.",
+  "title": "Reflection",
   "venues": [
    "Roberts Gallery"
   ],
@@ -2014,7 +2014,7 @@
   "last_name": "Lahaye",
   "city": "Villeneuve-Loubet",
   "state_or_country": "France",
-  "title": "I could share many stories.",
+  "title": "Story",
   "venues": [
    "Roberts Gallery"
   ],
@@ -2043,8 +2043,8 @@
   "first_name": "Renée",
   "last_name": "Westbrook",
   "city": "Los Angeles",
-  "state_or_country": "California",
-  "title": "STANDING WITH PRINCE",
+  "state_or_country": "CA",
+  "title": "Standing with Prince",
   "venues": [
    "Roberts Gallery"
   ],
@@ -2071,7 +2071,7 @@
   "last_name": "Connor",
   "city": "Minneapolis",
   "state_or_country": "MN",
-  "title": "Prince has inspired my dancing and fashion choices immensely.",
+  "title": "Reflection",
   "venues": [
    "Roberts Gallery"
   ],
