@@ -12,13 +12,13 @@
 <meta property="og:title" content="Suzanne Wint — The People&#x27;s Museum for Prince">
 <meta property="og:description" content="An homage to Prince&#x27;s 1986 film Under the Cherry Moon and the Parade album, this quilt was made with a specific person in mind: someone Suzanne Wint first…">
 <meta property="og:url" content="https://archive.peoplesmuseumforprince.org/participants/suzanne-wint.html">
-<meta property="og:image" content="https://archive.peoplesmuseumforprince.org/install-web/suzanne-wint-dp-01.jpeg">
+<meta property="og:image" content="https://archive.peoplesmuseumforprince.org/install-web/suzanne-wint-dp-02.jpeg">
 <meta property="og:image:alt" content="Suzanne Wint">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Suzanne Wint — The People&#x27;s Museum for Prince">
 <meta name="twitter:description" content="An homage to Prince&#x27;s 1986 film Under the Cherry Moon and the Parade album, this quilt was made with a specific person in mind: someone Suzanne Wint first…">
-<meta name="twitter:image" content="https://archive.peoplesmuseumforprince.org/install-web/suzanne-wint-dp-01.jpeg">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Suzanne Wint", "url": "https://archive.peoplesmuseumforprince.org/participants/suzanne-wint.html", "image": "https://archive.peoplesmuseumforprince.org/install-web/suzanne-wint-dp-01.jpeg", "description": "An homage to Prince's 1986 film Under the Cherry Moon and the Parade album, this quilt was made with a specific person in mind: someone Suzanne Wint first…", "givenName": "Suzanne", "familyName": "Wint", "memberOf": {"@type": "Organization", "name": "The People's Museum for Prince", "url": "https://peoplesmuseumforprince.org"}}</script>
+<meta name="twitter:image" content="https://archive.peoplesmuseumforprince.org/install-web/suzanne-wint-dp-02.jpeg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Suzanne Wint", "url": "https://archive.peoplesmuseumforprince.org/participants/suzanne-wint.html", "image": "https://archive.peoplesmuseumforprince.org/install-web/suzanne-wint-dp-02.jpeg", "description": "An homage to Prince's 1986 film Under the Cherry Moon and the Parade album, this quilt was made with a specific person in mind: someone Suzanne Wint first…", "givenName": "Suzanne", "familyName": "Wint", "memberOf": {"@type": "Organization", "name": "The People's Museum for Prince", "url": "https://peoplesmuseumforprince.org"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -47,7 +47,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 
 /* HERO */
 .hero-wrap{margin-top:52px;width:100%;aspect-ratio:16/9;max-height:75vh;overflow:hidden;background:var(--tint);}
-.hero-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+.hero-wrap img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;}
 .hero-wrap.hero-contain{background:var(--deep);}
 .hero-wrap.hero-contain img{object-fit:contain;object-position:center;}
 .hero-credit{font-size:0.75rem;color:var(--muted);padding:0.4rem 1.5rem;text-align:right;}
@@ -56,22 +56,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 .page{max-width:800px;margin:0 auto;padding:2.5rem 1.5rem 5rem;}
 
 /* IDENTITY — single portrait */
-.identity{display:flex;gap:1.75rem;align-items:stretch;padding:2rem 0 1.75rem;margin-bottom:2rem;}
+/* Phase B tweak 2: the text block is vertically centered against the portrait(s),
+   with one spacing scale: 0.3rem inside a pair, 0.9rem between groups. */
+.identity{display:flex;gap:1.75rem;align-items:center;padding:2rem 0 1.75rem;margin-bottom:2rem;}
 .portrait-col{flex-shrink:0;width:220px;display:flex;flex-direction:column;}
 .portrait-thumb{width:220px;height:220px;border-radius:2px;object-fit:cover;object-position:center top;display:block;}
 .portrait-placeholder{width:220px;height:220px;background:var(--tint);border-radius:2px;}
 .portrait-songs{padding-top:0.7rem;width:220px;}
-.song-line{font-size:0.82rem;color:var(--soft);font-weight:300;line-height:1.7;}
-.song-note{color:var(--gold);}
+.song-line{font-size:0.82rem;color:var(--soft);font-weight:400;line-height:1.6;}   /* dark purple again (Sept 23, Emma) */
+.song-note{color:var(--gold);margin-right:0.4em;}
 
 /* IDENTITY — dual portrait (portrait_2 present) */
-/* Layout: portrait_1 | meta | portrait_2 — meta centred */
-.identity-dual{display:flex;gap:1.5rem;align-items:flex-start;padding:2rem 0 1.75rem;margin-bottom:2rem;}
+/* Layout: portrait_1 | meta | portrait_2 — meta centered */
+.identity-dual{display:flex;gap:1.5rem;align-items:center;padding:2rem 0 1.75rem;margin-bottom:2rem;}
 .portrait-dual{flex-shrink:0;width:200px;}
 .portrait-dual img{width:200px;height:200px;border-radius:2px;object-fit:cover;object-position:center top;display:block;}
 .portrait-dual-placeholder{width:200px;height:200px;background:var(--tint);border-radius:2px;}
-.identity-dual-meta{flex:0 1 auto;min-width:0;text-align:left;}
-.identity-dual-songs{padding-top:0.7rem;margin-top:0.5rem;}
+.identity-dual-meta{flex:1 1 auto;min-width:0;text-align:left;}
+.identity-dual-songs{margin-top:0.9rem;display:flex;flex-direction:column;gap:0.1rem;}
 
 /* IDENTITY — two-person (KZ/EC) */
 .identity-two-person{padding:2rem 0 1.75rem;margin-bottom:2rem;}
@@ -83,18 +85,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 
 /* Shared meta text */
 .identity-name{font-family:var(--serif);font-size:2.1rem;color:var(--deep);line-height:1.15;font-weight:400;margin-bottom:0.3rem;}
-.identity-city{font-size:0.88rem;color:var(--muted);margin-bottom:1rem;font-weight:300;}
-.identity-artwork{margin-bottom:0.5rem;}
-.identity-artwork+.identity-artwork{margin-top:0.5rem;}
+.identity-city{font-size:0.88rem;color:var(--muted);margin-bottom:0.9rem;font-weight:300;}
+.identity-artwork{margin:0;}
+.identity-artwork+.identity-artwork{margin-top:0.6rem;}
 .identity-artwork-title{font-family:var(--serif);font-size:1.0rem;color:var(--deep);font-weight:400;line-height:1.3;}
-.identity-artwork-medium{font-size:0.75rem;color:var(--muted);font-style:italic;margin-top:1px;}
+.identity-artwork-medium{font-size:0.75rem;color:var(--muted);font-style:italic;margin-top:0.15rem;}
+.identity-collection{font-family:var(--serif);font-size:1.12rem;color:var(--deep);font-weight:400;line-height:1.3;margin-bottom:0.45rem;}
+.identity-artwork-title+.identity-artwork-title{margin-top:0.1rem;}
+.identity-artwork-year{font-family:var(--sans);font-size:0.75rem;color:var(--muted);font-style:italic;margin-left:0.35em;}
 .identity-subtitle{font-size:0.85rem;color:var(--soft);font-style:italic;font-weight:300;margin-top:0.2rem;margin-bottom:0.3rem;}
 /* Songs at meta bottom (1-artwork case) */
-.identity-songs-meta{margin-top:auto;padding-top:0.85rem;display:flex;flex-wrap:wrap;gap:0.3rem 1.25rem;}
+.identity-songs-meta{margin-top:0.9rem;display:flex;flex-direction:column;gap:0.1rem;}
 
 /* META COLUMN — standard */
 .identity-text{flex:1;min-width:0;display:flex;flex-direction:column;}
-.identity-top{flex:1;}
+.identity-top{flex:none;}
 
 /* GOLD RULE */
 .gold-rule{height:2px;background:var(--gold);width:40px;margin:0 0 1.5rem;}
@@ -109,6 +114,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 .poem-block{margin-bottom:2rem;}
 .poem-title{font-family:var(--serif);font-size:1.15rem;color:var(--deep);font-weight:400;margin-bottom:1rem;}
 .poem{font-family:var(--serif);font-style:italic;font-size:1.05rem;line-height:2.1;color:var(--ink);max-width:54ch;}
+/* one block per poem line; a line that wraps hangs under itself (Sept 23 2026) */
+.poem .pl{display:block;padding-left:1.4em;text-indent:-1.4em;}
+.poem .pl-gap{height:1.05em;}
 .poem-after-note{font-family:var(--serif);font-size:0.82rem;color:var(--muted);font-style:normal;display:block;margin-bottom:0.75rem;}
 .poem-divider{height:1px;background:var(--border);margin:2rem 0;}
 
@@ -124,7 +132,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 
 /* ARTWORK BLOCKS — single (Troy style, title below, story text) */
 .artwork-block{margin-bottom:2.75rem;}
-.artwork-img{width:100%;display:block;margin-bottom:0.85rem;background:var(--tint);}
+/* ARTWORK FIGURES (Sept 23 2026, follow-up §2c). The figure is the image's own
+   width: full column for landscape, and for a portrait-shaped work the capped
+   width set inline — min(100%, 88vh × w/h, native) — centered on the axis, so
+   its caption starts at the image's edge and wraps at its width. */
+.art-fig{margin:0 auto 1.75rem;}
+.art-fig .artwork-img{width:100%;height:auto;display:block;background:var(--tint);}
+.art-cap{padding-top:0.7rem;}
+.art-cap .artwork-credit-line{margin-bottom:0;}
+.art-cap .artwork-medium-line{margin-bottom:0;}
+.artwork-block .art-fig{margin-bottom:0.9rem;}
+.artwork-text{margin-bottom:0.55rem;}
+/* §11: the work comes first — the artwork section sits straight under the identity block */
+.art-lead{margin:0 0 2.25rem;}
+.art-lead>.img-solo:first-child{margin-top:0;}
+.artwork-overview{margin-bottom:2.25rem;}
 .artwork-title{font-family:var(--serif);font-size:1.15rem;color:var(--deep);margin-bottom:0.2rem;font-weight:400;}
 .artwork-medium-line{font-size:0.78rem;color:var(--muted);font-style:italic;margin-bottom:0.55rem;}
 .artwork-story{font-size:0.95rem;line-height:1.8;color:var(--ink);max-width:64ch;font-weight:300;}
@@ -139,13 +161,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 .museum-section{margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border);}
 .museum-heading{font-family:var(--serif);font-size:1.2rem;color:var(--deep);font-weight:400;margin-bottom:1.25rem;}
 
-/* INSTALL IMAGES — natural proportions */
-.install-full{width:100%;display:block;background:var(--tint);}
-.install-stack .install-full+.install-full{margin-top:0.5rem;}
-
-/* EVENT IMAGES — full-width, uncropped, stacked (Sept 16 2026: dropped the
-   landscape-pair crop grid — see event_images_html() for why) */
-.event-img-full{width:100%;display:block;margin-top:4px;background:var(--tint);}
+/* NO-CROP IMAGE ROWS (Phase B §12/§13) — install + event images. Each figure's
+   flex-grow is its aspect ratio, so a row shares one height and nothing is
+   cropped. A lone portrait image is height-capped and centered. */
+.page{--row-gap:6px;}
+.img-row{display:flex;gap:var(--row-gap);margin-top:var(--row-gap);}
+.img-fig{margin:0;min-width:0;max-width:100%;background:var(--tint);}
+.img-fig img{width:100%;height:100%;display:block;object-fit:cover;}
+.img-solo{margin:var(--row-gap) 0 0;}
+.img-solo img{width:100%;height:auto;display:block;background:var(--tint);}
+.img-solo-portrait img{width:auto;max-width:100%;max-height:var(--pcap,600px);margin:0 auto;}
+.lay-m{display:none;}
+.install-rows{margin-bottom:1.5rem;}
+/* Wide install rows break out of the column SYMMETRICALLY — equal overflow
+   left and right of the page's center axis (tweak 1). */
+.install-rows.install-wide{--wide:min(1100px, calc(100vw - 48px));width:var(--wide);margin-left:calc((100% - var(--wide)) / 2);}
+.event-rows{margin-top:1.75rem;}
+.in-response .event-rows{margin-top:1.25rem;}
 
 /* IN RESPONSE */
 .in-response{margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border);}
@@ -155,16 +187,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 
 /* CREDITS BLOCK */
 .credits-block{margin-top:2.5rem;padding-top:1.25rem;border-top:1px solid var(--border);}
-.credits-label{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--lilac);margin-bottom:0.5rem;}
+.credits-label{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);margin-bottom:0.5rem;}   /* same color as the labels beneath (Sept 23) */
 .credits-list{list-style:none;}
 .credits-list li{font-size:0.76rem;color:var(--muted);line-height:1.85;font-weight:300;}
 .credits-list li strong{color:var(--ink);font-weight:400;}
 
 /* CLOSING TEXT */
 .closing-text{margin-top:2rem;font-size:0.9rem;color:var(--muted);font-style:italic;max-width:62ch;}
+.closing-text a{color:var(--mid);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:1px;}
+.closing-text a:hover{color:var(--deep);border-color:var(--mid);}
 
 /* CONNECT LINE */
-.connect-line{max-width:800px;margin:2rem auto 0;padding:1.25rem 1.5rem;border-top:1px solid var(--border);font-size:0.88rem;color:var(--muted);}
+/* Phase B: inside the page column, after closing_text and before the credits */
+.connect-line{margin:2rem 0 0;padding:1.25rem 0 0;border-top:1px solid var(--border);font-size:0.88rem;color:var(--muted);}
 .connect-line a{color:var(--mid);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:1px;}
 .connect-line a:hover{color:var(--deep);border-color:var(--mid);}
 
@@ -182,7 +217,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
    them together in the middle. */
 .tour-label{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--lilac);margin-bottom:1.25rem;text-align:center;}
 /* Tour band, Sept 23 2026 (§4): thumbnail-led — image on top, name below —
-   with a gold grid mark centred between the two sides as the way home to the
+   with a gold grid mark centered between the two sides as the way home to the
    mosaic. Thumbs are 4:5, the mosaic's own card shape. */
 .tour-nav{display:flex;justify-content:center;align-items:flex-start;gap:2.25rem;}
 .tour-link{display:flex;flex-direction:column;align-items:flex-start;gap:0.75rem;text-decoration:none;color:#f2eaf9;width:190px;min-width:0;}
@@ -201,10 +236,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 .tn-glyph{display:none;color:var(--gold);font-family:var(--sans);}
 .tour-link:hover .tour-name{color:var(--gold);}
 .tour-city{font-size:0.78rem;color:var(--lilac);display:block;margin-top:0.15rem;}
-.tour-home{flex-shrink:0;display:block;width:36px;height:36px;margin-top:57px;color:var(--gold);opacity:0.85;transition:opacity 0.2s,transform 0.2s;}
-.tour-home svg{width:100%;height:100%;display:block;}
-.tour-home:hover,.tour-home:focus-visible{opacity:1;transform:scale(1.08);outline:none;}
-.tour-home:focus-visible{outline:1px solid var(--gold);outline-offset:4px;}
+/* Tour band center (Phase B §19, option C): masonry glyph in the thumbnail
+   row, then "↑ BACK TO" (gold small caps, like "← PREVIOUS"), "The Mosaic"
+   (serif, like the names), "All participants" (lilac, like the cities). */
+.tour-home{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:0.75rem;text-decoration:none;color:#f2eaf9;text-align:center;min-width:0;}
+.th-glyph{height:150px;display:flex;align-items:center;justify-content:center;color:var(--gold);opacity:0.9;transition:opacity 0.2s,transform 0.2s;}
+.th-glyph svg{width:30px;height:30px;display:block;}
+.th-text{display:block;}
+.th-kicker{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.2rem;white-space:nowrap;}
+.th-title{font-family:var(--serif);font-size:1.12rem;line-height:1.25;color:#fff;display:block;white-space:nowrap;}
+.th-sub{font-size:0.78rem;color:var(--lilac);display:block;margin-top:0.15rem;white-space:nowrap;}
+.tour-home:hover .th-glyph{opacity:1;transform:scale(1.08);}
+.tour-home:hover .th-title{color:var(--gold);}
+.tour-home:focus-visible{outline:1px solid var(--gold);outline-offset:6px;}
 .tour-home-solo{margin:0 auto;}
 .see-also{margin-top:1.75rem;font-size:0.85rem;color:var(--lilac);text-align:center;max-width:100%;overflow-wrap:break-word;line-height:1.9;}
 .see-also a{color:#f2eaf9;text-decoration:none;border-bottom:1px solid rgba(242,234,249,0.3);white-space:nowrap;}
@@ -234,17 +278,50 @@ footer a{color:var(--lilac);text-decoration:none;}
 footer a:hover{color:var(--gold);}
 footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4em;opacity:0.85;}
 
+/* READING COLUMN (Sept 23 2026, follow-up §2a). Text runs in one centered
+   ~620px column; the identity block, headings, gold rules, captions under
+   full-width images and credits all start on its left edge, so the page has
+   one center axis. Images keep the full 800px column (install rows break
+   out wider). On a phone the column is simply the screen. */
+.page{--read:620px;}
+.page .identity,.page .identity-dual,.page .identity-two-person,
+.page .story,.page .bio,.page .secondary-note,.page .poem-block,.page .poem-divider,
+.page .artwork-divider,.page .artwork-story,.page .artwork-text,.page .art-fig:not(.art-tall) .art-cap,
+.page .museum-heading,.page .in-response-heading,.page .in-response-text,
+.page .two-person-bios,.page .closing-text,.page .connect-line,.page .credits-block{
+  max-width:var(--read);margin-left:auto;margin-right:auto;}
+.page .gold-rule{margin-left:max(0px, calc((100% - var(--read)) / 2));}
+/* section rules belong to the column, not the image width */
+.page .museum-section,.page .in-response{border-top:0;padding-top:0;}
+.page .museum-heading,.page .in-response-heading{border-top:1px solid var(--border);padding-top:2rem;}
+/* dual portraits sized to fit the column: 160 | text | 160 */
+.page .identity-dual{gap:1.25rem;}
+.portrait-dual{width:160px;}
+.portrait-dual img,.portrait-dual-placeholder{width:160px;height:160px;}
+.identity-dual .identity-name{font-size:1.9rem;}
+
 /* MOBILE */
-@media (prefers-reduced-motion:reduce){ .lb{transition:none;} .tour-thumb,.tour-home{transition:none;} }
+@media (prefers-reduced-motion:reduce){ .lb{transition:none;} .tour-thumb,.th-glyph{transition:none;} }
 @media(max-width:560px){
   nav{padding:0.6rem 1rem;gap:0.6rem;}
   .nav-links{gap:0.6rem;font-size:0.72rem;}
   .nav-participant{font-size:0.78rem;margin:0 0.4rem;}
   .page{padding:1.5rem 1rem 3.5rem;}
-  .identity,.identity-dual{flex-direction:column;gap:1rem;}
+  .identity{flex-direction:column;align-items:flex-start;gap:1rem;}
   .portrait-thumb,.portrait-placeholder{width:140px;height:140px;}
-  .portrait-dual,.portrait-dual img,.portrait-dual-placeholder{width:140px;}
-  .portrait-dual img{height:140px;}
+  /* Phase B tweak 4: dual portraits side by side as a pair above the name —
+     two equal columns, 8px gap, filling the content width. */
+  .page .identity-dual{display:grid;grid-template-columns:1fr 1fr;column-gap:8px;row-gap:1rem;align-items:start;}
+  .identity-dual .identity-name{font-size:1.65rem;}
+  .identity-dual .portrait-dual{width:auto;grid-row:1;}
+  .identity-dual .portrait-dual:first-child{grid-column:1;}
+  .identity-dual .portrait-dual:last-child{grid-column:2;}
+  .identity-dual .portrait-dual img,.identity-dual .portrait-dual-placeholder{width:100%;height:auto;aspect-ratio:1/1;}
+  .identity-dual-meta{grid-column:1 / -1;grid-row:2;}
+  .page{--row-gap:4px;}
+  .lay-d{display:none;} .lay-m{display:block;}
+  .install-rows.install-wide{width:auto;margin-left:0;}
+  .art-lead{margin-bottom:1.75rem;}
   .identity-name{font-size:1.65rem;}
   .identity-songs-meta{margin-top:1rem;padding-top:0;}
   .hero-wrap{margin-top:48px;}
@@ -263,7 +340,18 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
   .tour-arrow{display:none;}
   .tn-glyph{display:inline;}
   .tour-name{font-size:0.98rem;line-height:1.3;}
-  .tour-home{width:30px;height:30px;margin-top:62px;}
+  /* §19 on phones: the center column lines up with the two sides through a
+     subgrid — glyph centered against the thumbnails, words on the names' row.
+     "All participants" drops, as the cities do. */
+  .tour-nav{grid-template-rows:auto auto;}
+  .tour-link,.tour-home{display:grid;grid-row:1 / span 2;grid-template-rows:subgrid;row-gap:0.55rem;align-content:start;align-items:start;}
+  .tour-link.prev{justify-items:start;} .tour-link.next{justify-items:end;align-items:start;}
+  .tour-home{justify-items:center;}
+  .th-glyph{height:auto;align-self:center;}
+  .th-glyph svg{width:24px;height:24px;}
+  .th-kicker{font-size:0.6rem;letter-spacing:0.1em;margin-bottom:0.15rem;}
+  .th-title{font-size:0.98rem;line-height:1.3;}
+  .th-sub{display:none;}
   .tour-city{display:none;}
   .lb{padding:52px 8px 64px;}
   .lb-prev,.lb-next{top:auto;bottom:6px;transform:none;}
@@ -285,7 +373,7 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
     <a href="https://peoplesmuseumforprince.org">Museum</a>
   </div>
 </nav>
-<div class="hero-wrap"><img src="../install-web/suzanne-wint-dp-01.jpeg" alt="Suzanne Wint at The People&#x27;s Museum for Prince" loading="eager" data-lb data-caption="Photo: Daniel R. Pratt"></div><div class="hero-credit">Photo: Daniel R. Pratt</div>
+<div class="hero-wrap"><img src="../install-web/suzanne-wint-dp-02.jpeg" alt="Suzanne Wint at The People&#x27;s Museum for Prince" loading="eager" style="object-position:center center" data-lb data-caption="Photo: Daniel R. Pratt"></div><div class="hero-credit">Photo: Daniel R. Pratt</div>
 <div class="page">
 <div class="identity">
   <div class="portrait-col">
@@ -297,30 +385,29 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
       <div class="identity-city">St Paul, MN</div>
       <div class="identity-artwork"><div class="identity-artwork-title">Happiness in Its (Un)cut Form</div><div class="identity-artwork-medium">100% cotton prints and batiks, low-loft polyester batting; machine pieced and quilted · 2026</div></div>
     </div>
-    <div class="identity-songs-meta"><div class="song-line"><span class="song-note">♪</span> Girls and Boys <span class="song-note">♪</span></div></div>
+    <div class="identity-songs-meta"><div class="song-line"><span class="song-note" aria-hidden="true">♪</span>Girls and Boys</div></div>
   </div>
 </div>
 <div class="gold-rule"></div>
+<div class="art-lead"><figure class="art-fig"><img class="artwork-img" src="../artworks-web/suzanne-wint-artwork.jpg" width="1200" height="800" alt="Suzanne Wint — Happiness in Its (Un)cut Form" loading="lazy" data-lb data-caption="Happiness in Its (Un)cut Form · 100% cotton prints and batiks, low-loft polyester batting; machine pieced and quilted · 2026"></figure>
+<figure class="art-fig art-tall" style="width:min(100%, calc(88vh * 0.8000), 960px)"><img class="artwork-img" src="../artworks-web/suzanne-wint-artwork-02.jpeg" width="960" height="1200" alt="Suzanne Wint — Happiness in Its (Un)cut Form" loading="lazy" data-lb data-caption="Happiness in Its (Un)cut Form · 100% cotton prints and batiks, low-loft polyester batting; machine pieced and quilted · 2026"></figure></div>
 <div class="story"><p>An homage to Prince's 1986 film Under the Cherry Moon and the Parade album, this quilt was made with a specific person in mind: someone Suzanne Wint first met at a screening of the film in the year after Prince's death, whose dedication to building community around Prince's story is woven into every design choice. The pattern — Slashed Squares, using a slice-and-dice technique — is a structural play on the song Girls and Boys, and the coordinated chaos of the blocks reflects the contradictions of the film itself. Hidden within: a deep purple substitution, fabric printed with purple cabbage (a nod to Christopher's insult to Mary), and glow-in-the-dark elements. The backing fabric bears an uncanny resemblance to the Parade tour drum kit.</p></div>
 <div class="gold-rule"></div>
 <div class="bio"><p><strong>Suzanne Wint</strong> is an independent ethnomusicologist and fiber artist based in Saint Paul, MN, whose series of Prince-themed quilts has developed from her research on public mourning and commemoration.</p></div>
 
-<div><img class="artwork-img" src="../artworks-web/suzanne-wint-artwork.jpg" alt="Suzanne Wint — Happiness in Its (Un)cut Form" loading="lazy" data-lb data-caption="Happiness in Its (Un)cut Form · 100% cotton prints and batiks, low-loft polyester batting; machine pieced and quilted · 2026"><div class="artwork-credit-title">Happiness in Its (Un)cut Form</div><div class="artwork-credit-line">100% cotton prints and batiks, low-loft polyester batting; machine pieced and quilted · 2026</div></div>
-<div><img class="artwork-img" src="../artworks-web/suzanne-wint-artwork-02.jpeg" alt="Suzanne Wint — Happiness in Its (Un)cut Form" loading="lazy" data-lb data-caption="Happiness in Its (Un)cut Form · 100% cotton prints and batiks, low-loft polyester batting; machine pieced and quilted · 2026"><div class="artwork-credit-title">Happiness in Its (Un)cut Form</div><div class="artwork-credit-line">100% cotton prints and batiks, low-loft polyester batting; machine pieced and quilted · 2026</div></div>
-<div class="museum-section"><h2 class="museum-heading">At the Museum — the Capri</h2><div class="install-stack"><img class="install-full" src="../install-web/suzanne-wint-dp-02.jpeg" alt="Installation view — Suzanne Wint, Happiness in Its (Un)cut Form" loading="lazy" data-lb data-caption="Photo: Daniel R. Pratt">
-<img class="install-full" src="../install-web/suzanne-wint-dp-03.jpeg" alt="Installation view — Suzanne Wint, Happiness in Its (Un)cut Form" loading="lazy" data-lb data-caption="Photo: Daniel R. Pratt"></div><img class="event-img-full" src="../events-web/suzanne-wint-jb-01.jpg" alt="Event photo — Suzanne Wint at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Jill Boogren">
-<img class="event-img-full" src="../events-web/suzanne-wint-jb-02.jpg" alt="Event photo — Suzanne Wint at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Jill Boogren">
-<img class="event-img-full" src="../events-web/suzanne-wint-kt-03.jpg" alt="Event photo — Suzanne Wint at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Kirk Thoren"></div>
+<div class="museum-section"><h2 class="museum-heading">At the Museum — the Capri</h2><div class="install-rows install-wide"><div class="lay-d"><div class="img-row"><figure class="img-fig" style="flex:1.7778 1 0;aspect-ratio:2400/1350"><img src="../install-web/suzanne-wint-dp-01.jpeg" width="2400" height="1350" alt="Installation view — Suzanne Wint, Happiness in Its (Un)cut Form" loading="lazy" data-lb data-caption="Photo: Daniel R. Pratt"></figure><figure class="img-fig" style="flex:1.7778 1 0;aspect-ratio:2400/1350"><img src="../install-web/suzanne-wint-dp-03.jpeg" width="2400" height="1350" alt="Installation view — Suzanne Wint, Happiness in Its (Un)cut Form" loading="lazy" data-lb data-caption="Photo: Daniel R. Pratt"></figure></div></div><div class="lay-m"><figure class="img-solo"><img src="../install-web/suzanne-wint-dp-01.jpeg" width="2400" height="1350" alt="Installation view — Suzanne Wint, Happiness in Its (Un)cut Form" loading="lazy" data-lb data-caption="Photo: Daniel R. Pratt"></figure>
+<figure class="img-solo"><img src="../install-web/suzanne-wint-dp-03.jpeg" width="2400" height="1350" alt="Installation view — Suzanne Wint, Happiness in Its (Un)cut Form" loading="lazy" data-lb data-caption="Photo: Daniel R. Pratt"></figure></div></div><div class="event-rows"><div class="lay-d"><div class="img-row"><figure class="img-fig" style="flex:1.3333 1 0;aspect-ratio:1200/900"><img src="../events-web/suzanne-wint-jb-01.jpg" width="1200" height="900" alt="Event photo — Suzanne Wint at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Jill Boogren"></figure><figure class="img-fig" style="flex:1.3333 1 0;aspect-ratio:1200/900"><img src="../events-web/suzanne-wint-jb-02.jpg" width="1200" height="900" alt="Event photo — Suzanne Wint at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Jill Boogren"></figure><figure class="img-fig" style="flex:0.6650 1 0;aspect-ratio:798/1200"><img src="../events-web/suzanne-wint-kt-03.jpg" width="798" height="1200" alt="Event photo — Suzanne Wint at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Kirk Thoren"></figure></div></div><div class="lay-m"><figure class="img-solo"><img src="../events-web/suzanne-wint-jb-01.jpg" width="1200" height="900" alt="Event photo — Suzanne Wint at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Jill Boogren"></figure>
+<div class="img-row"><figure class="img-fig" style="flex:1.3333 1 0;aspect-ratio:1200/900"><img src="../events-web/suzanne-wint-jb-02.jpg" width="1200" height="900" alt="Event photo — Suzanne Wint at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Jill Boogren"></figure><figure class="img-fig" style="flex:0.6650 1 0;aspect-ratio:798/1200"><img src="../events-web/suzanne-wint-kt-03.jpg" width="798" height="1200" alt="Event photo — Suzanne Wint at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Kirk Thoren"></figure></div></div></div></div>
+
+
 
 
 <div class="credits-block"><div class="credits-label">Image Credits</div><ul class="credits-list"><li class="credits-generic">Artwork images courtesy of the contributors. All rights reserved.</li><li><strong>Installation photography:</strong> Daniel R. Pratt</li><li><strong>Event photography:</strong> Jill Boogren &middot; Kirk Thoren</li></ul></div>
-
 </div>
-
 <div class="tour-band">
   <div class="tour-inner">
     <div class="gold-rule"></div>
-    <div class="tour-label">Continue the tour</div><div class="tour-nav"><a class="tour-link prev" href="nettrice-gaskins.html" rel="prev"><img class="tour-thumb" src="../artworks-web/nettrice-gaskins-artwork.jpeg" alt="Nettrice Gaskins" loading="lazy"><span class="tour-text"><span class="tour-arrow">&larr; <span class="tour-arrow-label">Previous</span></span><span class="tour-name"><span class="tn-glyph">&larr;&nbsp;</span>Nettrice Gaskins</span><span class="tour-city">Roxbury, MA</span></span></a><a class="tour-home" href="../participants.html" aria-label="Return to Mosaic" title="Return to Mosaic"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="2" width="9" height="9" rx="0.6" fill="currentColor"/><rect x="13" y="2" width="9" height="9" rx="0.6" fill="currentColor"/><rect x="2" y="13" width="9" height="9" rx="0.6" fill="currentColor"/><rect x="13" y="13" width="9" height="9" rx="0.6" fill="currentColor"/></svg></a><a class="tour-link next" href="timothy-harmon.html" rel="next"><img class="tour-thumb" src="../artworks-web/timothy-harmon-artwork.jpg" alt="Timothy Harmon" loading="lazy"><span class="tour-text"><span class="tour-arrow"><span class="tour-arrow-label">Next</span> &rarr;</span><span class="tour-name">Timothy Harmon<span class="tn-glyph">&nbsp;&rarr;</span></span><span class="tour-city">Minneapolis, MN</span></span></a></div>
+    <div class="tour-label">Continue the tour</div><div class="tour-nav"><a class="tour-link prev" href="nettrice-gaskins.html" rel="prev"><img class="tour-thumb" src="../artworks-web/nettrice-gaskins-artwork.jpeg" alt="Nettrice Gaskins" loading="lazy"><span class="tour-text"><span class="tour-arrow">&larr; <span class="tour-arrow-label">Previous</span></span><span class="tour-name"><span class="tn-glyph">&larr;&nbsp;</span>Nettrice Gaskins</span><span class="tour-city">Roxbury, MA</span></span></a><a class="tour-home" href="../participants.html"><span class="th-glyph" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="1.5" y="2" width="6" height="11" rx="0.7" fill="currentColor"/><rect x="1.5" y="14.5" width="6" height="7.5" rx="0.7" fill="currentColor"/><rect x="9" y="2" width="6" height="6" rx="0.7" fill="currentColor"/><rect x="9" y="9.5" width="6" height="12.5" rx="0.7" fill="currentColor"/><rect x="16.5" y="2" width="6" height="9" rx="0.7" fill="currentColor"/><rect x="16.5" y="12.5" width="6" height="9.5" rx="0.7" fill="currentColor"/></svg></span><span class="th-text"><span class="th-kicker"><span aria-hidden="true">&uarr;</span> Back to</span><span class="th-title">The Mosaic</span><span class="th-sub">All participants</span></span></a><a class="tour-link next" href="timothy-harmon.html" rel="next"><img class="tour-thumb" src="../artworks-web/timothy-harmon-artwork.jpg" alt="Timothy Harmon" loading="lazy"><span class="tour-text"><span class="tour-arrow"><span class="tour-arrow-label">Next</span> &rarr;</span><span class="tour-name">Timothy Harmon<span class="tn-glyph">&nbsp;&rarr;</span></span><span class="tour-city">Minneapolis, MN</span></span></a></div>
     
   </div>
   <footer>

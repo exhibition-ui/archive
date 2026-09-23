@@ -3,3 +3,7 @@ mosaic-text-cards-*.html
 mosaic-test*.html
 mosaic-anim-*.html
 *.pdf
+
+# review pages — never pushed (Phase B, Sept 23 2026)
+page-design-test.html
+hero-check.html
