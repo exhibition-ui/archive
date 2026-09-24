@@ -41,15 +41,29 @@ body {
 /* Nav — matches participant pages */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-  display: flex; align-items: center; gap: 1.5rem;
+  display: grid; grid-template-columns: 1fr minmax(0, auto) 1fr; align-items: center; gap: 1.5rem;
   padding: 0.75rem 1.5rem;
   background: rgba(255,255,255,0.95);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(6px);
 }
-.nav-eye { width: 28px; height: 28px; flex-shrink: 0; }
+/* Sept 24 2026: same top nav as the participant pages */
+.nav-home { justify-self: start; display: inline-flex; align-items: center; gap: 0.55rem; color: var(--deep); text-decoration: none; font-size: 0.82rem; font-weight: 400; white-space: nowrap; }
+.nav-home .nav-home-label { opacity: 0.7; transition: opacity 0.2s; }
+.nav-home:hover .nav-home-label { opacity: 1; }
+.nav-back { display: none; }
+.nav-title { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'DM Serif Display', serif; font-size: 0.88rem; color: var(--deep); text-align: center; }
+@media (max-width: 560px) {
+  nav { padding: 0.6rem 1rem; gap: 0.9rem; }
+  .nav-home { gap: 0.4rem; font-size: 0.72rem; }
+  .nav-back { display: inline; }
+  nav .nav-links { font-size: 0.72rem; }
+  .nav-title { font-size: 0.78rem; }
+}
+.nav-eye { display: block; width: 28px; height: 28px; flex-shrink: 0; }
 .nav-eye img { width: 100%; height: 100%; object-fit: contain; }
 .nav-links {
+  justify-self: end; white-space: nowrap;
   display: flex; align-items: center; gap: 1.25rem;
   font-size: 0.82rem; font-weight: 400;
 }
@@ -229,14 +243,9 @@ footer .footer-credit a { font-size: inherit; }
 <body>
 
 <nav>
-  <a href="participants.html" class="nav-eye" aria-label="All participants">
-    <img src="assets/pmp-eye.jpg" alt="">
-  </a>
-  <div class="nav-links">
-    <a href="participants.html">All participants</a>
-    <span class="nav-sep">·</span>
-    <a href="https://peoplesmuseumforprince.org">Museum</a>
-  </div>
+  <a class="nav-home" href="participants.html"><span class="nav-eye"><img src="assets/pmp-eye.jpg" alt=""></span><span class="nav-home-label"><span class="nav-back" aria-hidden="true">&lsaquo;&nbsp;</span>Mosaic</span></a>
+  <div class="nav-title">Credits</div>
+  <div class="nav-links"><a href="https://peoplesmuseumforprince.org">Museum&nbsp;<span aria-hidden="true">&#8599;</span></a></div>
 </nav>
 
 <div class="page">

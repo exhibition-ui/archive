@@ -7,3 +7,6 @@ mosaic-anim-*.html
 # review pages — never pushed (Phase B, Sept 23 2026)
 page-design-test.html
 hero-check.html
+
+# FUSE leftovers from replacing open files (Sept 24 2026) — never pushed
+.fuse_hidden*

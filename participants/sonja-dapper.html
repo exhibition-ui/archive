@@ -36,14 +36,21 @@ html{scroll-behavior:smooth;}
 body{background:#fff;color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.7;font-weight:300;}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:1.5rem;padding:0.75rem 1.5rem;background:rgba(255,255,255,0.95);border-bottom:1px solid var(--border);backdrop-filter:blur(6px);}
-.nav-eye{width:28px;height:28px;flex-shrink:0;}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:grid;grid-template-columns:1fr minmax(0,auto) 1fr;align-items:center;gap:1.5rem;padding:0.75rem 1.5rem;background:rgba(255,255,255,0.95);border-bottom:1px solid var(--border);backdrop-filter:blur(6px);}
+/* Sept 24 2026: left = eye + "Mosaic" as one link; centre = name; right = "Museum ↗".
+   Grid 1fr | auto | 1fr keeps the name in the true centre; when space runs out the
+   name (not the links) gives way and ends in "…". */
+.nav-home{justify-self:start;display:inline-flex;align-items:center;gap:0.55rem;color:var(--deep);text-decoration:none;font-size:0.82rem;font-weight:400;white-space:nowrap;}
+.nav-home .nav-home-label{opacity:0.7;transition:opacity 0.2s;}
+.nav-home:hover .nav-home-label,.nav-home:focus-visible .nav-home-label{opacity:1;}
+.nav-back{display:none;}
+.nav-eye{display:block;width:28px;height:28px;flex-shrink:0;}
 .nav-eye img{width:100%;height:100%;object-fit:contain;}
-.nav-links{display:flex;align-items:center;gap:1.25rem;font-size:0.82rem;font-weight:400;}
+.nav-links{justify-self:end;display:flex;align-items:center;gap:1.25rem;font-size:0.82rem;font-weight:400;white-space:nowrap;}
 .nav-links a{color:var(--deep);text-decoration:none;opacity:0.7;transition:opacity 0.2s;}
 .nav-links a:hover{opacity:1;}
 .nav-links .nav-sep{color:var(--border);}
-.nav-participant{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:'DM Serif Display',serif;font-size:0.88rem;color:var(--deep);margin:0 1rem;text-align:center;}
+.nav-participant{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:'DM Serif Display',serif;font-size:0.88rem;color:var(--deep);text-align:center;}
 
 /* HERO */
 .hero-wrap{margin-top:52px;width:100%;aspect-ratio:16/9;max-height:75vh;overflow:hidden;background:var(--tint);}
@@ -303,9 +310,11 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
 /* MOBILE */
 @media (prefers-reduced-motion:reduce){ .lb{transition:none;} .tour-thumb,.th-glyph{transition:none;} }
 @media(max-width:560px){
-  nav{padding:0.6rem 1rem;gap:0.6rem;}
+  nav{padding:0.6rem 1rem;gap:0.9rem;}
+  .nav-home{gap:0.4rem;font-size:0.72rem;}
+  .nav-back{display:inline;}                      /* "‹ Mosaic" on phones */
   .nav-links{gap:0.6rem;font-size:0.72rem;}
-  .nav-participant{font-size:0.78rem;margin:0 0.4rem;}
+  .nav-participant{font-size:0.78rem;}
   .page{padding:1.5rem 1rem 3.5rem;}
   .identity{flex-direction:column;align-items:flex-start;gap:1rem;}
   .portrait-thumb,.portrait-placeholder{width:140px;height:140px;}
@@ -363,15 +372,9 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
 </head>
 <body>
 <nav>
-  <div class="nav-eye"><a href="../participants.html"><img src="../assets/pmp-eye.jpg" alt="The People&#x27;s Museum for Prince" onerror="this.style.display='none'"></a></div>
+  <a class="nav-home" href="../participants.html"><span class="nav-eye"><img src="../assets/pmp-eye.jpg" alt="" onerror="this.style.display='none'"></span><span class="nav-home-label"><span class="nav-back" aria-hidden="true">&lsaquo;&nbsp;</span>Mosaic</span></a>
   <div class="nav-participant">Sonja Dapper</div>
-  <div class="nav-links">
-    <a href="../participants.html">Mosaic</a>
-    <span class="nav-sep">/</span>
-    <a href="../credits.html">Credits</a>
-    <span class="nav-sep">/</span>
-    <a href="https://peoplesmuseumforprince.org">Museum</a>
-  </div>
+  <div class="nav-links"><a href="https://peoplesmuseumforprince.org">Museum&nbsp;<span aria-hidden="true">&#8599;</span></a></div>
 </nav>
 <div class="hero-wrap"><img src="../install-web/sonja-dapper-dp-01.jpg" alt="Sonja Dapper at The People&#x27;s Museum for Prince" loading="eager" style="object-position:center center" data-lb data-caption="Photo: Daniel R. Pratt"></div><div class="hero-credit">Photo: Daniel R. Pratt</div>
 <div class="page">
@@ -411,7 +414,7 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
   </div>
   <footer>
   <p>The People's Museum for Prince</p>
-  <p>Living Archive &middot; <a href="https://peoplesmuseumforprince.org">peoplesmuseumforprince.org</a></p>
+  <p>Living Archive &middot; <a href="../credits.html">Credits</a> &middot; <a href="https://peoplesmuseumforprince.org">peoplesmuseumforprince.org</a></p>
   <p class="footer-copyright">&copy; 2026</p>
 </footer>
 </div>
