@@ -283,7 +283,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
-  "favourite_prince_song": [],
+  "favourite_prince_song": [
+   "Purple Rain"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/bethany-tobias-portrait.jpg",
@@ -2094,10 +2096,10 @@
   "connected": []
  },
  {
-  "name": "Vicky Perry",
-  "slug": "vicky-perry",
-  "url": "participants/vicky-perry.html",
-  "first_name": "Vicky",
+  "name": "Vicki Perry",
+  "slug": "vicki-perry",
+  "url": "participants/vicki-perry.html",
+  "first_name": "Vicki",
   "last_name": "Perry",
   "city": "Walnut Creek",
   "state_or_country": "CA",
