@@ -1068,8 +1068,8 @@
   "walk_order_2": [],
   "season": "",
   "noindex": false,
-  "card_image": "portraits-web/sheri-paci-portrait.jpg",
-  "card_alt": "events-web/sheri-paci-jb-01.jpg",
+  "card_image": "artworks-web/sheri-paci-artwork-01.jpeg",
+  "card_alt": "portraits-web/sheri-paci-portrait.jpg",
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
@@ -1078,7 +1078,7 @@
    "Forever in my Life"
   ],
   "second_card": null,
-  "card_video": "",
+  "card_video": "artworks-web/sheri-paci-paisley.mp4",
   "portrait": "portraits-web/sheri-paci-portrait.jpg",
   "connected": []
  },
