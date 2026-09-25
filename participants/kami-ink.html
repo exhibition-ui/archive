@@ -18,7 +18,7 @@
 <meta name="twitter:title" content="Kami Ink — The People&#x27;s Museum for Prince">
 <meta name="twitter:description" content="The Dropped Call began with a Prince story I encountered in the work of Troy Gua while visiting the People&#x27;s Museum in June 2026. Among the many stories…">
 <meta name="twitter:image" content="https://archive.peoplesmuseumforprince.org/install-web/kami-ink-kt-01.jpeg">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Kami Ink", "url": "https://archive.peoplesmuseumforprince.org/participants/kami-ink.html", "image": "https://archive.peoplesmuseumforprince.org/install-web/kami-ink-kt-01.jpeg", "description": "The Dropped Call began with a Prince story I encountered in the work of Troy Gua while visiting the People's Museum in June 2026. Among the many stories…", "givenName": "Kami", "familyName": "Ink", "memberOf": {"@type": "Organization", "name": "The People's Museum for Prince", "url": "https://peoplesmuseumforprince.org"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Kami Ink", "url": "https://archive.peoplesmuseumforprince.org/participants/kami-ink.html", "image": "https://archive.peoplesmuseumforprince.org/install-web/kami-ink-kt-01.jpeg", "description": "The Dropped Call began with a Prince story I encountered in the work of Troy Gua while visiting the People's Museum in June 2026. Among the many stories…", "givenName": "Kami", "familyName": "Ink", "sameAs": ["https://instagram.com/kami.ink.studio"], "memberOf": {"@type": "Organization", "name": "The People's Museum for Prince", "url": "https://peoplesmuseumforprince.org"}}</script>
 <link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/png" href="../assets/favicon-192.png" sizes="192x192">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
@@ -44,9 +44,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:grid;grid-template-co
    Grid 1fr | auto | 1fr keeps the name in the true centre; when space runs out the
    name (not the links) gives way and ends in "…". */
 .nav-home{justify-self:start;display:inline-flex;align-items:center;gap:0.55rem;color:var(--deep);text-decoration:none;font-size:0.82rem;font-weight:400;white-space:nowrap;}
-.nav-home .nav-home-label{opacity:0.7;transition:opacity 0.2s;}
-.nav-home:hover .nav-home-label,.nav-home:focus-visible .nav-home-label{opacity:1;}
-.nav-back{display:none;}
+.nav-home .nav-eye{transition:opacity 0.2s;}
+.nav-home:hover .nav-eye{opacity:0.8;}   /* Sept 25 2026: the eye alone is the way back to the mosaic */
 .nav-eye{display:block;width:28px;height:28px;flex-shrink:0;}
 .nav-eye img{width:100%;height:100%;object-fit:contain;}
 .nav-links{justify-self:end;display:flex;align-items:center;gap:1.25rem;font-size:0.82rem;font-weight:400;white-space:nowrap;}
@@ -315,7 +314,6 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
 @media(max-width:560px){
   nav{padding:0.6rem 1rem;gap:0.9rem;}
   .nav-home{gap:0.4rem;font-size:0.72rem;}
-  .nav-back{display:inline;}                      /* "‹ Mosaic" on phones */
   .nav-links{gap:0.6rem;font-size:0.72rem;}
   .nav-participant{font-size:0.78rem;}
   .page{padding:1.5rem 1rem 3.5rem;}
@@ -375,7 +373,7 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
 </head>
 <body>
 <nav>
-  <a class="nav-home" href="../participants.html"><span class="nav-eye"><img src="../assets/pmp-eye.jpg" alt="" onerror="this.style.display='none'"></span><span class="nav-home-label"><span class="nav-back" aria-hidden="true">&lsaquo;&nbsp;</span>Mosaic</span></a>
+  <a class="nav-home" href="../participants.html" aria-label="Mosaic" title="Mosaic"><span class="nav-eye"><img src="../assets/pmp-eye.jpg" alt="" onerror="this.style.display='none'"></span></a>
   <div class="nav-participant">Kami Ink</div>
   <div class="nav-links"><a href="https://peoplesmuseumforprince.org">Museum&nbsp;<span aria-hidden="true">&#8599;</span></a></div>
 </nav>
@@ -391,7 +389,7 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
       <div class="identity-city">Minneapolis, MN</div>
       <div class="identity-artwork"><div class="identity-artwork-title">The Dropped Call 2026</div><div class="identity-artwork-medium">Acrylic and water color · 2026</div></div>
     </div>
-    
+    <div class="identity-songs-meta"><div class="song-line"><span class="song-note" aria-hidden="true">♪</span>When Doves Cry</div></div>
   </div>
 </div>
 <div class="gold-rule"></div>
@@ -406,7 +404,7 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
 
 
 
-
+<div class="connect-line">Connect with Kami Ink &mdash; <a href="https://instagram.com/kami.ink.studio">@kami.ink.studio</a></div>
 <div class="credits-block"><div class="credits-label">Image Credits</div><ul class="credits-list"><li class="credits-generic">Artwork images courtesy of the contributors. All rights reserved.</li><li><strong>Installation photography:</strong> Kirk Thoren</li><li><strong>Event photography:</strong> Jill Boogren</li></ul></div>
 </div>
 <div class="tour-band">

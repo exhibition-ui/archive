@@ -10,3 +10,9 @@ hero-check.html
 
 # FUSE leftovers from replacing open files (Sept 24 2026) — never pushed
 .fuse_hidden*
+
+# views check page (Sept 25 2026) — never pushed
+views-check.html
+
+# set-aside views and notes inside views-web (Sept 25 2026) — never pushed
+views-web/_*

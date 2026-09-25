@@ -764,7 +764,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
-  "favourite_prince_song": [],
+  "favourite_prince_song": [
+   "Nothing Compares 2 U"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/lisa-nilles-portrait.jpg",
@@ -984,7 +986,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
-  "favourite_prince_song": [],
+  "favourite_prince_song": [
+   "When Doves Cry"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/kami-ink-portrait.jpg",
@@ -1450,7 +1454,7 @@
   "first_name": "Jamey",
   "last_name": "Boelhower",
   "city": "Hastings",
-  "state_or_country": "MN",
+  "state_or_country": "NE",
   "title": "April 21, 2016",
   "venues": [
    "Roberts Gallery"
