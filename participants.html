@@ -64,6 +64,25 @@
   header p.subhead{font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:var(--gold);font-size:clamp(1.3rem,2vw,1.45rem);line-height:1.2;letter-spacing:0.01em;margin:0 0 16px;}
   header p.intro-line{max-width:62ch;color:#cdb8e4;font-size:0.95rem;line-height:1.65;margin:0 0 10px;}
   header p.intro-line-cue{margin-top:6px;color:var(--lilac);}
+  header p.intro-line a.welcome-link{color:var(--gold);text-decoration:none;transition:color .2s;}
+  header p.intro-line a.welcome-link:hover{color:#fff;}
+  header p.intro-line a.welcome-link:focus-visible{outline:1px solid var(--gold);outline-offset:3px;}
+  /* The Exhibition views window (Sept 26 2026, brief 2.4). Laptop: the welcome
+     text on the left, the window in a 232px right column under "Museum ↗".
+     Phone: one column; the window becomes a full-width 104px strip under the
+     welcome text, above the search rule. Its box is sized by CSS, so nothing
+     moves when the image arrives; the night ground shows until then. */
+  header .head-body{display:grid;grid-template-columns:minmax(0,1fr) 232px;column-gap:2.5rem;align-items:start;}
+  header .head-text{min-width:0;}
+  header .head-body.no-win{grid-template-columns:minmax(0,1fr);}
+  .ex-win{display:block;width:232px;justify-self:end;margin:2px 0 22px;text-decoration:none;}
+  .ex-frame{position:relative;display:block;width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--ground-light);border:1px solid rgba(200,169,110,0.35);transition:border-color .3s;}
+  .ex-win:hover .ex-frame,.ex-win:focus-visible .ex-frame{border-color:var(--gold);}
+  .ex-win:focus-visible{outline:none;}
+  .ex-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform-origin:50% 50%;}
+  .ex-frame img.on{opacity:1;}
+  .ex-label{display:block;margin-top:0.55rem;text-align:right;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);font-weight:400;transition:color .2s;}
+  .ex-win:hover .ex-label,.ex-win:focus-visible .ex-label{color:#fff;}
   /* Header, Sept 23 2026 tidy. Desktop: unchanged apart from the cue line
      going. Phones: no eye mark; "Credits · Museum" top right (Sept 24: the
      kicker text is gone and the welcome text shows again, a step smaller);
@@ -76,6 +95,9 @@
     header h1{margin-bottom:4px;}
     header p.subhead{font-size:1.3rem;margin-bottom:12px;}
     header p.intro-line{font-size:0.88rem;line-height:1.6;margin-bottom:16px;}   /* shown on phones since Sept 24 */
+    header .head-body{grid-template-columns:minmax(0,1fr);}
+    .ex-win{width:100%;justify-self:stretch;margin:2px 0 18px;}
+    .ex-frame{aspect-ratio:auto;height:104px;}
   }
   @media (max-width:600px){
     header h1 .h1-tail{display:block;}     /* "The People's Museum / for Prince" */
@@ -345,7 +367,15 @@
     <p class="eyebrow"><span class="eyebrow-nav"><a href="https://peoplesmuseumforprince.org">Museum&nbsp;<span aria-hidden="true">&#8599;</span></a></span></p>
   </div>
   <p class="subhead">Living Archive</p>
-  <p class="intro-line">Welcome. This mosaic presents the artists, writers, poets, filmmakers and collectors who together created the museum in Minneapolis, June 2026. This is a work in progress, so come back often as new people, stories and features arrive.</p>
+  <div class="head-body">
+    <div class="head-text">
+  <p class="intro-line">Welcome to the Living Archive: the artists, writers, poets, filmmakers and collectors who made the museum in Minneapolis, June 2026. Choose anyone to begin, or walk through the <a class="welcome-link" href="exhibitions/index.html">exhibition views</a>. New people and stories are on their way.</p>
+    </div>
+    <a class="ex-win" href="exhibitions/index.html" aria-label="Exhibition views">
+      <span class="ex-frame" id="exWin"><img class="w0" alt="" decoding="async"><img class="w1" alt="" decoding="async"></span>
+      <span class="ex-label">Exhibition views <span aria-hidden="true">&rarr;</span></span>
+    </a>
+  </div>
 
   <div class="controls" id="controls">
     <div class="search-col">
@@ -960,7 +990,7 @@
     </a>
     <a class="card can-dissolve" href="participants/coco-cubbage.html"
        data-slug="coco-cubbage" data-name="Coco Cubbage" data-first="Coco" data-last="Cubbage"
-       data-city="Gardena, CA" data-song="Adore" data-venues="Roberts Gallery">
+       data-city="Gardena, CA" data-song="Lady Cab Driver" data-venues="Roberts Gallery">
       <div class="card-media">
         <img class="img-artwork" src="artworks-web/coco-cubbage-artwork.jpg" alt="When I first heard Prince on the radio — artwork by Coco Cubbage" loading="lazy"><img class="img-portrait" src="portraits-web/coco-cubbage-portrait.jpg" alt="Portrait of Coco Cubbage" loading="lazy">
         <span class="gold-rule"></span>
@@ -1423,12 +1453,12 @@
         </a>
       </li>
       <li class="row" data-name="Coco Cubbage" data-first="Coco" data-last="Cubbage"
-          data-city="Gardena, CA" data-venues="Roberts Gallery" data-song="Adore">
+          data-city="Gardena, CA" data-venues="Roberts Gallery" data-song="Lady Cab Driver">
         <a href="participants/coco-cubbage.html">
           <img class="row-thumb" src="portraits-web/coco-cubbage-portrait.jpg" alt="" loading="lazy">
           <span class="row-who"><span class="row-name">Coco Cubbage</span><span class="row-city">Gardena, CA</span></span>
           <span class="row-title">When I first heard Prince on the radio</span>
-          <span class="row-song"><span class="nt">♪</span> Adore</span>
+          <span class="row-song"><span class="nt">♪</span> Lady Cab Driver</span>
         </a>
       </li>
       <li class="row" data-name="Kish Daniels" data-first="Kish" data-last="Daniels"
@@ -2410,6 +2440,72 @@
   }
 })();
 </script>
-
+<script>
+(function(){
+  'use strict';
+  var W=[{"src": "thumbs-web/capri-010-dp-w1200.jpg", "pos": "50% 50%"}, {"src": "thumbs-web/capri-180-dp-w1200.jpg", "pos": "30% 55%"}, {"src": "thumbs-web/roberts-010-dp-w1200.jpg", "pos": "50% 50%"}, {"src": "thumbs-web/history-hall-010-dp-w1200.jpg", "pos": "50% 50%"}, {"src": "thumbs-web/roberts-090-dp-w1200.jpg", "pos": "50% 50%"}], C={"still": 5.0, "every": 8.0, "fade": 4.5, "drift": 13.0, "scale": 1.045};
+  var box=document.getElementById('exWin'); if(!box||!W.length) return;
+  var L=[box.querySelector('.w0'),box.querySelector('.w1')], body=document.body;
+  var canAnim=typeof L[0].animate==='function';
+  var i=0, front=0, timer=null, armed=false, t0=0, left=C.still*1000, ready=false, seq=0;
+  var A=[{fade:null,drift:null},{fade:null,drift:null}];
+  function off(){ return body.classList.contains('motion-off')||document.hidden; }
+  function each(fn){ A.forEach(function(a){ if(a.fade) fn(a.fade); if(a.drift) fn(a.drift); }); }
+  function stop(a){ if(a){ try{ a.cancel(); }catch(e){} } }
+  function arm(){
+    clearTimeout(timer); armed=false;
+    if(!ready||off()||W.length<2) return;
+    t0=performance.now(); armed=true;
+    timer=setTimeout(function(){ armed=false; step(); }, Math.max(0,left));
+  }
+  function freeze(){
+    if(armed){ left-=performance.now()-t0; } clearTimeout(timer); armed=false;
+    each(function(a){ if(a.playState==='running') a.pause(); });
+  }
+  function resume(){ each(function(a){ if(a.playState==='paused') a.play(); }); arm(); }
+  function step(){
+    i=(i+1)%W.length;
+    var k=1-front, img=L[k], out=L[front], s=W[i], token=++seq;
+    stop(A[k].fade); stop(A[k].drift); img.style.opacity='0'; img.classList.remove('on');
+    img.style.objectPosition=s.pos; img.src=s.src;
+    function go(){
+      if(token!==seq) return;
+      var f=C.fade*1000;
+      img.style.opacity='1'; img.classList.add('on'); out.classList.remove('on');
+      if(canAnim){
+        A[k].fade=img.animate([{opacity:0},{opacity:1}],{duration:f,easing:'ease-in-out'});
+        A[k].drift=img.animate([{transform:'scale(1)'},{transform:'scale('+C.scale+')'}],{duration:C.drift*1000,easing:'linear',fill:'forwards'});
+        var o=parseFloat(getComputedStyle(out).opacity); if(isNaN(o)) o=1;
+        stop(A[front].fade); out.style.opacity='0';
+        A[front].fade=out.animate([{opacity:o},{opacity:0}],{duration:f,easing:'ease-in-out'});
+        if(off()) each(function(a){ if(a.playState==='running') a.pause(); });
+      } else { out.style.opacity='0'; }
+      front=k; left=C.every*1000; arm();
+      var nx=new Image(); nx.src=W[(i+1)%W.length].src;
+    }
+    if(img.complete&&img.naturalWidth) go(); else if(img.decode) img.decode().then(go,go); else img.onload=img.onerror=go;
+  }
+  /* load the first view once the top row of tiles has painted (or after 3 s) */
+  function afterTiles(cb){
+    var done=false; function fin(){ if(!done){ done=true; cb(); } }
+    var imgs=[].slice.call(document.querySelectorAll('#grid .card .img-artwork')).filter(function(im){
+      var r=im.getBoundingClientRect(); return r.top<innerHeight&&r.bottom>0; });
+    var n=imgs.length; if(!n) return fin();
+    imgs.forEach(function(im){
+      if(im.complete){ if(--n===0) fin(); }
+      else { var once=function(){ if(--n===0) fin(); }; im.addEventListener('load',once); im.addEventListener('error',once); }
+    });
+    setTimeout(fin,3000);
+  }
+  afterTiles(function(){
+    var f=L[0], s=W[0];
+    f.style.objectPosition=s.pos;
+    f.onload=function(){ f.classList.add('on'); ready=true; arm(); var nx=new Image(); if(W[1]) nx.src=W[1].src; };
+    f.src=s.src;
+  });
+  new MutationObserver(function(){ if(off()) freeze(); else resume(); }).observe(body,{attributes:true,attributeFilter:['class']});
+  document.addEventListener('visibilitychange',function(){ if(off()) freeze(); else resume(); });
+})();
+</script>
 </body>
 </html>

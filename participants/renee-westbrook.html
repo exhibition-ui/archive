@@ -287,6 +287,25 @@ footer a{color:var(--lilac);text-decoration:none;}
 footer a:hover{color:var(--gold);}
 footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4em;opacity:0.85;}
 
+/* EXHIBITION VIEWS LINK (Sept 26 2026, brief 2.3) — end of "At the Museum":
+   a small room-view thumbnail beside a text link; two side by side for two-venue people. */
+.exh-links{display:grid;gap:1.5rem;margin-top:2.25rem;margin-bottom:0.5rem;}
+.exh-links.two{grid-template-columns:repeat(2,minmax(0,1fr));}
+.exh-link{display:flex;align-items:center;gap:1.1rem;padding:1.1rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-decoration:none;color:var(--deep);min-width:0;}
+.exh-links.two .exh-link{flex-direction:column;align-items:flex-start;}
+.exh-img{display:block;width:200px;flex-shrink:0;aspect-ratio:3/2;overflow:hidden;background:var(--tint);}
+.exh-links.two .exh-img{width:100%;}
+.exh-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease;}
+.exh-link:hover .exh-img img{transform:scale(1.03);}
+.exh-text{display:block;min-width:0;}
+.exh-k{display:block;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--soft);font-weight:400;margin-bottom:0.2rem;line-height:1.5;}
+.exh-t{display:block;font-size:1.05rem;font-weight:400;line-height:1.35;color:var(--deep);transition:color 0.2s;}
+.exh-t .ar{color:var(--gold);}
+.exh-s{display:block;font-size:0.8rem;color:var(--soft);margin-top:0.15rem;line-height:1.5;}
+.exh-r{display:block;height:2px;width:32px;background:var(--gold);margin-top:0.6rem;transition:width 0.4s ease;}
+.exh-link:hover .exh-r,.exh-link:focus-visible .exh-r{width:60px;}
+.exh-link:hover .exh-t{color:var(--mid);}
+
 /* READING COLUMN (Sept 23 2026, follow-up §2a). Text runs in one centered
    ~620px column; the identity block, headings, gold rules, captions under
    full-width images and credits all start on its left edge, so the page has
@@ -297,7 +316,7 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
 .page .story,.page .bio,.page .secondary-note,.page .poem-block,.page .poem-divider,
 .page .artwork-divider,.page .artwork-story,.page .artwork-text,.page .art-fig:not(.art-tall) .art-cap,
 .page .museum-heading,.page .in-response-heading,.page .in-response-text,
-.page .two-person-bios,.page .closing-text,.page .connect-line,.page .credits-block{
+.page .two-person-bios,.page .closing-text,.page .connect-line,.page .credits-block,.page .exh-links{
   max-width:var(--read);margin-left:auto;margin-right:auto;}
 .page .gold-rule{margin-left:max(0px, calc((100% - var(--read)) / 2));}
 /* section rules belong to the column, not the image width */
@@ -310,7 +329,7 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
 .identity-dual .identity-name{font-size:1.9rem;}
 
 /* MOBILE */
-@media (prefers-reduced-motion:reduce){ .lb{transition:none;} .tour-thumb,.th-glyph{transition:none;} }
+@media (prefers-reduced-motion:reduce){ .lb{transition:none;} .tour-thumb,.th-glyph{transition:none;} .exh-img img,.exh-r,.exh-t{transition:none;} .exh-link:hover .exh-img img{transform:none;} }
 @media(max-width:560px){
   nav{padding:0.6rem 1rem;gap:0.9rem;}
   .nav-home{gap:0.4rem;font-size:0.72rem;}
@@ -364,6 +383,12 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
   .th-sub{display:none;}
   .tour-city{display:none;}
   .lb{padding:52px 8px 64px;}
+  /* exhibition link: 120px thumbnail beside the text; two-venue links stack */
+  .exh-links.two{grid-template-columns:minmax(0,1fr);gap:0;}
+  .exh-link,.exh-links.two .exh-link{flex-direction:row;align-items:center;gap:0.9rem;}
+  .exh-img,.exh-links.two .exh-img{width:120px;}
+  .exh-links.two .exh-link+.exh-link{border-top:0;}
+  .exh-t{font-size:0.98rem;}
   .lb-prev,.lb-next{top:auto;bottom:6px;transform:none;}
   .lb-img{max-height:calc(100vh - 150px);max-height:calc(100dvh - 150px);}
 }
@@ -407,6 +432,7 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
 
 
 
+<div class="exh-links"><a class="exh-link" href="../exhibitions/roberts.html"><span class="exh-img"><img src="../thumbs-web/roberts-090-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></span><span class="exh-text"><span class="exh-k">Exhibition views</span><span class="exh-t">View the exhibition at Roberts Gallery <span class="ar" aria-hidden="true">&rarr;</span></span><span class="exh-s">Way Back Home &middot; Minneapolis, June 2026</span><span class="exh-r" aria-hidden="true"></span></span></a></div>
 <div class="credits-block"><div class="credits-label">Image Credits</div><ul class="credits-list"><li class="credits-generic">Artwork images courtesy of the contributors. All rights reserved.</li><li><strong>Installation photography:</strong> Kirk Thoren</li></ul></div>
 </div>
 <div class="tour-band">
@@ -417,7 +443,7 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
   </div>
   <footer>
   <p>The People's Museum for Prince</p>
-  <p>Living Archive &middot; <a href="../credits.html">Credits</a> &middot; <a href="https://peoplesmuseumforprince.org">peoplesmuseumforprince.org</a></p>
+  <p>Living Archive &middot; <a href="../exhibitions/index.html">Exhibition views</a> &middot; <a href="../credits.html">Credits</a> &middot; <a href="https://peoplesmuseumforprince.org">peoplesmuseumforprince.org</a></p>
   <p class="footer-copyright">&copy; 2026</p>
 </footer>
 </div>
