@@ -119,6 +119,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:grid;grid-template-co
 .story em{font-style:italic;}
 .story a{color:var(--mid);}
 
+/* Sept 27 2026: a video moved after the story ('video after story') */
+.art-after-story{margin:0 0 1.75rem;}
+.art-after-story .art-fig{margin:0;}
+
 /* POEM */
 .poem-block{margin-bottom:2rem;}
 .poem-title{font-family:var(--serif);font-size:1.15rem;color:var(--deep);font-weight:400;margin-bottom:1rem;}
@@ -134,6 +138,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:grid;grid-template-co
 .bio p+p{margin-top:0.75em;}
 .bio em{font-style:italic;}
 .bio a{color:var(--mid);}
+/* Sept 27 2026: website / Instagram as the bio's last line, in the city line's grey (not purple) */
+.bio .bio-links{margin-top:0.9rem;font-size:0.88rem;line-height:1.5;font-weight:300;color:var(--muted);overflow-wrap:anywhere;}
+.bio .bio-links a{color:var(--muted);text-decoration:none;transition:color 0.2s;}
+.bio .bio-links a:hover,.bio .bio-links a:focus-visible{color:var(--deep);text-decoration:underline;text-decoration-color:var(--lilac);text-underline-offset:3px;}
 
 /* SECONDARY NOTE — bio_2 outside the two-person template (credit/context note) */
 .secondary-note{font-size:0.95rem;color:var(--muted);font-style:italic;line-height:1.8;margin-bottom:1.75rem;max-width:38rem;}
@@ -195,11 +203,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:grid;grid-template-co
 .in-response-text a{color:var(--mid);}
 
 /* CREDITS BLOCK */
-.credits-block{margin-top:2.5rem;padding-top:1.25rem;border-top:1px solid var(--border);}
-.credits-label{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);margin-bottom:0.5rem;}   /* same color as the labels beneath (Sept 23) */
-.credits-list{list-style:none;}
-.credits-list li{font-size:0.76rem;color:var(--muted);line-height:1.85;font-weight:300;}
-.credits-list li strong{color:var(--ink);font-weight:400;}
+.credits-block{margin-top:2.25rem;padding-top:1rem;border-top:1px solid var(--border);}
+.credits-label{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);margin-bottom:0.35rem;}   /* same color as the labels beneath (Sept 23) */
+/* Sept 27 2026: two lines — artwork, then the photographers side by side (each wraps as a whole on a phone) */
+.credits-line{font-size:0.76rem;color:var(--muted);line-height:1.7;font-weight:300;}
+.credits-line strong{color:var(--ink);font-weight:400;}
+.credits-photo{display:flex;flex-wrap:wrap;column-gap:1.4rem;}
+.credits-photo .cr{min-width:0;}
 
 /* CLOSING TEXT */
 .closing-text{margin-top:2rem;font-size:0.9rem;color:var(--muted);font-style:italic;max-width:62ch;}
@@ -291,7 +301,7 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
    a small room-view thumbnail beside a text link; two side by side for two-venue people. */
 .exh-links{display:grid;gap:1.5rem;margin-top:2.25rem;margin-bottom:0.5rem;}
 .exh-links.two{grid-template-columns:repeat(2,minmax(0,1fr));}
-.exh-link{display:flex;align-items:center;gap:1.1rem;padding:1.1rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-decoration:none;color:var(--deep);min-width:0;}
+.exh-link{display:flex;align-items:center;gap:1.1rem;padding:1.1rem 0 0.4rem;border-top:1px solid var(--border);text-decoration:none;color:var(--deep);min-width:0;}   /* Sept 27 2026: no bottom line (it doubled with the credits' line) */
 .exh-links.two .exh-link{flex-direction:column;align-items:flex-start;}
 .exh-img{display:block;width:200px;flex-shrink:0;aspect-ratio:3/2;overflow:hidden;background:var(--tint);}
 .exh-links.two .exh-img{width:100%;}
@@ -387,7 +397,8 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
   .exh-links.two{grid-template-columns:minmax(0,1fr);gap:0;}
   .exh-link,.exh-links.two .exh-link{flex-direction:row;align-items:center;gap:0.9rem;}
   .exh-img,.exh-links.two .exh-img{width:120px;}
-  .exh-links.two .exh-link+.exh-link{border-top:0;}
+  .exh-links.two .exh-link{padding-bottom:1.1rem;}
+  .exh-links.two .exh-link:last-child{padding-bottom:0.4rem;}
   .exh-t{font-size:0.98rem;}
   .lb-prev,.lb-next{top:auto;bottom:6px;transform:none;}
   .lb-img{max-height:calc(100vh - 150px);max-height:calc(100dvh - 150px);}
@@ -422,16 +433,16 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
 
 <div class="story"><p>Opening Day of People's Museum and Celebration of Prince's birthday June 7</p></div>
 <div class="gold-rule"></div>
-<div class="bio"><p><strong>Brass Solidarity</strong> is a band founded in 2021 in response to the murder of George Floyd and the ongoing fight in the movement for Black lives. The members of Brass Solidarity come from a variety of musical backgrounds and are united in their dedication to using their talents to promote social justice and bring people together. MISSION: Brass Solidarity is built out of the tradition of resilience and community fortitude through music. Brass Solidarity is a convergence of musicians, activists, and community members using our sound as a voice for justice and an advocate for Black Lives. We were birthed from the movement for Black Liberation in George Floyd Square, meeting weekly as a continuous offering to the community. Our music is by the people and for the people as a passionate campaign to spread love and uplift BIPOC communities. Brass Solidarity seeks to build a repertoire of songs that can contribute to movement spaces, events and actions for Justice in coordination with movement leadership. Our musicians work for justice, not money. Stipends and donations we receive go directly into our work. @brasssolidarity brasssolidarity.com</p></div>
+<div class="bio"><p><strong>Brass Solidarity</strong> is a band founded in 2021 in response to the murder of George Floyd and the ongoing fight in the movement for Black lives. The members of Brass Solidarity come from a variety of musical backgrounds and are united in their dedication to using their talents to promote social justice and bring people together. MISSION: Brass Solidarity is built out of the tradition of resilience and community fortitude through music. Brass Solidarity is a convergence of musicians, activists, and community members using our sound as a voice for justice and an advocate for Black Lives. We were birthed from the movement for Black Liberation in George Floyd Square, meeting weekly as a continuous offering to the community. Our music is by the people and for the people as a passionate campaign to spread love and uplift BIPOC communities. Brass Solidarity seeks to build a repertoire of songs that can contribute to movement spaces, events and actions for Justice in coordination with movement leadership. Our musicians work for justice, not money. Stipends and donations we receive go directly into our work.</p><p class="bio-links"><a href="https://brasssolidarity.com">brasssolidarity.com</a><span class="il-sep" aria-hidden="true"> &middot; </span><a href="https://instagram.com/brasssolidarity">@brasssolidarity</a></p></div>
 
 <div class="museum-section"><h2 class="museum-heading">At the Museum — Roberts Gallery</h2><div class="event-rows"><div class="lay-d"><div class="img-row"><figure class="img-fig" style="flex:1.5000 1 0;aspect-ratio:1200/800"><img src="../events-web/brass-solidarity-jb-03.jpg" width="1200" height="800" alt="Event photo — Brass Solidarity at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Jill Boogren"></figure><figure class="img-fig" style="flex:1.3333 1 0;aspect-ratio:1200/900"><img src="../events-web/brass-solidarity-jb-04.jpg" width="1200" height="900" alt="Event photo — Brass Solidarity at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Jill Boogren"></figure><figure class="img-fig" style="flex:1.3333 1 0;aspect-ratio:1200/900"><img src="../events-web/brass-solidarity-jb-05.jpg" width="1200" height="900" alt="Event photo — Brass Solidarity at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Jill Boogren"></figure></div></div><div class="lay-m"><figure class="img-solo"><img src="../events-web/brass-solidarity-jb-03.jpg" width="1200" height="800" alt="Event photo — Brass Solidarity at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Jill Boogren"></figure>
 <div class="img-row"><figure class="img-fig" style="flex:1.3333 1 0;aspect-ratio:1200/900"><img src="../events-web/brass-solidarity-jb-04.jpg" width="1200" height="900" alt="Event photo — Brass Solidarity at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Jill Boogren"></figure><figure class="img-fig" style="flex:1.3333 1 0;aspect-ratio:1200/900"><img src="../events-web/brass-solidarity-jb-05.jpg" width="1200" height="900" alt="Event photo — Brass Solidarity at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Jill Boogren"></figure></div></div></div><div class="exh-links"><a class="exh-link" href="../exhibitions/roberts.html"><span class="exh-img"><img src="../thumbs-web/roberts-090-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></span><span class="exh-text"><span class="exh-k">Exhibition views</span><span class="exh-t">View the exhibition at Roberts Gallery <span class="ar" aria-hidden="true">&rarr;</span></span><span class="exh-s">Way Back Home &middot; Minneapolis, June 2026</span><span class="exh-r" aria-hidden="true"></span></span></a></div></div>
 
 
 
-<div class="connect-line">Connect with Brass Solidarity &mdash; <a href="https://instagram.com/brasssolidarity">@brasssolidarity</a> &middot; <a href="https://brasssolidarity.com">brasssolidarity.com</a></div>
 
-<div class="credits-block"><div class="credits-label">Image Credits</div><ul class="credits-list"><li class="credits-generic">Artwork images courtesy of the contributors. All rights reserved.</li><li><strong>Event photography:</strong> Jill Boogren</li></ul></div>
+
+<div class="credits-block"><div class="credits-label">Image credits</div><p class="credits-line"><strong>Artwork images:</strong> courtesy of the contributors. All rights reserved.</p><p class="credits-line credits-photo"><span class="cr"><strong>Event photography:</strong> Jill Boogren</span></p></div>
 </div>
 <div class="tour-band">
   <div class="tour-inner">

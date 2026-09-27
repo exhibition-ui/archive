@@ -119,6 +119,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:grid;grid-template-co
 .story em{font-style:italic;}
 .story a{color:var(--mid);}
 
+/* Sept 27 2026: a video moved after the story ('video after story') */
+.art-after-story{margin:0 0 1.75rem;}
+.art-after-story .art-fig{margin:0;}
+
 /* POEM */
 .poem-block{margin-bottom:2rem;}
 .poem-title{font-family:var(--serif);font-size:1.15rem;color:var(--deep);font-weight:400;margin-bottom:1rem;}
@@ -134,6 +138,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:grid;grid-template-co
 .bio p+p{margin-top:0.75em;}
 .bio em{font-style:italic;}
 .bio a{color:var(--mid);}
+/* Sept 27 2026: website / Instagram as the bio's last line, in the city line's grey (not purple) */
+.bio .bio-links{margin-top:0.9rem;font-size:0.88rem;line-height:1.5;font-weight:300;color:var(--muted);overflow-wrap:anywhere;}
+.bio .bio-links a{color:var(--muted);text-decoration:none;transition:color 0.2s;}
+.bio .bio-links a:hover,.bio .bio-links a:focus-visible{color:var(--deep);text-decoration:underline;text-decoration-color:var(--lilac);text-underline-offset:3px;}
 
 /* SECONDARY NOTE — bio_2 outside the two-person template (credit/context note) */
 .secondary-note{font-size:0.95rem;color:var(--muted);font-style:italic;line-height:1.8;margin-bottom:1.75rem;max-width:38rem;}
@@ -195,11 +203,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:grid;grid-template-co
 .in-response-text a{color:var(--mid);}
 
 /* CREDITS BLOCK */
-.credits-block{margin-top:2.5rem;padding-top:1.25rem;border-top:1px solid var(--border);}
-.credits-label{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);margin-bottom:0.5rem;}   /* same color as the labels beneath (Sept 23) */
-.credits-list{list-style:none;}
-.credits-list li{font-size:0.76rem;color:var(--muted);line-height:1.85;font-weight:300;}
-.credits-list li strong{color:var(--ink);font-weight:400;}
+.credits-block{margin-top:2.25rem;padding-top:1rem;border-top:1px solid var(--border);}
+.credits-label{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);margin-bottom:0.35rem;}   /* same color as the labels beneath (Sept 23) */
+/* Sept 27 2026: two lines — artwork, then the photographers side by side (each wraps as a whole on a phone) */
+.credits-line{font-size:0.76rem;color:var(--muted);line-height:1.7;font-weight:300;}
+.credits-line strong{color:var(--ink);font-weight:400;}
+.credits-photo{display:flex;flex-wrap:wrap;column-gap:1.4rem;}
+.credits-photo .cr{min-width:0;}
 
 /* CLOSING TEXT */
 .closing-text{margin-top:2rem;font-size:0.9rem;color:var(--muted);font-style:italic;max-width:62ch;}
@@ -291,7 +301,7 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
    a small room-view thumbnail beside a text link; two side by side for two-venue people. */
 .exh-links{display:grid;gap:1.5rem;margin-top:2.25rem;margin-bottom:0.5rem;}
 .exh-links.two{grid-template-columns:repeat(2,minmax(0,1fr));}
-.exh-link{display:flex;align-items:center;gap:1.1rem;padding:1.1rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-decoration:none;color:var(--deep);min-width:0;}
+.exh-link{display:flex;align-items:center;gap:1.1rem;padding:1.1rem 0 0.4rem;border-top:1px solid var(--border);text-decoration:none;color:var(--deep);min-width:0;}   /* Sept 27 2026: no bottom line (it doubled with the credits' line) */
 .exh-links.two .exh-link{flex-direction:column;align-items:flex-start;}
 .exh-img{display:block;width:200px;flex-shrink:0;aspect-ratio:3/2;overflow:hidden;background:var(--tint);}
 .exh-links.two .exh-img{width:100%;}
@@ -387,7 +397,8 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
   .exh-links.two{grid-template-columns:minmax(0,1fr);gap:0;}
   .exh-link,.exh-links.two .exh-link{flex-direction:row;align-items:center;gap:0.9rem;}
   .exh-img,.exh-links.two .exh-img{width:120px;}
-  .exh-links.two .exh-link+.exh-link{border-top:0;}
+  .exh-links.two .exh-link{padding-bottom:1.1rem;}
+  .exh-links.two .exh-link:last-child{padding-bottom:0.4rem;}
   .exh-t{font-size:0.98rem;}
   .lb-prev,.lb-next{top:auto;bottom:6px;transform:none;}
   .lb-img{max-height:calc(100vh - 150px);max-height:calc(100dvh - 150px);}
@@ -422,16 +433,16 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
 <div class="art-lead"><figure class="art-fig"><img class="artwork-img" src="../artworks-web/liz-bucheit-artwork.jpg" width="1200" height="823" alt="Liz Bucheit — Heart of Ellida" loading="lazy" data-lb data-caption="Heart of Ellida · Body Necklace. Sterling silver, fine silver, freshwater pearls, yellow jade, carnelian. · 2014"></figure></div>
 <div class="story"><p>I contracted with Paisley Park in the early 90's and worked with the designer Stacia Lang. Prince wanted decorative boot tips and heel decorations for his signature heels during the Batman era and the Diamonds and Pearls Tour. I was fortunate to travel to London during the tour to meet the boot makers. Being backstage with all the awesome costumes and accessories during that tour was incredibly inspiring. I always admired Prince's fierce fashion sense. He was always very involved with his clothing designs and jewelry, often making notes on drawings and fabric samples. As a jewelry designer, I've used that experience to nurture and curate my own creative flame when designing some of my own elaborate pieces. Prince used his physical body as a creative landscape for his personality. I also view the human body as a canvas, where I explore the interconnectivity between adornment and the magical influence jewelry imparts on the wearer. My Heart of Ellida body jewel is comprised of handmade silver filigree, Morgan Hill Poppy Jasper, carnelian, yellow jade, and freshwater pearls.</p></div>
 <div class="gold-rule"></div>
-<div class="bio"><p><strong>Liz Bucheit</strong> creates jewelry and body adornment inspired by her Scandinavian ancestry and keeps close ties to her heritage by drawing inspiration from Nordic folklore and myth. A goldsmith for over 30 years, she holds a Master's degree in metalworking and jewelry from the University of Iowa, Iowa City and has trained in traditional jewelry and metalworking techniques in Norway and Ireland. Liz has won numerous competitions and been awarded grants from the Minnesota State Arts Board, McKnight Foundation, Sons of Norway and the SE Minnesota Arts Council. She owns and operates Crown Trout Jewelers in Lanesboro, MN.</p></div>
+<div class="bio"><p><strong>Liz Bucheit</strong> creates jewelry and body adornment inspired by her Scandinavian ancestry and keeps close ties to her heritage by drawing inspiration from Nordic folklore and myth. A goldsmith for over 30 years, she holds a Master's degree in metalworking and jewelry from the University of Iowa, Iowa City and has trained in traditional jewelry and metalworking techniques in Norway and Ireland. Liz has won numerous competitions and been awarded grants from the Minnesota State Arts Board, McKnight Foundation, Sons of Norway and the SE Minnesota Arts Council. She owns and operates Crown Trout Jewelers in Lanesboro, MN.</p><p class="bio-links"><a href="https://crowntroutonline.com">crowntroutonline.com</a></p></div>
 
 <div class="museum-section"><h2 class="museum-heading">At the Museum — Roberts Gallery</h2><div class="install-rows install-wide"><div class="lay-d"><div class="img-row"><figure class="img-fig" style="flex:0.6667 1 0;aspect-ratio:800/1200"><img src="../install-web/liz-bucheit-dp-02.jpg" width="800" height="1200" alt="Installation view — Liz Bucheit, Heart of Ellida" loading="lazy" data-lb data-caption="Photo: Daniel R. Pratt"></figure><figure class="img-fig" style="flex:0.6667 1 0;aspect-ratio:800/1200"><img src="../install-web/liz-bucheit-dp-03.jpg" width="800" height="1200" alt="Installation view — Liz Bucheit, Heart of Ellida" loading="lazy" data-lb data-caption="Photo: Daniel R. Pratt"></figure></div></div><div class="lay-m"><figure class="img-solo"><img src="../install-web/liz-bucheit-dp-02.jpg" width="800" height="1200" alt="Installation view — Liz Bucheit, Heart of Ellida" loading="lazy" data-lb data-caption="Photo: Daniel R. Pratt"></figure>
 <figure class="img-solo"><img src="../install-web/liz-bucheit-dp-03.jpg" width="800" height="1200" alt="Installation view — Liz Bucheit, Heart of Ellida" loading="lazy" data-lb data-caption="Photo: Daniel R. Pratt"></figure></div></div><div class="event-rows"><div class="lay-d"><div class="img-row"><figure class="img-fig" style="flex:1.3333 1 0;aspect-ratio:1200/900"><img src="../events-web/liz-bucheit-jb-01.jpg" width="1200" height="900" alt="Event photo — Liz Bucheit at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Jill Boogren"></figure><figure class="img-fig" style="flex:0.7500 1 0;aspect-ratio:900/1200"><img src="../events-web/liz-bucheit-eb-1.jpeg" width="900" height="1200" alt="Event photo — Liz Bucheit at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: E.C.Balázs"></figure></div></div><div class="lay-m"><div class="img-row"><figure class="img-fig" style="flex:1.3333 1 0;aspect-ratio:1200/900"><img src="../events-web/liz-bucheit-jb-01.jpg" width="1200" height="900" alt="Event photo — Liz Bucheit at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Jill Boogren"></figure><figure class="img-fig" style="flex:0.7500 1 0;aspect-ratio:900/1200"><img src="../events-web/liz-bucheit-eb-1.jpeg" width="900" height="1200" alt="Event photo — Liz Bucheit at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: E.C.Balázs"></figure></div></div></div><div class="exh-links"><a class="exh-link" href="../exhibitions/roberts.html"><span class="exh-img"><img src="../thumbs-web/roberts-090-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></span><span class="exh-text"><span class="exh-k">Exhibition views</span><span class="exh-t">View the exhibition at Roberts Gallery <span class="ar" aria-hidden="true">&rarr;</span></span><span class="exh-s">Way Back Home &middot; Minneapolis, June 2026</span><span class="exh-r" aria-hidden="true"></span></span></a></div></div>
 
 
 
-<div class="connect-line">Connect with Liz Bucheit &mdash; <a href="https://crowntroutonline.com">crowntroutonline.com</a></div>
 
-<div class="credits-block"><div class="credits-label">Image Credits</div><ul class="credits-list"><li class="credits-generic">Artwork images courtesy of the contributors. All rights reserved.</li><li><strong>Installation photography:</strong> Daniel R. Pratt</li><li><strong>Event photography:</strong> Jill Boogren &middot; E.C.Balázs</li></ul></div>
+
+<div class="credits-block"><div class="credits-label">Image credits</div><p class="credits-line"><strong>Artwork images:</strong> courtesy of the contributors. All rights reserved.</p><p class="credits-line credits-photo"><span class="cr"><strong>Installation photography:</strong> Daniel R. Pratt</span><span class="cr"><strong>Event photography:</strong> Jill Boogren and E.C.Balázs</span></p></div>
 </div>
 <div class="tour-band">
   <div class="tour-inner">

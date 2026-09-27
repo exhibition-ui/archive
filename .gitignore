@@ -16,3 +16,6 @@ views-check.html
 
 # set-aside views and notes inside views-web (Sept 25 2026) — never pushed
 views-web/_*
+
+# test pages for a decision — never pushed (Sept 27 2026)
+_test/
