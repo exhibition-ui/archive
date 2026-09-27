@@ -57,8 +57,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:grid;grid-template-co
 /* HERO */
 .hero-wrap{margin-top:52px;width:100%;aspect-ratio:16/9;max-height:75vh;overflow:hidden;background:var(--tint);}
 .hero-wrap img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;}
-.hero-wrap.hero-contain{background:var(--deep);}
-.hero-wrap.hero-contain img{object-fit:contain;object-position:center;}
+.hero-wrap.hero-contain{background:var(--deep);position:relative;}
+.hero-wrap.hero-contain img{object-fit:contain;object-position:center;position:relative;z-index:1;}
+/* hero_position = "contain blur" (Sept 27 2026): a blurred, darkened copy of
+   the same photo fills the sides. Same file, so no extra download. */
+.hero-wrap.hero-blur{background:#000;}
+.hero-wrap.hero-blur::before{content:'';position:absolute;inset:-60px;background-image:var(--hero-bg);background-size:cover;background-position:center;filter:blur(32px) brightness(.55) saturate(1.15);}
 .hero-credit{font-size:0.75rem;color:var(--muted);padding:0.4rem 1.5rem;text-align:right;}
 
 /* PAGE */
@@ -432,7 +436,8 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
   </div>
 </div>
 <div class="gold-rule"></div>
-<div class="art-lead"><figure class="art-fig art-tall" style="width:min(100%, calc(88vh * 0.6083), 730px)"><img class="artwork-img" src="../artworks-web/lorraine-lassig-banks-artwork-02.jpeg" width="730" height="1200" alt="Lorraine Lassig-Banks — April 21 Reflection" loading="lazy" data-lb data-caption="April 21 Reflection"></figure></div>
+<div class="art-lead"><figure class="art-fig art-tall" style="width:min(100%, calc(88vh * 0.6083), 730px)"><img class="artwork-img" src="../artworks-web/lorraine-lassig-banks-artwork-02.jpeg" width="730" height="1200" alt="Lorraine Lassig-Banks — April 21 Reflection" loading="lazy" data-lb data-caption="April 21 Reflection"></figure>
+<figure class="art-fig"><img class="artwork-img" src="../artworks-web/lorraine-lassig-banks-artwork-03.jpeg" width="2400" height="1357" alt="Lorraine Lassig-Banks — April 21 Reflection" loading="lazy" data-lb data-caption="April 21 Reflection"></figure></div>
 <div class="story"><p>Soon after the news broke 10 years ago... I still remember I was going to school at Dunwoody school of technology near downtown Minneapolis. I remember the first person I called was my mom to console me. I had wanted to go to Paisley Park and see Prince just the summer prior when Hitnrun Phase 1 was released and sadly she talked me out of it. I walked down stairs from class where I worked as a teachers assistant. All of us were talking about Prince. One lady mentioning a time she called Prince at the time and he hung up on her when she called him well PRINCE. I remember walking about 4 or 5 blocks from my school to First Ave to see the buzz. Flowers piled, candles burning, the air smelled amazing. The man who held a star on the outside of the buildings walls was gone. Everyone was waiting for them to respond. And oh did they respond. A dance party was happening that night. It was ground zero for mourning the man who never let us forget he was from this beautiful city and state. I left for a bit to walk the skyways. I knew I wasn't going home that night. I stopped at a shop and bought the only purple shirt I could find and a single rose. I came back. There was another band planned to play at First Ave that night. By the time the bands show ended it was time for the moment thousands of us had waited for. The purple dance party of a life time. Finally an hour and half later I finally entered. Purple rain that scene of the man and his guitar bringing tears to the eyes of a 1984 crowd played on a big screen bringing tears to a new crowd in 2016. That night I really heard Prince for the first time. But that night I expanded my love and knowledge of Prince in a way I had never before. And it's been a wild but amazing purple ride ever since. Thank you first Ave and THANK YOU PRINCE. Rest in paradise peace and be wild.</p></div>
 <div class="gold-rule"></div>
 <div class="bio"><p>My name is Lorraine. My interests beyond Prince are being a Wizard of Oz fan and collector.</p></div>

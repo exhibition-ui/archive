@@ -12,13 +12,13 @@
 <meta property="og:title" content="Giuseppe Craca — The People&#x27;s Museum for Prince">
 <meta property="og:description" content="I remember very well when I first met Prince in 1985 at my friend Patrick&#x27;s house. From the very beginning, I was fascinated by him, his music, his…">
 <meta property="og:url" content="https://archive.peoplesmuseumforprince.org/participants/giuseppe-craca.html">
-<meta property="og:image" content="https://archive.peoplesmuseumforprince.org/events-web/robertsopening-al-01.jpeg">
+<meta property="og:image" content="https://archive.peoplesmuseumforprince.org/events-web/robertsopening-jb-01.jpeg">
 <meta property="og:image:alt" content="Giuseppe Craca">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Giuseppe Craca — The People&#x27;s Museum for Prince">
 <meta name="twitter:description" content="I remember very well when I first met Prince in 1985 at my friend Patrick&#x27;s house. From the very beginning, I was fascinated by him, his music, his…">
-<meta name="twitter:image" content="https://archive.peoplesmuseumforprince.org/events-web/robertsopening-al-01.jpeg">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Giuseppe Craca", "url": "https://archive.peoplesmuseumforprince.org/participants/giuseppe-craca.html", "image": "https://archive.peoplesmuseumforprince.org/events-web/robertsopening-al-01.jpeg", "description": "I remember very well when I first met Prince in 1985 at my friend Patrick's house. From the very beginning, I was fascinated by him, his music, his…", "givenName": "Giuseppe", "familyName": "Craca", "memberOf": {"@type": "Organization", "name": "The People's Museum for Prince", "url": "https://peoplesmuseumforprince.org"}}</script>
+<meta name="twitter:image" content="https://archive.peoplesmuseumforprince.org/events-web/robertsopening-jb-01.jpeg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Giuseppe Craca", "url": "https://archive.peoplesmuseumforprince.org/participants/giuseppe-craca.html", "image": "https://archive.peoplesmuseumforprince.org/events-web/robertsopening-jb-01.jpeg", "description": "I remember very well when I first met Prince in 1985 at my friend Patrick's house. From the very beginning, I was fascinated by him, his music, his…", "givenName": "Giuseppe", "familyName": "Craca", "memberOf": {"@type": "Organization", "name": "The People's Museum for Prince", "url": "https://peoplesmuseumforprince.org"}}</script>
 <link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/png" href="../assets/favicon-192.png" sizes="192x192">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
@@ -57,8 +57,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:grid;grid-template-co
 /* HERO */
 .hero-wrap{margin-top:52px;width:100%;aspect-ratio:16/9;max-height:75vh;overflow:hidden;background:var(--tint);}
 .hero-wrap img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;}
-.hero-wrap.hero-contain{background:var(--deep);}
-.hero-wrap.hero-contain img{object-fit:contain;object-position:center;}
+.hero-wrap.hero-contain{background:var(--deep);position:relative;}
+.hero-wrap.hero-contain img{object-fit:contain;object-position:center;position:relative;z-index:1;}
+/* hero_position = "contain blur" (Sept 27 2026): a blurred, darkened copy of
+   the same photo fills the sides. Same file, so no extra download. */
+.hero-wrap.hero-blur{background:#000;}
+.hero-wrap.hero-blur::before{content:'';position:absolute;inset:-60px;background-image:var(--hero-bg);background-size:cover;background-position:center;filter:blur(32px) brightness(.55) saturate(1.15);}
 .hero-credit{font-size:0.75rem;color:var(--muted);padding:0.4rem 1.5rem;text-align:right;}
 
 /* PAGE */
@@ -413,7 +417,7 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
   <div class="nav-participant">Giuseppe Craca</div>
   <div class="nav-links"><a href="https://peoplesmuseumforprince.org">Museum&nbsp;<span aria-hidden="true">&#8599;</span></a></div>
 </nav>
-<div class="hero-wrap"><img src="../events-web/robertsopening-al-01.jpeg" alt="Giuseppe Craca at The People&#x27;s Museum for Prince" loading="eager" style="object-position:center 30%" data-lb data-caption="Photo: Alexander Lauber"></div><div class="hero-credit">Photo: Alexander Lauber</div>
+<div class="hero-wrap"><img src="../events-web/robertsopening-jb-01.jpeg" alt="Giuseppe Craca at The People&#x27;s Museum for Prince" loading="eager" style="object-position:center 30%" data-lb data-caption="Photo: Jill Boogren"></div><div class="hero-credit">Photo: Jill Boogren</div>
 <div class="page">
 <div class="identity">
   <div class="portrait-col">
@@ -447,7 +451,7 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
 
 
 <div class="exh-links"><a class="exh-link" href="../exhibitions/roberts.html"><span class="exh-img"><img src="../thumbs-web/roberts-090-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></span><span class="exh-text"><span class="exh-k">Exhibition views</span><span class="exh-t">View the exhibition at Roberts Gallery <span class="ar" aria-hidden="true">&rarr;</span></span><span class="exh-s">Way Back Home &middot; Minneapolis, June 2026</span><span class="exh-r" aria-hidden="true"></span></span></a></div>
-<div class="credits-block"><div class="credits-label">Image credits</div><p class="credits-line"><strong>Artwork images:</strong> courtesy of the contributors. All rights reserved.</p><p class="credits-line credits-photo"><span class="cr"><strong>Event photography:</strong> Alexander Lauber</span></p></div>
+<div class="credits-block"><div class="credits-label">Image credits</div><p class="credits-line"><strong>Artwork images:</strong> courtesy of the contributors. All rights reserved.</p><p class="credits-line credits-photo"><span class="cr"><strong>Event photography:</strong> Jill Boogren</span></p></div>
 </div>
 <div class="tour-band">
   <div class="tour-inner">

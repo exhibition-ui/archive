@@ -57,8 +57,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:grid;grid-template-co
 /* HERO */
 .hero-wrap{margin-top:52px;width:100%;aspect-ratio:16/9;max-height:75vh;overflow:hidden;background:var(--tint);}
 .hero-wrap img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;}
-.hero-wrap.hero-contain{background:var(--deep);}
-.hero-wrap.hero-contain img{object-fit:contain;object-position:center;}
+.hero-wrap.hero-contain{background:var(--deep);position:relative;}
+.hero-wrap.hero-contain img{object-fit:contain;object-position:center;position:relative;z-index:1;}
+/* hero_position = "contain blur" (Sept 27 2026): a blurred, darkened copy of
+   the same photo fills the sides. Same file, so no extra download. */
+.hero-wrap.hero-blur{background:#000;}
+.hero-wrap.hero-blur::before{content:'';position:absolute;inset:-60px;background-image:var(--hero-bg);background-size:cover;background-position:center;filter:blur(32px) brightness(.55) saturate(1.15);}
 .hero-credit{font-size:0.75rem;color:var(--muted);padding:0.4rem 1.5rem;text-align:right;}
 
 /* PAGE */
@@ -429,7 +433,7 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
   </div>
 </div>
 <div class="gold-rule"></div>
-<div class="art-lead"><figure class="art-fig"><img class="artwork-img" src="../artworks-web/kish-daniels-artwork.jpeg" width="1200" height="724" alt="JoJo Ventus Ninja — When Doves Cry" loading="lazy" data-lb data-caption="When Doves Cry · Film, 1 min 30 sec · 2025"></figure>
+<div class="art-lead"><figure class="art-fig"><img class="artwork-img" src="../artworks-web/kish-daniels-artwork.jpeg" width="1477" height="891" alt="JoJo Ventus Ninja — When Doves Cry" loading="lazy" data-lb data-caption="When Doves Cry · Film, 1 min 30 sec · 2025"></figure>
 <figure class="art-fig"><img class="artwork-img" src="../artworks-web/kish-daniels-artwork-2.jpeg" width="1200" height="714" alt="JoJo Ventus Ninja — When Doves Cry" loading="lazy" data-lb data-caption="When Doves Cry · Film, 1 min 30 sec · 2025"></figure></div>
 <div class="story"><p>Shot on a single roll of 16mm film, When Doves Cry began with a moment Maeve Gimpl witnessed at a drag show in 2024: JoJo Ventus Ninja, dressed as Prince, skating and dancing to "When Doves Cry." Maeve felt, in that moment, that Prince was giving a subtle nod of approval, and she was inspired to create this film: pure celebration — joyful, embodied, and alive.</p>
 <p>When Doves Cry screened as a special part of Forever in My Life, Art & Film night at the Capri on June 10, with director Maeve Gimpl and performer Jo Jo Ventus Ninja in attendance.</p></div>

@@ -57,8 +57,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:grid;grid-template-co
 /* HERO */
 .hero-wrap{margin-top:52px;width:100%;aspect-ratio:16/9;max-height:75vh;overflow:hidden;background:var(--tint);}
 .hero-wrap img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;}
-.hero-wrap.hero-contain{background:var(--deep);}
-.hero-wrap.hero-contain img{object-fit:contain;object-position:center;}
+.hero-wrap.hero-contain{background:var(--deep);position:relative;}
+.hero-wrap.hero-contain img{object-fit:contain;object-position:center;position:relative;z-index:1;}
+/* hero_position = "contain blur" (Sept 27 2026): a blurred, darkened copy of
+   the same photo fills the sides. Same file, so no extra download. */
+.hero-wrap.hero-blur{background:#000;}
+.hero-wrap.hero-blur::before{content:'';position:absolute;inset:-60px;background-image:var(--hero-bg);background-size:cover;background-position:center;filter:blur(32px) brightness(.55) saturate(1.15);}
 .hero-credit{font-size:0.75rem;color:var(--muted);padding:0.4rem 1.5rem;text-align:right;}
 
 /* PAGE */
