@@ -4,21 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Liz Bucheit — The People's Museum for Prince</title>
-<meta name="description" content="I contracted with Paisley Park in the early 90&#x27;s and worked with the designer Stacia Lang. Prince wanted decorative boot tips and heel decorations for his…">
+<meta name="description" content="I contracted with Paisley Park in the early &#x27;90s and worked with the designer Stacia Lang. Prince wanted decorative boot tips and heel decorations for his…">
 <link rel="canonical" href="https://archive.peoplesmuseumforprince.org/participants/liz-bucheit.html">
 
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="The People&#x27;s Museum for Prince">
 <meta property="og:title" content="Liz Bucheit — The People&#x27;s Museum for Prince">
-<meta property="og:description" content="I contracted with Paisley Park in the early 90&#x27;s and worked with the designer Stacia Lang. Prince wanted decorative boot tips and heel decorations for his…">
+<meta property="og:description" content="I contracted with Paisley Park in the early &#x27;90s and worked with the designer Stacia Lang. Prince wanted decorative boot tips and heel decorations for his…">
 <meta property="og:url" content="https://archive.peoplesmuseumforprince.org/participants/liz-bucheit.html">
 <meta property="og:image" content="https://archive.peoplesmuseumforprince.org/install-web/liz-bucheit-dp-01.jpg">
 <meta property="og:image:alt" content="Liz Bucheit">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Liz Bucheit — The People&#x27;s Museum for Prince">
-<meta name="twitter:description" content="I contracted with Paisley Park in the early 90&#x27;s and worked with the designer Stacia Lang. Prince wanted decorative boot tips and heel decorations for his…">
+<meta name="twitter:description" content="I contracted with Paisley Park in the early &#x27;90s and worked with the designer Stacia Lang. Prince wanted decorative boot tips and heel decorations for his…">
 <meta name="twitter:image" content="https://archive.peoplesmuseumforprince.org/install-web/liz-bucheit-dp-01.jpg">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Liz Bucheit", "url": "https://archive.peoplesmuseumforprince.org/participants/liz-bucheit.html", "image": "https://archive.peoplesmuseumforprince.org/install-web/liz-bucheit-dp-01.jpg", "description": "I contracted with Paisley Park in the early 90's and worked with the designer Stacia Lang. Prince wanted decorative boot tips and heel decorations for his…", "givenName": "Liz", "familyName": "Bucheit", "sameAs": ["https://crowntroutonline.com"], "memberOf": {"@type": "Organization", "name": "The People's Museum for Prince", "url": "https://peoplesmuseumforprince.org"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Liz Bucheit", "url": "https://archive.peoplesmuseumforprince.org/participants/liz-bucheit.html", "image": "https://archive.peoplesmuseumforprince.org/install-web/liz-bucheit-dp-01.jpg", "description": "I contracted with Paisley Park in the early '90s and worked with the designer Stacia Lang. Prince wanted decorative boot tips and heel decorations for his…", "givenName": "Liz", "familyName": "Bucheit", "sameAs": ["https://crowntroutonline.com"], "memberOf": {"@type": "Organization", "name": "The People's Museum for Prince", "url": "https://peoplesmuseumforprince.org"}}</script>
 <link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/png" href="../assets/favicon-192.png" sizes="192x192">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
@@ -407,6 +407,52 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
   .lb-prev,.lb-next{top:auto;bottom:6px;transform:none;}
   .lb-img{max-height:calc(100vh - 150px);max-height:calc(100dvh - 150px);}
 }
+
+/* ── Sept 29 2026: tidied page end + tour band (decided on WEB/_test/) ── */
+/* white end: no line above the credits, no gold dash under the exhibition
+   link, and the band arrives ~56px after the credits instead of ~136px */
+.page{padding-bottom:0;}
+.exh-links{margin-top:2.25rem;}
+.exh-r{display:none;}
+.credits-block{border-top:0;padding-top:0;margin-top:2rem;}
+.tour-band{margin-top:3.5rem;padding-top:2rem;padding-bottom:1.5rem;}
+/* the gold rule sits centred over the centred tour (it had drifted to the
+   800px band's left edge); on phones it returns to the left gutter */
+.tour-band .gold-rule{margin:0 auto 1.25rem;}
+/* masonry glyph: gold outline, larger */
+.th-glyph svg{width:54px;height:54px;}
+@media(max-width:560px){
+  .tour-band{margin-top:2.75rem;}
+  .tour-band .gold-rule{margin:0 0 1.25rem;}
+  .th-glyph svg{width:40px;height:40px;}
+  /* a wrapped name lines up under itself; the arrow hangs outside it */
+  .tour-link.prev .tour-name{padding-left:1.1em;text-indent:-1.1em;}
+  .tour-link.next .tour-name{padding-right:1.1em;}
+  .tour-link.next .tn-glyph{margin-right:-1.1em;}
+}
+
+/* SHARED SITE FOOTER (Sept 29 2026) — generate.site_footer_html(). Night by
+   default; .sf-white on white pages; .sf-mosaic spacing on the mosaic. */
+footer.site-footer{display:block;max-width:640px;margin:1.75rem auto 0;padding:1.25rem 0 0;border-top:1px solid rgba(196,160,224,0.2);text-align:center;font-family:'DM Sans',sans-serif;font-weight:300;font-size:0.8rem;line-height:1.8;color:#c4a0e0;}
+footer.site-footer p{margin:0;}
+footer.site-footer a{color:#c4a0e0;text-decoration:none;transition:color .2s;font-size:inherit;letter-spacing:inherit;}
+footer.site-footer a:hover,footer.site-footer a:focus-visible{color:#C8A96E;}
+footer.site-footer .sf-lead{font-family:'DM Sans',sans-serif;font-weight:300;font-size:15px;line-height:1.7;color:#c4a0e0;max-width:520px;margin:0 auto;text-wrap:balance;}
+footer.site-footer .sf-invite-line{font-family:'DM Sans',sans-serif;font-weight:400;font-size:15px;line-height:1.6;margin:0.6rem auto 0.9rem;}
+footer.site-footer .sf-invite-line a.sf-invite{color:#C8A96E;text-decoration:none;}
+footer.site-footer .sf-invite-line a.sf-invite:hover,footer.site-footer .sf-invite-line a.sf-invite:focus-visible{color:#e4cf9f;}
+footer.site-footer .sf-links a{white-space:nowrap;}
+footer.site-footer .sf-dot{color:rgba(196,160,224,0.5);margin:0 0.2em;}
+footer.site-footer .sf-small{font-size:0.72rem;margin-top:0.35rem;opacity:0.85;}
+footer.site-footer.sf-mosaic{margin:60px auto 0;padding:1.6rem 16px 48px;}
+footer.site-footer.sf-white{margin:3rem auto 0;padding:1.5rem 16px 2.75rem;border-top-color:#e0d0f0;color:#7b52a8;}
+footer.site-footer.sf-white a{color:#5c2d8e;}
+footer.site-footer.sf-white a:hover{color:#3b1054;}
+footer.site-footer.sf-white .sf-lead{color:#7b52a8;}
+footer.site-footer.sf-white .sf-invite-line a.sf-invite{color:#9a7838;}
+footer.site-footer.sf-white .sf-invite-line a.sf-invite:hover{color:#3b1054;}
+footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
+@media(max-width:560px){footer.site-footer{margin-top:1.5rem;}footer.site-footer .sf-lead{font-size:15px;}}
 </style>
 <script data-goatcounter="https://pmparchive.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
@@ -435,7 +481,9 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
 </div>
 <div class="gold-rule"></div>
 <div class="art-lead"><figure class="art-fig"><img class="artwork-img" src="../artworks-web/liz-bucheit-artwork.jpg" width="1200" height="823" alt="Liz Bucheit — Heart of Ellida" loading="lazy" data-lb data-caption="Heart of Ellida · Body Necklace. Sterling silver, fine silver, freshwater pearls, yellow jade, carnelian. · 2014"></figure></div>
-<div class="story"><p>I contracted with Paisley Park in the early 90's and worked with the designer Stacia Lang. Prince wanted decorative boot tips and heel decorations for his signature heels during the Batman era and the Diamonds and Pearls Tour. I was fortunate to travel to London during the tour to meet the boot makers. Being backstage with all the awesome costumes and accessories during that tour was incredibly inspiring. I always admired Prince's fierce fashion sense. He was always very involved with his clothing designs and jewelry, often making notes on drawings and fabric samples. As a jewelry designer, I've used that experience to nurture and curate my own creative flame when designing some of my own elaborate pieces. Prince used his physical body as a creative landscape for his personality. I also view the human body as a canvas, where I explore the interconnectivity between adornment and the magical influence jewelry imparts on the wearer. My Heart of Ellida body jewel is comprised of handmade silver filigree, Morgan Hill Poppy Jasper, carnelian, yellow jade, and freshwater pearls.</p></div>
+<div class="story"><p>I contracted with Paisley Park in the early '90s and worked with the designer Stacia Lang. Prince wanted decorative boot tips and heel decorations for his signature heels during the Batman era and the Diamonds and Pearls Tour. I was fortunate to travel to London during the tour to meet the boot makers. Being backstage with all the awesome costumes and accessories during that tour was incredibly inspiring.</p>
+<p>I always admired Prince's fierce fashion sense. He was always very involved with his clothing designs and jewelry, often making notes on drawings and fabric samples. As a jewelry designer, I've used that experience to nurture and curate my own creative flame when designing some of my own elaborate pieces.</p>
+<p>Prince used his physical body as a creative landscape for his personality. I also view the human body as a canvas, where I explore the interconnectivity between adornment and the magical influence jewelry imparts on the wearer. My Heart of Ellida body jewel is comprised of handmade silver filigree, Morgan Hill Poppy Jasper, carnelian, yellow jade, and freshwater pearls.</p></div>
 <div class="gold-rule"></div>
 <div class="bio"><p><strong>Liz Bucheit</strong> creates jewelry and body adornment inspired by her Scandinavian ancestry and keeps close ties to her heritage by drawing inspiration from Nordic folklore and myth. A goldsmith for over 30 years, she holds a Master's degree in metalworking and jewelry from the University of Iowa, Iowa City and has trained in traditional jewelry and metalworking techniques in Norway and Ireland. Liz has won numerous competitions and been awarded grants from the Minnesota State Arts Board, McKnight Foundation, Sons of Norway and the SE Minnesota Arts Council. She owns and operates Crown Trout Jewelers in Lanesboro, MN.</p><p class="bio-links"><a href="https://crowntroutonline.com">crowntroutonline.com</a></p></div>
 
@@ -452,13 +500,14 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
 <div class="tour-band">
   <div class="tour-inner">
     <div class="gold-rule"></div>
-    <div class="tour-label">Continue the tour</div><div class="tour-nav"><a class="tour-link prev" href="jason-bailey.html" rel="prev"><img class="tour-thumb" src="../artworks-web/jason-bailey-artwork.jpeg" alt="Jason Bailey" loading="lazy"><span class="tour-text"><span class="tour-arrow">&larr; <span class="tour-arrow-label">Previous</span></span><span class="tour-name"><span class="tn-glyph">&larr;&nbsp;</span>Jason Bailey</span><span class="tour-city">Minneapolis, MN</span></span></a><a class="tour-home" href="../participants.html"><span class="th-glyph" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="1.5" y="2" width="6" height="11" rx="0.7" fill="currentColor"/><rect x="1.5" y="14.5" width="6" height="7.5" rx="0.7" fill="currentColor"/><rect x="9" y="2" width="6" height="6" rx="0.7" fill="currentColor"/><rect x="9" y="9.5" width="6" height="12.5" rx="0.7" fill="currentColor"/><rect x="16.5" y="2" width="6" height="9" rx="0.7" fill="currentColor"/><rect x="16.5" y="12.5" width="6" height="9.5" rx="0.7" fill="currentColor"/></svg></span><span class="th-text"><span class="th-kicker"><span aria-hidden="true">&uarr;</span> Back to</span><span class="th-title">The Mosaic</span><span class="th-sub">All participants</span></span></a><a class="tour-link next" href="hawona-sullivan-janzen.html" rel="next"><div class="tour-thumb tour-thumb-text" aria-hidden="true"><span class="tt-line">Dear Prince</span></div><span class="tour-text"><span class="tour-arrow"><span class="tour-arrow-label">Next</span> &rarr;</span><span class="tour-name">Hawona Sullivan Janzen<span class="tn-glyph">&nbsp;&rarr;</span></span><span class="tour-city">St Paul, MN</span></span></a></div>
+    <div class="tour-label">Continue the tour</div><div class="tour-nav"><a class="tour-link prev" href="jason-bailey.html" rel="prev"><img class="tour-thumb" src="../artworks-web/jason-bailey-artwork.jpeg" alt="Jason Bailey" loading="lazy"><span class="tour-text"><span class="tour-arrow">&larr; <span class="tour-arrow-label">Previous</span></span><span class="tour-name"><span class="tn-glyph">&larr;&nbsp;</span>Jason Bailey</span><span class="tour-city">Minneapolis, MN</span></span></a><a class="tour-home" href="../participants.html"><span class="th-glyph" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="1.85" y="2.35" width="5.3" height="10.3" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/><rect x="1.85" y="14.85" width="5.3" height="6.8" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/><rect x="9.35" y="2.35" width="5.3" height="5.3" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/><rect x="9.35" y="9.85" width="5.3" height="11.8" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/><rect x="16.85" y="2.35" width="5.3" height="8.3" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/><rect x="16.85" y="12.85" width="5.3" height="8.8" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/></svg></span><span class="th-text"><span class="th-kicker"><span aria-hidden="true">&uarr;</span> Back to</span><span class="th-title">The Mosaic</span><span class="th-sub">All participants</span></span></a><a class="tour-link next" href="hawona-sullivan-janzen.html" rel="next"><div class="tour-thumb tour-thumb-text" aria-hidden="true"><span class="tt-line">Dear Prince</span></div><span class="tour-text"><span class="tour-arrow"><span class="tour-arrow-label">Next</span> &rarr;</span><span class="tour-name">Hawona Sullivan Janzen<span class="tn-glyph">&nbsp;&rarr;</span></span><span class="tour-city">St Paul, MN</span></span></a></div>
     
   </div>
-  <footer>
-  <p>The People's Museum for Prince</p>
-  <p>Living Archive &middot; <a href="../exhibitions/index.html">Exhibition views</a> &middot; <a href="../credits.html">Credits</a> &middot; <a href="https://peoplesmuseumforprince.org">peoplesmuseumforprince.org</a></p>
-  <p class="footer-copyright">&copy; 2026</p>
+  <footer class="site-footer">
+  <p class="sf-lead">The People&#x27;s Museum for Prince presents art and stories from people around the world, testifying to the deep impact of Prince Rogers Nelson on many lives.</p>
+  <p class="sf-invite-line"><a class="sf-invite" href="https://www.peoplesmuseumforprince.org/contact">Your Prince story belongs here.</a></p>
+  <p class="sf-links"><a href="https://www.peoplesmuseumforprince.org">About the museum</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact">Share your story</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact">Join the mailing list</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/support">Support</a></p>
+  <p class="sf-small"><a href="../credits.html">Credits</a> <span class="sf-dot" aria-hidden="true">&middot;</span> &copy; 2026</p>
 </footer>
 </div>
 <script>

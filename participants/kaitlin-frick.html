@@ -407,6 +407,52 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
   .lb-prev,.lb-next{top:auto;bottom:6px;transform:none;}
   .lb-img{max-height:calc(100vh - 150px);max-height:calc(100dvh - 150px);}
 }
+
+/* ── Sept 29 2026: tidied page end + tour band (decided on WEB/_test/) ── */
+/* white end: no line above the credits, no gold dash under the exhibition
+   link, and the band arrives ~56px after the credits instead of ~136px */
+.page{padding-bottom:0;}
+.exh-links{margin-top:2.25rem;}
+.exh-r{display:none;}
+.credits-block{border-top:0;padding-top:0;margin-top:2rem;}
+.tour-band{margin-top:3.5rem;padding-top:2rem;padding-bottom:1.5rem;}
+/* the gold rule sits centred over the centred tour (it had drifted to the
+   800px band's left edge); on phones it returns to the left gutter */
+.tour-band .gold-rule{margin:0 auto 1.25rem;}
+/* masonry glyph: gold outline, larger */
+.th-glyph svg{width:54px;height:54px;}
+@media(max-width:560px){
+  .tour-band{margin-top:2.75rem;}
+  .tour-band .gold-rule{margin:0 0 1.25rem;}
+  .th-glyph svg{width:40px;height:40px;}
+  /* a wrapped name lines up under itself; the arrow hangs outside it */
+  .tour-link.prev .tour-name{padding-left:1.1em;text-indent:-1.1em;}
+  .tour-link.next .tour-name{padding-right:1.1em;}
+  .tour-link.next .tn-glyph{margin-right:-1.1em;}
+}
+
+/* SHARED SITE FOOTER (Sept 29 2026) — generate.site_footer_html(). Night by
+   default; .sf-white on white pages; .sf-mosaic spacing on the mosaic. */
+footer.site-footer{display:block;max-width:640px;margin:1.75rem auto 0;padding:1.25rem 0 0;border-top:1px solid rgba(196,160,224,0.2);text-align:center;font-family:'DM Sans',sans-serif;font-weight:300;font-size:0.8rem;line-height:1.8;color:#c4a0e0;}
+footer.site-footer p{margin:0;}
+footer.site-footer a{color:#c4a0e0;text-decoration:none;transition:color .2s;font-size:inherit;letter-spacing:inherit;}
+footer.site-footer a:hover,footer.site-footer a:focus-visible{color:#C8A96E;}
+footer.site-footer .sf-lead{font-family:'DM Sans',sans-serif;font-weight:300;font-size:15px;line-height:1.7;color:#c4a0e0;max-width:520px;margin:0 auto;text-wrap:balance;}
+footer.site-footer .sf-invite-line{font-family:'DM Sans',sans-serif;font-weight:400;font-size:15px;line-height:1.6;margin:0.6rem auto 0.9rem;}
+footer.site-footer .sf-invite-line a.sf-invite{color:#C8A96E;text-decoration:none;}
+footer.site-footer .sf-invite-line a.sf-invite:hover,footer.site-footer .sf-invite-line a.sf-invite:focus-visible{color:#e4cf9f;}
+footer.site-footer .sf-links a{white-space:nowrap;}
+footer.site-footer .sf-dot{color:rgba(196,160,224,0.5);margin:0 0.2em;}
+footer.site-footer .sf-small{font-size:0.72rem;margin-top:0.35rem;opacity:0.85;}
+footer.site-footer.sf-mosaic{margin:60px auto 0;padding:1.6rem 16px 48px;}
+footer.site-footer.sf-white{margin:3rem auto 0;padding:1.5rem 16px 2.75rem;border-top-color:#e0d0f0;color:#7b52a8;}
+footer.site-footer.sf-white a{color:#5c2d8e;}
+footer.site-footer.sf-white a:hover{color:#3b1054;}
+footer.site-footer.sf-white .sf-lead{color:#7b52a8;}
+footer.site-footer.sf-white .sf-invite-line a.sf-invite{color:#9a7838;}
+footer.site-footer.sf-white .sf-invite-line a.sf-invite:hover{color:#3b1054;}
+footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
+@media(max-width:560px){footer.site-footer{margin-top:1.5rem;}footer.site-footer .sf-lead{font-size:15px;}}
 </style>
 <script data-goatcounter="https://pmparchive.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
@@ -434,7 +480,12 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
 </div>
 <div class="gold-rule"></div>
 <div class="art-lead"><figure class="art-fig art-tall" style="width:min(100%, calc(88vh * 0.9800), 1176px)"><img class="artwork-img" src="../artworks-web/kaitlin-frick-artwork.jpg" width="1176" height="1200" alt="Kaitlin Frick — Paisley Park in Winter (Grace is Close to Home)" loading="lazy" data-lb data-caption="Paisley Park in Winter (Grace is Close to Home) · Etching · 2016"></figure></div>
-<div class="story"><p>On a snowy Saturday back in 2013, my partner Clara and I ran some errands. It was the tail end of a volatile year. For six months I had been in an existential crisis of sorts and wanted nothing more than to move away from Minnesota. When Clara suggested we could hit up the southwest suburbs for our provisions, I lit up. Could we take Highway 5? And stop by Paisley Park?! A few months earlier, we had visited the purple palace for the first time, as our Prince was beginning to re-engage with fans in the space. We waited for hours in the rain, making beautiful, new friends before finding ourselves 20 feet from our hero's soundstage. In what was one of the most surreal nights of my life (certainly the funkiest), Prince made music that was bigger than any anguish or anxiety I'd been feeling; at Paisley Park, my preoccupations didn't stand a chance. My heart grew purple with pride. That's what I was thinking about as we pulled off in front of Paisley Park. I climbed a small snowbank, creeping real close to the fence. What I saw took my breath away. I loved the gracefulness of the fence lines and the stillness of the fresh snow blanketing the ground. I snapped a photo and ran back to the car. I posted it to my Instagram, captioning it Purple Snow. A year later I returned to the image in the studio. I settled in with a couple copper plates and began to work it into an intaglio print. As I etched, scraped and burnished, I sought refuge in the image, not as a place of escape as much as a source of pride. Paisley Park was a manifestation of Prince's love for this state, and that touched me deeply. April 21, 2016 was the heaviest of days. I left work early and walked home, weeping in the rain. The entire city was struck with grief. The fence at Paisley Park grew thick with flowers, photos, balloons, and poetry. I hadn't finished my print yet, but I knew its meaning had shifted in an instant, from presence to absence. The title Grace is Close to Home is a lyric from a favorite song of mine by the electronic duo Mount Kimbie. Paisley Park had been a foothold for me during a dark time, and instilled in me a sense of pride that will never be displaced.</p></div>
+<div class="story"><p>On a snowy Saturday back in 2013, my partner Clara and I ran some errands. It was the tail end of a volatile year. For six months I had been in an existential crisis of sorts and wanted nothing more than to move away from Minnesota. When Clara suggested we could hit up the southwest suburbs for our provisions, I lit up. Could we take Highway 5? And stop by Paisley Park?!</p>
+<p>A few months earlier, we had visited the purple palace for the first time, as our Prince was beginning to re-engage with fans in the space. We waited for hours in the rain, making beautiful, new friends before finding ourselves 20 feet from our hero's soundstage. In what was one of the most surreal nights of my life (certainly the funkiest), Prince made music that was bigger than any anguish or anxiety I'd been feeling; at Paisley Park, my preoccupations didn't stand a chance. My heart grew purple with pride.</p>
+<p>That's what I was thinking about as we pulled off in front of Paisley Park. I climbed a small snowbank, creeping real close to the fence. What I saw took my breath away. I loved the gracefulness of the fence lines and the stillness of the fresh snow blanketing the ground. I snapped a photo and ran back to the car. I posted it to my Instagram, captioning it Purple Snow.</p>
+<p>A year later I returned to the image in the studio. I settled in with a couple copper plates and began to work it into an intaglio print. As I etched, scraped and burnished, I sought refuge in the image, not as a place of escape as much as a source of pride. Paisley Park was a manifestation of Prince's love for this state, and that touched me deeply.</p>
+<p>April 21, 2016 was the heaviest of days. I left work early and walked home, weeping in the rain. The entire city was struck with grief. The fence at Paisley Park grew thick with flowers, photos, balloons, and poetry. I hadn't finished my print yet, but I knew its meaning had shifted in an instant, from presence to absence.</p>
+<p>The title Grace is Close to Home is a lyric from a favorite song of mine by the electronic duo Mount Kimbie. Paisley Park had been a foothold for me during a dark time, and instilled in me a sense of pride that will never be displaced.</p></div>
 <div class="gold-rule"></div>
 <div class="bio"><p><strong>Kaitlin Frick</strong> is a music fan and nonprofit worker currently based in Seattle.</p></div>
 
@@ -451,13 +502,14 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
 <div class="tour-band">
   <div class="tour-inner">
     <div class="gold-rule"></div>
-    <div class="tour-label">Continue the tour</div><div class="tour-nav"><a class="tour-link prev" href="anita-white.html" rel="prev"><img class="tour-thumb" src="../artworks-web/anita-white-artwork-1.jpg" alt="Anita White" loading="lazy"><span class="tour-text"><span class="tour-arrow">&larr; <span class="tour-arrow-label">Previous</span></span><span class="tour-name"><span class="tn-glyph">&larr;&nbsp;</span>Anita White</span><span class="tour-city">Minneapolis, MN</span></span></a><a class="tour-home" href="../participants.html"><span class="th-glyph" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="1.5" y="2" width="6" height="11" rx="0.7" fill="currentColor"/><rect x="1.5" y="14.5" width="6" height="7.5" rx="0.7" fill="currentColor"/><rect x="9" y="2" width="6" height="6" rx="0.7" fill="currentColor"/><rect x="9" y="9.5" width="6" height="12.5" rx="0.7" fill="currentColor"/><rect x="16.5" y="2" width="6" height="9" rx="0.7" fill="currentColor"/><rect x="16.5" y="12.5" width="6" height="9.5" rx="0.7" fill="currentColor"/></svg></span><span class="th-text"><span class="th-kicker"><span aria-hidden="true">&uarr;</span> Back to</span><span class="th-title">The Mosaic</span><span class="th-sub">All participants</span></span></a><a class="tour-link next" href="lisa-nilles.html" rel="next"><img class="tour-thumb" src="../artworks-web/lisa-niles-artwork.jpeg" alt="Lisa Nilles" loading="lazy"><span class="tour-text"><span class="tour-arrow"><span class="tour-arrow-label">Next</span> &rarr;</span><span class="tour-name">Lisa Nilles<span class="tn-glyph">&nbsp;&rarr;</span></span><span class="tour-city">Minneapolis, MN</span></span></a></div>
+    <div class="tour-label">Continue the tour</div><div class="tour-nav"><a class="tour-link prev" href="anita-white.html" rel="prev"><img class="tour-thumb" src="../artworks-web/anita-white-artwork-1.jpg" alt="Anita White" loading="lazy"><span class="tour-text"><span class="tour-arrow">&larr; <span class="tour-arrow-label">Previous</span></span><span class="tour-name"><span class="tn-glyph">&larr;&nbsp;</span>Anita White</span><span class="tour-city">Minneapolis, MN</span></span></a><a class="tour-home" href="../participants.html"><span class="th-glyph" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="1.85" y="2.35" width="5.3" height="10.3" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/><rect x="1.85" y="14.85" width="5.3" height="6.8" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/><rect x="9.35" y="2.35" width="5.3" height="5.3" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/><rect x="9.35" y="9.85" width="5.3" height="11.8" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/><rect x="16.85" y="2.35" width="5.3" height="8.3" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/><rect x="16.85" y="12.85" width="5.3" height="8.8" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/></svg></span><span class="th-text"><span class="th-kicker"><span aria-hidden="true">&uarr;</span> Back to</span><span class="th-title">The Mosaic</span><span class="th-sub">All participants</span></span></a><a class="tour-link next" href="lisa-nilles.html" rel="next"><img class="tour-thumb" src="../artworks-web/lisa-niles-artwork.jpeg" alt="Lisa Nilles" loading="lazy"><span class="tour-text"><span class="tour-arrow"><span class="tour-arrow-label">Next</span> &rarr;</span><span class="tour-name">Lisa Nilles<span class="tn-glyph">&nbsp;&rarr;</span></span><span class="tour-city">Minneapolis, MN</span></span></a></div>
     
   </div>
-  <footer>
-  <p>The People's Museum for Prince</p>
-  <p>Living Archive &middot; <a href="../exhibitions/index.html">Exhibition views</a> &middot; <a href="../credits.html">Credits</a> &middot; <a href="https://peoplesmuseumforprince.org">peoplesmuseumforprince.org</a></p>
-  <p class="footer-copyright">&copy; 2026</p>
+  <footer class="site-footer">
+  <p class="sf-lead">The People&#x27;s Museum for Prince presents art and stories from people around the world, testifying to the deep impact of Prince Rogers Nelson on many lives.</p>
+  <p class="sf-invite-line"><a class="sf-invite" href="https://www.peoplesmuseumforprince.org/contact">Your Prince story belongs here.</a></p>
+  <p class="sf-links"><a href="https://www.peoplesmuseumforprince.org">About the museum</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact">Share your story</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact">Join the mailing list</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/support">Support</a></p>
+  <p class="sf-small"><a href="../credits.html">Credits</a> <span class="sf-dot" aria-hidden="true">&middot;</span> &copy; 2026</p>
 </footer>
 </div>
 <script>

@@ -4,21 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Renée Westbrook — The People's Museum for Prince</title>
-<meta name="description" content="STANDING WITH PRINCE /By Renée Westbrook My softball coach at the time, John, was a music lawyer who knew everyone in the industry. When I asked him to…">
+<meta name="description" content="My softball coach at the time, John, was a music lawyer who knew everyone in the industry. When I asked him to show me the ropes, he agreed. He took me to…">
 <link rel="canonical" href="https://archive.peoplesmuseumforprince.org/participants/renee-westbrook.html">
 
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="The People&#x27;s Museum for Prince">
 <meta property="og:title" content="Renée Westbrook — The People&#x27;s Museum for Prince">
-<meta property="og:description" content="STANDING WITH PRINCE /By Renée Westbrook My softball coach at the time, John, was a music lawyer who knew everyone in the industry. When I asked him to…">
+<meta property="og:description" content="My softball coach at the time, John, was a music lawyer who knew everyone in the industry. When I asked him to show me the ropes, he agreed. He took me to…">
 <meta property="og:url" content="https://archive.peoplesmuseumforprince.org/participants/renee-westbrook.html">
 <meta property="og:image" content="https://archive.peoplesmuseumforprince.org/install-web/robertsgeneral2-kt-01.jpeg">
 <meta property="og:image:alt" content="Renée Westbrook">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Renée Westbrook — The People&#x27;s Museum for Prince">
-<meta name="twitter:description" content="STANDING WITH PRINCE /By Renée Westbrook My softball coach at the time, John, was a music lawyer who knew everyone in the industry. When I asked him to…">
+<meta name="twitter:description" content="My softball coach at the time, John, was a music lawyer who knew everyone in the industry. When I asked him to show me the ropes, he agreed. He took me to…">
 <meta name="twitter:image" content="https://archive.peoplesmuseumforprince.org/install-web/robertsgeneral2-kt-01.jpeg">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Renée Westbrook", "url": "https://archive.peoplesmuseumforprince.org/participants/renee-westbrook.html", "image": "https://archive.peoplesmuseumforprince.org/install-web/robertsgeneral2-kt-01.jpeg", "description": "STANDING WITH PRINCE /By Renée Westbrook My softball coach at the time, John, was a music lawyer who knew everyone in the industry. When I asked him to…", "givenName": "Renée", "familyName": "Westbrook", "memberOf": {"@type": "Organization", "name": "The People's Museum for Prince", "url": "https://peoplesmuseumforprince.org"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Renée Westbrook", "url": "https://archive.peoplesmuseumforprince.org/participants/renee-westbrook.html", "image": "https://archive.peoplesmuseumforprince.org/install-web/robertsgeneral2-kt-01.jpeg", "description": "My softball coach at the time, John, was a music lawyer who knew everyone in the industry. When I asked him to show me the ropes, he agreed. He took me to…", "givenName": "Renée", "familyName": "Westbrook", "memberOf": {"@type": "Organization", "name": "The People's Museum for Prince", "url": "https://peoplesmuseumforprince.org"}}</script>
 <link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/png" href="../assets/favicon-192.png" sizes="192x192">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
@@ -407,6 +407,52 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
   .lb-prev,.lb-next{top:auto;bottom:6px;transform:none;}
   .lb-img{max-height:calc(100vh - 150px);max-height:calc(100dvh - 150px);}
 }
+
+/* ── Sept 29 2026: tidied page end + tour band (decided on WEB/_test/) ── */
+/* white end: no line above the credits, no gold dash under the exhibition
+   link, and the band arrives ~56px after the credits instead of ~136px */
+.page{padding-bottom:0;}
+.exh-links{margin-top:2.25rem;}
+.exh-r{display:none;}
+.credits-block{border-top:0;padding-top:0;margin-top:2rem;}
+.tour-band{margin-top:3.5rem;padding-top:2rem;padding-bottom:1.5rem;}
+/* the gold rule sits centred over the centred tour (it had drifted to the
+   800px band's left edge); on phones it returns to the left gutter */
+.tour-band .gold-rule{margin:0 auto 1.25rem;}
+/* masonry glyph: gold outline, larger */
+.th-glyph svg{width:54px;height:54px;}
+@media(max-width:560px){
+  .tour-band{margin-top:2.75rem;}
+  .tour-band .gold-rule{margin:0 0 1.25rem;}
+  .th-glyph svg{width:40px;height:40px;}
+  /* a wrapped name lines up under itself; the arrow hangs outside it */
+  .tour-link.prev .tour-name{padding-left:1.1em;text-indent:-1.1em;}
+  .tour-link.next .tour-name{padding-right:1.1em;}
+  .tour-link.next .tn-glyph{margin-right:-1.1em;}
+}
+
+/* SHARED SITE FOOTER (Sept 29 2026) — generate.site_footer_html(). Night by
+   default; .sf-white on white pages; .sf-mosaic spacing on the mosaic. */
+footer.site-footer{display:block;max-width:640px;margin:1.75rem auto 0;padding:1.25rem 0 0;border-top:1px solid rgba(196,160,224,0.2);text-align:center;font-family:'DM Sans',sans-serif;font-weight:300;font-size:0.8rem;line-height:1.8;color:#c4a0e0;}
+footer.site-footer p{margin:0;}
+footer.site-footer a{color:#c4a0e0;text-decoration:none;transition:color .2s;font-size:inherit;letter-spacing:inherit;}
+footer.site-footer a:hover,footer.site-footer a:focus-visible{color:#C8A96E;}
+footer.site-footer .sf-lead{font-family:'DM Sans',sans-serif;font-weight:300;font-size:15px;line-height:1.7;color:#c4a0e0;max-width:520px;margin:0 auto;text-wrap:balance;}
+footer.site-footer .sf-invite-line{font-family:'DM Sans',sans-serif;font-weight:400;font-size:15px;line-height:1.6;margin:0.6rem auto 0.9rem;}
+footer.site-footer .sf-invite-line a.sf-invite{color:#C8A96E;text-decoration:none;}
+footer.site-footer .sf-invite-line a.sf-invite:hover,footer.site-footer .sf-invite-line a.sf-invite:focus-visible{color:#e4cf9f;}
+footer.site-footer .sf-links a{white-space:nowrap;}
+footer.site-footer .sf-dot{color:rgba(196,160,224,0.5);margin:0 0.2em;}
+footer.site-footer .sf-small{font-size:0.72rem;margin-top:0.35rem;opacity:0.85;}
+footer.site-footer.sf-mosaic{margin:60px auto 0;padding:1.6rem 16px 48px;}
+footer.site-footer.sf-white{margin:3rem auto 0;padding:1.5rem 16px 2.75rem;border-top-color:#e0d0f0;color:#7b52a8;}
+footer.site-footer.sf-white a{color:#5c2d8e;}
+footer.site-footer.sf-white a:hover{color:#3b1054;}
+footer.site-footer.sf-white .sf-lead{color:#7b52a8;}
+footer.site-footer.sf-white .sf-invite-line a.sf-invite{color:#9a7838;}
+footer.site-footer.sf-white .sf-invite-line a.sf-invite:hover{color:#3b1054;}
+footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
+@media(max-width:560px){footer.site-footer{margin-top:1.5rem;}footer.site-footer .sf-lead{font-size:15px;}}
 </style>
 <script data-goatcounter="https://pmparchive.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
@@ -434,11 +480,11 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
 </div>
 <div class="gold-rule"></div>
 
-<div class="story"><p>STANDING WITH PRINCE /By Renée Westbrook</p>
-<p>My softball coach at the time, John, was a music lawyer who knew everyone in the industry. When I asked him to show me the ropes, he agreed. He took me to a rhythm and blues revue at the Los Angeles Forum. He didn't tell me who was on the bill, but I love R&B so I was cool with it. We had great seats, second or third row. Before the first act finished their set, John insisted we go backstage./  When we got there, I immediately felt the backstage buzz. Pop Staples of The Staple Singers was at the craft services table with an orange peel covering his teeth, picking at the grapes he was about to eat when he finished the orange. Then John introduced me to Mavis Staples who took hold of my hand and didn't let go the entire time I was there. John wouldn’t tell me why we were there; he just said he was waiting for someone.</p>
-<p>Booker T. and the MGs strolled in after their set, adding to the buzz as they enjoyed the craft services table. John stood in front of a pillar that faced the backstage entrance. Mavis and I faced John as we chatted and she squeezed my hand tighter. I could tell she was really nervous about something. /That’s when the backstage buzz turned into a dead silence. John abruptly stopped talking and looked towards the entrance. The reason for the silence was clear: Prince Rogers Nelson pimp-walked in with Kat on his arm. He held a Plexiglas cane and wore shoes with four-inch Plexiglas heels that matched the cane. His cream colored thrift store looking tuxedo with tails had wide 1970s lapels and makeup was smeared all over them.</p>
-<p>As Mavis squeezed my hand even tighter, I thought to myself Wow. This guy looks a lot like - oh snap. It's Prince! It turned out John was there to broker a collaboration deal between Prince and Mavis. John introduced himself to Prince then Prince and Mavis said a few words to each other. By the time I remembered how to speak the English language again, Prince and Kat
- were gone. I didn’t get to actually meet him, but I had the once in a lifetime opportunity to stand with him.</p></div>
+<div class="story"><p>My softball coach at the time, John, was a music lawyer who knew everyone in the industry. When I asked him to show me the ropes, he agreed. He took me to a rhythm and blues revue at the Los Angeles Forum. He didn't tell me who was on the bill, but I love R&B so I was cool with it. We had great seats, second or third row. Before the first act finished their set, John insisted we go backstage.</p>
+<p>When we got there, I immediately felt the backstage buzz. Pop Staples of The Staple Singers was at the craft services table with an orange peel covering his teeth, picking at the grapes he was about to eat when he finished the orange. Then John introduced me to Mavis Staples who took hold of my hand and didn't let go the entire time I was there. John wouldn’t tell me why we were there; he just said he was waiting for someone.</p>
+<p>Booker T. and the MGs strolled in after their set, adding to the buzz as they enjoyed the craft services table. John stood in front of a pillar that faced the backstage entrance. Mavis and I faced John as we chatted and she squeezed my hand tighter. I could tell she was really nervous about something.</p>
+<p>That’s when the backstage buzz turned into a dead silence. John abruptly stopped talking and looked towards the entrance. The reason for the silence was clear: Prince Rogers Nelson pimp-walked in with Kat on his arm. He held a Plexiglas cane and wore shoes with four-inch Plexiglas heels that matched the cane. His cream colored thrift store looking tuxedo with tails had wide 1970s lapels and makeup was smeared all over them.</p>
+<p>As Mavis squeezed my hand even tighter, I thought to myself Wow. This guy looks a lot like - oh snap. It's Prince! It turned out John was there to broker a collaboration deal between Prince and Mavis. John introduced himself to Prince then Prince and Mavis said a few words to each other. By the time I remembered how to speak the English language again, Prince and Kat were gone. I didn’t get to actually meet him, but I had the once in a lifetime opportunity to stand with him.</p></div>
 <div class="gold-rule"></div>
 <div class="bio"><p><strong>Renée Westbrook</strong>'s critically acclaimed, award-winning one-woman show Shelter received its first full reading at Scripteasers in 2017 and went on to run at the San Diego International Fringe Festival in 2017, 2019, and 2022. At the 2019 festival, she received the Outstanding Solo Performance Award and an Artist Cultural Exchange Award. Shelter was also a San Diego Union-Tribune Critic’s Choice and the KPBS SD Fringe Top Pick that year. In 2022, Shelter was an SD Fringe Top Pick and the #1 show in the KPBS SD Fringe Top Ten Shows. An expansion of the one-woman show, a 12-character musical Shelter The Ensemble, received its first complete reading at San Diego State University, led by Professor Randy Reinholz, in early 2022. Westbrook has co-written songs with Allen McGrier (Motown The Musical, Teena Marie) and her original feature film screenplay Only Girl was one of the Elite Eight in the All Sports Los Angeles Film Festival. Westbrook's writing can be found in Callaloo Literary Journal, Black Warrior Review (Vol. 50, No. 1), and Mamas, Martyrs, and Jezebels: Myths, Legends, and Other Lies You've Been Told about Black Women (Black Lawrence Press).</p></div>
 
@@ -454,13 +500,14 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
 <div class="tour-band">
   <div class="tour-inner">
     <div class="gold-rule"></div>
-    <div class="tour-label">Continue the tour</div><div class="tour-nav"><a class="tour-link prev" href="mieke-lahaye.html" rel="prev"><img class="tour-thumb" src="../artworks-web/mieke-lahaye-artwork.jpg" alt="Mieke Lahaye" loading="lazy"><span class="tour-text"><span class="tour-arrow">&larr; <span class="tour-arrow-label">Previous</span></span><span class="tour-name"><span class="tn-glyph">&larr;&nbsp;</span>Mieke Lahaye</span><span class="tour-city">Villeneuve-Loubet, France</span></span></a><a class="tour-home" href="../participants.html"><span class="th-glyph" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="1.5" y="2" width="6" height="11" rx="0.7" fill="currentColor"/><rect x="1.5" y="14.5" width="6" height="7.5" rx="0.7" fill="currentColor"/><rect x="9" y="2" width="6" height="6" rx="0.7" fill="currentColor"/><rect x="9" y="9.5" width="6" height="12.5" rx="0.7" fill="currentColor"/><rect x="16.5" y="2" width="6" height="9" rx="0.7" fill="currentColor"/><rect x="16.5" y="12.5" width="6" height="9.5" rx="0.7" fill="currentColor"/></svg></span><span class="th-text"><span class="th-kicker"><span aria-hidden="true">&uarr;</span> Back to</span><span class="th-title">The Mosaic</span><span class="th-sub">All participants</span></span></a><a class="tour-link next" href="tracy-connor.html" rel="next"><img class="tour-thumb" src="../portraits-web/tracy-connor-portrait.jpg" alt="Tracy Connor" loading="lazy"><span class="tour-text"><span class="tour-arrow"><span class="tour-arrow-label">Next</span> &rarr;</span><span class="tour-name">Tracy Connor<span class="tn-glyph">&nbsp;&rarr;</span></span><span class="tour-city">Minneapolis, MN</span></span></a></div>
+    <div class="tour-label">Continue the tour</div><div class="tour-nav"><a class="tour-link prev" href="mieke-lahaye.html" rel="prev"><img class="tour-thumb" src="../artworks-web/mieke-lahaye-artwork.jpg" alt="Mieke Lahaye" loading="lazy"><span class="tour-text"><span class="tour-arrow">&larr; <span class="tour-arrow-label">Previous</span></span><span class="tour-name"><span class="tn-glyph">&larr;&nbsp;</span>Mieke Lahaye</span><span class="tour-city">Villeneuve-Loubet, France</span></span></a><a class="tour-home" href="../participants.html"><span class="th-glyph" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="1.85" y="2.35" width="5.3" height="10.3" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/><rect x="1.85" y="14.85" width="5.3" height="6.8" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/><rect x="9.35" y="2.35" width="5.3" height="5.3" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/><rect x="9.35" y="9.85" width="5.3" height="11.8" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/><rect x="16.85" y="2.35" width="5.3" height="8.3" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/><rect x="16.85" y="12.85" width="5.3" height="8.8" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/></svg></span><span class="th-text"><span class="th-kicker"><span aria-hidden="true">&uarr;</span> Back to</span><span class="th-title">The Mosaic</span><span class="th-sub">All participants</span></span></a><a class="tour-link next" href="tracy-connor.html" rel="next"><img class="tour-thumb" src="../portraits-web/tracy-connor-portrait.jpg" alt="Tracy Connor" loading="lazy"><span class="tour-text"><span class="tour-arrow"><span class="tour-arrow-label">Next</span> &rarr;</span><span class="tour-name">Tracy Connor<span class="tn-glyph">&nbsp;&rarr;</span></span><span class="tour-city">Minneapolis, MN</span></span></a></div>
     
   </div>
-  <footer>
-  <p>The People's Museum for Prince</p>
-  <p>Living Archive &middot; <a href="../exhibitions/index.html">Exhibition views</a> &middot; <a href="../credits.html">Credits</a> &middot; <a href="https://peoplesmuseumforprince.org">peoplesmuseumforprince.org</a></p>
-  <p class="footer-copyright">&copy; 2026</p>
+  <footer class="site-footer">
+  <p class="sf-lead">The People&#x27;s Museum for Prince presents art and stories from people around the world, testifying to the deep impact of Prince Rogers Nelson on many lives.</p>
+  <p class="sf-invite-line"><a class="sf-invite" href="https://www.peoplesmuseumforprince.org/contact">Your Prince story belongs here.</a></p>
+  <p class="sf-links"><a href="https://www.peoplesmuseumforprince.org">About the museum</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact">Share your story</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact">Join the mailing list</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/support">Support</a></p>
+  <p class="sf-small"><a href="../credits.html">Credits</a> <span class="sf-dot" aria-hidden="true">&middot;</span> &copy; 2026</p>
 </footer>
 </div>
 <script>

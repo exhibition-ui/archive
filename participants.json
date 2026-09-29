@@ -154,7 +154,7 @@
   "last_name": "Huntley II",
   "city": "Atlanta",
   "state_or_country": "GA",
-  "title": "Sometimes it Snows in April",
+  "title": "Sometimes It Snows in April",
   "venues": [
    "the Capri"
   ],
@@ -981,7 +981,7 @@
   "walk_order_2": [],
   "season": "",
   "noindex": false,
-  "card_image": "artworks-web/kami-ink-jb-02.jpeg",
+  "card_image": "artworks-web/kami-ink-mosaic.jpg",
   "card_alt": "portraits-web/kami-ink-portrait.jpg",
   "card_position": "",
   "card_alt_position": "",
@@ -1039,7 +1039,7 @@
   "walk_order_2": [],
   "season": "",
   "noindex": false,
-  "card_image": "artworks-web/brenda-bower-clemons-artwork.jpg",
+  "card_image": "artworks-web/brenda-bower-clemons-mosaic.jpg",
   "card_alt": "portraits-web/brenda-clemons-portrait.jpg",
   "card_position": "",
   "card_alt_position": "",
@@ -1131,7 +1131,7 @@
   "card_alt": "",
   "card_position": "",
   "card_alt_position": "",
-  "card_text": "Now Playing: / ♪  Take Me To Paisley ♪",
+  "card_text": "Now Playing: / ♪  Take Me to Paisley ♪",
   "favourite_prince_song": [
    "The Ballad of Dorothy Parker"
   ],
@@ -1351,7 +1351,7 @@
   "card_alt": "portraits-web/paul-thomlinson-portrait.jpeg",
   "card_position": "",
   "card_alt_position": "",
-  "card_text": "Now Playing: / ♪ Goodnight Sweet Prince ♪",
+  "card_text": "Now Playing: / ♪ Goodnight, Sweet Prince ♪",
   "favourite_prince_song": [
    "The Most Beautiful Girl in the World"
   ],
@@ -1972,7 +1972,7 @@
   "season": "",
   "noindex": false,
   "card_image": "artworks-web/lorraine-lassig-banks-artwork-01.jpeg",
-  "card_alt": "portraits-web/lorraine-lassig-banks-portrait.jpg",
+  "card_alt": "portraits-web/lorraine-lassig-banks-portrait-02.jpg",
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
@@ -1984,7 +1984,7 @@
   ],
   "second_card": null,
   "card_video": "",
-  "portrait": "portraits-web/lorraine-lassig-banks-portrait.jpg",
+  "portrait": "portraits-web/lorraine-lassig-banks-portrait-02.jpg",
   "connected": []
  },
  {

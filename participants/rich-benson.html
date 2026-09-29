@@ -407,6 +407,52 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
   .lb-prev,.lb-next{top:auto;bottom:6px;transform:none;}
   .lb-img{max-height:calc(100vh - 150px);max-height:calc(100dvh - 150px);}
 }
+
+/* ── Sept 29 2026: tidied page end + tour band (decided on WEB/_test/) ── */
+/* white end: no line above the credits, no gold dash under the exhibition
+   link, and the band arrives ~56px after the credits instead of ~136px */
+.page{padding-bottom:0;}
+.exh-links{margin-top:2.25rem;}
+.exh-r{display:none;}
+.credits-block{border-top:0;padding-top:0;margin-top:2rem;}
+.tour-band{margin-top:3.5rem;padding-top:2rem;padding-bottom:1.5rem;}
+/* the gold rule sits centred over the centred tour (it had drifted to the
+   800px band's left edge); on phones it returns to the left gutter */
+.tour-band .gold-rule{margin:0 auto 1.25rem;}
+/* masonry glyph: gold outline, larger */
+.th-glyph svg{width:54px;height:54px;}
+@media(max-width:560px){
+  .tour-band{margin-top:2.75rem;}
+  .tour-band .gold-rule{margin:0 0 1.25rem;}
+  .th-glyph svg{width:40px;height:40px;}
+  /* a wrapped name lines up under itself; the arrow hangs outside it */
+  .tour-link.prev .tour-name{padding-left:1.1em;text-indent:-1.1em;}
+  .tour-link.next .tour-name{padding-right:1.1em;}
+  .tour-link.next .tn-glyph{margin-right:-1.1em;}
+}
+
+/* SHARED SITE FOOTER (Sept 29 2026) — generate.site_footer_html(). Night by
+   default; .sf-white on white pages; .sf-mosaic spacing on the mosaic. */
+footer.site-footer{display:block;max-width:640px;margin:1.75rem auto 0;padding:1.25rem 0 0;border-top:1px solid rgba(196,160,224,0.2);text-align:center;font-family:'DM Sans',sans-serif;font-weight:300;font-size:0.8rem;line-height:1.8;color:#c4a0e0;}
+footer.site-footer p{margin:0;}
+footer.site-footer a{color:#c4a0e0;text-decoration:none;transition:color .2s;font-size:inherit;letter-spacing:inherit;}
+footer.site-footer a:hover,footer.site-footer a:focus-visible{color:#C8A96E;}
+footer.site-footer .sf-lead{font-family:'DM Sans',sans-serif;font-weight:300;font-size:15px;line-height:1.7;color:#c4a0e0;max-width:520px;margin:0 auto;text-wrap:balance;}
+footer.site-footer .sf-invite-line{font-family:'DM Sans',sans-serif;font-weight:400;font-size:15px;line-height:1.6;margin:0.6rem auto 0.9rem;}
+footer.site-footer .sf-invite-line a.sf-invite{color:#C8A96E;text-decoration:none;}
+footer.site-footer .sf-invite-line a.sf-invite:hover,footer.site-footer .sf-invite-line a.sf-invite:focus-visible{color:#e4cf9f;}
+footer.site-footer .sf-links a{white-space:nowrap;}
+footer.site-footer .sf-dot{color:rgba(196,160,224,0.5);margin:0 0.2em;}
+footer.site-footer .sf-small{font-size:0.72rem;margin-top:0.35rem;opacity:0.85;}
+footer.site-footer.sf-mosaic{margin:60px auto 0;padding:1.6rem 16px 48px;}
+footer.site-footer.sf-white{margin:3rem auto 0;padding:1.5rem 16px 2.75rem;border-top-color:#e0d0f0;color:#7b52a8;}
+footer.site-footer.sf-white a{color:#5c2d8e;}
+footer.site-footer.sf-white a:hover{color:#3b1054;}
+footer.site-footer.sf-white .sf-lead{color:#7b52a8;}
+footer.site-footer.sf-white .sf-invite-line a.sf-invite{color:#9a7838;}
+footer.site-footer.sf-white .sf-invite-line a.sf-invite:hover{color:#3b1054;}
+footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
+@media(max-width:560px){footer.site-footer{margin-top:1.5rem;}footer.site-footer .sf-lead{font-size:15px;}}
 </style>
 <script data-goatcounter="https://pmparchive.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
@@ -428,21 +474,23 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
       <h1 class="identity-name">Rich Benson</h1>
       <div class="identity-city">Minneapolis, MN</div>
       <div class="identity-artwork"><div class="identity-artwork-title">Grand Central photograph, 1975</div><div class="identity-artwork-medium">Archival Photograph · c1975</div></div>
-<div class="identity-artwork"><div class="identity-artwork-title">Ticket for Prince at The Capri, January 7, 1979</div><div class="identity-artwork-medium">Unused ticket for a cancelled show · January 7, 1979</div></div>
+<div class="identity-artwork"><div class="identity-artwork-title">Ticket for Prince at The Capri, January 7, 1979</div><div class="identity-artwork-medium">Unused ticket for a canceled show · January 7, 1979</div></div>
 <div class="identity-artwork"><div class="identity-artwork-title">The Eye (left) by Peyton Scott Russell</div><div class="identity-artwork-medium">Latex and Spray Paint · 2017</div></div>
     </div>
     
   </div>
 </div>
 <div class="gold-rule"></div>
-<div class="art-lead"><div class="artwork-block"><figure class="art-fig"><img class="artwork-img" src="../artworks-web/rich-benson-artwork-01.jpeg" width="638" height="446" alt="Rich Benson — Grand Central photograph, 1975" loading="lazy" data-lb data-caption="Grand Central photograph, 1975 · Archival Photograph · c1975"><figcaption class="art-cap"><h2 class="artwork-title">Grand Central photograph, 1975</h2><div class="artwork-medium-line">Archival Photograph · c1975</div></figcaption></figure><div class="artwork-story"><p>This photograph was taken outside Bernadette Anderson's house at 1244 Russell Ave North, which you can view from the gallery. It shows the band Grand Central. Linda Anderson (keyboard), Andre Anderson (Cymone) (bass, vocals), Terry Jackson (timbales), Morris Day (drums — Morris replaced original drummer Charles Chaz Smith), Prince Rogers Nelson (vocals, guitar, keyboard) and William Hollywood Doughty (congas). Grand Central was formed in 1971. They rehearsed at Terry Jackson's house at 1248 Russell Ave, next door to the Anderson's house, where Prince, Andre and Linda lived. They played at local community centers and high school dances.</p></div></div>
+<div class="art-lead"><div class="artwork-block"><figure class="art-fig"><img class="artwork-img" src="../artworks-web/rich-benson-artwork-01.jpeg" width="638" height="446" alt="Rich Benson — Grand Central photograph, 1975" loading="lazy" data-lb data-caption="Grand Central photograph, 1975 · Archival Photograph · c1975"><figcaption class="art-cap"><h2 class="artwork-title">Grand Central photograph, 1975</h2><div class="artwork-medium-line">Archival Photograph · c1975</div></figcaption></figure><div class="artwork-story"><p>This photograph was taken outside Bernadette Anderson's house at 1244 Russell Ave North, which you can view from the gallery. It shows the band Grand Central. Linda Anderson (keyboard), André Anderson (Cymone) (bass, vocals), Terry Jackson (timbales), Morris Day (drums — Morris replaced original drummer Charles Chaz Smith), Prince Rogers Nelson (vocals, guitar, keyboard) and William Hollywood Doughty (congas).</p>
+<p>Grand Central was formed in 1971. They rehearsed at Terry Jackson's house at 1248 Russell Ave, next door to the Andersons' house, where Prince, André and Linda lived. They played at local community centers and high school dances.</p></div></div>
 <div class="artwork-divider"></div>
-<div class="artwork-block"><figure class="art-fig art-tall" style="width:min(100%, calc(88vh * 0.7998), 759px)"><img class="artwork-img" src="../artworks-web/rich-benson-artwork-dp-01.jpeg" width="759" height="949" alt="Rich Benson — Ticket for Prince at The Capri, January 7, 1979" loading="lazy" data-lb data-caption="Ticket for Prince at The Capri, January 7, 1979 · Unused ticket for a cancelled show · January 7, 1979"><figcaption class="art-cap"><h2 class="artwork-title">Ticket for Prince at The Capri, January 7, 1979</h2><div class="artwork-medium-line">Unused ticket for a cancelled show · January 7, 1979</div></figcaption></figure><div class="artwork-story"><p>This is a ticket for the 3rd night of Prince’s first shows— a ghost concert. The show was cancelled, perhaps due to poor ticket sales, or as a direct consequence of the Warner Bros. executives' decision, after seeing Prince perform the previous nights, that he was not yet ready to tour. In August, I Wanna Be Your Lover was released and shot up the charts, and by November, Prince set off on his first US tour. Ticket donated by Kristen Zschomler to the Rich Benson Collection. In the 2026 People's Museum, this ticket was presented at the Capri Theater alongside works by Troy Gua creating moments from Prince's youth in North Minneapolis.</p></div></div>
+<div class="artwork-block"><figure class="art-fig art-tall" style="width:min(100%, calc(88vh * 0.7998), 759px)"><img class="artwork-img" src="../artworks-web/rich-benson-artwork-dp-01.jpeg" width="759" height="949" alt="Rich Benson — Ticket for Prince at The Capri, January 7, 1979" loading="lazy" data-lb data-caption="Ticket for Prince at The Capri, January 7, 1979 · Unused ticket for a canceled show · January 7, 1979"><figcaption class="art-cap"><h2 class="artwork-title">Ticket for Prince at The Capri, January 7, 1979</h2><div class="artwork-medium-line">Unused ticket for a canceled show · January 7, 1979</div></figcaption></figure><div class="artwork-story"><p>This is a ticket for the 3rd night of Prince’s first shows — a ghost concert. The show was canceled, perhaps due to poor ticket sales, or as a direct consequence of the Warner Bros. executives' decision, after seeing Prince perform the previous nights, that he was not yet ready to tour. In August, I Wanna Be Your Lover was released and shot up the charts, and by November, Prince set off on his first US tour.</p>
+<p>Ticket donated by Kristen Zschomler to the Rich Benson Collection. In the 2026 People's Museum, this ticket was presented at the Capri Theater alongside works by Troy Gua creating moments from Prince's youth in North Minneapolis.</p></div></div>
 <div class="artwork-divider"></div>
 <div class="artwork-block"><figure class="art-fig art-tall" style="width:min(100%, calc(88vh * 0.6342), 593px)"><img class="artwork-img" src="../artworks-web/rich-benson-artwork-02.jpeg" width="593" height="935" alt="Rich Benson — The Eye (left) by Peyton Scott Russell" loading="lazy" data-lb data-caption="The Eye (left) by Peyton Scott Russell · Latex and Spray Paint · 2017"><figcaption class="art-cap"><h2 class="artwork-title">The Eye (left) by Peyton Scott Russell</h2><div class="artwork-medium-line">Latex and Spray Paint · 2017</div></figcaption></figure><div class="artwork-story"><p>This is the companion painting to The Eye exhibited at the Roberts Gallery.</p></div></div></div>
 
 <div class="gold-rule"></div>
-<div class="bio"><p><strong>Rich Benson</strong> is a North Minneapolis-based Prince archivist and collector whose collection preserves rare and significant materials from Prince's life and career. His contributions to the 2026 edition of The People's Museum for Prince include a 1975 photograph of the Grand Central band by Charles Chamblis,  a ticket stub for the ghost concert at The Capri on January 7, 1979 and Peyton Scott Russell's iconic painting The Eye (Left Eye).<br> <br>Lifelong Prince fan, archivist, and collector. Benson's privately held collection of rare Prince artifacts was shown by Mentor Newark at the historic Hahne Building in downtown Newark, NJ, a youth-focused exhibit, featured in the New York Times. He has seen Prince live 127 times. In May-Nov. 2025 his collection featured in 7 display windows for Hennepin Arts, Lasalle Plaza, Minneapolis and at the Meet Minneapolis Visitor Center. (See portrait image: photo by Vincentt Crownover for Mspmag.com). He presented a special one night only exhibition in NE Minneapolis on June 7, 2026, in collaboration with Live 4 Love Charities, featuring a concert by Sheila E.</p><p class="bio-links"><a href="https://instagram.com/richbensoncollection">@richbensoncollection</a></p></div>
+<div class="bio"><p><strong>Rich Benson</strong> is a North Minneapolis-based Prince archivist and collector whose collection preserves rare and significant materials from Prince's life and career. His contributions to the 2026 edition of The People's Museum for Prince include a 1975 photograph of the Grand Central band by Charles Chamblis, a ticket stub for the ghost concert at The Capri on January 7, 1979 and Peyton Scott Russell's iconic painting The Eye (Left Eye).<br> <br>Lifelong Prince fan, archivist, and collector. Benson's privately held collection of rare Prince artifacts was shown by Mentor Newark at the historic Hahne Building in downtown Newark, NJ, a youth-focused exhibit, featured in the New York Times. He has seen Prince live 127 times. In May-Nov. 2025 his collection was featured in 7 display windows for Hennepin Arts, Lasalle Plaza, Minneapolis and at the Meet Minneapolis Visitor Center. (See portrait image: photo by Vincentt Crownover for Mspmag.com). He presented a special one night only exhibition in NE Minneapolis on June 7, 2026, in collaboration with Live 4 Love Charities, featuring a concert by Sheila E.</p><p class="bio-links"><a href="https://instagram.com/richbensoncollection">@richbensoncollection</a></p></div>
 
 
 <div class="museum-section"><h2 class="museum-heading">At the Museum — Roberts Gallery & the Capri</h2><div class="install-rows install-wide"><div class="lay-d"><figure class="img-solo"><img src="../install-web/rich-benson-dp-01.jpg" width="1200" height="800" alt="Installation view — Rich Benson, Grand Central photograph, 1975" loading="lazy" data-lb data-caption="Photo: Daniel R. Pratt"></figure>
@@ -460,13 +508,14 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
 <div class="tour-band">
   <div class="tour-inner">
     <div class="gold-rule"></div>
-    <div class="tour-label">Continue the tour</div><div class="tour-nav"><a class="tour-link prev" href="mary-johnson.html" rel="prev"><img class="tour-thumb" src="../artworks-web/mary-johnson-artwork.jpeg" alt="Mary Johnson" loading="lazy"><span class="tour-text"><span class="tour-arrow">&larr; <span class="tour-arrow-label">Previous</span></span><span class="tour-name"><span class="tn-glyph">&larr;&nbsp;</span>Mary Johnson</span><span class="tour-city">Rochester, MN</span></span></a><a class="tour-home" href="../participants.html"><span class="th-glyph" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="1.5" y="2" width="6" height="11" rx="0.7" fill="currentColor"/><rect x="1.5" y="14.5" width="6" height="7.5" rx="0.7" fill="currentColor"/><rect x="9" y="2" width="6" height="6" rx="0.7" fill="currentColor"/><rect x="9" y="9.5" width="6" height="12.5" rx="0.7" fill="currentColor"/><rect x="16.5" y="2" width="6" height="9" rx="0.7" fill="currentColor"/><rect x="16.5" y="12.5" width="6" height="9.5" rx="0.7" fill="currentColor"/></svg></span><span class="th-text"><span class="th-kicker"><span aria-hidden="true">&uarr;</span> Back to</span><span class="th-title">The Mosaic</span><span class="th-sub">All participants</span></span></a><a class="tour-link next" href="terry-jackson.html" rel="next"><img class="tour-thumb" src="../portraits-web/terry-jackson-portrait-2.jpeg" alt="Terry Jackson" loading="lazy"><span class="tour-text"><span class="tour-arrow"><span class="tour-arrow-label">Next</span> &rarr;</span><span class="tour-name">Terry Jackson<span class="tn-glyph">&nbsp;&rarr;</span></span><span class="tour-city">Minneapolis, MN</span></span></a></div>
+    <div class="tour-label">Continue the tour</div><div class="tour-nav"><a class="tour-link prev" href="mary-johnson.html" rel="prev"><img class="tour-thumb" src="../artworks-web/mary-johnson-artwork.jpeg" alt="Mary Johnson" loading="lazy"><span class="tour-text"><span class="tour-arrow">&larr; <span class="tour-arrow-label">Previous</span></span><span class="tour-name"><span class="tn-glyph">&larr;&nbsp;</span>Mary Johnson</span><span class="tour-city">Rochester, MN</span></span></a><a class="tour-home" href="../participants.html"><span class="th-glyph" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="1.85" y="2.35" width="5.3" height="10.3" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/><rect x="1.85" y="14.85" width="5.3" height="6.8" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/><rect x="9.35" y="2.35" width="5.3" height="5.3" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/><rect x="9.35" y="9.85" width="5.3" height="11.8" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/><rect x="16.85" y="2.35" width="5.3" height="8.3" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/><rect x="16.85" y="12.85" width="5.3" height="8.8" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/></svg></span><span class="th-text"><span class="th-kicker"><span aria-hidden="true">&uarr;</span> Back to</span><span class="th-title">The Mosaic</span><span class="th-sub">All participants</span></span></a><a class="tour-link next" href="terry-jackson.html" rel="next"><img class="tour-thumb" src="../portraits-web/terry-jackson-portrait-2.jpeg" alt="Terry Jackson" loading="lazy"><span class="tour-text"><span class="tour-arrow"><span class="tour-arrow-label">Next</span> &rarr;</span><span class="tour-name">Terry Jackson<span class="tn-glyph">&nbsp;&rarr;</span></span><span class="tour-city">Minneapolis, MN</span></span></a></div>
     <div class="see-also">See also &mdash; <a href="terry-jackson.html">Terry Jackson</a> &middot; <a href="troy-gua.html">Troy Gua</a> &middot; <a href="peyton-scott-russell.html">Peyton Scott Russell</a></div>
   </div>
-  <footer>
-  <p>The People's Museum for Prince</p>
-  <p>Living Archive &middot; <a href="../exhibitions/index.html">Exhibition views</a> &middot; <a href="../credits.html">Credits</a> &middot; <a href="https://peoplesmuseumforprince.org">peoplesmuseumforprince.org</a></p>
-  <p class="footer-copyright">&copy; 2026</p>
+  <footer class="site-footer">
+  <p class="sf-lead">The People&#x27;s Museum for Prince presents art and stories from people around the world, testifying to the deep impact of Prince Rogers Nelson on many lives.</p>
+  <p class="sf-invite-line"><a class="sf-invite" href="https://www.peoplesmuseumforprince.org/contact">Your Prince story belongs here.</a></p>
+  <p class="sf-links"><a href="https://www.peoplesmuseumforprince.org">About the museum</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact">Share your story</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact">Join the mailing list</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/support">Support</a></p>
+  <p class="sf-small"><a href="../credits.html">Credits</a> <span class="sf-dot" aria-hidden="true">&middot;</span> &copy; 2026</p>
 </footer>
 </div>
 <script>

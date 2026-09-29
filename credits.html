@@ -237,6 +237,29 @@ footer .footer-credit a { font-size: inherit; }
   h1 { font-size: 1.7rem; }
   h2 { font-size: 1.1rem; }
 }
+
+/* SHARED SITE FOOTER (Sept 29 2026) — generate.site_footer_html(). Night by
+   default; .sf-white on white pages; .sf-mosaic spacing on the mosaic. */
+footer.site-footer{display:block;max-width:640px;margin:1.75rem auto 0;padding:1.25rem 0 0;border-top:1px solid rgba(196,160,224,0.2);text-align:center;font-family:'DM Sans',sans-serif;font-weight:300;font-size:0.8rem;line-height:1.8;color:#c4a0e0;}
+footer.site-footer p{margin:0;}
+footer.site-footer a{color:#c4a0e0;text-decoration:none;transition:color .2s;font-size:inherit;letter-spacing:inherit;}
+footer.site-footer a:hover,footer.site-footer a:focus-visible{color:#C8A96E;}
+footer.site-footer .sf-lead{font-family:'DM Sans',sans-serif;font-weight:300;font-size:15px;line-height:1.7;color:#c4a0e0;max-width:520px;margin:0 auto;text-wrap:balance;}
+footer.site-footer .sf-invite-line{font-family:'DM Sans',sans-serif;font-weight:400;font-size:15px;line-height:1.6;margin:0.6rem auto 0.9rem;}
+footer.site-footer .sf-invite-line a.sf-invite{color:#C8A96E;text-decoration:none;}
+footer.site-footer .sf-invite-line a.sf-invite:hover,footer.site-footer .sf-invite-line a.sf-invite:focus-visible{color:#e4cf9f;}
+footer.site-footer .sf-links a{white-space:nowrap;}
+footer.site-footer .sf-dot{color:rgba(196,160,224,0.5);margin:0 0.2em;}
+footer.site-footer .sf-small{font-size:0.72rem;margin-top:0.35rem;opacity:0.85;}
+footer.site-footer.sf-mosaic{margin:60px auto 0;padding:1.6rem 16px 48px;}
+footer.site-footer.sf-white{margin:3rem auto 0;padding:1.5rem 16px 2.75rem;border-top-color:#e0d0f0;color:#7b52a8;}
+footer.site-footer.sf-white a{color:#5c2d8e;}
+footer.site-footer.sf-white a:hover{color:#3b1054;}
+footer.site-footer.sf-white .sf-lead{color:#7b52a8;}
+footer.site-footer.sf-white .sf-invite-line a.sf-invite{color:#9a7838;}
+footer.site-footer.sf-white .sf-invite-line a.sf-invite:hover{color:#3b1054;}
+footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
+@media(max-width:560px){footer.site-footer{margin-top:1.5rem;}footer.site-footer .sf-lead{font-size:15px;}}
 </style>
 <script data-goatcounter="https://pmparchive.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
@@ -320,9 +343,11 @@ footer .footer-credit a { font-size: inherit; }
 
 </div>
 
-<footer>
-  <a href="participants.html">← All participants</a>
-  <span class="footer-credit">The People's Museum for Prince — 2026 · <a href="https://peoplesmuseumforprince.org">peoplesmuseumforprince.org</a></span>
+<footer class="site-footer sf-white">
+  <p class="sf-lead">The People&#x27;s Museum for Prince presents art and stories from people around the world, testifying to the deep impact of Prince Rogers Nelson on many lives.</p>
+  <p class="sf-invite-line"><a class="sf-invite" href="https://www.peoplesmuseumforprince.org/contact">Your Prince story belongs here.</a></p>
+  <p class="sf-links"><a href="https://www.peoplesmuseumforprince.org">About the museum</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact">Share your story</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact">Join the mailing list</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/support">Support</a></p>
+  <p class="sf-small"><a href="credits.html">Credits</a> <span class="sf-dot" aria-hidden="true">&middot;</span> &copy; 2026</p>
 </footer>
 
 </body>
