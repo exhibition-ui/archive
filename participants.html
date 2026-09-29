@@ -179,7 +179,6 @@
   .img-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:3.2rem;color:var(--lilac);background:var(--ground-light);}
   /* ---- text card (§20) — CSS lifted from mosaic-text-cards-Sept18.html, option 2 ---- */
   .card-text{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:8% 9% 11%;transition:opacity 4s ease;}
-  .card.can-dissolve.show-portrait .card-text{opacity:0;}
   /* Sept 24 2026 (§6). The lines live in .ct-inner. margin-top:auto sends it
      to the foot of the card when it fits (the look is unchanged); when it is
      taller than the card the auto margin is zero, so it starts at the top and
@@ -194,10 +193,17 @@
      portrait is held beneath the text at 40% / saturate(.7) with a
      bottom-to-top scrim in the ground colour; hover (show-portrait) brings the
      portrait to full and removes the scrim. Sept 18 2026 (fifth pass). */
-  .card.text-card .img-portrait{opacity:.40;filter:saturate(.7);transition:opacity 4s ease,filter 4s ease;}
-  .card.text-card .card-text::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(26,15,46,.85) 0%,rgba(26,15,46,.35) 55%,rgba(26,15,46,0) 100%);z-index:-1;transition:opacity 4s ease;}
-  .card.text-card.can-dissolve.show-portrait .img-portrait{opacity:1;filter:none;}
-  .card.text-card.can-dissolve.show-portrait .card-text::before{opacity:0;}
+  /* Sept 29 2026: the portrait under a text card is still and at full colour, always.
+     The words and their shading are one layer (.card-text carries the scrim as ::before),
+     so they fade out and back in together; rest state = words showing. The loop script
+     toggles .words-off. Hover fades the words out sooner. */
+  .card.text-card .img-portrait{opacity:1;filter:none;transition:none;}
+  .card.text-card .card-text::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(26,15,46,.85) 0%,rgba(26,15,46,.35) 55%,rgba(26,15,46,0) 100%);z-index:-1;}
+  .card.text-card.words-cycle .card-text{opacity:1;transition:opacity var(--words-fade,4s) ease-in-out;}
+  .card.text-card.words-cycle.words-off .card-text{opacity:0;}
+  .card.text-card.words-cycle:hover .card-text{opacity:0;transition:opacity 1.2s ease;}
+  body.motion-off .card.text-card.words-cycle .card-text{opacity:1;transition:none;}
+  body.motion-off .card.text-card.words-cycle:hover .card-text{opacity:0;transition:opacity 1.2s ease;}
   .card-text .line{font-family:'DM Serif Display',serif;font-weight:400;font-style:italic;font-size:clamp(0.98rem,1.3vw,1.28rem);line-height:1.38;color:#fdfaff;margin:0;}
   .card-text .line span{display:block;}
   .card-text .line+.line{margin-top:.15em;}
@@ -364,7 +370,8 @@ footer.site-footer{display:block;max-width:640px;margin:1.75rem auto 0;padding:1
 footer.site-footer p{margin:0;}
 footer.site-footer a{color:#c4a0e0;text-decoration:none;transition:color .2s;font-size:inherit;letter-spacing:inherit;}
 footer.site-footer a:hover,footer.site-footer a:focus-visible{color:#C8A96E;}
-footer.site-footer .sf-lead{font-family:'DM Sans',sans-serif;font-weight:300;font-size:15px;line-height:1.7;color:#c4a0e0;max-width:520px;margin:0 auto;text-wrap:balance;}
+footer.site-footer .sf-label{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;line-height:1.7;color:#c4a0e0;}
+footer.site-footer .sf-label + .sf-invite-line{margin-top:0.5rem;}
 footer.site-footer .sf-invite-line{font-family:'DM Sans',sans-serif;font-weight:400;font-size:15px;line-height:1.6;margin:0.6rem auto 0.9rem;}
 footer.site-footer .sf-invite-line a.sf-invite{color:#C8A96E;text-decoration:none;}
 footer.site-footer .sf-invite-line a.sf-invite:hover,footer.site-footer .sf-invite-line a.sf-invite:focus-visible{color:#e4cf9f;}
@@ -375,11 +382,11 @@ footer.site-footer.sf-mosaic{margin:60px auto 0;padding:1.6rem 16px 48px;}
 footer.site-footer.sf-white{margin:3rem auto 0;padding:1.5rem 16px 2.75rem;border-top-color:#e0d0f0;color:#7b52a8;}
 footer.site-footer.sf-white a{color:#5c2d8e;}
 footer.site-footer.sf-white a:hover{color:#3b1054;}
-footer.site-footer.sf-white .sf-lead{color:#7b52a8;}
+footer.site-footer.sf-white .sf-label{color:#7b52a8;}
 footer.site-footer.sf-white .sf-invite-line a.sf-invite{color:#9a7838;}
 footer.site-footer.sf-white .sf-invite-line a.sf-invite:hover{color:#3b1054;}
 footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
-@media(max-width:560px){footer.site-footer{margin-top:1.5rem;}footer.site-footer .sf-lead{font-size:15px;}}
+@media(max-width:560px){footer.site-footer{margin-top:1.5rem;}}
 </style>
 </head>
 <body>
@@ -795,7 +802,7 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
         <p class="city">Lanesboro, MN</p>
       </div>
     </a>
-    <a class="card can-dissolve text-card" href="participants/hawona-sullivan-janzen.html"
+    <a class="card words-cycle text-card" href="participants/hawona-sullivan-janzen.html"
        data-slug="hawona-sullivan-janzen" data-name="Hawona Sullivan Janzen" data-first="Hawona" data-last="Sullivan Janzen"
        data-city="St Paul, MN" data-song="" data-venues="Roberts Gallery">
       <div class="card-media">
@@ -915,7 +922,7 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
         <p class="city">Chicago, IL</p>
       </div>
     </a>
-    <a class="card can-dissolve text-card" href="participants/hanna-ogren.html"
+    <a class="card words-cycle text-card" href="participants/hanna-ogren.html"
        data-slug="hanna-ogren" data-name="Hanna Ögren" data-first="Hanna" data-last="Ogren"
        data-city="Umeå, Sweden" data-song="The Ballad of Dorothy Parker" data-venues="Roberts Gallery">
       <div class="card-media">
@@ -999,7 +1006,7 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
         <p class="city">Minneapolis, MN</p>
       </div>
     </a>
-    <a class="card can-dissolve text-card" href="participants/paul-thomlinson.html"
+    <a class="card words-cycle text-card" href="participants/paul-thomlinson.html"
        data-slug="paul-thomlinson" data-name="Paul Thomlinson" data-first="Paul" data-last="Thomlinson"
        data-city="Springfield, MO" data-song="The Most Beautiful Girl in the World" data-venues="Roberts Gallery">
       <div class="card-media">
@@ -1047,7 +1054,7 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
         <p class="city">Houston, TX</p>
       </div>
     </a>
-    <a class="card can-dissolve text-card" href="participants/jamey-boelhower.html"
+    <a class="card words-cycle text-card" href="participants/jamey-boelhower.html"
        data-slug="jamey-boelhower" data-name="Jamey Boelhower" data-first="Jamey" data-last="Boelhower"
        data-city="Hastings, NE" data-song="Pope" data-venues="Roberts Gallery">
       <div class="card-media">
@@ -1179,7 +1186,7 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
         <p class="city">Dreieich, Germany</p>
       </div>
     </a>
-    <a class="card can-dissolve text-card" href="participants/alicia-lee.html"
+    <a class="card words-cycle text-card" href="participants/alicia-lee.html"
        data-slug="alicia-lee" data-name="Alicia Lee" data-first="Alicia" data-last="Lee"
        data-city="River Falls, WI" data-song="Cloreen Bacon Skin" data-venues="Roberts Gallery">
       <div class="card-media">
@@ -1255,7 +1262,7 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
        data-slug="lorraine-lassig-banks" data-name="Lorraine Lassig-Banks" data-first="Lorraine" data-last="Lassig-Banks"
        data-city="Maplewood, MN" data-song="Purple Rain Take Me with You Raspberry Beret Gold" data-venues="Roberts Gallery">
       <div class="card-media">
-        <img class="img-artwork" src="artworks-web/lorraine-lassig-banks-artwork-01.jpeg" alt="April 21 Reflection — artwork by Lorraine Lassig-Banks" loading="lazy"><img class="img-portrait" src="portraits-web/lorraine-lassig-banks-portrait-02.jpg" alt="Portrait of Lorraine Lassig-Banks" loading="lazy">
+        <img class="img-artwork" src="artworks-web/lorraine-lassig-banks-artwork-03.jpeg" alt="April 21 Reflection — artwork by Lorraine Lassig-Banks" loading="lazy"><img class="img-portrait" src="portraits-web/lorraine-lassig-banks-portrait-02.jpg" alt="Portrait of Lorraine Lassig-Banks" loading="lazy">
         <span class="gold-rule"></span>
       </div>
       <div class="card-caption">
@@ -1323,7 +1330,7 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
         <p class="city">Walnut Creek, CA</p>
       </div>
     </a>
-    <a class="card can-dissolve text-card" href="participants/giuseppe-craca.html"
+    <a class="card words-cycle text-card" href="participants/giuseppe-craca.html"
        data-slug="giuseppe-craca" data-name="Giuseppe Craca" data-first="Giuseppe" data-last="Craca"
        data-city="Bad Wildbad, Germany" data-song="Sometimes It Snows in April" data-venues="Roberts Gallery">
       <div class="card-media">
@@ -2033,9 +2040,9 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
 </main>
 
 <footer class="site-footer sf-mosaic">
-  <p class="sf-lead">The People&#x27;s Museum for Prince presents art and stories from people around the world, testifying to the deep impact of Prince Rogers Nelson on many lives.</p>
+  <p class="sf-label">The People&#x27;s Museum for Prince</p>
   <p class="sf-invite-line"><a class="sf-invite" href="https://www.peoplesmuseumforprince.org/contact">Your Prince story belongs here.</a></p>
-  <p class="sf-links"><a href="https://www.peoplesmuseumforprince.org">About the museum</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact">Share your story</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact">Join the mailing list</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/support">Support</a></p>
+  <p class="sf-links"><a href="https://www.peoplesmuseumforprince.org" aria-label="About the museum">About</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact">Share your story</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact">Mailing list</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/support">Support</a></p>
   <p class="sf-small"><a href="credits.html">Credits</a> <span class="sf-dot" aria-hidden="true">&middot;</span> &copy; 2026</p>
 </footer>
 
@@ -2430,6 +2437,43 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
     setInterval(tick, W.tick);
   }
 
+
+  // ---- text cards: the words breathe, the portrait never moves (Sept 29 2026) ----
+  // Words + shading fade out (FADE s), the portrait stays clear (CLEAR s), they fade
+  // back in (FADE s), and rest showing (REST s). Cards are staggered so they never
+  // all go together. Only cards near the screen run; nothing runs while the tab is
+  // hidden, while motion is paused, or under reduced motion (words simply stay).
+  {
+    var WORDS = { REST: 9, FADE: 4, CLEAR: 3.5, STAGGER: 2.3 };
+    var wcards = Array.prototype.slice.call(grid.querySelectorAll('.card.words-cycle'));
+    var wReduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.documentElement.style.setProperty('--words-fade', WORDS.FADE + 's');
+    function wOn(){ return !document.body.classList.contains('motion-off') && !(wReduce && !document.body.classList.contains('motion-optin')); }
+    function wCycle(c){
+      if (c.__wlive && !document.hidden && wOn() && !c.classList.contains('is-hidden') && !c.__hover) {
+        c.classList.add('words-off');
+        setTimeout(function(){
+          c.classList.remove('words-off');
+          setTimeout(function(){ wCycle(c); }, (WORDS.FADE + WORDS.REST) * 1000);
+        }, (WORDS.FADE + WORDS.CLEAR) * 1000);
+      } else {
+        c.classList.remove('words-off');
+        setTimeout(function(){ wCycle(c); }, 3000);
+      }
+    }
+    wcards.forEach(function(c, i){
+      c.__wlive = !('IntersectionObserver' in window);
+      c.addEventListener('mouseenter', function(){ c.__hover = true; });
+      c.addEventListener('mouseleave', function(){ c.__hover = false; });
+      setTimeout(function(){ wCycle(c); }, (WORDS.REST + (i % 7) * WORDS.STAGGER) * 1000);
+    });
+    if (wcards.length && 'IntersectionObserver' in window) {
+      var wio = new IntersectionObserver(function(ents){
+        ents.forEach(function(e){ e.target.__wlive = e.isIntersecting; });
+      }, { rootMargin: '10% 0px 10% 0px' });
+      wcards.forEach(function(c){ wio.observe(c); });
+    }
+  }
 
   // ---- long text cards (Sept 24 2026, §6) ----
   // A text card whose lines don't all fit gets .is-long: its opening lines

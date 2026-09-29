@@ -252,6 +252,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:grid;grid-template-co
 .tour-thumb-text .tt-song{font-size:0.82rem;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;}
 .tour-thumb-text .tt-n{color:var(--gold);font-family:var(--sans);font-size:0.9em;margin:0 0.25em;}
 .tour-thumb-text .tt-n:first-child{margin-left:0;}
+/* Sept 29 2026: text tile over the portrait. Portrait still and full colour; the words
+   and their shading (one layer) fade out and back in. Rest state = words showing. */
+.tour-thumb-text.tt-has-portrait{position:relative;display:block;padding:0;}
+.tt-portrait{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 18%;}
+.tt-words{position:absolute;inset:0;z-index:1;display:flex;align-items:flex-end;padding:9px 10px 10px;text-align:left;opacity:1;transition:opacity var(--words-fade,4s) ease-in-out;}
+.tt-words::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(26,15,46,.85) 0%,rgba(26,15,46,.35) 55%,rgba(26,15,46,0) 100%);z-index:-1;}
+.tt-has-portrait.words-off .tt-words{opacity:0;}
+@media (prefers-reduced-motion:reduce){ .tt-words{transition:none;} }
 .tour-link:hover .tour-thumb{transform:scale(1.03);}
 .tour-text{min-width:0;display:block;}
 .tour-arrow{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.2rem;}
@@ -379,6 +387,7 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
   .tour-link{width:auto;gap:0.55rem;}
   .tour-thumb,.tour-thumb-placeholder{width:100%;max-width:132px;height:auto;aspect-ratio:4/5;}
   .tour-thumb-text{padding:7px 8px 8px;}
+  .tt-words{padding:7px 8px 8px;}
   .tour-thumb-text .tt-line,.tour-thumb-text .tt-song{font-size:0.7rem;-webkit-line-clamp:5;}
   .tour-arrow{display:none;}
   .tn-glyph{display:inline;}
@@ -437,7 +446,8 @@ footer.site-footer{display:block;max-width:640px;margin:1.75rem auto 0;padding:1
 footer.site-footer p{margin:0;}
 footer.site-footer a{color:#c4a0e0;text-decoration:none;transition:color .2s;font-size:inherit;letter-spacing:inherit;}
 footer.site-footer a:hover,footer.site-footer a:focus-visible{color:#C8A96E;}
-footer.site-footer .sf-lead{font-family:'DM Sans',sans-serif;font-weight:300;font-size:15px;line-height:1.7;color:#c4a0e0;max-width:520px;margin:0 auto;text-wrap:balance;}
+footer.site-footer .sf-label{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;line-height:1.7;color:#c4a0e0;}
+footer.site-footer .sf-label + .sf-invite-line{margin-top:0.5rem;}
 footer.site-footer .sf-invite-line{font-family:'DM Sans',sans-serif;font-weight:400;font-size:15px;line-height:1.6;margin:0.6rem auto 0.9rem;}
 footer.site-footer .sf-invite-line a.sf-invite{color:#C8A96E;text-decoration:none;}
 footer.site-footer .sf-invite-line a.sf-invite:hover,footer.site-footer .sf-invite-line a.sf-invite:focus-visible{color:#e4cf9f;}
@@ -448,11 +458,11 @@ footer.site-footer.sf-mosaic{margin:60px auto 0;padding:1.6rem 16px 48px;}
 footer.site-footer.sf-white{margin:3rem auto 0;padding:1.5rem 16px 2.75rem;border-top-color:#e0d0f0;color:#7b52a8;}
 footer.site-footer.sf-white a{color:#5c2d8e;}
 footer.site-footer.sf-white a:hover{color:#3b1054;}
-footer.site-footer.sf-white .sf-lead{color:#7b52a8;}
+footer.site-footer.sf-white .sf-label{color:#7b52a8;}
 footer.site-footer.sf-white .sf-invite-line a.sf-invite{color:#9a7838;}
 footer.site-footer.sf-white .sf-invite-line a.sf-invite:hover{color:#3b1054;}
 footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
-@media(max-width:560px){footer.site-footer{margin-top:1.5rem;}footer.site-footer .sf-lead{font-size:15px;}}
+@media(max-width:560px){footer.site-footer{margin-top:1.5rem;}}
 </style>
 <script data-goatcounter="https://pmparchive.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
@@ -502,9 +512,9 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
     <div class="see-also">See also &mdash; <a href="terry-jackson.html">Terry Jackson</a></div>
   </div>
   <footer class="site-footer">
-  <p class="sf-lead">The People&#x27;s Museum for Prince presents art and stories from people around the world, testifying to the deep impact of Prince Rogers Nelson on many lives.</p>
+  <p class="sf-label">The People&#x27;s Museum for Prince</p>
   <p class="sf-invite-line"><a class="sf-invite" href="https://www.peoplesmuseumforprince.org/contact">Your Prince story belongs here.</a></p>
-  <p class="sf-links"><a href="https://www.peoplesmuseumforprince.org">About the museum</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact">Share your story</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact">Join the mailing list</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/support">Support</a></p>
+  <p class="sf-links"><a href="https://www.peoplesmuseumforprince.org" aria-label="About the museum">About</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact">Share your story</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact">Mailing list</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/support">Support</a></p>
   <p class="sf-small"><a href="../credits.html">Credits</a> <span class="sf-dot" aria-hidden="true">&middot;</span> &copy; 2026</p>
 </footer>
 </div>
