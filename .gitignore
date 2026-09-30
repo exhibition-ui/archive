@@ -19,3 +19,6 @@ views-web/_*
 
 # test pages for a decision — never pushed (Sept 27 2026)
 _test/
+
+# songs check page (Sept 30 2026) — never pushed
+songs-check.html

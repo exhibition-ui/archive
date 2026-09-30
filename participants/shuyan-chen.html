@@ -78,6 +78,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:grid;grid-template-co
 .portrait-songs{padding-top:0.7rem;width:220px;}
 .song-line{font-size:0.82rem;color:var(--soft);font-weight:400;line-height:1.6;}   /* dark purple again (Sept 23, Emma) */
 .song-note{color:var(--gold);margin-right:0.4em;}
+/* ♪ previews (Sept 30 2026, §38): the ♪ + title is the button */
+.song-play{appearance:none;-webkit-appearance:none;background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;line-height:inherit;text-align:left;cursor:pointer;}
+.song-play:disabled{cursor:inherit;color:inherit;}
+.song-play:focus-visible{outline:1px solid var(--gold);outline-offset:3px;border-radius:1px;}
+.song-play .song-note{display:inline-block;}
+.song-play .song-t{background:linear-gradient(var(--gold),var(--gold)) no-repeat left bottom / 0 1px;padding-bottom:1px;transition:color .3s;}
+.song-play:not(:disabled):not(.playing):hover .song-t{color:var(--mid);}
+.song-play.playing .song-t{color:var(--gold);background-size:100% 1px;transition:color .3s,background-size 30s linear;}
+.song-play.playing .song-note{animation:pmPulse 1.6s ease-in-out infinite;}
+@keyframes pmPulse{0%,100%{opacity:1;}50%{opacity:.35;}}
+.song-credit{font-size:0.72rem;color:var(--muted);font-weight:300;line-height:1.5;margin-top:0.35rem;}
+.song-credit[hidden]{display:none;}
+.song-credit a{color:var(--muted);white-space:nowrap;text-decoration:underline;text-decoration-color:rgba(200,169,110,.6);text-underline-offset:2px;}
+.song-credit a:hover{color:var(--mid);}
+@media (prefers-reduced-motion:reduce){ .song-play.playing .song-note{animation:none;} .song-play .song-t,.song-play.playing .song-t{transition:none;} }
 
 /* IDENTITY — dual portrait (portrait_2 present) */
 /* Layout: portrait_1 | meta | portrait_2 — meta centered */
@@ -485,7 +500,8 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
       <div class="identity-city">Woodbury, MN</div>
       <div class="identity-artwork"><div class="identity-artwork-title">Rhythm</div><div class="identity-artwork-medium">Chalk, Colored Pencil, Marker, Graphite Pencil, and Charcoal Powder on Paper · 2026</div></div>
     </div>
-    <div class="identity-songs-meta"><div class="song-line"><span class="song-note" aria-hidden="true">♪</span>Purple Rain</div></div>
+    <div class="identity-songs-meta"><div class="song-line"><button type="button" class="song-play" data-apple="1229320478" aria-pressed="false" disabled><span class="song-note" aria-hidden="true">♪</span><span class="song-t">Purple Rain</span></button></div>
+<div class="song-credit" aria-live="polite" hidden>Tap ♪ for a 30-second preview · courtesy of Apple Music</div></div>
   </div>
 </div>
 <div class="gold-rule"></div>
@@ -602,6 +618,46 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
       swiped = true; setTimeout(function(){ swiped = false; }, 400);
       show(idx + (dx < 0 ? 1 : -1));
     }
+  });
+})();
+</script>
+<script>
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('.song-play'));
+  if(!btns.length) return;
+  var credit=document.querySelector('.song-credit');
+  var REST=credit?credit.innerHTML:'';
+  function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function plain(b){var s=document.createElement('span');s.className='song-plain';while(b.firstChild)s.appendChild(b.firstChild);b.parentNode.replaceChild(s,b);}
+  function giveUp(){btns.forEach(function(b){if(b.parentNode)plain(b);});btns=[];if(credit)credit.hidden=true;}
+  var ids=[];btns.forEach(function(b){var i=b.getAttribute('data-apple');if(ids.indexOf(i)<0)ids.push(i);});
+  var cb='pmPrev'+Date.now();
+  var timer=setTimeout(function(){window[cb]=function(){};giveUp();},8000);
+  window[cb]=function(data){
+    clearTimeout(timer);
+    var byId={};
+    ((data&&data.results)||[]).forEach(function(t){if(t.previewUrl)byId[String(t.trackId)]=t;});
+    btns=btns.filter(function(b){var t=byId[b.getAttribute('data-apple')];if(t){b._t=t;b.disabled=false;return true;}plain(b);return false;});
+    if(credit)credit.hidden=!btns.length;
+  };
+  var s=document.createElement('script');
+  s.src='https://itunes.apple.com/lookup?id='+ids.join(',')+'&entity=song&callback='+cb;
+  s.onerror=function(){clearTimeout(timer);giveUp();};
+  document.head.appendChild(s);
+  var audio=new Audio();audio.preload='none';var cur=null;
+  function stop(){if(cur){cur.classList.remove('playing');cur.setAttribute('aria-pressed','false');cur=null;}audio.pause();if(credit&&!credit.hidden)credit.innerHTML=REST;}
+  audio.addEventListener('ended',stop);
+  audio.addEventListener('error',stop);
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('.song-play');
+    if(!b||!b._t)return;
+    if(cur===b){stop();return;}
+    stop();
+    var t=b._t;audio.src=t.previewUrl;
+    var p=audio.play();if(p&&p.catch)p.catch(stop);
+    cur=b;b.classList.add('playing');b.setAttribute('aria-pressed','true');
+    if(credit){var yr=(t.releaseDate||'').slice(0,4);
+      credit.textContent='Now playing: '+(t.collectionName||'')+(yr?', '+yr:'')+' · ';var a=document.createElement('a');a.href=t.trackViewUrl;a.target='_blank';a.rel='noopener';a.textContent='Listen on Apple Music ↗';credit.appendChild(a);}
   });
 })();
 </script>
