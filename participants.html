@@ -68,6 +68,8 @@
   header p.intro-line-cue{margin-top:6px;color:var(--lilac);}
   header p.intro-line a.welcome-link{color:var(--gold);text-decoration:none;transition:color .2s;}
   header p.intro-line a.welcome-link:hover{color:#fff;}
+  header p.intro-line.intro-music{color:var(--lilac);margin-top:4px;}
+  header p.intro-line .music-note{color:var(--gold);}
   header p.intro-line a.welcome-link:focus-visible{outline:1px solid var(--gold);outline-offset:3px;}
   /* The Exhibition views window (Sept 26 2026, brief 2.4). Laptop: the welcome
      text on the left, the window in a 232px right column under "Museum ↗".
@@ -385,6 +387,9 @@ footer.site-footer .sf-social a{display:inline-flex;padding:4px;color:#c4a0e0;}
 footer.site-footer .sf-social svg{display:block;width:18px;height:18px;}
 footer.site-footer .sf-social + .sf-small{margin-top:0.6rem;}
 footer.site-footer .sf-small{font-size:0.72rem;margin-top:0.35rem;opacity:0.85;}
+footer.site-footer .sf-music{margin:0 0 0.5rem;}
+footer.site-footer .sf-music .sf-note{color:#C8A96E;margin-right:0.35em;}
+footer.site-footer .sf-music a{white-space:nowrap;}
 footer.site-footer.sf-mosaic{margin:60px auto 0;padding:1.6rem 16px 48px;}
 footer.site-footer.sf-white{margin:3rem auto 0;padding:1.5rem 16px 2.75rem;border-top-color:#e0d0f0;color:#7b52a8;}
 footer.site-footer.sf-white a{color:#5c2d8e;}
@@ -410,6 +415,7 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
   <div class="head-body">
     <div class="head-text">
   <p class="intro-line">Welcome to the Living Archive: the artists, writers, poets, filmmakers and collectors who made the museum in Minneapolis, June 2026. Choose anyone to begin, or walk through the <a class="welcome-link" href="exhibitions/index.html">exhibition views</a>. New people and stories are on their way.</p>
+  <p class="intro-line intro-music"><span class="music-note" aria-hidden="true">♪</span> Put on your favorite Prince music, or tune in to <a class="welcome-link" href="https://www.thecurrent.org/purple-current" target="_blank" rel="noopener">Purple Current</a>, free from Minneapolis, and step into the museum.</p>
     </div>
     <a class="ex-win" href="exhibitions/index.html" aria-label="Exhibition views">
       <span class="ex-frame" id="exWin"><img class="w0" alt="" decoding="async"><img class="w1" alt="" decoding="async"></span>
@@ -2052,6 +2058,7 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
 <footer class="site-footer sf-mosaic">
   <p class="sf-label">The People&#x27;s Museum for Prince</p>
   <p class="sf-invite-line"><span class="sf-invite">Your Prince story belongs here.</span></p>
+  <p class="sf-music"><span class="sf-note" aria-hidden="true">♪</span>Museum playlist: <a href="https://music.apple.com/us/playlist/take-me-with-u-minneapolis-2026/pl.u-e98lGpmHjoZ4R" rel="noopener">Apple Music</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://open.spotify.com/playlist/0MrI0tJeMnxrGIcSbq52kS" rel="noopener">Spotify</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.youtube.com/playlist?list=PLAO-ogP4RYhM" rel="noopener">YouTube</a></p>
   <p class="sf-links"><a href="https://www.peoplesmuseumforprince.org" aria-label="About the museum">About</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact#subscribe">Mailing list</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/support">Support</a></p>
   <p class="sf-social"><a href="https://www.instagram.com/peoplesmuseumforprince/" aria-label="The museum on Instagram" title="Instagram" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/peoplesmuseumforprince/" aria-label="The museum on Facebook" title="Facebook" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M15.6 7.4h-1.4c-1.1 0-1.9.8-1.9 1.9V21M9.6 12.6h5.4"/></svg></a></p>
   <p class="sf-small"><a href="credits.html">Credits</a> <span class="sf-dot" aria-hidden="true">&middot;</span> &copy; 2026</p>
