@@ -468,6 +468,11 @@ footer.site-footer .sf-invite-line a.sf-invite{color:#C8A96E;text-decoration:non
 footer.site-footer .sf-invite-line a.sf-invite:hover,footer.site-footer .sf-invite-line a.sf-invite:focus-visible{color:#e4cf9f;}
 footer.site-footer .sf-links a{white-space:nowrap;}
 footer.site-footer .sf-dot{color:rgba(196,160,224,0.5);margin:0 0.2em;}
+footer.site-footer span.sf-invite{color:#C8A96E;}
+footer.site-footer .sf-social{display:flex;justify-content:center;gap:1.1rem;margin-top:0.55rem;line-height:1;}
+footer.site-footer .sf-social a{display:inline-flex;padding:4px;color:#c4a0e0;}
+footer.site-footer .sf-social svg{display:block;width:18px;height:18px;}
+footer.site-footer .sf-social + .sf-small{margin-top:0.6rem;}
 footer.site-footer .sf-small{font-size:0.72rem;margin-top:0.35rem;opacity:0.85;}
 footer.site-footer.sf-mosaic{margin:60px auto 0;padding:1.6rem 16px 48px;}
 footer.site-footer.sf-white{margin:3rem auto 0;padding:1.5rem 16px 2.75rem;border-top-color:#e0d0f0;color:#7b52a8;}
@@ -476,6 +481,9 @@ footer.site-footer.sf-white a:hover{color:#3b1054;}
 footer.site-footer.sf-white .sf-label{color:#7b52a8;}
 footer.site-footer.sf-white .sf-invite-line a.sf-invite{color:#9a7838;}
 footer.site-footer.sf-white .sf-invite-line a.sf-invite:hover{color:#3b1054;}
+footer.site-footer.sf-white span.sf-invite{color:#9a7838;}
+footer.site-footer.sf-white .sf-social a{color:#7b52a8;}
+footer.site-footer.sf-white .sf-social a:hover{color:#3b1054;}
 footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
 @media(max-width:560px){footer.site-footer{margin-top:1.5rem;}}
 </style>
@@ -500,7 +508,8 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
       <div class="identity-city">Shoreview, MN</div>
       <div class="identity-artwork"><div class="identity-artwork-title">The Dance</div><div class="identity-artwork-medium">Acrylic Painting · 2023</div></div>
     </div>
-    
+    <div class="identity-songs-meta"><div class="song-line"><button type="button" class="song-play" data-apple="1229320470" aria-pressed="false" disabled><span class="song-note" aria-hidden="true">♪</span><span class="song-t">Let's Go Crazy</span></button></div>
+<div class="song-credit" aria-live="polite" hidden>Tap ♪ for a 30-second preview · courtesy of Apple Music</div></div>
   </div>
 </div>
 <div class="gold-rule"></div>
@@ -527,8 +536,9 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
   </div>
   <footer class="site-footer">
   <p class="sf-label">The People&#x27;s Museum for Prince</p>
-  <p class="sf-invite-line"><a class="sf-invite" href="https://www.peoplesmuseumforprince.org/contact">Your Prince story belongs here.</a></p>
-  <p class="sf-links"><a href="https://www.peoplesmuseumforprince.org" aria-label="About the museum">About</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact">Share your story</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact">Mailing list</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/support">Support</a></p>
+  <p class="sf-invite-line"><span class="sf-invite">Your Prince story belongs here.</span></p>
+  <p class="sf-links"><a href="https://www.peoplesmuseumforprince.org" aria-label="About the museum">About</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact#subscribe">Mailing list</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/support">Support</a></p>
+  <p class="sf-social"><a href="https://www.instagram.com/peoplesmuseumforprince/" aria-label="The museum on Instagram" title="Instagram" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/peoplesmuseumforprince/" aria-label="The museum on Facebook" title="Facebook" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M15.6 7.4h-1.4c-1.1 0-1.9.8-1.9 1.9V21M9.6 12.6h5.4"/></svg></a></p>
   <p class="sf-small"><a href="../credits.html">Credits</a> <span class="sf-dot" aria-hidden="true">&middot;</span> &copy; 2026</p>
 </footer>
 </div>
@@ -618,6 +628,45 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
   });
 })();
 </script>
-
+<script>
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('.song-play'));
+  if(!btns.length) return;
+  var credit=document.querySelector('.song-credit');
+  var REST=credit?credit.innerHTML:'';
+  function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function plain(b){var s=document.createElement('span');s.className='song-plain';while(b.firstChild)s.appendChild(b.firstChild);b.parentNode.replaceChild(s,b);}
+  function giveUp(){btns.forEach(function(b){if(b.parentNode)plain(b);});btns=[];if(credit)credit.hidden=true;}
+  var ids=[];btns.forEach(function(b){var i=b.getAttribute('data-apple');if(ids.indexOf(i)<0)ids.push(i);});
+  var cb='pmPrev'+Date.now();
+  var timer=setTimeout(function(){window[cb]=function(){};giveUp();},8000);
+  window[cb]=function(data){
+    clearTimeout(timer);
+    var byId={};
+    ((data&&data.results)||[]).forEach(function(t){if(t.previewUrl)byId[String(t.trackId)]=t;});
+    btns=btns.filter(function(b){var t=byId[b.getAttribute('data-apple')];if(t){b._t=t;b.disabled=false;return true;}plain(b);return false;});
+    if(credit)credit.hidden=!btns.length;
+  };
+  var s=document.createElement('script');
+  s.src='https://itunes.apple.com/lookup?id='+ids.join(',')+'&entity=song&callback='+cb;
+  s.onerror=function(){clearTimeout(timer);giveUp();};
+  document.head.appendChild(s);
+  var audio=new Audio();audio.preload='none';var cur=null;
+  function stop(){if(cur){cur.classList.remove('playing');cur.setAttribute('aria-pressed','false');cur=null;}audio.pause();if(credit&&!credit.hidden)credit.innerHTML=REST;}
+  audio.addEventListener('ended',stop);
+  audio.addEventListener('error',stop);
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('.song-play');
+    if(!b||!b._t)return;
+    if(cur===b){stop();return;}
+    stop();
+    var t=b._t;audio.src=t.previewUrl;
+    var p=audio.play();if(p&&p.catch)p.catch(stop);
+    cur=b;b.classList.add('playing');b.setAttribute('aria-pressed','true');
+    if(credit){var yr=(t.releaseDate||'').slice(0,4);
+      credit.textContent='Now playing: '+(t.collectionName||'')+(yr?', '+yr:'')+' · ';var a=document.createElement('a');a.href=t.trackViewUrl;a.target='_blank';a.rel='noopener';a.textContent='Listen on Apple Music ↗';credit.appendChild(a);}
+  });
+})();
+</script>
 </body>
 </html>

@@ -312,7 +312,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
-  "favourite_prince_song": [],
+  "favourite_prince_song": [
+   "Let's Go Crazy"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/allison-claybaugh-portrait.jpg",
@@ -339,7 +341,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
-  "favourite_prince_song": [],
+  "favourite_prince_song": [
+   "My Name Is Prince"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/kevin-mclaughlin-portrait.jpg",
@@ -464,8 +468,8 @@
   "url": "participants/robbin-lang.html",
   "first_name": "Robbin",
   "last_name": "Lang",
-  "city": "Traverse City",
-  "state_or_country": "MI",
+  "city": "Commerce City",
+  "state_or_country": "CO",
   "title": "Always In My Hair",
   "venues": [
    "Roberts Gallery"
@@ -474,12 +478,13 @@
   "walk_order_2": [],
   "season": "",
   "noindex": false,
-  "card_image": "artworks-web/robbin-lang-artwork-dp-01.jpeg",
+  "card_image": "artworks-web/robbin-lang-artwork-unframed.jpg",
   "card_alt": "portraits-web/robbin-lang-portrait.jpg",
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
   "favourite_prince_song": [
+   "She's Always in My Hair",
    "Adore",
    "17 Days"
   ],
@@ -625,7 +630,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
-  "favourite_prince_song": [],
+  "favourite_prince_song": [
+   "Let's Go Crazy"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/pamela-ayo-yetunde-portrait.jpg",
@@ -874,7 +881,10 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
-  "favourite_prince_song": [],
+  "favourite_prince_song": [
+   "The Beautiful Ones",
+   "Sometimes It Snows in April"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/jill-boogren-portrait.jpeg",
@@ -901,7 +911,10 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
-  "favourite_prince_song": [],
+  "favourite_prince_song": [
+   "Purple Rain",
+   "Soft and Wet"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/rebecca-langason-portrait.jpeg",
@@ -1687,7 +1700,9 @@
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
-  "favourite_prince_song": [],
+  "favourite_prince_song": [
+   "I Wanna Be Your Lover"
+  ],
   "second_card": null,
   "card_video": "",
   "portrait": "portraits-web/rich-benson-portrait-kt.jpeg",

@@ -468,6 +468,11 @@ footer.site-footer .sf-invite-line a.sf-invite{color:#C8A96E;text-decoration:non
 footer.site-footer .sf-invite-line a.sf-invite:hover,footer.site-footer .sf-invite-line a.sf-invite:focus-visible{color:#e4cf9f;}
 footer.site-footer .sf-links a{white-space:nowrap;}
 footer.site-footer .sf-dot{color:rgba(196,160,224,0.5);margin:0 0.2em;}
+footer.site-footer span.sf-invite{color:#C8A96E;}
+footer.site-footer .sf-social{display:flex;justify-content:center;gap:1.1rem;margin-top:0.55rem;line-height:1;}
+footer.site-footer .sf-social a{display:inline-flex;padding:4px;color:#c4a0e0;}
+footer.site-footer .sf-social svg{display:block;width:18px;height:18px;}
+footer.site-footer .sf-social + .sf-small{margin-top:0.6rem;}
 footer.site-footer .sf-small{font-size:0.72rem;margin-top:0.35rem;opacity:0.85;}
 footer.site-footer.sf-mosaic{margin:60px auto 0;padding:1.6rem 16px 48px;}
 footer.site-footer.sf-white{margin:3rem auto 0;padding:1.5rem 16px 2.75rem;border-top-color:#e0d0f0;color:#7b52a8;}
@@ -476,6 +481,9 @@ footer.site-footer.sf-white a:hover{color:#3b1054;}
 footer.site-footer.sf-white .sf-label{color:#7b52a8;}
 footer.site-footer.sf-white .sf-invite-line a.sf-invite{color:#9a7838;}
 footer.site-footer.sf-white .sf-invite-line a.sf-invite:hover{color:#3b1054;}
+footer.site-footer.sf-white span.sf-invite{color:#9a7838;}
+footer.site-footer.sf-white .sf-social a{color:#7b52a8;}
+footer.site-footer.sf-white .sf-social a:hover{color:#3b1054;}
 footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
 @media(max-width:560px){footer.site-footer{margin-top:1.5rem;}}
 </style>
@@ -496,9 +504,10 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
   </div>
   <div class="identity-dual-meta">
     <h1 class="identity-name">Robbin Lang</h1>
-    <div class="identity-city">Traverse City, MI</div>
+    <div class="identity-city">Commerce City, CO</div>
     <div class="identity-artwork"><div class="identity-artwork-title">Always In My Hair</div><div class="identity-artwork-medium">Pressed Flower Art · 2025</div></div>
-    <div class="identity-dual-songs"><div class="song-line"><button type="button" class="song-play" data-apple="1421415192" aria-pressed="false" disabled><span class="song-note" aria-hidden="true">♪</span><span class="song-t">Adore</span></button></div>
+    <div class="identity-dual-songs"><div class="song-line"><button type="button" class="song-play" data-apple="1544302219" aria-pressed="false" disabled><span class="song-note" aria-hidden="true">♪</span><span class="song-t">She's Always in My Hair</span></button></div>
+<div class="song-line"><button type="button" class="song-play" data-apple="1421415192" aria-pressed="false" disabled><span class="song-note" aria-hidden="true">♪</span><span class="song-t">Adore</span></button></div>
 <div class="song-line"><button type="button" class="song-play" data-apple="1393183647" aria-pressed="false" disabled><span class="song-note" aria-hidden="true">♪</span><span class="song-t">17 Days</span></button></div>
 <div class="song-credit" aria-live="polite" hidden>Tap ♪ for a 30-second preview · courtesy of Apple Music</div></div>
   </div>
@@ -507,8 +516,8 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
   </div>
 </div>
 <div class="gold-rule"></div>
-<div class="art-lead"><figure class="art-fig art-tall" style="width:min(100%, calc(88vh * 0.8142), 977px)"><img class="artwork-img" src="../artworks-web/robbin-lang-artwork-dp-01.jpeg" width="977" height="1200" alt="Robbin Lang — Always In My Hair" loading="lazy" data-lb data-caption="Always In My Hair · Pressed Flower Art · 2025"></figure>
-<figure class="art-fig"><img class="artwork-img" src="../artworks-web/robbin-lang-artwork-02.jpeg" width="1200" height="1009" alt="Robbin Lang — Always In My Hair" loading="lazy" data-lb data-caption="Always In My Hair · Pressed Flower Art · 2025"></figure></div>
+<div class="art-lead"><figure class="art-fig art-tall" style="width:min(100%, calc(88vh * 0.7308), 877px)"><img class="artwork-img" src="../artworks-web/robbin-lang-artwork-unframed.jpg" width="877" height="1200" alt="Robbin Lang — Always In My Hair" loading="lazy" data-lb data-caption="Always In My Hair · Pressed Flower Art · 2025"></figure>
+<figure class="art-fig"><img class="artwork-img" src="../artworks-web/robbin-lang-artwork-unframed-detail.jpg" width="1200" height="953" alt="Robbin Lang — Always In My Hair" loading="lazy" data-lb data-caption="Always In My Hair · Pressed Flower Art · 2025"></figure></div>
 <div class="story"><p>My love for Prince started in 1983, when I was 14. Visiting a friend's house, her older brother was playing the 1999 album. I was hooked. A few years later, after moving to Minneapolis, I met my partner in crime for all things Prince in high school. Tami and I did everything Prince-related that we could. In 1987 I moved away, but on a visit back we went to Glam Slam for ladies' night — Prince would usually come those nights to promote new bands. He showed up with his entourage and passed within arm's length of us. I actually cried.</p>
 <p>After Prince passed and Paisley Park opened as a museum, Tami got a part-time job as a tour guide. On my visits I toured Paisley with Tami as my guide, attended events and concerts, and went to Celebration twice.</p>
 <p>Then my husband surprised me. He said: 'Why don't you move to Minnesota for six months and work at Paisley Park?' I talked to Tami, she talked to Mitch who was running Paisley, and he agreed. I was getting paid to be in a national treasure every day. I helped set up the shoe room, worked on a new exhibit, and prepared for events behind the scenes. I met people from Prince's close circle, saw celebrities come through for tours. Most of all, I got to walk the same rooms, halls, and studios where Prince lived and made music. That was just unreal to me.</p>
@@ -534,8 +543,9 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
   </div>
   <footer class="site-footer">
   <p class="sf-label">The People&#x27;s Museum for Prince</p>
-  <p class="sf-invite-line"><a class="sf-invite" href="https://www.peoplesmuseumforprince.org/contact">Your Prince story belongs here.</a></p>
-  <p class="sf-links"><a href="https://www.peoplesmuseumforprince.org" aria-label="About the museum">About</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact">Share your story</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact">Mailing list</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/support">Support</a></p>
+  <p class="sf-invite-line"><span class="sf-invite">Your Prince story belongs here.</span></p>
+  <p class="sf-links"><a href="https://www.peoplesmuseumforprince.org" aria-label="About the museum">About</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact#subscribe">Mailing list</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/support">Support</a></p>
+  <p class="sf-social"><a href="https://www.instagram.com/peoplesmuseumforprince/" aria-label="The museum on Instagram" title="Instagram" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/peoplesmuseumforprince/" aria-label="The museum on Facebook" title="Facebook" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M15.6 7.4h-1.4c-1.1 0-1.9.8-1.9 1.9V21M9.6 12.6h5.4"/></svg></a></p>
   <p class="sf-small"><a href="../credits.html">Credits</a> <span class="sf-dot" aria-hidden="true">&middot;</span> &copy; 2026</p>
 </footer>
 </div>
