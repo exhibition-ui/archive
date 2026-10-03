@@ -55,7 +55,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:grid;grid-template-co
 .nav-participant{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:'DM Serif Display',serif;font-size:0.88rem;color:var(--deep);text-align:center;}
 
 /* HERO */
-.hero-wrap{margin-top:52px;width:100%;aspect-ratio:16/9;max-height:75vh;overflow:hidden;background:var(--tint);}
+.hero-wrap{margin-top:52px;width:100%;aspect-ratio:16/9;max-height:70vh;overflow:hidden;background:var(--tint);}
 .hero-wrap img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;}
 .hero-wrap.hero-contain{background:var(--deep);position:relative;}
 .hero-wrap.hero-contain img{object-fit:contain;object-position:center;position:relative;z-index:1;}
@@ -454,6 +454,88 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
   .tour-link.next .tour-name{padding-right:1.1em;}
   .tour-link.next .tn-glyph{margin-right:-1.1em;}
 }
+/* ===== SIZE SYSTEM, Oct 3 2026 (§41) =====
+   1 the room: the hero, full screen, once (70vh)
+   2 the work, at gallery width (the 800px page): artworks (capped 70vh, whole)
+     and the installation view
+   3 everything else, at reading width (620px): words, the events strip, More
+     from, links, the exhibition link, credits */
+.works-pair{display:flex;gap:18px;align-items:flex-start;}
+.w-fig{margin:0;min-width:0;}
+.w-fig .artwork-img{width:100%;height:auto;display:block;max-height:70vh;object-fit:contain;background:none;}
+.strip{max-width:var(--read);margin-left:auto;margin-right:auto;}
+.event-rows.strip{margin-top:1.25rem;}
+.st-row{display:flex;gap:6px;margin-top:6px;}
+.st-row:first-child{margin-top:0;}
+.st-fig{margin:0;min-width:0;cursor:zoom-in;}
+.st-fig img{width:100%;height:100%;object-fit:cover;display:block;background:var(--tint);}
+.st-m{display:none;}
+.st-m .st-fig:only-child{flex:1 1 100%!important;}
+.strip-one .img-solo{margin-top:0;}
+.more-from{margin-top:3rem;}
+.page .more-from .museum-heading{margin-bottom:1.1rem;}
+.more-from .mf-links{max-width:var(--read);margin:1rem auto 0;}
+.more-from .album-link{margin-top:1rem;}
+.more-from .strip+.album-link{margin-top:1.1rem;}
+/* artist links: purple, a touch larger (Oct 3; revises the Sept 27 grey) */
+.page .bio .bio-links,.page .more-from .mf-links{font-size:0.95rem;color:var(--muted);}
+.page .bio .bio-links a,.page .more-from .mf-links a{color:var(--mid);font-weight:400;text-decoration:none;}
+.page .bio .bio-links a:hover,.page .bio .bio-links a:focus-visible,.page .more-from .mf-links a:hover,.page .more-from .mf-links a:focus-visible{color:var(--deep);text-decoration:underline;text-decoration-color:var(--lilac);text-underline-offset:3px;}
+/* a link out to the full film or video */
+.media-link{max-width:var(--read);margin:0.25rem auto 1.75rem;font-size:0.95rem;}
+.media-link a{color:var(--mid);text-decoration:none;}
+.media-link a:hover{color:var(--deep);text-decoration:underline;text-decoration-color:var(--lilac);text-underline-offset:3px;}
+/* SONG CARD — audio + video, in the work's place, on the night ground */
+.song-card{background:#1a0f2e;border-radius:2px;overflow:hidden;margin:0 0 2.25rem;}
+.song-card+.song-card{margin-top:-1rem;}
+.sc-video{position:relative;aspect-ratio:16/9;background:#000;}
+.sc-poster{all:unset;cursor:pointer;display:block;position:absolute;inset:0;}
+.sc-poster:focus-visible{outline:2px solid #C8A96E;outline-offset:-4px;}
+.sc-poster img{width:100%;height:100%;object-fit:cover;display:block;opacity:.92;transition:opacity .3s;}
+.sc-poster:hover img{opacity:1;}
+.sc-play{position:absolute;left:50%;top:50%;width:68px;height:68px;margin:-34px 0 0 -34px;border-radius:50%;border:1.5px solid #C8A96E;background:rgba(26,15,46,.55);display:flex;align-items:center;justify-content:center;transition:background .3s;}
+.sc-poster:hover .sc-play{background:rgba(59,16,84,.8);}
+.sc-play svg{width:26px;height:26px;fill:#C8A96E;margin-left:3px;}
+.sc-vlabel{position:absolute;left:16px;bottom:12px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.7);}
+.sc-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.sc-audio{display:flex;align-items:center;gap:16px;padding:18px 20px 20px;}
+.sc-btn{flex:none;width:52px;height:52px;border-radius:50%;border:1.5px solid #C8A96E;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;}
+.sc-btn:focus-visible{outline:2px solid #C8A96E;outline-offset:3px;}
+.sc-btn svg{width:22px;height:22px;fill:#C8A96E;}
+.sc-btn .i-play{margin-left:3px;}.sc-btn .i-pause{display:none;}
+.sc-btn.on .i-play{display:none;}.sc-btn.on .i-pause{display:block;}
+.sc-btn:hover{background:rgba(200,169,110,.12);}
+.sc-meta{flex:1;min-width:0;}
+.sc-title{font-family:var(--serif);font-size:1.35rem;color:#fff;line-height:1.2;}
+.sc-sub{font-size:.85rem;color:var(--lilac);font-weight:300;margin-top:2px;}
+.sc-bar{height:2px;background:rgba(196,160,224,.25);margin-top:12px;cursor:pointer;position:relative;}
+.sc-bar::before{content:'';position:absolute;left:0;right:0;top:-8px;bottom:-8px;}
+.sc-bar span{position:absolute;left:0;top:0;bottom:0;width:0;background:#C8A96E;}
+.sc-time{flex:none;font-size:.8rem;color:var(--lilac);font-variant-numeric:tabular-nums;min-width:2.6rem;text-align:right;}
+/* More from: a link card (an album); a cover, when there is one, sits beside the title */
+.album-link{display:flex;align-items:center;gap:14px;max-width:var(--read);margin:0 auto;padding:14px 16px;border:1px solid var(--border);border-radius:2px;text-decoration:none;color:var(--deep);transition:border-color .2s,background .2s;}
+.album-link:hover{border-color:var(--lilac);background:var(--tint);}
+.al-note{font-size:1.4rem;color:var(--mid);}
+.al-cover{width:56px;height:56px;object-fit:cover;flex:none;display:block;}
+.al-text{flex:1;display:flex;flex-direction:column;min-width:0;}
+.al-t{font-family:var(--serif);font-size:1.1rem;}
+.al-s{font-size:.85rem;color:var(--muted);font-weight:300;}
+.al-ar{color:var(--mid);}
+@media(max-width:600px){
+  .works-pair{flex-direction:column;gap:1.75rem;}
+  .w-fig{flex:none!important;width:100%;}
+  .w-fig .artwork-img{max-height:none;}
+  .st-d{display:none;}.st-m{display:block;}
+  .identity{padding-top:16px;padding-bottom:16px;margin-bottom:20px;}
+  .more-from{margin-top:28px;}
+  .page .more-from .museum-heading{padding-top:16px;}
+  .song-card{margin-left:-1.5rem;margin-right:-1.5rem;border-radius:0;}
+  .sc-audio{padding:14px 16px 16px;gap:12px;}
+  .sc-title{font-size:1.15rem;}
+}
+@media(max-width:560px){
+  .song-card{margin-left:-1rem;margin-right:-1rem;}
+}
 
 /* SHARED SITE FOOTER (Sept 29 2026) — generate.site_footer_html(). Night by
    default; .sf-white on white pages; .sf-mosaic spacing on the mosaic. */
@@ -474,6 +556,9 @@ footer.site-footer .sf-social a{display:inline-flex;padding:4px;color:#c4a0e0;}
 footer.site-footer .sf-social svg{display:block;width:18px;height:18px;}
 footer.site-footer .sf-social + .sf-small{margin-top:0.6rem;}
 footer.site-footer .sf-small{font-size:0.72rem;margin-top:0.35rem;opacity:0.85;}
+footer.site-footer .sf-music{margin:0 0 0.5rem;}
+footer.site-footer .sf-music .sf-note{color:#C8A96E;margin-right:0.35em;}
+footer.site-footer .sf-music a{white-space:nowrap;}
 footer.site-footer.sf-mosaic{margin:60px auto 0;padding:1.6rem 16px 48px;}
 footer.site-footer.sf-white{margin:3rem auto 0;padding:1.5rem 16px 2.75rem;border-top-color:#e0d0f0;color:#7b52a8;}
 footer.site-footer.sf-white a{color:#5c2d8e;}
@@ -496,7 +581,7 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
   <div class="nav-participant">Brenda Bower-Clemons</div>
   <div class="nav-links"><a href="https://peoplesmuseumforprince.org">Museum&nbsp;<span aria-hidden="true">&#8599;</span></a></div>
 </nav>
-<div class="hero-wrap"><img src="../install-web/brenda-bower-clemons-dp-01.jpeg" alt="Brenda Bower-Clemons at The People&#x27;s Museum for Prince" loading="eager" style="object-position:center 20%" data-lb data-caption="Photo: Daniel R. Pratt"></div><div class="hero-credit">Photo: Daniel R. Pratt</div>
+<div class="hero-wrap"><img src="../install-web/brenda-bower-clemons-dp-01.jpeg" alt="Brenda Bower-Clemons at The People&#x27;s Museum for Prince" loading="eager" style="object-position:center 0%" data-lb data-caption="Photo: Daniel R. Pratt"></div><div class="hero-credit">Photo: Daniel R. Pratt</div>
 <div class="page">
 <div class="identity">
   <div class="portrait-col">
@@ -513,7 +598,7 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
   </div>
 </div>
 <div class="gold-rule"></div>
-<div class="art-lead"><figure class="art-fig art-tall" style="width:min(100%, calc(88vh * 0.7500), 900px)"><img class="artwork-img" src="../artworks-web/brenda-bower-clemons-artwork.jpg" width="900" height="1200" alt="Brenda Bower-Clemons — Way Back Home" loading="lazy" data-lb data-caption="Way Back Home · Painting and Angel Cards · 2026"></figure></div>
+<div class="art-lead"><figure class="art-fig art-tall" style="width:min(100%, calc(70vh * 0.7500), 900px)"><img class="artwork-img" src="../artworks-web/brenda-bower-clemons-artwork.jpg" width="900" height="1200" alt="Brenda Bower-Clemons — Way Back Home" loading="lazy" data-lb data-caption="Way Back Home · Painting and Angel Cards · 2026"></figure></div>
 <div class="story"><p>A fallen angel walks down a path through a purple rain. Last April I had a dream that Prince was singing to me, telling me everything is going to be okay. I never really thought much about him before then. Since, I have been reading lyrics and pondering quotes from his interviews. I think of him as a sage that leads us through the Purple Rain and into a place of healing and higher consciousness.</p>
 <p>I have PTSD as a result of multi-generational trauma. This occurs when traumatic events from one generation are carried over to future generations through behavior patterns affecting coping mechanisms and even parenting skills. My maternal grandfather was abusive and shot my grandmother, killing her. She was just 35 years old. My mom was only 14 and a witness. She repeated the pattern by marrying an abusive man. To be fair, my father was a war veteran who probably struggled with PTSD. I was an only child and didn't have anyone I could confide in.</p>
 <p>Music and especially Prince music was my confidant. I put on headphones and his music drowned out the noise. I still do this.</p>
@@ -523,10 +608,11 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
 <div class="bio"><p><strong>Brenda Bower-Clemons</strong> was raised near Washington, DC and holds a B.A. from Saint Mary-of-the-Woods College. Her work has appeared in The Delmarva Farmer, The Organized Labor Journal and Zinger News outlets.</p></div>
 
 
-<div class="museum-section"><h2 class="museum-heading">At the Museum — Roberts Gallery</h2><div class="install-rows install-wide"><div class="lay-d"><figure class="img-solo"><img src="../install-web/brenda-bower-clemons-kt-01.jpeg" width="1200" height="798" alt="Installation view — Brenda Bower-Clemons, Way Back Home" loading="lazy" data-lb data-caption="Photo: Kirk Thoren"></figure>
+<div class="museum-section"><h2 class="museum-heading">At the Museum — Roberts Gallery</h2><div class="install-rows"><div class="lay-d"><figure class="img-solo"><img src="../install-web/brenda-bower-clemons-kt-01.jpeg" width="1200" height="798" alt="Installation view — Brenda Bower-Clemons, Way Back Home" loading="lazy" data-lb data-caption="Photo: Kirk Thoren"></figure>
 <div class="img-row"><figure class="img-fig" style="flex:1.7778 1 0;aspect-ratio:1600/900"><img src="../install-web/brenda-bower-clemons-dp-02.jpeg" width="1600" height="900" alt="Installation view — Brenda Bower-Clemons, Way Back Home" loading="lazy" data-lb data-caption="Photo: Daniel R. Pratt"></figure><figure class="img-fig" style="flex:1.5038 1 0;aspect-ratio:1600/1064"><img src="../install-web/brenda-bower-clemons-kt-03.jpeg" width="1600" height="1064" alt="Installation view — Brenda Bower-Clemons, Way Back Home" loading="lazy" data-lb data-caption="Photo: Kirk Thoren"></figure></div></div><div class="lay-m"><figure class="img-solo"><img src="../install-web/brenda-bower-clemons-kt-01.jpeg" width="1200" height="798" alt="Installation view — Brenda Bower-Clemons, Way Back Home" loading="lazy" data-lb data-caption="Photo: Kirk Thoren"></figure>
 <figure class="img-solo"><img src="../install-web/brenda-bower-clemons-dp-02.jpeg" width="1600" height="900" alt="Installation view — Brenda Bower-Clemons, Way Back Home" loading="lazy" data-lb data-caption="Photo: Daniel R. Pratt"></figure>
-<figure class="img-solo"><img src="../install-web/brenda-bower-clemons-kt-03.jpeg" width="1600" height="1064" alt="Installation view — Brenda Bower-Clemons, Way Back Home" loading="lazy" data-lb data-caption="Photo: Kirk Thoren"></figure></div></div><div class="event-rows"><div class="lay-d"><div class="img-row"><figure class="img-fig" style="flex:0.7500 1 0;aspect-ratio:900/1200"><img src="../events-web/brenda-bower-clemons-jb-01.jpg" width="900" height="1200" alt="Event photo — Brenda Bower-Clemons at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Jill Boogren"></figure><figure class="img-fig" style="flex:0.7500 1 0;aspect-ratio:900/1200"><img src="../events-web/brenda-bower-clemons-jb-02.jpg" width="900" height="1200" alt="Event photo — Brenda Bower-Clemons at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Jill Boogren"></figure></div></div><div class="lay-m"><div class="img-row"><figure class="img-fig" style="flex:0.7500 1 0;aspect-ratio:900/1200"><img src="../events-web/brenda-bower-clemons-jb-01.jpg" width="900" height="1200" alt="Event photo — Brenda Bower-Clemons at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Jill Boogren"></figure><figure class="img-fig" style="flex:0.7500 1 0;aspect-ratio:900/1200"><img src="../events-web/brenda-bower-clemons-jb-02.jpg" width="900" height="1200" alt="Event photo — Brenda Bower-Clemons at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Jill Boogren"></figure></div></div></div><div class="closing-text">Brenda's handmade cards featured specially chosen Prince quotes, and were offered as gifts to all throughout the museum season, bringing joy to the community.</div><div class="exh-links"><a class="exh-link" href="../exhibitions/roberts.html"><span class="exh-img"><img src="../thumbs-web/roberts-090-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></span><span class="exh-text"><span class="exh-k">Exhibition views</span><span class="exh-t">View the exhibition at Roberts Gallery <span class="ar" aria-hidden="true">&rarr;</span></span><span class="exh-s">Way Back Home &middot; Minneapolis, June 2026</span><span class="exh-r" aria-hidden="true"></span></span></a></div></div>
+<figure class="img-solo"><img src="../install-web/brenda-bower-clemons-kt-03.jpeg" width="1600" height="1064" alt="Installation view — Brenda Bower-Clemons, Way Back Home" loading="lazy" data-lb data-caption="Photo: Kirk Thoren"></figure></div></div><div class="strip event-rows"><div class="st-d"><div class="st-row" style="width:51.77%"><figure class="st-fig" style="flex:0.7500 1 0;aspect-ratio:900/1200"><img src="../events-web/brenda-bower-clemons-jb-01.jpg" width="900" height="1200" alt="Event photo — Brenda Bower-Clemons at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Jill Boogren"></figure><figure class="st-fig" style="flex:0.7500 1 0;aspect-ratio:900/1200"><img src="../events-web/brenda-bower-clemons-jb-02.jpg" width="900" height="1200" alt="Event photo — Brenda Bower-Clemons at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Jill Boogren"></figure></div></div><div class="st-m"><div class="st-row"><figure class="st-fig" style="flex:0.7500 1 0;aspect-ratio:900/1200"><img src="../events-web/brenda-bower-clemons-jb-01.jpg" width="900" height="1200" alt="Event photo — Brenda Bower-Clemons at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Jill Boogren"></figure><figure class="st-fig" style="flex:0.7500 1 0;aspect-ratio:900/1200"><img src="../events-web/brenda-bower-clemons-jb-02.jpg" width="900" height="1200" alt="Event photo — Brenda Bower-Clemons at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Jill Boogren"></figure></div></div></div><div class="closing-text">Brenda's handmade cards featured specially chosen Prince quotes, and were offered as gifts to all throughout the museum season, bringing joy to the community.</div><div class="exh-links"><a class="exh-link" href="../exhibitions/roberts.html"><span class="exh-img"><img src="../thumbs-web/roberts-090-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></span><span class="exh-text"><span class="exh-k">Exhibition views</span><span class="exh-t">View the exhibition at Roberts Gallery <span class="ar" aria-hidden="true">&rarr;</span></span><span class="exh-s">Way Back Home &middot; Minneapolis, June 2026</span><span class="exh-r" aria-hidden="true"></span></span></a></div></div>
+
 
 
 
@@ -674,5 +760,6 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
   });
 })();
 </script>
+
 </body>
 </html>
