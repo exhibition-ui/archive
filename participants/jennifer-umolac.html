@@ -614,7 +614,8 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
       <div class="identity-city">Minneapolis, MN</div>
       <div class="identity-artwork"><div class="identity-artwork-title">Prince portable shrine</div><div class="identity-artwork-medium">Mixed media · 2016-</div></div>
     </div>
-    
+    <div class="identity-songs-meta"><div class="song-line"><button type="button" class="song-play" data-apple="1421416463" aria-pressed="false" disabled><span class="song-note" aria-hidden="true">♪</span><span class="song-t">Beautiful, Loved and Blessed</span></button></div>
+<div class="song-credit" aria-live="polite" hidden>Tap ♪ for a 30-second preview · courtesy of Apple Music</div></div>
   </div>
 </div>
 <div class="gold-rule"></div>
@@ -736,7 +737,46 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
   });
 })();
 </script>
-
+<script>
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('.song-play'));
+  if(!btns.length) return;
+  var credit=document.querySelector('.song-credit');
+  var REST=credit?credit.innerHTML:'';
+  function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function plain(b){var s=document.createElement('span');s.className='song-plain';while(b.firstChild)s.appendChild(b.firstChild);b.parentNode.replaceChild(s,b);}
+  function giveUp(){btns.forEach(function(b){if(b.parentNode)plain(b);});btns=[];if(credit)credit.hidden=true;}
+  var ids=[];btns.forEach(function(b){var i=b.getAttribute('data-apple');if(ids.indexOf(i)<0)ids.push(i);});
+  var cb='pmPrev'+Date.now();
+  var timer=setTimeout(function(){window[cb]=function(){};giveUp();},8000);
+  window[cb]=function(data){
+    clearTimeout(timer);
+    var byId={};
+    ((data&&data.results)||[]).forEach(function(t){if(t.previewUrl)byId[String(t.trackId)]=t;});
+    btns=btns.filter(function(b){var t=byId[b.getAttribute('data-apple')];if(t){b._t=t;b.disabled=false;return true;}plain(b);return false;});
+    if(credit)credit.hidden=!btns.length;
+  };
+  var s=document.createElement('script');
+  s.src='https://itunes.apple.com/lookup?id='+ids.join(',')+'&entity=song&callback='+cb;
+  s.onerror=function(){clearTimeout(timer);giveUp();};
+  document.head.appendChild(s);
+  var audio=new Audio();audio.preload='none';var cur=null;
+  function stop(){if(cur){cur.classList.remove('playing');cur.setAttribute('aria-pressed','false');cur=null;}audio.pause();if(credit&&!credit.hidden)credit.innerHTML=REST;}
+  audio.addEventListener('ended',stop);
+  audio.addEventListener('error',stop);
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('.song-play');
+    if(!b||!b._t)return;
+    if(cur===b){stop();return;}
+    stop();
+    var t=b._t;audio.src=t.previewUrl;
+    var p=audio.play();if(p&&p.catch)p.catch(stop);
+    cur=b;b.classList.add('playing');b.setAttribute('aria-pressed','true');
+    if(credit){var yr=(t.releaseDate||'').slice(0,4);
+      credit.textContent='Now playing: '+(t.collectionName||'')+(yr?', '+yr:'')+' · ';var a=document.createElement('a');a.href=t.trackViewUrl;a.target='_blank';a.rel='noopener';a.textContent='Listen on Apple Music ↗';credit.appendChild(a);}
+  });
+})();
+</script>
 
 </body>
 </html>
