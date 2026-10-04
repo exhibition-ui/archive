@@ -31,13 +31,13 @@
   --deep:#3b1054; --mid:#5c2d8e; --soft:#7b52a8; --tint:#f5f0fb; --border:#e0d0f0; --lilac:#c4a0e0;
   --gold:#C8A96E; --ink:#1a0a2e; --muted:#5d5566;
   --frame:#f4f2ef;   /* the frame's ground before the first view arrives (Sept 26 d: landscape only, so it is never seen beside a view) */
-  --fw:min(100vw, 1600px, calc(80vh * 1.5));   /* frame width: full width, but never taller than 80% of the screen */
+  --fw:min(100%, calc(80vh * 1.5));   /* Oct 4, 19:55 (Emma): the frame sits in the page column, left edge under the title (was min(100vw,1600px,…) and centred on the screen) */   /* frame width: full width, but never taller than 80% of the screen */
   --serif:'DM Serif Display',Georgia,serif;
   --sans:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
-@supports (height:1svh){:root{--fw:min(100vw, 1600px, calc(80svh * 1.5))}}
+@supports (height:1svh){:root{--fw:min(100%, calc(80svh * 1.5))}}
 body{overflow-x:clip;background:#fff;color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.7;font-weight:300;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
@@ -51,6 +51,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:grid;grid-template-co
 .nav-eye img{width:100%;height:100%;object-fit:contain;display:block}
 .nav-home:hover .nav-eye{opacity:.8}
 .nav-title{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:var(--serif);font-size:0.88rem;color:var(--deep);text-align:center}
+.nav-museum{min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center;color:var(--deep);text-decoration:none;}.nav-museum .nm{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:'DM Serif Display',serif;font-size:0.88rem;line-height:1.2;}.nav-museum .la{font:400 10px/1 'DM Sans',sans-serif;letter-spacing:.22em;padding-left:.22em;text-transform:uppercase;color:#C8A96E;white-space:nowrap;margin-top:4px;}.nav-museum:hover .nm{color:#5c2d8e;}@media(max-width:560px){.nav-museum .nm{font-size:0.78rem;}}
+.exh-head .intro{max-width:62ch;font-size:0.95rem;line-height:1.65;color:#5f5070;margin:.75rem 0 0}
+.exh-head .intro a{color:var(--deep);text-decoration:none;white-space:nowrap;border-bottom:1px solid transparent;transition:border-color .2s}
+.exh-head .intro a:hover,.exh-head .intro a:focus-visible{border-bottom-color:var(--gold)}
+.exh-head .intro .ar{color:var(--gold)}
 .nav-links{justify-self:end;font-size:0.82rem;font-weight:400;white-space:nowrap}
 .nav-links a{color:var(--deep);text-decoration:none;opacity:.7;transition:opacity .2s}
 .nav-links a:hover{opacity:1}
@@ -63,16 +68,16 @@ h1{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4.6vw,2.9rem);l
 .sub{margin-top:.6rem;color:var(--muted);font-size:.95rem;line-height:1.55}
 
 /* The slideshow frame */
-.frame{position:relative;width:var(--fw);max-width:none;margin-left:calc(50% - var(--fw) / 2);aspect-ratio:3/2;overflow:hidden;background:var(--frame);cursor:pointer;touch-action:pan-y;-webkit-tap-highlight-color:transparent}
+.frame{position:relative;width:var(--fw);max-width:none;margin-left:0;aspect-ratio:3/2;overflow:hidden;background:var(--frame);cursor:pointer;touch-action:pan-y;-webkit-tap-highlight-color:transparent}
 .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform-origin:50% 50%;user-select:none;-webkit-user-select:none;-webkit-user-drag:none}
 .frame img.on{opacity:1}
 .frame.wide img.pt{object-fit:contain;object-position:50% 50% !important}   /* a portrait view shows whole, never cropped to a strip (§29f) */
 
 /* The Glide: one 2px gold rule under the frame */
-.glide{position:relative;height:2px;width:var(--fw);margin-left:calc(50% - var(--fw) / 2)}
+.glide{position:relative;height:2px;width:var(--fw);margin-left:0}
 .glide i{position:absolute;left:0;top:0;height:2px;width:0;background:var(--gold)}
 
-.under{width:var(--fw);margin-left:calc(50% - var(--fw) / 2);display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:start;gap:.3rem 1rem;padding-top:.8rem}
+.under{width:var(--fw);margin-left:0;display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:start;gap:.3rem 1rem;padding-top:.8rem}
 .left{min-width:0}
 .cap{min-width:0;transition:opacity .45s ease}
 .ph-by{font-size:.75rem;color:var(--muted);line-height:1.5;text-align:right;padding-top:.45rem}
@@ -107,6 +112,7 @@ h1{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4.6vw,2.9rem);l
 .room-show{display:block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:400;line-height:1.3}
 .room-name{display:block;font-family:var(--serif);font-size:1.3rem;color:var(--deep);line-height:1.15}
 .more-block{margin-top:2.5rem}
+@media (min-width:721px){.rooms.ev{grid-template-columns:repeat(4,minmax(0,1fr));gap:1.25rem}.rooms.ev .room-name{font-size:1.15rem}}   /* Events: four across (Oct 4 2026) */
 .rooms.more{grid-template-columns:repeat(4,minmax(0,1fr));gap:1.25rem}
 .more .room-name{font-size:1.08rem}
 
@@ -203,7 +209,7 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
 <body>
 <nav>
   <a class="nav-home" href="../participants.html" aria-label="Mosaic" title="Mosaic"><span class="nav-eye"><img src="../assets/pmp-eye.jpg" alt=""></span></a>
-  <div class="nav-title">The Capri</div>
+  <a class="nav-museum" href="../index.html" title="The museum&#8217;s entrance"><span class="nm">The People&#x27;s Museum for Prince</span><span class="la">Living Archive</span></a>
   <div class="nav-links"><a href="https://peoplesmuseumforprince.org">Museum&nbsp;<span aria-hidden="true">&#8599;</span></a></div>
 </nav>
 <main class="exh">
@@ -211,6 +217,7 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
     <p class="kicker">Let&#x27;s Work! A Labor of Love</p>
     <h1>The Capri</h1>
     <p class="sub">North Minneapolis · June 2026</p>
+    <p class="intro">Art and stories from people whose lives Prince Rogers Nelson touched. <a href="../index.html">Explore the museum&nbsp;<span class="ar" aria-hidden="true">&rarr;</span></a></p>
   </header>
   <div class="frame" id="frame" role="region" aria-roledescription="slideshow" aria-label="Exhibition views">
     <img id="l0" class="on" src="../views-web/capri-010-dp.jpg" alt="Exhibition view — Let&#x27;s Work! A Labor of Love, The Capri, June 2026" style="object-position:50% 50%" fetchpriority="high" decoding="async">
@@ -236,7 +243,7 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
   </section>
   
   <div class="ex-credits"><div class="credits-label">Image credits</div><p class="credits-line"><strong>Installation photography:</strong> Daniel R. Pratt and Kirk Thoren</p></div>
-  <div class="elsewhere"><a class="else-link" href="../participants.html"><img class="else-thumb else-faces" src="../thumbs-web/mosaic-faces.jpg" alt="" loading="lazy" decoding="async"><span><span class="else-k">People, art &amp; stories</span><span class="else-t">Enter the Mosaic <span class="ar" aria-hidden="true">&rarr;</span></span></span></a><a class="else-link" href="../events/index.html"><img class="else-thumb" src="../thumbs-web/opening-day-010-jb-w252.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"><span><span class="else-k">Events</span><span class="else-t">The museum&#8217;s life <span class="ar" aria-hidden="true">&rarr;</span></span></span></a></div>
+  <div class="elsewhere"><a class="else-link" href="../participants.html"><img class="else-thumb else-faces" src="../thumbs-web/mosaic-faces.jpg" alt="" loading="lazy" decoding="async"><span><span class="else-k">People, art &amp; stories</span><span class="else-t">The Living Archive <span class="ar" aria-hidden="true">&rarr;</span></span></span></a><a class="else-link" href="../events/index.html"><img class="else-thumb" src="../thumbs-web/opening-day-010-jb-w252.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"><span><span class="else-k">Events</span><span class="else-t">The museum’s life <span class="ar" aria-hidden="true">&rarr;</span></span></span></a></div>
 </main>
 <footer class="site-footer sf-white">
   <p class="sf-label">The People&#x27;s Museum for Prince</p>
@@ -248,7 +255,7 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
 <script>
 (function(){
 'use strict';
-var S=[{"src": "../views-web/capri-010-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "in"}, {"src": "../views-web/capri-020-kt.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Kirk Thoren", "m": "still"}, {"src": "../views-web/capri-030-kt.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Kirk Thoren", "m": "along"}, {"src": "../views-web/capri-040-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "along"}, {"src": "../views-web/capri-050-kt.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Kirk Thoren", "m": "along"}, {"src": "../views-web/capri-060-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "in"}, {"src": "../views-web/capri-070-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "in"}, {"src": "../views-web/capri-080-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "still"}, {"src": "../views-web/capri-090-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "out"}, {"src": "../views-web/capri-100-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "still"}, {"src": "../views-web/capri-120-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "in"}, {"src": "../views-web/capri-130-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "in"}, {"src": "../views-web/capri-140-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "still"}, {"src": "../views-web/capri-170-dp.jpg", "pos": "62% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "out"}, {"src": "../views-web/capri-180-dp.jpg", "pos": "30% 55%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "still"}], RM={"capri": {"show": "Let's Work! A Labor of Love", "name": "The Capri"}, "roberts": {"show": "Way Back Home: Prince and North Minneapolis", "name": "Roberts Gallery"}}, C={"hold": 7.6, "lastHold": 11.0, "moves": {"in": [[{"transform": "scale(1)"}, {"transform": "scale(1.05)"}], "linear"], "out": [[{"transform": "scale(1.06)"}, {"transform": "scale(1)"}], "cubic-bezier(.2,.6,.3,1)"], "along": [[{"transform": "scale(1.07) translateX(2.6%)"}, {"transform": "scale(1.07) translateX(-2.6%)"}], "ease-in-out"]}, "fade": 2.4, "stepFade": 1.2, "reducedFade": 0.3, "drift": 1.045, "driftDur": 9.0, "reset": 1.2, "index": false, "credit": "per-view"};
+var S=[{"src": "../views-web/capri-010-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "in"}, {"src": "../views-web/capri-020-kt.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Kirk Thoren", "m": "still"}, {"src": "../views-web/capri-030-kt.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Kirk Thoren", "m": "along"}, {"src": "../views-web/capri-040-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "along"}, {"src": "../views-web/capri-050-kt.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Kirk Thoren", "m": "along"}, {"src": "../views-web/capri-060-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "in"}, {"src": "../views-web/capri-070-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "in"}, {"src": "../views-web/capri-080-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "still"}, {"src": "../views-web/capri-090-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "out"}, {"src": "../views-web/capri-100-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "still"}, {"src": "../views-web/capri-120-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "in"}, {"src": "../views-web/capri-130-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "in"}, {"src": "../views-web/capri-140-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "still"}, {"src": "../views-web/capri-170-dp.jpg", "pos": "62% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "out"}, {"src": "../views-web/capri-180-dp.jpg", "pos": "30% 55%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "still"}], RM={"capri": {"show": "Let's Work! A Labor of Love", "name": "The Capri"}, "roberts": {"show": "Way Back Home: Prince and North Minneapolis", "name": "Roberts Gallery"}}, C={"hold": 7.6, "lastHold": 11.0, "moves": {"in": [[{"transform": "scale(1)"}, {"transform": "scale(1.05)"}], "linear"], "out": [[{"transform": "scale(1.06)"}, {"transform": "scale(1)"}], "cubic-bezier(.2,.6,.3,1)"], "along": [[{"transform": "scale(1.07) translateX(2.6%)"}, {"transform": "scale(1.07) translateX(-2.6%)"}], "ease-in-out"]}, "fade": 2.4, "stepFade": 1.2, "reducedFade": 0.3, "drift": 1.045, "driftDur": 9.0, "reset": 1.2, "index": false, "credit": "per-view", "jump": false};
 var reduce=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
 var frame=document.getElementById('frame'), L=[document.getElementById('l0'),document.getElementById('l1')];
 var glide=document.getElementById('glide'), cap=document.getElementById('cap');
@@ -390,6 +397,7 @@ if(C.index){
   cards.forEach(function(c){ c.addEventListener('click',function(e){
     var room=c.getAttribute('data-room');
     if(!plain(e)||!byRoom[room]) return;          /* a room that isn't in this show opens its own page */
+    if(C.jump){ e.preventDefault(); var j=byRoom[room][0]; list=all; li=all.indexOf(j); show(j,true); toFrame(); return; }   /* Events (Oct 4 2026) */
     e.preventDefault(); list=byRoom[room]; li=0; show(list[0],true); if(playAll) playAll.hidden=false; toFrame();
   }); });
   if(playAll) playAll.addEventListener('click',function(e){
