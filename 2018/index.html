@@ -386,11 +386,51 @@ img[data-lb]:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
 </head>
 <body>
 
-<nav class="mbar" aria-label="Site">
-  <a class="mb-eye" href="https://peoplesmuseumforprince.org" aria-label="The People&#x27;s Museum for Prince: the museum" title="The museum"><img src="../assets/pmp-eye.jpg" alt=""></a>
-  <div class="mb-c"><a class="mn" href="../index.html" title="Minneapolis 2026">The People&#8217;s Museum for Prince</a></div>
-  <a class="mb-arch" href="../participants.html" aria-label="The Living Archive" title="The Living Archive"><span class="mb-lbl">Living Archive</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="1.85" y="2.35" width="5.3" height="10.3" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/><rect x="1.85" y="14.85" width="5.3" height="6.8" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/><rect x="9.35" y="2.35" width="5.3" height="5.3" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/><rect x="9.35" y="9.85" width="5.3" height="11.8" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/><rect x="16.85" y="2.35" width="5.3" height="8.3" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/><rect x="16.85" y="12.85" width="5.3" height="8.8" rx="0.6" fill="none" stroke="currentColor" stroke-width="0.7"/></svg></a>
+<style id="museum-bar">
+nav.mbar{display:none!important}
+nav.tb{display:block;position:fixed;top:0;left:0;right:0;z-index:70;margin:0;padding:0;max-width:none;gap:0;background:none;border:0;-webkit-backdrop-filter:none;backdrop-filter:none}
+.tb-row{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;height:52px;box-sizing:border-box;padding:0 1.5rem;background:rgba(255,255,255,.97);border-bottom:1px solid rgba(59,16,84,.10)}
+.tb a{text-decoration:none}
+.tb-home{display:flex;align-items:center;gap:.7rem;min-width:0}
+.tb-home img{width:30px;height:30px;object-fit:contain;flex:none}
+.tb-home span{font-family:'DM Serif Display',serif;font-size:.95rem;color:#3b1054;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tb-home:hover span{color:#9a7838}
+.tb-doors{display:flex;align-items:center;gap:1.35rem;list-style:none;margin:0;padding:0}
+.tb-doors a{font:400 10.5px/1 'DM Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#3b1054;white-space:nowrap;padding:6px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.tb-doors a:hover,.tb-doors a[aria-current]{color:#9a7838;border-bottom-color:#C8A96E}
+.tb-menu{display:none;position:relative}
+.tb-menu summary{list-style:none;cursor:pointer;font:400 10.5px/1 'DM Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#3b1054;padding:8px 0}
+.tb-menu summary::-webkit-details-marker{display:none}
+.tb-menu[open] summary{color:#9a7838}
+.tb-menu .tb-doors{position:absolute;right:-1.5rem;top:42px;flex-direction:column;align-items:flex-start;gap:0;background:#fff;border:1px solid rgba(59,16,84,.12);border-top:none;padding:.5rem 1.5rem 1rem;min-width:220px}
+.tb-menu .tb-doors a{display:block;padding:.75rem 0;font-size:11.5px}
+@media (max-width:1020px){.tb-row>.tb-doors{display:none}.tb-menu{display:block}}
+@media (max-width:560px){.tb-row{padding:0 1rem;height:50px}.tb-home span{font-size:.84rem}}
+</style>
+<nav class="tb" aria-label="Museum">
+ <div class="tb-row">
+  <a class="tb-home" href="https://www.peoplesmuseumforprince.org"><img src="../assets/pmp-eye.jpg" alt=""><span>The People&#8217;s Museum for Prince</span></a>
+  <ul class="tb-doors">
+   <li><a href="../participants.html">Living Archive</a></li>
+   <li><a href="../index.html">2026 Minneapolis</a></li>
+   <li><a href="https://www.peoplesmuseumforprince.org/participate">Participate</a></li>
+   <li><a href="https://www.peoplesmuseumforprince.org/blog">Blog</a></li>
+   <li><a href="../houses-of-prince/">Houses of Prince</a></li>
+   <li><a href="https://www.peoplesmuseumforprince.org/support">Support</a></li>
+   <li><a href="https://www.peoplesmuseumforprince.org/about">About</a></li>
+  </ul>
+  <details class="tb-menu"><summary>Menu</summary><ul class="tb-doors">
+   <li><a href="../participants.html">Living Archive</a></li>
+   <li><a href="../index.html">2026 Minneapolis</a></li>
+   <li><a href="https://www.peoplesmuseumforprince.org/participate">Participate</a></li>
+   <li><a href="https://www.peoplesmuseumforprince.org/blog">Blog</a></li>
+   <li><a href="../houses-of-prince/">Houses of Prince</a></li>
+   <li><a href="https://www.peoplesmuseumforprince.org/support">Support</a></li>
+   <li><a href="https://www.peoplesmuseumforprince.org/about">About</a></li>
+  </ul></details>
+ </div>
 </nav>
+
 
 <div class="page">
 
