@@ -386,51 +386,16 @@ img[data-lb]:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
 </head>
 <body>
 
-<style id="museum-bar">
-nav.mbar{display:none!important}
-nav.tb{display:block;position:fixed;top:0;left:0;right:0;z-index:70;margin:0;padding:0;max-width:none;gap:0;background:none;border:0;-webkit-backdrop-filter:none;backdrop-filter:none}
-.tb-row{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;height:52px;box-sizing:border-box;padding:0 1.5rem;background:rgba(255,255,255,.97);border-bottom:1px solid rgba(59,16,84,.10)}
-.tb a{text-decoration:none}
-.tb-home{display:flex;align-items:center;gap:.7rem;min-width:0}
-.tb-home img{width:30px;height:30px;object-fit:contain;flex:none}
-.tb-home span{font-family:'DM Serif Display',serif;font-size:.95rem;color:#3b1054;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tb-home:hover span{color:#9a7838}
-.tb-doors{display:flex;align-items:center;gap:1.35rem;list-style:none;margin:0;padding:0}
-.tb-doors a{font:400 10.5px/1 'DM Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#3b1054;white-space:nowrap;padding:6px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
-.tb-doors a:hover,.tb-doors a[aria-current]{color:#9a7838;border-bottom-color:#C8A96E}
-.tb-menu{display:none;position:relative}
-.tb-menu summary{list-style:none;cursor:pointer;font:400 10.5px/1 'DM Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#3b1054;padding:8px 0}
-.tb-menu summary::-webkit-details-marker{display:none}
-.tb-menu[open] summary{color:#9a7838}
-.tb-menu .tb-doors{position:absolute;right:-1.5rem;top:42px;flex-direction:column;align-items:flex-start;gap:0;background:#fff;border:1px solid rgba(59,16,84,.12);border-top:none;padding:.5rem 1.5rem 1rem;min-width:220px}
-.tb-menu .tb-doors a{display:block;padding:.75rem 0;font-size:11.5px}
-@media (max-width:1020px){.tb-row>.tb-doors{display:none}.tb-menu{display:block}}
-@media (max-width:560px){.tb-row{padding:0 1rem;height:50px}.tb-home span{font-size:.84rem}}
-</style>
+<style id="museum-bar">nav.tb{display:block;position:fixed;top:0;left:0;right:0;z-index:70;margin:0;padding:0;max-width:none;width:auto;gap:0;background:none;border:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;font-family:'DM Sans',sans-serif}nav.tb .tb-row{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;height:52px;box-sizing:border-box;padding:0 1.5rem;background:rgba(255,255,255,.97);border-bottom:1px solid rgba(59,16,84,.10)}nav.tb a{text-decoration:none}nav.tb .tb-home{display:flex;align-items:center;gap:.7rem;min-width:0}nav.tb .tb-home img{width:30px;height:30px;object-fit:contain;flex:none}nav.tb .tb-home span{font-family:'DM Serif Display',serif;font-size:.95rem;color:#3b1054;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}nav.tb .tb-home:hover span,nav.tb .tb-home:focus-visible span{color:#9a7838}nav.tb .tb-doors{display:flex;align-items:center;gap:1.35rem;list-style:none;margin:0;padding:0}nav.tb .tb-doors li{margin:0;padding:0}nav.tb .tb-doors a{display:inline-block;font:400 10.5px/1 'DM Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#3b1054;white-space:nowrap;padding:6px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}nav.tb .tb-doors a:hover,nav.tb .tb-doors a:focus-visible,nav.tb .tb-doors a[aria-current]{color:#9a7838;border-bottom-color:#C8A96E}nav.tb .tb-menu{display:none;position:relative}nav.tb .tb-menu summary{list-style:none;cursor:pointer;font:400 10.5px/1 'DM Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#3b1054;padding:10px 0}nav.tb .tb-menu summary::-webkit-details-marker{display:none}nav.tb .tb-menu[open] summary{color:#9a7838}nav.tb .tb-menu .tb-doors{position:absolute;right:-1.5rem;top:41px;flex-direction:column;align-items:flex-start;gap:0;background:#fff;border:1px solid rgba(59,16,84,.12);border-top:none;padding:.5rem 1.5rem 1rem;min-width:220px;box-sizing:border-box}nav.tb .tb-menu .tb-doors li{width:100%}nav.tb .tb-menu .tb-doors a{display:inline-block;padding:.8rem 0;font-size:11.5px}nav.tb .tb-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:'DM Serif Display',serif;font-size:1.12rem;color:#3b1054;text-align:center}nav.tb.has-name .tb-row{display:grid;grid-template-columns:auto minmax(0,1fr) auto}nav.tb.night .tb-row{background:rgba(26,15,46,.97);border-bottom-color:rgba(196,160,224,.16)}nav.tb.night .tb-home img{background:#fff;border-radius:50%;padding:6px 3px;box-sizing:border-box;width:34px;height:34px}nav.tb.night .tb-home span,nav.tb.night .tb-doors a,nav.tb.night .tb-menu summary{color:#fff}nav.tb.night .tb-doors a[aria-current],nav.tb.night .tb-doors a:hover,nav.tb.night .tb-doors a:focus-visible,nav.tb.night .tb-home:hover span,nav.tb.night .tb-menu[open] summary{color:#C8A96E}nav.tb.night .tb-menu .tb-doors{background:#1a0f2e;border-color:rgba(196,160,224,.2)}@media (max-width:1240px){nav.tb.has-name .tb-home span{display:none}}@media (max-width:1120px){nav.tb .tb-row>.tb-doors{display:none}nav.tb .tb-menu{display:block}}@media (max-width:560px){nav.tb .tb-row{padding:0 1rem;height:50px;gap:1rem}nav.tb .tb-home span{font-size:.84rem}nav.tb .tb-menu .tb-doors{right:-1rem;top:40px}nav.tb .tb-name{font-size:.98rem}}@media (prefers-reduced-motion:reduce){nav.tb .tb-doors a{transition:none}}</style>
 <nav class="tb" aria-label="Museum">
  <div class="tb-row">
-  <a class="tb-home" href="https://www.peoplesmuseumforprince.org"><img src="../assets/pmp-eye.jpg" alt=""><span>The People&#8217;s Museum for Prince</span></a>
-  <ul class="tb-doors">
-   <li><a href="../participants.html">Living Archive</a></li>
-   <li><a href="../index.html">2026 Minneapolis</a></li>
-   <li><a href="https://www.peoplesmuseumforprince.org/participate">Participate</a></li>
-   <li><a href="https://www.peoplesmuseumforprince.org/blog">Blog</a></li>
-   <li><a href="../houses-of-prince/">Houses of Prince</a></li>
-   <li><a href="https://www.peoplesmuseumforprince.org/support">Support</a></li>
-   <li><a href="https://www.peoplesmuseumforprince.org/about">About</a></li>
-  </ul>
-  <details class="tb-menu"><summary>Menu</summary><ul class="tb-doors">
-   <li><a href="../participants.html">Living Archive</a></li>
-   <li><a href="../index.html">2026 Minneapolis</a></li>
-   <li><a href="https://www.peoplesmuseumforprince.org/participate">Participate</a></li>
-   <li><a href="https://www.peoplesmuseumforprince.org/blog">Blog</a></li>
-   <li><a href="../houses-of-prince/">Houses of Prince</a></li>
-   <li><a href="https://www.peoplesmuseumforprince.org/support">Support</a></li>
-   <li><a href="https://www.peoplesmuseumforprince.org/about">About</a></li>
-  </ul></details>
+  <a class="tb-home" href="https://www.peoplesmuseumforprince.org" title="Home"><img src="../assets/pmp-eye.jpg" alt=""><span>The People&#8217;s Museum for Prince</span></a>
+  
+  <ul class="tb-doors"><li><a href="../participants.html">Collection</a></li><li><a href="../editions/" aria-current="page">Editions</a></li><li><a href="../programs/">Programs</a></li><li><a href="../houses-of-prince/">Houses of Prince</a></li><li><a href="https://www.peoplesmuseumforprince.org/participate">Participate</a></li><li><a href="https://www.peoplesmuseumforprince.org/blog">Blog</a></li><li><a href="https://www.peoplesmuseumforprince.org/support">Support</a></li></ul>
+  <details class="tb-menu"><summary>Menu</summary><ul class="tb-doors"><li><a href="../participants.html">Collection</a></li><li><a href="../editions/" aria-current="page">Editions</a></li><li><a href="../programs/">Programs</a></li><li><a href="../houses-of-prince/">Houses of Prince</a></li><li><a href="https://www.peoplesmuseumforprince.org/participate">Participate</a></li><li><a href="https://www.peoplesmuseumforprince.org/blog">Blog</a></li><li><a href="https://www.peoplesmuseumforprince.org/support">Support</a></li></ul></details>
  </div>
 </nav>
-
+<script>(function(){var d=document.querySelector('nav.tb .tb-menu');if(!d)return;document.addEventListener('click',function(e){if(d.open&&!d.contains(e.target))d.open=false;});document.addEventListener('keydown',function(e){if(e.key==='Escape')d.open=false;});})();</script>
 
 <div class="page">
 
@@ -592,14 +557,14 @@ nav.tb{display:block;position:fixed;top:0;left:0;right:0;z-index:70;margin:0;pad
   });
 })();
 </script>
-  <p class="after-doors" style="margin-top:2.5rem"><a href="../people/">&larr; People of the museum</a> &nbsp;&middot;&nbsp; <a href="../index.html">Minneapolis 2026 &rarr;</a></p>
+  <p class="after-doors" style="margin-top:2.5rem"><a href="../people/">&larr; People of the museum</a> &nbsp;&middot;&nbsp; <a href="../minneapolis-2026/">Minneapolis 2026 &rarr;</a></p>
 
 </div>
 
 <footer class="site-footer sf-white">
   <p class="sf-label">The People&#x27;s Museum for Prince</p>
   <p class="sf-invite-line"><span class="sf-invite">Your Prince story belongs here.</span></p>
-  <p class="sf-links"><a href="https://www.peoplesmuseumforprince.org" aria-label="About the museum">About</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact#subscribe">Mailing list</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/support">Support</a></p>
+  <p class="sf-links"><a href="https://www.peoplesmuseumforprince.org/about" aria-label="About the museum">About</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="../people/">People</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/press">Press</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact">Contact</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact#subscribe">Mailing list</a></p>
   <p class="sf-social"><a href="https://www.instagram.com/peoplesmuseumforprince/" aria-label="The museum on Instagram" title="Instagram" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/peoplesmuseumforprince/" aria-label="The museum on Facebook" title="Facebook" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M15.6 7.4h-1.4c-1.1 0-1.9.8-1.9 1.9V21M9.6 12.6h5.4"/></svg></a></p>
   <p class="sf-small"><a href="../credits.html">Credits</a> <span class="sf-dot" aria-hidden="true">&middot;</span> &copy; 2026</p>
 </footer>

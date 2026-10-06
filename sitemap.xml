@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://archive.peoplesmuseumforprince.org/</loc><lastmod>2026-10-06</lastmod></url>
+  <url><loc>https://archive.peoplesmuseumforprince.org/minneapolis-2026/</loc><lastmod>2026-10-06</lastmod></url>
   <url><loc>https://archive.peoplesmuseumforprince.org/exhibitions/index.html</loc><lastmod>2026-10-06</lastmod></url>
   <url><loc>https://archive.peoplesmuseumforprince.org/exhibitions/capri.html</loc><lastmod>2026-10-06</lastmod></url>
   <url><loc>https://archive.peoplesmuseumforprince.org/exhibitions/roberts.html</loc><lastmod>2026-10-06</lastmod></url>
@@ -84,5 +84,7 @@
   <url><loc>https://archive.peoplesmuseumforprince.org/credits.html</loc><lastmod>2026-10-06</lastmod></url>
   <url><loc>https://archive.peoplesmuseumforprince.org/people/</loc><lastmod>2026-10-06</lastmod></url>
   <url><loc>https://archive.peoplesmuseumforprince.org/2018/</loc><lastmod>2026-10-06</lastmod></url>
-  <url><loc>https://archive.peoplesmuseumforprince.org/houses-of-prince/</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://archive.peoplesmuseumforprince.org/houses-of-prince/</loc><lastmod>2026-10-06</lastmod></url>
+  <url><loc>https://archive.peoplesmuseumforprince.org/editions/</loc><lastmod>2026-10-06</lastmod></url>
+  <url><loc>https://archive.peoplesmuseumforprince.org/programs/</loc><lastmod>2026-10-06</lastmod></url>
 </urlset>
