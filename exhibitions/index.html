@@ -22,7 +22,7 @@
 <link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/png" href="../assets/favicon-192.png" sizes="192x192">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="preload" as="image" href="../views-web/capri-010-dp.jpg">
+<link rel="preload" as="image" href="../thumbs-web/capri-010-dp-w1400.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -202,6 +202,85 @@ footer.site-footer.sf-white .sf-social a{color:#7b52a8;}
 footer.site-footer.sf-white .sf-social a:hover{color:#3b1054;}
 footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
 @media(max-width:560px){footer.site-footer{margin-top:1.5rem;}}
+/* ===== Oct 7 grid test: contact sheet + full-screen viewer ===== */
+.grid-test .exh-head{margin-bottom:.5rem}
+.room-sec{margin-top:3.25rem}
+.room-top{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;margin-bottom:1.1rem}
+.room-top .kicker{margin-bottom:.35rem}
+.room-top h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.45rem,3.2vw,2rem);line-height:1.15;color:var(--deep)}
+.room-top h2::after{content:"";display:block;width:40px;height:2px;background:var(--gold);margin-top:.7rem}
+.play{display:inline-flex;align-items:center;gap:.5rem;flex-shrink:0;font-size:.7rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:var(--deep);padding:.45rem 0;border-bottom:1px solid transparent;transition:border-color .25s,color .25s}
+.play svg{width:10px;height:10px;color:var(--gold)}
+.play:hover{border-color:var(--gold);color:var(--mid)}
+.sheet{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.tile{position:relative;display:block;width:100%;overflow:hidden;background:var(--tint);cursor:zoom-in;aspect-ratio:3/2}
+.tile.lead{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9);transition:transform 1.4s cubic-bezier(.2,.6,.2,1),filter .6s}
+.tile::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--gold);transition:width .5s ease}
+.tile:hover img,.tile:focus-visible img{transform:scale(1.035);filter:saturate(1)}
+.tile:hover::after,.tile:focus-visible::after{width:64px}
+.tile:focus-visible{outline:1px solid var(--gold);outline-offset:2px}
+@media(max-width:720px){
+  .exh{padding-left:16px;padding-right:16px}
+  .sheet{grid-template-columns:repeat(2,1fr);gap:4px}
+  .sheet{margin-left:-16px;margin-right:-16px}
+  .tile.lead{grid-row:span 1;aspect-ratio:3/2}
+  .tile:not(.lead):last-child:nth-child(even){grid-column:span 2}
+  .room-sec{margin-top:2.6rem}
+}
+
+/* Full-screen viewer (night ground: the room goes dark, the photograph is lit) */
+.lb{position:fixed;inset:0;z-index:200;background:#120a1f;color:#efe6f7;display:flex;flex-direction:column;opacity:0;transition:opacity .35s ease}
+.lb[hidden]{display:none}
+.lb.in{opacity:1}
+.lb-stage{position:relative;flex:1;min-height:0;margin:56px 64px 0;touch-action:pan-y;overflow:hidden}
+.lb-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition-property:opacity;transition-timing-function:ease-in-out;user-select:none;-webkit-user-drag:none}
+.lb-stage img.on{opacity:1}
+.lb-stage img.drift{animation:drift 9s linear forwards}
+@keyframes drift{from{transform:scale(1)}to{transform:scale(1.045)}}
+.lb-x{position:absolute;top:10px;right:12px;width:44px;height:44px;display:grid;place-items:center;color:#efe6f7;opacity:.75;transition:opacity .2s;z-index:3}
+.lb-x svg{width:16px;height:16px}
+.lb-x:hover{opacity:1}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:88px;display:grid;place-items:center;color:#efe6f7;opacity:.55;transition:opacity .2s;z-index:3}
+.lb-nav svg{width:20px;height:20px}
+.lb-nav:hover{opacity:1}
+.lb-nav.prev{left:6px}.lb-nav.next{right:6px}
+.lb-under{max-width:1140px;width:100%;margin:0 auto;padding:14px 64px calc(18px + env(safe-area-inset-bottom))}
+.lb-glide{height:2px;background:rgba(200,169,110,.16);margin-bottom:12px}
+.lb-glide i{display:block;height:100%;width:0;background:var(--gold)}
+.lb-row{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:1.5rem}
+.lb-cap{display:flex;flex-direction:column;min-width:0}
+.lb-show{font-family:var(--serif);font-size:1.08rem;line-height:1.25;font-style:italic;color:#fff}
+.lb-room{font-size:.8rem;color:var(--lilac);margin-top:2px}
+.lb-cr{font-size:.74rem;color:#b9a9cc}
+.lb-play{display:inline-flex;align-items:center;gap:.45rem;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#efe6f7;padding:.4rem 0}
+.lb-play svg{width:10px;height:10px;color:var(--gold)}
+.lb-play .ic-pause{display:none}
+.lb.playing .lb-play .ic-pause{display:block}
+.lb.playing .lb-play .ic-play{display:none}
+@media(hover:none),(max-width:720px){.lb-nav{display:none}}
+@media(max-width:720px){
+  .lb-stage{margin:52px 0 0}
+  .lb-under{padding:12px 16px calc(16px + env(safe-area-inset-bottom))}
+  .lb-row{grid-template-columns:1fr auto;gap:.3rem 1rem}
+  .lb-cr{grid-column:1;grid-row:2}
+  .lb-play{grid-column:2;grid-row:1}
+}
+@media(prefers-reduced-motion:reduce){.tile img{transition:none}.lb-stage img.drift{animation:none}}
+body.lb-open{overflow:hidden}
+.lb:focus{outline:none}
+
+
+/* Video slot (Oct 7 2026): a short silent loop above the first exhibition, only when the Copy tab names one */
+.ex-video{margin:2.25rem 0 0}
+.ex-video video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--tint)}
+.ex-video figcaption{margin-top:.6rem;font-size:.85rem}
+.ex-video figcaption a{color:var(--deep);text-decoration:none;border-bottom:1px solid transparent}
+.ex-video figcaption a:hover{border-color:var(--gold)}
+.room-page .room-top{justify-content:flex-end;margin-bottom:.8rem}
+.all-views{margin-top:1.6rem;font-size:.9rem}
+.all-views a{color:var(--deep);text-decoration:none;border-bottom:1px solid transparent}
+.all-views a:hover{border-color:var(--gold)}
 </style>
 <script data-goatcounter="https://pmparchive.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
@@ -216,39 +295,41 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
  </div>
 </nav>
 <script>(function(){var d=document.querySelector('nav.tb .tb-menu');if(!d)return;document.addEventListener('click',function(e){if(d.open&&!d.contains(e.target))d.open=false;});document.addEventListener('keydown',function(e){if(e.key==='Escape')d.open=false;});})();</script>
-<main class="exh">
+<main class="exh grid">
   <header class="exh-head">
     
     <h1>Exhibition views</h1>
     <p class="sub">North Minneapolis · June 2026</p>
     <p class="intro">Art and stories from people whose lives Prince Rogers Nelson touched. Walk through two of the museum’s exhibitions: <i>Let&#x27;s Work! A Labor of Love</i> at the Capri Theater and <i>Way Back Home: Prince and North Minneapolis</i> at Roberts Gallery. <a href="../minneapolis-2026/">Explore the museum&nbsp;<span class="ar" aria-hidden="true">&rarr;</span></a></p>
   </header>
-  <div class="frame" id="frame" role="region" aria-roledescription="slideshow" aria-label="Exhibition views">
-    <img id="l0" class="on" src="../views-web/capri-010-dp.jpg" alt="Exhibition view — Let&#x27;s Work! A Labor of Love, The Capri, June 2026" style="object-position:50% 50%" fetchpriority="high" decoding="async">
-    <img id="l1" alt="" decoding="async">
-  </div>
-  <div class="glide" aria-hidden="true"><i id="glide"></i></div>
-  <div class="under">
-    <div class="left">
-      <div class="cap" id="cap">
-        <div class="cap-show" id="capShow">Let&#x27;s Work! A Labor of Love</div>
-        <div class="cap-room" id="capRoom">The Capri</div>
-      </div>
-    </div>
-    <span class="ph-by per-view" id="capCredit">Photo: Daniel R. Pratt</span>
-    <button class="pause" id="pause" type="button"><svg class="ic-pause" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="1.5" width="2.6" height="9" fill="currentColor"/><rect x="7.4" y="1.5" width="2.6" height="9" fill="currentColor"/></svg><svg class="ic-play" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"/></svg><span class="pl">Pause</span></button>
-  </div>
-  <section class="rooms-block" aria-labelledby="ed-main">
-    <div class="rooms-top">
-      <h2 class="edition" id="ed-main">Minneapolis · June 2026</h2>
-      <a class="play-all" id="playAll" href="index.html" hidden>Play all rooms <span class="ar" aria-hidden="true">&rarr;</span></a>
-    </div>
-    <div class="rooms"><a class="room" href="capri.html" data-room="capri"><span class="room-thumb"><img src="../thumbs-web/capri-030-kt-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></span><span class="room-rule" aria-hidden="true"></span><span class="room-show">Let&#x27;s Work!</span><span class="room-name">The Capri</span></a><a class="room" href="roberts.html" data-room="roberts"><span class="room-thumb"><img src="../thumbs-web/roberts-090-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></span><span class="room-rule" aria-hidden="true"></span><span class="room-show">Way Back Home</span><span class="room-name">Roberts Gallery</span></a></div>
-  </section>
+  
+  <section class="room-sec" id="capri" aria-labelledby="h-capri">
+  <div class="room-top"><div><p class="kicker">Capri Theater · June 2026</p><h2 id="h-capri"><i>Let&#x27;s Work! A Labor of Love</i></h2></div><button class="play" type="button" data-play="0"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"/></svg>Play</button></div>
+  <div class="sheet"><button class="tile lead" type="button" data-i="0" aria-label="Exhibition view — Let&#x27;s Work! A Labor of Love, The Capri, June 2026"><img src="../thumbs-web/capri-010-dp-w1400.jpg" alt="" loading="eager" decoding="async" fetchpriority="high" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="1" aria-label="Exhibition view — Let&#x27;s Work! A Labor of Love, The Capri, June 2026"><img src="../thumbs-web/capri-020-kt-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="2" aria-label="Exhibition view — Let&#x27;s Work! A Labor of Love, The Capri, June 2026"><img src="../thumbs-web/capri-030-kt-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="3" aria-label="Exhibition view — Let&#x27;s Work! A Labor of Love, The Capri, June 2026"><img src="../thumbs-web/capri-040-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="4" aria-label="Exhibition view — Let&#x27;s Work! A Labor of Love, The Capri, June 2026"><img src="../thumbs-web/capri-050-kt-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="5" aria-label="Exhibition view — Let&#x27;s Work! A Labor of Love, The Capri, June 2026"><img src="../thumbs-web/capri-060-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="6" aria-label="Exhibition view — Let&#x27;s Work! A Labor of Love, The Capri, June 2026"><img src="../thumbs-web/capri-070-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="7" aria-label="Exhibition view — Let&#x27;s Work! A Labor of Love, The Capri, June 2026"><img src="../thumbs-web/capri-080-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="8" aria-label="Exhibition view — Let&#x27;s Work! A Labor of Love, The Capri, June 2026"><img src="../thumbs-web/capri-090-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="9" aria-label="Exhibition view — Let&#x27;s Work! A Labor of Love, The Capri, June 2026"><img src="../thumbs-web/capri-100-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="10" aria-label="Exhibition view — Let&#x27;s Work! A Labor of Love, The Capri, June 2026"><img src="../thumbs-web/capri-120-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="11" aria-label="Exhibition view — Let&#x27;s Work! A Labor of Love, The Capri, June 2026"><img src="../thumbs-web/capri-130-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="12" aria-label="Exhibition view — Let&#x27;s Work! A Labor of Love, The Capri, June 2026"><img src="../thumbs-web/capri-140-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="13" aria-label="Exhibition view — Let&#x27;s Work! A Labor of Love, The Capri, June 2026"><img src="../thumbs-web/capri-170-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:62% 50%"></button><button class="tile" type="button" data-i="14" aria-label="Exhibition view — Let&#x27;s Work! A Labor of Love, The Capri, June 2026"><img src="../thumbs-web/capri-180-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:30% 55%"></button></div>
+</section>
+<section class="room-sec" id="roberts" aria-labelledby="h-roberts">
+  <div class="room-top"><div><p class="kicker">Roberts Gallery · June 2026</p><h2 id="h-roberts"><i>Way Back Home: Prince and North Minneapolis</i></h2></div><button class="play" type="button" data-play="15"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"/></svg>Play</button></div>
+  <div class="sheet"><button class="tile lead" type="button" data-i="15" aria-label="Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026"><img src="../thumbs-web/roberts-010-dp-w1400.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="16" aria-label="Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026"><img src="../thumbs-web/roberts-040-kt-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="17" aria-label="Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026"><img src="../thumbs-web/roberts-070-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="18" aria-label="Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026"><img src="../thumbs-web/roberts-090-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="19" aria-label="Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026"><img src="../thumbs-web/roberts-095-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="20" aria-label="Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026"><img src="../thumbs-web/roberts-100-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="21" aria-label="Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026"><img src="../thumbs-web/roberts-110-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="22" aria-label="Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026"><img src="../thumbs-web/roberts-115-kt-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="23" aria-label="Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026"><img src="../thumbs-web/roberts-180-kt-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="24" aria-label="Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026"><img src="../thumbs-web/roberts-200-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="25" aria-label="Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026"><img src="../thumbs-web/roberts-230-kt-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="26" aria-label="Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026"><img src="../thumbs-web/roberts-235-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="27" aria-label="Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026"><img src="../thumbs-web/roberts-250-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="28" aria-label="Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026"><img src="../thumbs-web/history-hall-010-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="29" aria-label="Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026"><img src="../thumbs-web/history-hall-080-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="30" aria-label="Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026"><img src="../thumbs-web/history-hall-060-kt-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="31" aria-label="Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026"><img src="../thumbs-web/history-hall-100-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="32" aria-label="Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026"><img src="../thumbs-web/history-hall-120-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="33" aria-label="Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026"><img src="../thumbs-web/history-hall-040-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="34" aria-label="Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026"><img src="../thumbs-web/history-hall-020-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="35" aria-label="Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026"><img src="../thumbs-web/roberts-285-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button></div>
+</section>
+  
   
   <div class="ex-credits"><div class="credits-label">Image credits</div><p class="credits-line"><strong>Installation photography:</strong> Daniel R. Pratt and Kirk Thoren</p></div>
   <div class="elsewhere"><a class="else-link" href="../participants.html"><img class="else-thumb else-faces" src="../thumbs-web/mosaic-faces.jpg" alt="" loading="lazy" decoding="async"><span><span class="else-k">People, art &amp; stories</span><span class="else-t">The Living Archive <span class="ar" aria-hidden="true">&rarr;</span></span></span></a><a class="else-link" href="../events/index.html"><img class="else-thumb" src="../thumbs-web/opening-day-010-jb-w252.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"><span><span class="else-k">Events</span><span class="else-t">The museum’s life <span class="ar" aria-hidden="true">&rarr;</span></span></span></a></div>
 </main>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Exhibition view" tabindex="-1" hidden>
+  <div class="lb-stage" id="stage"><img id="a0" class="on" alt=""><img id="a1" alt=""></div>
+  <button class="lb-x" id="lbX" type="button" aria-label="Close"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.3"/></svg></button>
+  <button class="lb-nav prev" id="prev" type="button" aria-label="Previous view"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 2.5L4.5 8 10 13.5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></button>
+  <button class="lb-nav next" id="next" type="button" aria-label="Next view"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 2.5L11.5 8 6 13.5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></button>
+  <div class="lb-under">
+    <div class="lb-glide" aria-hidden="true"><i id="glide"></i></div>
+    <div class="lb-row">
+      <div class="lb-cap"><span class="lb-show" id="cShow"></span><span class="lb-room" id="cRoom"></span></div>
+      <span class="lb-cr" id="cCr"></span>
+      <button class="lb-play" id="lbPlay" type="button"><svg class="ic-play" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"/></svg><svg class="ic-pause" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="1.5" width="2.6" height="9" fill="currentColor"/><rect x="7.4" y="1.5" width="2.6" height="9" fill="currentColor"/></svg><span id="lbPl">Play</span></button>
+    </div>
+  </div>
+</div>
 <footer class="site-footer sf-white">
   <p class="sf-label">The People&#x27;s Museum for Prince</p>
   <p class="sf-invite-line"><span class="sf-invite">Your Prince story belongs here.</span></p>
@@ -259,163 +340,105 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
 <script>
 (function(){
 'use strict';
-var S=[{"src": "../views-web/capri-010-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "in"}, {"src": "../views-web/capri-020-kt.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Kirk Thoren", "m": "still"}, {"src": "../views-web/capri-030-kt.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Kirk Thoren", "m": "along"}, {"src": "../views-web/capri-040-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "along"}, {"src": "../views-web/capri-050-kt.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Kirk Thoren", "m": "along"}, {"src": "../views-web/capri-060-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "in"}, {"src": "../views-web/capri-070-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "in"}, {"src": "../views-web/capri-080-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "still"}, {"src": "../views-web/capri-090-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "out"}, {"src": "../views-web/capri-100-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "still"}, {"src": "../views-web/capri-120-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "in"}, {"src": "../views-web/capri-130-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "in"}, {"src": "../views-web/capri-140-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "still"}, {"src": "../views-web/capri-170-dp.jpg", "pos": "62% 50%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "out"}, {"src": "../views-web/capri-180-dp.jpg", "pos": "30% 55%", "alt": "Exhibition view — Let's Work! A Labor of Love, The Capri, June 2026", "p": 0, "room": "capri", "cr": "Daniel R. Pratt", "m": "still"}, {"src": "../views-web/roberts-010-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026", "p": 0, "room": "roberts", "cr": "Daniel R. Pratt", "m": "in"}, {"src": "../views-web/roberts-040-kt.jpg", "pos": "50% 50%", "alt": "Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026", "p": 0, "room": "roberts", "cr": "Kirk Thoren", "m": "in"}, {"src": "../views-web/roberts-090-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026", "p": 0, "room": "roberts", "cr": "Daniel R. Pratt", "m": "in"}, {"src": "../views-web/roberts-095-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026", "p": 0, "room": "roberts", "cr": "Daniel R. Pratt", "m": "in"}, {"src": "../views-web/roberts-100-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026", "p": 0, "room": "roberts", "cr": "Daniel R. Pratt", "m": "along"}, {"src": "../views-web/roberts-110-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026", "p": 0, "room": "roberts", "cr": "Daniel R. Pratt", "m": "in"}, {"src": "../views-web/roberts-115-kt.jpg", "pos": "50% 50%", "alt": "Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026", "p": 0, "room": "roberts", "cr": "Kirk Thoren", "m": "along"}, {"src": "../views-web/roberts-180-kt.jpg", "pos": "50% 50%", "alt": "Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026", "p": 0, "room": "roberts", "cr": "Kirk Thoren", "m": "still"}, {"src": "../views-web/roberts-230-kt.jpg", "pos": "50% 50%", "alt": "Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026", "p": 0, "room": "roberts", "cr": "Kirk Thoren", "m": "along"}, {"src": "../views-web/roberts-235-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026", "p": 0, "room": "roberts", "cr": "Daniel R. Pratt", "m": "along"}, {"src": "../views-web/roberts-250-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026", "p": 0, "room": "roberts", "cr": "Daniel R. Pratt", "m": "still"}, {"src": "../views-web/history-hall-010-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026", "p": 0, "room": "roberts", "cr": "Daniel R. Pratt", "m": "in"}, {"src": "../views-web/history-hall-080-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026", "p": 0, "room": "roberts", "cr": "Daniel R. Pratt", "m": "in"}, {"src": "../views-web/history-hall-100-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026", "p": 0, "room": "roberts", "cr": "Daniel R. Pratt", "m": "along"}, {"src": "../views-web/history-hall-120-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026", "p": 0, "room": "roberts", "cr": "Daniel R. Pratt", "m": "along"}, {"src": "../views-web/history-hall-040-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026", "p": 0, "room": "roberts", "cr": "Daniel R. Pratt", "m": "out"}, {"src": "../views-web/history-hall-020-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026", "p": 0, "room": "roberts", "cr": "Daniel R. Pratt", "m": "out"}, {"src": "../views-web/roberts-285-dp.jpg", "pos": "50% 50%", "alt": "Exhibition view — Way Back Home: Prince and North Minneapolis, Roberts Gallery, June 2026", "p": 0, "room": "roberts", "cr": "Daniel R. Pratt", "m": "still"}], RM={"capri": {"show": "Let's Work! A Labor of Love", "name": "The Capri"}, "roberts": {"show": "Way Back Home: Prince and North Minneapolis", "name": "Roberts Gallery"}}, C={"hold": 7.6, "lastHold": 11.0, "moves": {"in": [[{"transform": "scale(1)"}, {"transform": "scale(1.05)"}], "linear"], "out": [[{"transform": "scale(1.06)"}, {"transform": "scale(1)"}], "cubic-bezier(.2,.6,.3,1)"], "along": [[{"transform": "scale(1.07) translateX(2.6%)"}, {"transform": "scale(1.07) translateX(-2.6%)"}], "ease-in-out"]}, "fade": 2.4, "stepFade": 1.2, "reducedFade": 0.3, "drift": 1.045, "driftDur": 9.0, "reset": 1.2, "index": true, "credit": "per-view", "jump": false};
-var reduce=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
-var frame=document.getElementById('frame'), L=[document.getElementById('l0'),document.getElementById('l1')];
-var glide=document.getElementById('glide'), cap=document.getElementById('cap');
-var capShow=document.getElementById('capShow'), capRoom=document.getElementById('capRoom'), capCr=document.getElementById('capCredit');
-var btn=document.getElementById('pause'), playAll=document.getElementById('playAll');
-var cards=[].slice.call(document.querySelectorAll('.room[data-room]'));
-var canAnim=typeof L[0].animate==='function';
-var byRoom={}; S.forEach(function(s,i){ (byRoom[s.room]=byRoom[s.room]||[]).push(i); });
-var all=S.map(function(s,i){ return i; });
-var list=all, li=0, cur=-1, front=0, playing=!reduce, timer=null, armed=false, t0=0, left=0, seq=0, away=false, capT=null;
-var A=[{fade:null,drift:null},{fade:null,drift:null}], G=null;
-
-/* a portrait view shows whole wherever the frame is wider than tall */
-function setWide(){ frame.classList.toggle('wide', frame.clientWidth>frame.clientHeight); }
-if(window.ResizeObserver){ new ResizeObserver(setWide).observe(frame); } else { addEventListener('resize',setWide); }
-setWide();
-
-function stop(a){ if(a){ try{ a.cancel(); }catch(e){} } }
-function each(fn){ A.forEach(function(a){ if(a.fade) fn(a.fade); if(a.drift) fn(a.drift); }); if(G) fn(G); }
-function place(img,s){
-  if(img.getAttribute('src')!==s.src) img.setAttribute('src',s.src);
-  img.alt=s.alt; img.style.objectPosition=s.pos; img.classList.toggle('pt',!!s.p);
+var D=[{"src": "../views-web/capri-010-dp.jpg", "room": "capri", "show": "Let's Work! A Labor of Love", "name": "The Capri", "cr": "Daniel R. Pratt", "pos": "50% 50%"}, {"src": "../views-web/capri-020-kt.jpg", "room": "capri", "show": "Let's Work! A Labor of Love", "name": "The Capri", "cr": "Kirk Thoren", "pos": "50% 50%"}, {"src": "../views-web/capri-030-kt.jpg", "room": "capri", "show": "Let's Work! A Labor of Love", "name": "The Capri", "cr": "Kirk Thoren", "pos": "50% 50%"}, {"src": "../views-web/capri-040-dp.jpg", "room": "capri", "show": "Let's Work! A Labor of Love", "name": "The Capri", "cr": "Daniel R. Pratt", "pos": "50% 50%"}, {"src": "../views-web/capri-050-kt.jpg", "room": "capri", "show": "Let's Work! A Labor of Love", "name": "The Capri", "cr": "Kirk Thoren", "pos": "50% 50%"}, {"src": "../views-web/capri-060-dp.jpg", "room": "capri", "show": "Let's Work! A Labor of Love", "name": "The Capri", "cr": "Daniel R. Pratt", "pos": "50% 50%"}, {"src": "../views-web/capri-070-dp.jpg", "room": "capri", "show": "Let's Work! A Labor of Love", "name": "The Capri", "cr": "Daniel R. Pratt", "pos": "50% 50%"}, {"src": "../views-web/capri-080-dp.jpg", "room": "capri", "show": "Let's Work! A Labor of Love", "name": "The Capri", "cr": "Daniel R. Pratt", "pos": "50% 50%"}, {"src": "../views-web/capri-090-dp.jpg", "room": "capri", "show": "Let's Work! A Labor of Love", "name": "The Capri", "cr": "Daniel R. Pratt", "pos": "50% 50%"}, {"src": "../views-web/capri-100-dp.jpg", "room": "capri", "show": "Let's Work! A Labor of Love", "name": "The Capri", "cr": "Daniel R. Pratt", "pos": "50% 50%"}, {"src": "../views-web/capri-120-dp.jpg", "room": "capri", "show": "Let's Work! A Labor of Love", "name": "The Capri", "cr": "Daniel R. Pratt", "pos": "50% 50%"}, {"src": "../views-web/capri-130-dp.jpg", "room": "capri", "show": "Let's Work! A Labor of Love", "name": "The Capri", "cr": "Daniel R. Pratt", "pos": "50% 50%"}, {"src": "../views-web/capri-140-dp.jpg", "room": "capri", "show": "Let's Work! A Labor of Love", "name": "The Capri", "cr": "Daniel R. Pratt", "pos": "50% 50%"}, {"src": "../views-web/capri-170-dp.jpg", "room": "capri", "show": "Let's Work! A Labor of Love", "name": "The Capri", "cr": "Daniel R. Pratt", "pos": "62% 50%"}, {"src": "../views-web/capri-180-dp.jpg", "room": "capri", "show": "Let's Work! A Labor of Love", "name": "The Capri", "cr": "Daniel R. Pratt", "pos": "30% 55%"}, {"src": "../views-web/roberts-010-dp.jpg", "room": "roberts", "show": "Way Back Home: Prince and North Minneapolis", "name": "Roberts Gallery", "cr": "Daniel R. Pratt", "pos": "50% 50%"}, {"src": "../views-web/roberts-040-kt.jpg", "room": "roberts", "show": "Way Back Home: Prince and North Minneapolis", "name": "Roberts Gallery", "cr": "Kirk Thoren", "pos": "50% 50%"}, {"src": "../views-web/roberts-070-dp.jpg", "room": "roberts", "show": "Way Back Home: Prince and North Minneapolis", "name": "Roberts Gallery", "cr": "Daniel R. Pratt", "pos": "50% 50%"}, {"src": "../views-web/roberts-090-dp.jpg", "room": "roberts", "show": "Way Back Home: Prince and North Minneapolis", "name": "Roberts Gallery", "cr": "Daniel R. Pratt", "pos": "50% 50%"}, {"src": "../views-web/roberts-095-dp.jpg", "room": "roberts", "show": "Way Back Home: Prince and North Minneapolis", "name": "Roberts Gallery", "cr": "Daniel R. Pratt", "pos": "50% 50%"}, {"src": "../views-web/roberts-100-dp.jpg", "room": "roberts", "show": "Way Back Home: Prince and North Minneapolis", "name": "Roberts Gallery", "cr": "Daniel R. Pratt", "pos": "50% 50%"}, {"src": "../views-web/roberts-110-dp.jpg", "room": "roberts", "show": "Way Back Home: Prince and North Minneapolis", "name": "Roberts Gallery", "cr": "Daniel R. Pratt", "pos": "50% 50%"}, {"src": "../views-web/roberts-115-kt.jpg", "room": "roberts", "show": "Way Back Home: Prince and North Minneapolis", "name": "Roberts Gallery", "cr": "Kirk Thoren", "pos": "50% 50%"}, {"src": "../views-web/roberts-180-kt.jpg", "room": "roberts", "show": "Way Back Home: Prince and North Minneapolis", "name": "Roberts Gallery", "cr": "Kirk Thoren", "pos": "50% 50%"}, {"src": "../views-web/roberts-200-dp.jpg", "room": "roberts", "show": "Way Back Home: Prince and North Minneapolis", "name": "Roberts Gallery", "cr": "Daniel R. Pratt", "pos": "50% 50%"}, {"src": "../views-web/roberts-230-kt.jpg", "room": "roberts", "show": "Way Back Home: Prince and North Minneapolis", "name": "Roberts Gallery", "cr": "Kirk Thoren", "pos": "50% 50%"}, {"src": "../views-web/roberts-235-dp.jpg", "room": "roberts", "show": "Way Back Home: Prince and North Minneapolis", "name": "Roberts Gallery", "cr": "Daniel R. Pratt", "pos": "50% 50%"}, {"src": "../views-web/roberts-250-dp.jpg", "room": "roberts", "show": "Way Back Home: Prince and North Minneapolis", "name": "Roberts Gallery", "cr": "Daniel R. Pratt", "pos": "50% 50%"}, {"src": "../views-web/history-hall-010-dp.jpg", "room": "roberts", "show": "Way Back Home: Prince and North Minneapolis", "name": "Roberts Gallery", "cr": "Daniel R. Pratt", "pos": "50% 50%"}, {"src": "../views-web/history-hall-080-dp.jpg", "room": "roberts", "show": "Way Back Home: Prince and North Minneapolis", "name": "Roberts Gallery", "cr": "Daniel R. Pratt", "pos": "50% 50%"}, {"src": "../views-web/history-hall-060-kt.jpg", "room": "roberts", "show": "Way Back Home: Prince and North Minneapolis", "name": "Roberts Gallery", "cr": "Kirk Thoren", "pos": "50% 50%"}, {"src": "../views-web/history-hall-100-dp.jpg", "room": "roberts", "show": "Way Back Home: Prince and North Minneapolis", "name": "Roberts Gallery", "cr": "Daniel R. Pratt", "pos": "50% 50%"}, {"src": "../views-web/history-hall-120-dp.jpg", "room": "roberts", "show": "Way Back Home: Prince and North Minneapolis", "name": "Roberts Gallery", "cr": "Daniel R. Pratt", "pos": "50% 50%"}, {"src": "../views-web/history-hall-040-dp.jpg", "room": "roberts", "show": "Way Back Home: Prince and North Minneapolis", "name": "Roberts Gallery", "cr": "Daniel R. Pratt", "pos": "50% 50%"}, {"src": "../views-web/history-hall-020-dp.jpg", "room": "roberts", "show": "Way Back Home: Prince and North Minneapolis", "name": "Roberts Gallery", "cr": "Daniel R. Pratt", "pos": "50% 50%"}, {"src": "../views-web/roberts-285-dp.jpg", "room": "roberts", "show": "Way Back Home: Prince and North Minneapolis", "name": "Roberts Gallery", "cr": "Daniel R. Pratt", "pos": "50% 50%"}];
+var HOLD=5200, FADE=2400, STEP=450;
+var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(RM){FADE=300;STEP=200;}
+var lb=document.getElementById('lb'), L=[document.getElementById('a0'),document.getElementById('a1')];
+var front=0, cur=-1, playing=false, timer=null, opener=null, glideAnim=null, seq=0;
+var g=document.getElementById('glide');
+/* Oct 7 2026: count what people do (GoatCounter events) — opened a picture, pressed Play */
+function gc(p,t){try{if(window.goatcounter&&window.goatcounter.count)window.goatcounter.count({path:p,title:t,event:true});}catch(e){}}
+function roomOf(i){var r=D[i].room,a=[];for(var k=0;k<D.length;k++)if(D[k].room===r)a.push(k);return a;}
+function step(d){var a=roomOf(cur),p=a.indexOf(cur);return a[(p+d+a.length)%a.length];}
+function pre(i){var im=new Image();im.src=D[i].src;}
+function caption(i){
+  document.getElementById('cShow').textContent=D[i].show;
+  document.getElementById('cRoom').textContent=D[i].name;
+  document.getElementById('cCr').textContent=D[i].cr?'Photo: '+D[i].cr:'';
+  L[front].alt='Exhibition view — '+D[i].show+', '+D[i].name;
 }
-function preload(){ var j=list[(li+1)%list.length]; if(j!==undefined&&j!==cur){ var im=new Image(); im.src=S[j].src; } }
-function holdOf(s){ var ids=byRoom[s.room]; return ids[ids.length-1]===S.indexOf(s)?C.lastHold:C.hold; }
-function drift(img,s){
-  if(!canAnim||reduce) return null;
-  var mv=C.moves[s.m||'in']; if(!mv) return null;          /* 'still': no move */
-  var d=img.animate(mv[0],{duration:(holdOf(s)+C.fade)*1000,easing:mv[1],fill:'both'});
-  if(!playing) d.pause();
-  return d;
+function glide(i){
+  var a=roomOf(i),p=a.indexOf(i),n=a.length;
+  if(glideAnim){glideAnim.cancel();glideAnim=null;}
+  var from=(p/n*100)+'%', to=((p+1)/n*100)+'%';
+  if(playing&&g.animate){glideAnim=g.animate([{width:from},{width:to}],{duration:HOLD,easing:'linear',fill:'forwards'});}
+  else g.style.width=to;
 }
-/* under the frame: exhibition title over the room name (they cross-fade when the room changes), credit on the right */
-function caption(s){
-  var r=RM[s.room]||{show:'',name:''};
-  if(C.credit!=='fixed') capCr.textContent=s.cr?('Photo: '+s.cr):'';
-  if(capShow.textContent===r.show&&capRoom.textContent===r.name) return;
-  clearTimeout(capT);
-  if(reduce){ capShow.textContent=r.show; capRoom.textContent=r.name; return; }
-  cap.classList.add('out');
-  capT=setTimeout(function(){ capShow.textContent=r.show; capRoom.textContent=r.name; cap.classList.remove('out'); },450);
+function show(i,fade){
+  var my=++seq, back=1-front, nb=L[back], nf=L[front];
+  nb.style.transitionDuration='0ms'; nb.classList.remove('on','drift'); nb.style.transform='';
+  nb.style.objectPosition=D[i].pos; nb.src=D[i].src;
+  var go=function(){
+    if(my!==seq)return;
+    nb.style.transitionDuration=fade+'ms'; nf.style.transitionDuration=fade+'ms';
+    void nb.offsetWidth;
+    nb.classList.add('on'); nf.classList.remove('on');
+    if(playing&&!RM)nb.classList.add('drift');
+    front=back; cur=i; caption(i); glide(i);
+    pre(step(1)); pre(step(-1));
+    setTimeout(function(){if(my===seq){nf.classList.remove('drift');nf.style.transform='';}},fade+50);
+  };
+  if(nb.decode)nb.decode().then(go,go); else nb.onload=go;
 }
-function follow(room){ cards.forEach(function(c){ c.classList.toggle('cur',c.getAttribute('data-room')===room); }); }
-/* The Glide: across one room, the rule's width runs from pos/n to (pos+1)/n over each view's time,
-   so it never stops and reaches the far edge on the room's last view. At a room's first view it
-   fades out, resets to zero, then glides on and fades back in. */
-function glideTo(s,i,P){
-  var ids=byRoom[s.room], n=ids.length, pos=ids.indexOf(i), from=pos/n*100, to=(pos+1)/n*100;
-  var par=glide.parentNode.clientWidth||1, w0=glide.getBoundingClientRect().width/par*100;
-  var o0=parseFloat(getComputedStyle(glide).opacity); if(isNaN(o0)) o0=0;
-  stop(G); G=null;
-  if(reduce||!canAnim){ glide.style.width=to+'%'; glide.style.opacity='1'; return; }
-  glide.style.width=w0+'%'; glide.style.opacity=String(o0);
-  var kf;
-  if(pos===0){
-    var r=Math.min(.45,C.reset*1000/P), up=Math.min(.95,(C.reset*1000+2000)/P), wUp=to*(up-r)/(1-r);
-    kf=[{width:w0+'%',opacity:o0,offset:0,easing:'ease'},{width:w0+'%',opacity:0,offset:r},
-        {width:'0%',opacity:0,offset:r+.0001},{width:wUp+'%',opacity:1,offset:up},{width:to+'%',opacity:1,offset:1}];
-  } else {
-    kf=[{width:from+'%',opacity:1},{width:to+'%',opacity:1}];
-  }
-  G=glide.animate(kf,{duration:P,easing:'linear',fill:'forwards'});
-  if(!playing) G.pause();
+function schedule(){clearTimeout(timer);if(playing)timer=setTimeout(function(){show(step(1),FADE);schedule();},HOLD);}
+function setPlay(on){
+  playing=on; lb.classList.toggle('playing',on);
+  document.getElementById('lbPl').textContent=on?'Pause':'Play';
+  var f=L[front];
+  if(on&&!RM){f.classList.remove('drift');void f.offsetWidth;f.classList.add('drift');}
+  if(!on){f.classList.remove('drift');}
+  glide(cur); schedule();
 }
-function arm(){
-  clearTimeout(timer); armed=false;
-  if(!playing) return;
-  t0=performance.now(); armed=true;
-  timer=setTimeout(function(){ armed=false; step(1,false); }, Math.max(0,left));
+function open(i,play,from){
+  opener=from||null;
+  lb.hidden=false; document.body.classList.add('lb-open');
+  requestAnimationFrame(function(){lb.classList.add('in');});
+  L[0].classList.remove('on');L[1].classList.remove('on');
+  playing=!!play; lb.classList.toggle('playing',playing);
+  document.getElementById('lbPl').textContent=playing?'Pause':'Play';
+  show(i,0); schedule();
+  if(history.pushState)history.pushState({lb:1},'');
+  lb.focus({preventScroll:true});
 }
-function step(d,manual){ li=((li+d)%list.length+list.length)%list.length; show(list[li],manual); }
-function start(){
-  var s=S[list[0]]; li=0; cur=list[0]; front=0;
-  A[0].drift=drift(L[0],s);
-  caption(s); follow(s.room);
-  left=holdOf(s)*1000; glideTo(s,cur,left); arm(); preload();
+function close(fromPop){
+  if(lb.hidden)return;
+  playing=false; clearTimeout(timer); seq++;
+  lb.classList.remove('in','playing');
+  setTimeout(function(){lb.hidden=true;L[0].classList.remove('on','drift');L[1].classList.remove('on','drift');},300);
+  document.body.classList.remove('lb-open');
+  var t=document.querySelector('.tile[data-i="'+cur+'"]');
+  if(t){t.scrollIntoView({block:'nearest'});t.focus({preventScroll:true});}
+  else if(opener)opener.focus({preventScroll:true});
+  if(!fromPop&&history.state&&history.state.lb)history.back();
 }
-function show(i,manual){
-  var s=S[i], k=1-front, img=L[k], out=L[front], token=++seq;
-  clearTimeout(timer); armed=false;
-  stop(A[k].fade); stop(A[k].drift); A[k].drift=null; img.style.opacity='0'; img.classList.remove('on');
-  place(img,s);
-  function go(){
-    if(token!==seq) return;
-    var f=(reduce?C.reducedFade:(manual?C.stepFade:C.fade))*1000, inA=A[k], outA=A[front];
-    img.style.opacity='1';
-    if(canAnim){
-      inA.fade=img.animate([{opacity:0},{opacity:1}],{duration:f,easing:'ease-in-out'});
-      img.style.transform='';
-      inA.drift=drift(img,s);
-      var o=parseFloat(getComputedStyle(out).opacity); if(isNaN(o)) o=1;
-      stop(outA.fade); out.style.opacity='0';
-      outA.fade=out.animate([{opacity:o},{opacity:0}],{duration:f,easing:'ease-in-out'});
-    } else { out.style.opacity='0'; }
-    img.classList.add('on'); out.classList.remove('on');
-    front=k; cur=i;
-    caption(s); follow(s.room);
-    left=holdOf(s)*1000; glideTo(s,i,left); arm(); preload();
-  }
-  if(img.complete&&img.naturalWidth) go();
-  else if(img.decode) img.decode().then(go,go);
-  else { img.onload=img.onerror=go; }
-}
-function label(){
-  btn.classList.toggle('is-paused',!playing);
-  btn.querySelector('.pl').textContent=playing?'Pause':'Play';
-  btn.setAttribute('aria-label',playing?'Pause the exhibition views':'Play the exhibition views');
-}
-function setPlaying(p){
-  if(p===playing) return;
-  if(!p){ if(armed){ left-=performance.now()-t0; } clearTimeout(timer); armed=false; each(function(a){ if(a.playState==='running') a.pause(); }); }
-  else { each(function(a){ if(a.playState==='paused') a.play(); }); }
-  playing=p; label();
-  if(p) arm();
-}
-btn.addEventListener('click',function(){ setPlaying(!playing); });
-var sx=null, sy=null, swiped=false;
-frame.addEventListener('touchstart',function(e){ sx=e.touches[0].clientX; sy=e.touches[0].clientY; swiped=false; },{passive:true});
-frame.addEventListener('touchend',function(e){
-  if(sx===null) return;
-  var dx=e.changedTouches[0].clientX-sx, dy=e.changedTouches[0].clientY-sy; sx=null;
-  if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)){ swiped=true; step(dx<0?1:-1,true); }
-},{passive:true});
-frame.addEventListener('click',function(){ if(swiped){ swiped=false; return; } setPlaying(!playing); });
+function manual(d){var was=playing;show(step(d),STEP);if(was){schedule();}}
+document.querySelectorAll('.tile').forEach(function(t){t.addEventListener('click',function(){open(+t.dataset.i,false,t);gc('exhibitions-open-'+D[+t.dataset.i].room,'Exhibition views: opened a picture ('+D[+t.dataset.i].name+')');});});
+document.querySelectorAll('.play[data-play]').forEach(function(b){b.addEventListener('click',function(){open(+b.dataset.play,true,b);gc('exhibitions-play-'+D[+b.dataset.play].room,'Exhibition views: pressed Play ('+D[+b.dataset.play].name+')');});});
+document.getElementById('lbX').addEventListener('click',function(){close();});
+document.getElementById('prev').addEventListener('click',function(){manual(-1);});
+document.getElementById('next').addEventListener('click',function(){manual(1);});
+document.getElementById('lbPlay').addEventListener('click',function(){if(!playing)gc('exhibitions-play-'+D[cur].room,'Exhibition views: pressed Play ('+D[cur].name+')');setPlay(!playing);});
+var vid=document.querySelector('.ex-video video');if(vid&&RM){vid.removeAttribute('autoplay');vid.pause();}
+window.addEventListener('popstate',function(){close(true);});
 document.addEventListener('keydown',function(e){
-  if(e.altKey||e.ctrlKey||e.metaKey) return;
-  var t=e.target, onControl=t&&t.closest&&t.closest('a,button,input,textarea,select');
-  if((e.key===' '||e.key==='Spacebar')&&!onControl){ e.preventDefault(); setPlaying(!playing); }
-  else if(e.key==='ArrowRight'){ e.preventDefault(); step(1,true); }
-  else if(e.key==='ArrowLeft'){ e.preventDefault(); step(-1,true); }
+  if(lb.hidden)return;
+  if(e.key==='Escape')close();
+  else if(e.key==='ArrowRight')manual(1);
+  else if(e.key==='ArrowLeft')manual(-1);
+  else if(e.key===' '){e.preventDefault();setPlay(!playing);}
 });
-function toFrame(){
-  var r=frame.getBoundingClientRect();
-  if(r.top<0||r.bottom>innerHeight) frame.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
-}
-function plain(e){ return !(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||e.button); }
-/* index page: a room card plays that room in place; "Play all rooms" plays them all again */
-if(C.index){
-  cards.forEach(function(c){ c.addEventListener('click',function(e){
-    var room=c.getAttribute('data-room');
-    if(!plain(e)||!byRoom[room]) return;          /* a room that isn't in this show opens its own page */
-    if(C.jump){ e.preventDefault(); var j=byRoom[room][0]; list=all; li=all.indexOf(j); show(j,true); toFrame(); return; }   /* Events (Oct 4 2026) */
-    e.preventDefault(); list=byRoom[room]; li=0; show(list[0],true); if(playAll) playAll.hidden=false; toFrame();
-  }); });
-  if(playAll) playAll.addEventListener('click',function(e){
-    if(!plain(e)) return;
-    e.preventDefault(); list=all; li=0; show(list[0],true); playAll.hidden=true; toFrame();
-  });
-}
-document.addEventListener('visibilitychange',function(){
-  if(document.hidden&&playing){ away=true; setPlaying(false); }
-  else if(!document.hidden&&away){ away=false; setPlaying(true); }
-});
-label();
-start();
+/* swipe */
+var st=document.getElementById('stage'), x0=null, y0=0, dx=0;
+st.addEventListener('pointerdown',function(e){if(e.pointerType==='mouse')return;x0=e.clientX;y0=e.clientY;dx=0;L[front].classList.remove('drift');L[front].style.transition='none';});
+st.addEventListener('pointermove',function(e){if(x0===null)return;dx=e.clientX-x0;if(Math.abs(dx)>Math.abs(e.clientY-y0)){L[front].style.transform='translateX('+dx*0.6+'px)';}});
+function end(){if(x0===null)return;var f=L[front];f.style.transition='';x0=null;
+  if(Math.abs(dx)>50){f.style.transform='';manual(dx<0?1:-1);}
+  else{f.style.transition='transform .25s ease';f.style.transform='';setTimeout(function(){f.style.transition='';},260);}
+  dx=0;}
+st.addEventListener('pointerup',end);st.addEventListener('pointercancel',end);
 })();
+
 </script>
 </body>
 </html>
