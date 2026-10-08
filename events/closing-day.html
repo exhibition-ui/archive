@@ -289,6 +289,10 @@ body.lb-open{overflow:hidden}
 .room-top h2 a:hover{color:var(--mid)}
 .sheet.preview{grid-template-columns:repeat(4,1fr)}
 .sheet.preview .tile.more{display:none}
+.sheet.preview.p3{grid-template-columns:repeat(3,1fr)}
+.ev-hero{margin:0 0 3.2rem;position:relative}.ev-hero button{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.ev-hero img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.ev-hero figcaption{font-size:.78rem;color:#8a8398;text-align:right;margin-top:.45rem}
 .ev-see{margin-top:.9rem;font-size:.9rem}
 .ev-see a{color:var(--deep);text-decoration:none;border-bottom:1px solid transparent}
 .ev-see a:hover{border-color:var(--gold)}
@@ -313,6 +317,17 @@ body.lb-open{overflow:hidden}
 .rm-host .rm-k{margin:0 0 .2rem}
 @media(max-width:720px){.rm-people{grid-template-columns:1fr}.rm-p img{width:72px;height:72px}.rm-host img{width:84px;height:84px}
 .rm-h2,.rm-k,.rm-people,.rm-sign,.rm-note,.rm-host{margin-left:16px;margin-right:16px}}
+
+.st-go{margin:.35rem 0 0;font-size:.92rem}.st-go a{color:#5c2d8e;text-decoration:none;font-weight:400}.st-go a:hover{text-decoration:underline;text-decoration-color:#C8A96E}.st-go .ar{color:#C8A96E}
+.statement{max-width:640px;margin:2.4rem 0 0;padding-top:1.4rem;border-top:1.5px solid #C8A96E}
+.statement .st-k{margin:0 0 1.1rem;font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#8a6a2e}
+.statement p{font-size:1.06rem;line-height:1.78;color:#2a1a3a;margin:0 0 1.05rem}
+.statement blockquote{margin:.4rem 0 1.4rem;padding:0 0 0 1.1rem;border-left:2px solid #c4a0e0;font-family:'DM Serif Display',Georgia,serif;font-style:italic;font-size:1.12rem;line-height:1.6;color:#3b1054}
+.statement blockquote span{display:block}
+.statement blockquote cite{display:block;margin-top:.45rem;font-family:'DM Sans',system-ui,sans-serif;font-style:normal;font-size:.9rem;color:#7b52a8}
+.statement .st-by{margin-top:1.4rem;font-family:'DM Serif Display',Georgia,serif;font-size:1.05rem;color:#3b1054}
+.statement a{color:#5c2d8e}
+@media(max-width:720px){.statement{padding-left:16px;padding-right:16px;border-top:0;padding-top:0}.statement .st-k{border-top:1.5px solid #C8A96E;padding-top:1.2rem}.statement p{font-size:1rem}}
 </style>
 <script data-goatcounter="https://pmparchive.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
@@ -322,8 +337,8 @@ body.lb-open{overflow:hidden}
  <div class="tb-row">
   <a class="tb-home" href="https://www.peoplesmuseumforprince.org" title="Home"><img src="../assets/pmp-eye.jpg" alt=""><span>The People&#8217;s Museum for Prince</span></a>
   
-  <ul class="tb-doors"><li><a href="../participants.html">Collection</a></li><li><a href="../editions/" aria-current="page">Editions</a></li><li><a href="../programs/">Programs</a></li><li><a href="../houses-of-prince/">Houses of Prince</a></li><li><a href="https://www.peoplesmuseumforprince.org/participate">Participate</a></li><li><a href="https://www.peoplesmuseumforprince.org/blog">Blog</a></li><li><a href="https://www.peoplesmuseumforprince.org/support">Support</a></li></ul>
-  <details class="tb-menu"><summary>Menu</summary><ul class="tb-doors"><li><a href="../participants.html">Collection</a></li><li><a href="../editions/" aria-current="page">Editions</a></li><li><a href="../programs/">Programs</a></li><li><a href="../houses-of-prince/">Houses of Prince</a></li><li><a href="https://www.peoplesmuseumforprince.org/participate">Participate</a></li><li><a href="https://www.peoplesmuseumforprince.org/blog">Blog</a></li><li><a href="https://www.peoplesmuseumforprince.org/support">Support</a></li></ul></details>
+  <ul class="tb-doors"><li><a href="../participants.html">Living Archive</a></li><li><a href="../minneapolis-2026/" aria-current="page">Minneapolis 2026</a></li><li><a href="../houses-of-prince/">Houses of Prince</a></li><li><a href="https://www.peoplesmuseumforprince.org/about">About</a></li><li><a href="https://www.peoplesmuseumforprince.org/blog">Blog</a></li><li><a href="https://www.peoplesmuseumforprince.org/support">Support</a></li></ul>
+  <details class="tb-menu"><summary>Menu</summary><ul class="tb-doors"><li><a href="../participants.html">Living Archive</a></li><li><a href="../minneapolis-2026/" aria-current="page">Minneapolis 2026</a></li><li><a href="../houses-of-prince/">Houses of Prince</a></li><li><a href="https://www.peoplesmuseumforprince.org/about">About</a></li><li><a href="https://www.peoplesmuseumforprince.org/blog">Blog</a></li><li><a href="https://www.peoplesmuseumforprince.org/support">Support</a></li></ul></details>
  </div>
 </nav>
 <script>(function(){var d=document.querySelector('nav.tb .tb-menu');if(!d)return;document.addEventListener('click',function(e){if(d.open&&!d.contains(e.target))d.open=false;});document.addEventListener('keydown',function(e){if(e.key==='Escape')d.open=false;});})();</script>
@@ -334,6 +349,7 @@ body.lb-open{overflow:hidden}
     <p class="sub">Roberts Gallery · June 27, 2026</p>
     <p class="intro"><a href="../minneapolis-2026/">Explore the museum&nbsp;<span class="ar" aria-hidden="true">&rarr;</span></a></p>
   </header>
+  
   <div class="ev-writeup"><p>Our closing day on Saturday, June 27, was a celebration of Prince and community. Author and theologian Pamela Ayo Yetunde led an afternoon gathering on the theology and spirituality of Prince, drawing from her book <i>Dearly Beloved: Prince, Spirituality, and This Thing Called Life</i>. DJ Manny of MPLS FONK brought the season to a joyful close, with Terry Jackson on live percussion, and artist Bon Mott activated their cat suit with an impromptu performance. Over the afternoon many people flowed through for one last visit: Prince’s cousin Shauntel, former Northside neighbors and schooldays friends, current residents and young artists, Prince author Andrea Swensson and collector Rich Benson. Thank you to all the artists, participants and collaborators. Our hearts are full.</p></div>
   
   <section class="room-sec" id="closing-day" aria-label="Closing Day">
@@ -363,7 +379,7 @@ body.lb-open{overflow:hidden}
 <footer class="site-footer sf-white">
   <p class="sf-label">The People&#x27;s Museum for Prince</p>
   <p class="sf-invite-line"><span class="sf-invite">Your Prince story belongs here.</span></p>
-  <p class="sf-links"><a href="https://www.peoplesmuseumforprince.org/about" aria-label="About the museum">About</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="../people/">People</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/press">Press</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact">Contact</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact#subscribe">Mailing list</a></p>
+  <p class="sf-links"><a href="../programs/">Programs</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="../people/">People</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/press">Press</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact">Contact</a> <span class="sf-dot" aria-hidden="true">&middot;</span> <a href="https://www.peoplesmuseumforprince.org/contact#subscribe">Mailing list</a></p>
   <p class="sf-social"><a href="https://www.instagram.com/peoplesmuseumforprince/" aria-label="The museum on Instagram" title="Instagram" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/peoplesmuseumforprince/" aria-label="The museum on Facebook" title="Facebook" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M15.6 7.4h-1.4c-1.1 0-1.9.8-1.9 1.9V21M9.6 12.6h5.4"/></svg></a></p>
   <p class="sf-small"><a href="../credits.html">Credits</a> <span class="sf-dot" aria-hidden="true">&middot;</span> &copy; 2026</p>
 </footer>
