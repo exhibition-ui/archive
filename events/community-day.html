@@ -318,6 +318,52 @@ body.lb-open{overflow:hidden}
 @media(max-width:720px){.rm-people{grid-template-columns:1fr}.rm-p img{width:72px;height:72px}.rm-host img{width:84px;height:84px}
 .rm-h2,.rm-k,.rm-people,.rm-sign,.rm-note,.rm-host{margin-left:16px;margin-right:16px}}
 
+/* Oct 9 2026 (b): Exhibitions strips, venue block, statement around the pictures, View the exhibition, events here */
+.room-top>div{min-width:0;flex:1 1 auto}
+.st-line{margin:.7rem 0 0;max-width:600px}
+.st-line a{display:flex;align-items:baseline;gap:.5rem;text-decoration:none;min-width:0}
+.st-line .q{flex:none;font:400 2rem/0 'DM Serif Display',Georgia,serif;color:#C8A96E;transform:translateY(.42rem);margin-right:-.1rem}
+.st-line .st-txt{min-width:0;flex:1 1 auto;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font:italic 400 1.02rem/1.55 'DM Serif Display',Georgia,serif;color:#8a6a2e;transition:color .2s}
+.st-line .ar{flex:none;color:#C8A96E}
+.st-line a:hover .st-txt{color:#6e521f}
+.sheet.strip4{grid-template-columns:repeat(4,1fr)}
+a.tile.tlink{cursor:pointer}
+@media (max-width:720px){.sheet.strip4{grid-template-columns:repeat(2,1fr)}}
+.venue{max-width:640px;margin:.15rem 0 0}
+.venue .v-addr{font-size:.95rem;color:var(--muted);line-height:1.55}
+.venue .v-links{font-size:.92rem;margin-top:.2rem}
+.venue .v-links a{color:var(--mid);text-decoration:none;border-bottom:1px solid transparent}
+.venue .v-links a:hover{border-bottom-color:#C8A96E}
+.venue .v-dot{color:#b9aecb;margin:0 .3rem}
+.room-page .exh-head{margin-bottom:1.2rem}
+.statement.st-open{margin-top:1.4rem;padding-top:0;border-top:0}
+.statement.st-close{margin-top:2.6rem;padding-top:1.4rem;border-top:1px solid #C8A96E}
+.ex-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;margin:0 0 1rem}
+.ex-head .ex-k{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin:0 0 .35rem}
+.ex-head .ex-title{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-style:italic;color:var(--deep);font-size:clamp(1.45rem,3vw,1.8rem);line-height:1.2}
+.ex-head .ex-title::after{content:"";display:block;width:40px;height:2px;background:#C8A96E;margin-top:.6rem}
+.ex-head .play{flex:none;margin-bottom:.2rem}
+.room-page .room-sec:has(.ex-head){margin-top:3.2rem}
+.rm-k + .room-sec,.rm-intro + .room-sec{margin-top:.6rem}
+.rm-k + .room-sec .room-top,.rm-intro + .room-sec .room-top{margin-bottom:.6rem}
+.ev-writeup.rm-intro{margin-top:.9rem}
+.rm-thanks{max-width:640px;margin:2.2rem 0 0}
+.rm-thanks p{font-family:'DM Serif Display',Georgia,serif;font-style:italic;font-size:1.08rem;color:var(--deep);margin:0}
+.rm-thanks + .rm-host,.rm-thanks + .rm-note{margin-top:.9rem}
+.all-views .av-dot{color:#b9aecb;margin:0 .35rem}
+.ev-here-sec{margin-top:1rem}
+.ev-here{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin:1.2rem 0 0}
+.ev-card{display:block;text-decoration:none;color:inherit}
+.ev-card .ec-img{display:block;aspect-ratio:3/2;overflow:hidden;background:var(--tint)}
+.ev-card img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9);transition:transform 1.2s cubic-bezier(.2,.6,.2,1),filter .5s}
+.ev-card:hover img{transform:scale(1.035);filter:none}
+.ev-card .ec-k{display:block;margin-top:.6rem;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.ev-card .ec-n{display:block;font-family:'DM Serif Display',Georgia,serif;font-size:1.12rem;color:var(--deep)}
+.ev-card .ec-n .ar{color:#C8A96E;font-family:'DM Sans',sans-serif;font-size:.9rem}
+@media (prefers-reduced-motion:reduce){.ev-card img{transition:none}}
+@media (max-width:720px){.ex-head,.rm-thanks,.ev-here{margin-left:16px;margin-right:16px}.ev-here{grid-template-columns:1fr 1fr;gap:1rem}
+.statement.st-close{border-top:1px solid #C8A96E;margin-left:16px;margin-right:16px;padding-left:0;padding-right:0}}
+
 .st-go{margin:.35rem 0 0;font-size:.92rem}.st-go a{color:#5c2d8e;text-decoration:none;font-weight:400}.st-go a:hover{text-decoration:underline;text-decoration-color:#C8A96E}.st-go .ar{color:#C8A96E}
 .statement{max-width:640px;margin:2.4rem 0 0;padding-top:1.4rem;border-top:1.5px solid #C8A96E}
 .statement .st-k{margin:0 0 1.1rem;font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#8a6a2e}
@@ -347,7 +393,8 @@ body.lb-open{overflow:hidden}
     <p class="kicker">Events</p>
     <h1>Community Day</h1>
     <p class="sub">Roberts Gallery · June 21, 2026</p>
-    <p class="intro"><a href="../minneapolis-2026/">Explore the museum&nbsp;<span class="ar" aria-hidden="true">&rarr;</span></a></p>
+    
+    
   </header>
   
   <div class="ev-writeup"><p>On Sunday, June 21, the museum celebrated Prince’s Northside roots. The day began with a tour of Prince’s North Minneapolis led by historian Kristen Zschomler, joined by Stephanie Carlson, Prince’s first crush, and classmates who gathered from near and far, their memories helping to fill in details of Prince’s early years. Back at the gallery, artist Tammy Ortegon of ColorWheel Gallery hosted a coloring party, and Terry Jackson, Prince’s neighbor and bandmate in Grand Central, shared his memories of “Skipper.” Neighbors stopped by, children posted drawings for Prince, and old school friends gathered around the table: a relaxed day of community.</p></div>
@@ -357,7 +404,8 @@ body.lb-open{overflow:hidden}
   <div class="sheet"><button class="tile lead" type="button" data-i="0" aria-label="Event photo — Community Day, Roberts Gallery, June 21, 2026"><img src="../thumbs-web/community-day-010-eb-w1400.jpg" alt="" loading="eager" decoding="async" fetchpriority="high" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="1" aria-label="Event photo — Community Day, Roberts Gallery, June 21, 2026"><img src="../thumbs-web/community-day-020-jb-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="2" aria-label="Event photo — Community Day, Roberts Gallery, June 21, 2026"><img src="../thumbs-web/community-day-080-eb-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="3" aria-label="Event photo — Community Day, Roberts Gallery, June 21, 2026"><img src="../thumbs-web/community-day-040-jb-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="4" aria-label="Event photo — Community Day, Roberts Gallery, June 21, 2026"><img src="../thumbs-web/community-day-050-jb-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="5" aria-label="Event photo — Community Day, Roberts Gallery, June 21, 2026"><img src="../thumbs-web/community-day-060-eb-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="6" aria-label="Event photo — Community Day, Roberts Gallery, June 21, 2026"><img src="../thumbs-web/community-day-070-jb-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="7" aria-label="Event photo — Community Day, Roberts Gallery, June 21, 2026"><img src="../thumbs-web/community-day-030-jb-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button><button class="tile" type="button" data-i="8" aria-label="Event photo — Community Day, Roberts Gallery, June 21, 2026"><img src="../thumbs-web/community-day-090-eb-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></button></div>
   
 </section>
-  <p class="all-views"><a href="index.html">All events&nbsp;<span class="ar" aria-hidden="true">&rarr;</span></a><span class="ev-next"> &nbsp;·&nbsp; Next: <a href="closing-day.html">Closing Day&nbsp;<span class="ar" aria-hidden="true">&rarr;</span></a></span></p>
+  
+  <p class="all-views"><a href="index.html">All events&nbsp;<span class="ar" aria-hidden="true">&rarr;</span></a><span class="ev-next"> &nbsp;·&nbsp; Next: <a href="closing-day.html">Closing Day&nbsp;<span class="ar" aria-hidden="true">&rarr;</span></a></span> <span class="av-dot" aria-hidden="true">&middot;</span> <a href="../minneapolis-2026/">Minneapolis 2026&nbsp;<span class="ar" aria-hidden="true">&rarr;</span></a></p>
   
   <div class="ex-credits"><div class="credits-label">Image credits</div><p class="credits-line"><strong>Event photography:</strong> Jill Boogren and E.C.Balázs</p></div>
   <div class="elsewhere"><a class="else-link" href="../participants.html"><img class="else-thumb else-faces" src="../thumbs-web/mosaic-faces.jpg" alt="" loading="lazy" decoding="async"><span><span class="else-k">People, art &amp; stories</span><span class="else-t">The Living Archive <span class="ar" aria-hidden="true">&rarr;</span></span></span></a><a class="else-link" href="../exhibitions/index.html"><img class="else-thumb" src="../thumbs-web/capri-170-dp-w252.jpg" alt="" loading="lazy" decoding="async"><span><span class="else-k">Exhibition views</span><span class="else-t">Walk through the rooms <span class="ar" aria-hidden="true">&rarr;</span></span></span></a></div>
@@ -459,7 +507,7 @@ function close(fromPop){
   if(!fromPop&&history.state&&history.state.lb)history.back();
 }
 function manual(d){var was=playing;show(step(d),STEP);if(was){schedule();}}
-document.querySelectorAll('.tile').forEach(function(t){t.addEventListener('click',function(){open(+t.dataset.i,false,t);gc('events-open-'+D[+t.dataset.i].room,'Events: opened a picture ('+D[+t.dataset.i].name+')');});});
+document.querySelectorAll('button.tile').forEach(function(t){t.addEventListener('click',function(){open(+t.dataset.i,false,t);gc('events-open-'+D[+t.dataset.i].room,'Events: opened a picture ('+D[+t.dataset.i].name+')');});});
 document.querySelectorAll('.play[data-play]').forEach(function(b){b.addEventListener('click',function(){open(+b.dataset.play,true,b);gc('events-play-'+D[+b.dataset.play].room,'Events: pressed Play ('+D[+b.dataset.play].name+')');});});
 document.getElementById('lbX').addEventListener('click',function(){close();});
 document.getElementById('prev').addEventListener('click',function(){manual(-1);});
