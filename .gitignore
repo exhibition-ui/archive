@@ -25,3 +25,6 @@ songs-check.html
 
 # set-aside event pictures (Oct 8 2026) — never pushed
 event-views-web/_*
+
+# loose test folder (Oct 9 2026) — tests live in WORKING, never pushed
+test/

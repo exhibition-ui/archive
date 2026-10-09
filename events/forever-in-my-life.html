@@ -215,6 +215,7 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
 .sheet{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
 .tile{position:relative;display:block;width:100%;overflow:hidden;background:var(--tint);cursor:zoom-in;aspect-ratio:3/2}
 .tile.lead{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.tile.lead.wide{grid-column:1/-1;grid-row:auto;aspect-ratio:3/2}
 .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9);transition:transform 1.4s cubic-bezier(.2,.6,.2,1),filter .6s}
 .tile::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--gold);transition:width .5s ease}
 .tile:hover img,.tile:focus-visible img{transform:scale(1.035);filter:saturate(1)}
