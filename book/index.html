@@ -62,7 +62,11 @@ table.prices .d{display:block;font-size:15px;color:var(--muted);line-height:1.5}
 .ed1{display:grid;grid-template-columns:minmax(0,1fr) auto 150px;gap:6px 22px;align-items:center;padding:16px 0;border-top:1px solid var(--border)}
 .ed1 b{font-weight:500;color:var(--deep)}
 .ed1 .d{display:block;font-size:15px;color:var(--muted);line-height:1.5}
-.ed1 .p{color:var(--deep);font-size:19px}
+.ed1 .p{color:var(--deep);font-size:19px;white-space:nowrap}
+.ed1 .p small{display:block;font-size:13px;color:var(--muted);font-weight:300;text-align:right}
+.recv{border-top:1px solid var(--border);padding-top:14px;margin-top:4px}
+.recv h3{font-family:var(--serif);font-weight:400;font-size:20px;color:var(--deep);margin:0 0 6px}
+.recv p{margin:0;color:#4a3a5c;font-size:16px;line-height:1.6}
 .pbtn{display:flex;justify-content:center;align-items:center;min-height:48px;background:var(--deep);color:#fff;text-decoration:none;font-size:16px;letter-spacing:.04em;border-radius:2px}
 .pbtn:hover{background:var(--mid);color:#fff}
 @media (max-width:600px){.ed1{grid-template-columns:minmax(0,1fr) auto}.ed1 .pbtn{grid-column:1/-1}.ed1>span{display:none}}
@@ -89,6 +93,7 @@ table.prices .d{display:block;font-size:15px;color:var(--muted);line-height:1.5}
 .book::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;background:linear-gradient(90deg,rgba(0,0,0,.06),rgba(0,0,0,0) 3%,rgba(0,0,0,0) 97%,rgba(0,0,0,.06))}
 .spread{position:absolute;inset:0;display:none}
 .spread.on{display:flex}
+.book::after{content:"Sample pages";position:absolute;right:10px;bottom:8px;z-index:5;font-family:var(--sans);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(26,15,46,.55);padding:3px 8px;border-radius:2px;pointer-events:none}
 .spread>img.full{width:100%;height:100%;object-fit:cover}
 .pg{flex:1 1 50%;position:relative;overflow:hidden}
 .pg.pad{padding:5cqw 5cqw 4.5cqw}
@@ -162,7 +167,7 @@ footer a{color:var(--mid);text-decoration:none}
 <div class="wrap hero">
  <div class="coverwrap">
   <div class="cover">
-   <img src="img/front-mosaic-v9.jpg" alt="The cover of the book: a mosaic of artworks, with the title in a ribbon across it">
+   <img src="img/front-mosaic-v10.jpg" alt="The cover of the book: a mosaic of artworks, with the title in a ribbon across it">
    <div class="rib" aria-hidden="true"><b>The People&#8217;s Museum for Prince</b><i>Minneapolis 2026</i></div>
    <span class="tag">Cover in progress</span>
   </div>
@@ -179,19 +184,23 @@ footer a{color:var(--mid);text-decoration:none}
 <section class="wrap" style="margin-top:36px" id="order">
  <div class="offer">
   <h2>Pre-order by December 31</h2>
-  <p class="why">The book is printed in a single small run.</p>
+  <p class="why">The book is printed in a single run.</p>
   <div class="ed1">
    <div><b>The book</b><span class="d">Hardcover, 8.5 inches square, with a purple ribbon</span></div>
-   <div class="p">$40</div>
+   <div class="p">$40 <small>+ shipping</small></div>
    <a class="pbtn" href="https://buy.stripe.com/bJe28r0j32Vresi1kv8IU01">Pre-order</a>
   </div>
   <div class="ed1">
    <div><b>Supporter edition</b><span class="d">A signed copy, your name printed on the supporters&#8217; page in the book, and a special mosaic poster</span></div>
-   <div class="p">$75</div>
+   <div class="p">$75 <small>+ shipping</small></div>
    <a class="pbtn" href="https://buy.stripe.com/9B68wPd5PdA583U8MX8IU02">Pre-order</a>
   </div>
   <p class="inbook">In the book? Your letter from Emma has your own pre-order link. Can&#8217;t find it? <a href="https://www.peoplesmuseumforprince.org/contact">Write to us</a>.</p>
-  <p class="ship">Prices in US dollars; checkout shows your local currency. Pick up your signed copy free at the Minneapolis book launch in early June, or choose mail at checkout: $8 within the US, $35 internationally. Secure checkout with Stripe.</p>
+  <p class="ship">Prices in US dollars; checkout shows your local currency. Secure checkout with Stripe.</p>
+  <div class="recv">
+   <h3>Receiving your book</h3>
+   <p>Pick up your signed copy at the Minneapolis book launch in early June. Or have it mailed to you: $8 within the US, $35 internationally.</p>
+  </div>
  </div>
 </section>
 
@@ -199,10 +208,10 @@ footer a{color:var(--mid);text-decoration:none}
  <h2 class="big">What&#8217;s in the book?</h2>
  <p>A hardcover art book with a purple ribbon: 196 pages from the museum&#8217;s 2026 edition in Minneapolis, which marked ten years since Prince&#8217;s passing.</p>
  <ul class="feat">
-  <li><b>The heart of the book is the people</b>: more than 70 stories, artworks and portraits.</li>
+  <li><b>Stories, artworks and portraits</b> from over 70 participants.</li>
   <li><b>Photographs</b> of the exhibitions and gatherings by Daniel R. Pratt, Jill Boogren and Kirk Thoren.</li>
-  <li><b>Curatorial texts</b> on the museum and its idea.</li>
-  <li><b>A mosaic</b> of everyone&#8217;s portraits on the cover and endpapers.</li>
+  <li><b>Curatorial texts</b> introducing the museum.</li>
+  <li><b>A mosaic</b> of portraits of all the participants and their artworks, on the cover and in special spreads throughout the book.</li>
   <li><b>Art-book printing</b>: full color on satin paper, hardcover, 8.5 inches square.</li>
  </ul>
 </section>
@@ -211,8 +220,9 @@ footer a{color:var(--mid);text-decoration:none}
  <h2 class="big" style="margin-bottom:4px">Look inside</h2>
  <div class="stage">
   <div class="book" id="book">
-
    <div class="spread on" data-cap="The people: everyone in the book."><img class="full" src="img/spread-people.jpg" alt="A spread of portraits of the people in the book, with the museum's name in the last squares"></div>
+
+   <div class="spread" data-cap="Way Back Home: Prince and North Minneapolis, at Roberts Gallery. Photo: Daniel R. Pratt."><img class="full" src="../views-web/roberts-090-dp.jpg" alt="Installation view at Roberts Gallery, across a double page"></div>
 
    <div class="spread" data-cap="Robbin Lang, at Roberts Gallery. A sample of her story.">
     <div class="pg art"><img src="../artworks-web/robbin-lang-artwork-unframed.jpg" alt="Always In My Hair, a pressed flower artwork by Robbin Lang"></div>
@@ -230,8 +240,6 @@ footer a{color:var(--mid);text-decoration:none}
     </div>
    </div>
 
-   <div class="spread" data-cap="Way Back Home: Prince and North Minneapolis, at Roberts Gallery. Photo: Daniel R. Pratt."><img class="full" src="../views-web/roberts-090-dp.jpg" alt="Installation view at Roberts Gallery, across a double page"></div>
-
    <div class="spread" data-cap="Betsy Shannon, at the Capri Theater.">
     <div class="pg art"><img src="img/betsy-shannon-artwork.jpg" alt="Shining On, a beaded quilt portrait by Betsy Shannon"></div>
     <div class="pg pad text">
@@ -239,6 +247,8 @@ footer a{color:var(--mid);text-decoration:none}
      <div><p class="qu">&#8220;As I worked on it I felt the loss and beauty of him and his incredible talent.&#8221;</p><p class="st">Using fabric from a Cherrywood Fabrics Prince challenge collection, Betsy Shannon recreated an iconic Prince photograph in multiple shades of purple, then hand-embellished it with approximately 15,000 tiny seed beads.</p></div>
     </div>
    </div>
+
+   <div class="spread" data-cap="Let&#8217;s Work! A Labor of Love, at the Capri Theater. Photo: Kirk Thoren."><img class="full" src="../views-web/capri-030-kt.jpg" alt="Works hung along a long white wall at the Capri Theater, across a double page"></div>
 
    <div class="spread" data-cap="Kaitlin Frick, at Roberts Gallery. A sample of her story.">
     <div class="pg art"><img src="../artworks-web/kaitlin-frick-artwork.jpg" alt="Paisley Park in Winter, an etching by Kaitlin Frick"></div>
@@ -248,16 +258,11 @@ footer a{color:var(--mid);text-decoration:none}
     </div>
    </div>
 
-   <div class="spread" data-cap="Opening Day at Roberts Gallery, with Prince&#8217;s birthday cake. Photo: Jill Boogren."><img class="full" src="../event-views-web/opening-day-000-jb.jpg" alt="Opening Day: the crowd around Prince&#8217;s birthday cake, across a double page" style="object-position:50% 40%"></div>
-
    <div class="spread" data-cap="Closing Day at Roberts Gallery. Photo: Jill Boogren."><img class="full" src="../event-views-web/closing-day-020-jb.jpg" alt="People gathered in a circle at Roberts Gallery on Closing Day, across a double page" style="object-position:50% 60%"></div>
 
 
 
-   <div class="spread" data-cap="Let&#8217;s Work! A Labor of Love, at the Capri Theater. Photo: Kirk Thoren."><img class="full" src="../views-web/capri-030-kt.jpg" alt="Works hung along a long white wall at the Capri Theater, across a double page"></div>
-
    <div class="spread" data-cap="The mosaic of artworks, as it opens the book."><img class="full" src="img/spread-art.jpg" alt="A spread of artworks from the museum as mosaic tiles"></div>
-
   </div>
   <button class="ctl prev" type="button" aria-label="Previous spread">&#8249;</button>
   <button class="ctl next" type="button" aria-label="Next spread">&#8250;</button>
