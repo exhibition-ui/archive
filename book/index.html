@@ -89,11 +89,9 @@ table.prices .d{display:block;font-size:15px;color:var(--muted);line-height:1.5}
 .viewer{display:flex;flex-direction:column;gap:16px}
 .stage{position:relative}
 .book{position:relative;aspect-ratio:2/1;container-type:inline-size;background:#fff;box-shadow:0 20px 40px rgba(26,15,46,.20),0 2px 4px rgba(26,15,46,.18);overflow:hidden}
-.book::after{content:"";position:absolute;top:0;bottom:0;left:50%;width:9%;transform:translateX(-50%);pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.10) 42%,rgba(0,0,0,.22) 50%,rgba(0,0,0,.10) 58%,rgba(0,0,0,0) 100%);z-index:3}
 .book::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;background:linear-gradient(90deg,rgba(0,0,0,.06),rgba(0,0,0,0) 3%,rgba(0,0,0,0) 97%,rgba(0,0,0,.06))}
 .spread{position:absolute;inset:0;display:none}
 .spread.on{display:flex}
-.book::after{content:"Sample pages";position:absolute;right:10px;bottom:8px;z-index:5;font-family:var(--sans);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(26,15,46,.55);padding:3px 8px;border-radius:2px;pointer-events:none}
 .spread>img.full{width:100%;height:100%;object-fit:cover}
 .pg{flex:1 1 50%;position:relative;overflow:hidden}
 .pg.pad{padding:5cqw 5cqw 4.5cqw}
@@ -160,16 +158,15 @@ footer a{color:var(--mid);text-decoration:none}
  <ul class="tb-doors"><li><a href="../participants.html">Living Archive</a></li><li><a href="../minneapolis-2026/">Minneapolis 2026</a></li><li><a href="../houses-of-prince/">Houses of Prince</a></li><li><a href="./" aria-current="page">The Book</a></li><li><a href="https://www.peoplesmuseumforprince.org/about">About</a></li><li><a href="https://www.peoplesmuseumforprince.org/blog">Blog</a></li><li><a href="https://www.peoplesmuseumforprince.org/support">Support</a></li></ul>
  <details class="tb-menu"><summary>Menu</summary><ul class="tb-doors"><li><a href="../participants.html">Living Archive</a></li><li><a href="../minneapolis-2026/">Minneapolis 2026</a></li><li><a href="../houses-of-prince/">Houses of Prince</a></li><li><a href="./" aria-current="page">The Book</a></li><li><a href="https://www.peoplesmuseumforprince.org/about">About</a></li><li><a href="https://www.peoplesmuseumforprince.org/blog">Blog</a></li><li><a href="https://www.peoplesmuseumforprince.org/support">Support</a></li></ul></details>
 </div></nav>
-<div class="mock" role="note"><b style="font-weight:500">Test page v8, Nov 3.</b> Mock-up images and draft words. Order buttons not connected yet.</div>
 
 <main id="top">
 
 <div class="wrap hero">
  <div class="coverwrap">
   <div class="cover">
-   <img src="img/front-mosaic-v10.jpg" alt="The cover of the book: a mosaic of artworks, with the title in a ribbon across it">
+   <img src="img/front-mosaic-v11.jpg" alt="The cover of the book: a mosaic of artworks, with the title in a ribbon across it">
    <div class="rib" aria-hidden="true"><b>The People&#8217;s Museum for Prince</b><i>Minneapolis 2026</i></div>
-   <span class="tag">Cover in progress</span>
+   <span class="tag">Sample design</span>
   </div>
  </div>
  <div class="hero-text">
@@ -187,21 +184,20 @@ footer a{color:var(--mid);text-decoration:none}
   <p class="why">The book is printed in a single run.</p>
   <div class="ed1">
    <div><b>The book</b><span class="d">Hardcover, 8.5 inches square, with a purple ribbon</span></div>
-   <div class="p">$40 <small>+ shipping</small></div>
+   <div class="p">US$40 <small>+ shipping</small></div>
    <a class="pbtn" href="https://buy.stripe.com/bJe28r0j32Vresi1kv8IU01">Pre-order</a>
   </div>
   <div class="ed1">
    <div><b>Supporter edition</b><span class="d">A signed copy, your name printed on the supporters&#8217; page in the book, and a special mosaic poster</span></div>
-   <div class="p">$75 <small>+ shipping</small></div>
+   <div class="p">US$75 <small>+ shipping</small></div>
    <a class="pbtn" href="https://buy.stripe.com/9B68wPd5PdA583U8MX8IU02">Pre-order</a>
   </div>
-  <p class="inbook">In the book? Your letter from Emma has your own pre-order link. Can&#8217;t find it? <a href="https://www.peoplesmuseumforprince.org/contact">Write to us</a>.</p>
-  <p class="ship">Prices in US dollars; checkout shows your local currency. Secure checkout with Stripe.</p>
   <div class="recv">
    <h3>Receiving your book</h3>
    <p>Pick up your signed copy at the Minneapolis book launch in early June. Or have it mailed to you: $8 within the US, $35 internationally.</p>
   </div>
  </div>
+ <p class="small" style="margin-top:14px">For book participants: see your email for your special order link.</p>
 </section>
 
 <section class="read">
