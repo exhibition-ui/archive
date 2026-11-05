@@ -2298,5 +2298,35 @@
   "card_video": "",
   "portrait": "portraits-web/go-sagawa-portrait.jpg",
   "connected": []
+ },
+ {
+  "name": "Olivia Camron",
+  "slug": "olivia-camron",
+  "url": "participants/olivia-camron.html",
+  "first_name": "Olivia",
+  "last_name": "Camron",
+  "city": "Charleston",
+  "state_or_country": "South Carolina",
+  "title": "Circle of Amour",
+  "venues": [],
+  "walk_order": 517,
+  "walk_order_2": [],
+  "season": "",
+  "noindex": false,
+  "card_image": "artworks-web/olivia-camron-mosaic.jpg",
+  "card_alt": "portraits-web/olivia-camron-portrait-close.jpg",
+  "card_position": "",
+  "card_alt_position": "",
+  "card_text": "",
+  "text_on_mosaic_image": true,
+  "favourite_prince_song": [
+   "Controversy",
+   "Computer Blue",
+   "Purple Rain"
+  ],
+  "second_card": null,
+  "card_video": "",
+  "portrait": "portraits-web/olivia-camron-portrait-close.jpg",
+  "connected": []
  }
 ]

@@ -557,6 +557,17 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
   .song-card{margin-left:-1rem;margin-right:-1rem;}
 }
 
+.more-from .photo-story{margin-top:0.4rem;}
+.credits-block + .orient-band{margin-top:2.6rem;}   /* Nov 5 2026: room between the credits and a welcome band placed at the end */
+.photo-story{position:relative;width:100%;max-width:752px;aspect-ratio:4/5;max-height:80vh;margin:0 auto 2.2rem;background:#1a0f2e;overflow:hidden;cursor:pointer;border-radius:2px;}
+.photo-story img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 1.6s ease;}
+.photo-story img.on{opacity:1;}
+.ps-dots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:6px;}
+.ps-dots i{width:5px;height:5px;border-radius:50%;background:rgba(196,160,224,.45);}
+.ps-dots i.on{background:#C8A96E;}
+.ps-caption{max-width:620px;margin:-1.4rem auto 2.2rem;font-size:0.9rem;color:#666;text-align:center;}
+@media(prefers-reduced-motion:reduce){.photo-story img{transition:none;}}
+
 /* SHARED SITE FOOTER (Sept 29 2026) — generate.site_footer_html(). Night by
    default; .sf-white on white pages; .sf-mosaic spacing on the mosaic. */
 footer.site-footer{display:block;max-width:640px;margin:1.75rem auto 0;padding:1.25rem 0 0;border-top:1px solid rgba(196,160,224,0.2);text-align:center;font-family:'DM Sans',sans-serif;font-weight:300;font-size:0.8rem;line-height:1.8;color:#c4a0e0;}
@@ -643,8 +654,10 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
 
 
 
+
 <div class="credits-block"><div class="credits-label">Image credits</div><p class="credits-line"><strong>Artwork images:</strong> courtesy of the contributors. All rights reserved.</p><p class="credits-line credits-photo"><span class="cr"><strong>Installation photography:</strong> Jill Boogren and Daniel R. Pratt</span><span class="cr"><strong>Event photography:</strong> Jill Boogren</span></p></div>
 </div>
+
 <div class="tour-band">
   <div class="tour-inner">
     <div class="gold-rule"></div>
@@ -785,6 +798,7 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
   });
 })();
 </script>
+
 
 </body>
 </html>
