@@ -91,11 +91,14 @@ nav + .orient-band{margin-top:52px;}
 /* IDENTITY — single portrait */
 /* Phase B tweak 2: the text block is vertically centered against the portrait(s),
    with one spacing scale: 0.3rem inside a pair, 0.9rem between groups. */
-.identity{display:flex;gap:1.75rem;align-items:center;padding:2rem 0 1.75rem;margin-bottom:2rem;}
+.identity{display:flex;gap:1.75rem;align-items:flex-start;padding:2rem 0 1.75rem;margin-bottom:2rem;}   /* Nov 5 2026: text block top-aligned with the portrait (was centered) */
 .portrait-col{flex-shrink:0;width:220px;display:flex;flex-direction:column;}
 .portrait-thumb{width:220px;height:220px;border-radius:2px;object-fit:cover;object-position:center top;display:block;}
 .portrait-placeholder{width:220px;height:220px;background:var(--tint);border-radius:2px;}
-.portrait-songs{padding-top:0.7rem;width:220px;}
+.portrait-songs{padding-top:0.8rem;width:220px;margin-top:0;}   /* Nov 5 2026 (Emma, option B): the songs under the portrait, smaller and quieter than the label block */
+.portrait-songs .songs-label{color:var(--lilac);font-size:0.778rem;letter-spacing:0.12em;margin-bottom:0.25rem;}
+.portrait-songs .song-line{font-size:0.78rem;line-height:1.5;color:var(--soft);}
+.portrait-songs .song-credit{color:#b3a9bf;margin-top:0.3rem;}
 .song-line{font-size:0.82rem;color:var(--soft);font-weight:400;line-height:1.6;}   /* dark purple again (Sept 23, Emma) */
 .song-note{color:var(--gold);margin-right:0.4em;}
 /* ♪ previews (Sept 30 2026, §38): the ♪ + title is the button */
@@ -147,7 +150,7 @@ nav + .orient-band{margin-top:52px;}
 .identity-songs-meta{margin-top:0.9rem;display:flex;flex-direction:column;gap:0.1rem;}
 
 /* META COLUMN — standard */
-.identity-text{flex:1;min-width:0;display:flex;flex-direction:column;}
+.identity-text{flex:1;min-width:0;display:flex;flex-direction:column;padding-top:0.4rem;}   /* Nov 5 2026: a nudge down so the name sits level with the portrait's top edge (Emma: 'a bit too high') */
 .identity-top{flex:none;}
 
 /* GOLD RULE */
@@ -395,6 +398,7 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
   .nav-participant{font-size:0.78rem;}
   .page{padding:1.5rem 1rem 3.5rem;}
   .identity{flex-direction:column;align-items:flex-start;gap:1rem;}
+  .portrait-col{display:contents;} .portrait-thumb{order:0;} .identity-text{order:1;} .portrait-songs{order:2;width:100%;padding-top:0.2rem;}   /* Nov 5 2026: on phones the songs drop to the end, after the name and works */
   .portrait-thumb,.portrait-placeholder{width:140px;height:140px;}
   /* Phase B tweak 4: dual portraits side by side as a pair above the name —
      two equal columns, 8px gap, filling the content width. */
@@ -624,6 +628,9 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
 <div class="identity">
   <div class="portrait-col">
     <img class="portrait-thumb" src="../portraits-web/barbara-rogers-portrait.jpg" alt="Barbara Rogers" loading="eager">
+    <div class="identity-songs-meta portrait-songs"><div class="songs-label">Songs chosen by Barbara</div>
+<div class="song-line"><button type="button" class="song-play" data-apple="1229320478" aria-pressed="false" disabled><span class="song-note" aria-hidden="true">♪</span><span class="song-t">Purple Rain</span></button></div>
+<div class="song-credit" aria-live="polite" hidden>Tap ♪ for a 30-second preview · Apple Music</div></div>
   </div>
   <div class="identity-text">
     <div class="identity-top">
@@ -631,9 +638,7 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
       <div class="identity-city">Orlando, FL</div>
       <div class="identity-artwork"><div class="identity-artwork-title">My Prince Super Bowl Halftime Show Experience</div></div>
     </div>
-    <div class="identity-songs-meta"><div class="songs-label">Songs chosen by Barbara</div>
-<div class="song-line"><button type="button" class="song-play" data-apple="1229320478" aria-pressed="false" disabled><span class="song-note" aria-hidden="true">♪</span><span class="song-t">Purple Rain</span></button></div>
-<div class="song-credit" aria-live="polite" hidden>Tap ♪ for a 30-second preview · Apple Music</div></div>
+    
   </div>
 </div>
 <div class="gold-rule"></div>
