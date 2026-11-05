@@ -108,7 +108,8 @@ nav + .orient-band{margin-top:52px;}
 .song-play.playing .song-t{color:var(--gold);background-size:100% 1px;transition:color .3s,background-size 30s linear;}
 .song-play.playing .song-note{animation:pmPulse 1.6s ease-in-out infinite;}
 @keyframes pmPulse{0%,100%{opacity:1;}50%{opacity:.35;}}
-.song-credit{font-size:0.778rem;color:var(--muted);font-weight:300;line-height:1.5;margin-top:0.35rem;}
+.songs-label{font-size:0.722rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:0.3rem;}   /* Nov 5 2026: the label register (as Image credits) */
+.song-credit{font-size:0.778rem;color:#8d8498;font-weight:300;line-height:1.5;margin-top:0.45rem;}   /* Nov 5 2026: paler than the city line */
 .song-credit[hidden]{display:none;}
 .song-credit a{color:var(--muted);white-space:nowrap;text-decoration:underline;text-decoration-color:rgba(200,169,110,.6);text-underline-offset:2px;}
 .song-credit a:hover{color:var(--mid);}
@@ -558,7 +559,7 @@ footer .footer-eye{height:1em;width:auto;vertical-align:-0.15em;margin-right:0.4
 }
 
 .more-from .photo-story{margin-top:0.4rem;}
-.credits-block + .orient-band{margin-top:2.6rem;}   /* Nov 5 2026: room between the credits and a welcome band placed at the end */
+.orient-band.orient-end{margin-top:2.6rem;}   /* Nov 5 2026: room above a welcome band placed at the end (it sits outside the page column, so a sibling rule never reached it) */
 .photo-story{position:relative;width:100%;max-width:752px;aspect-ratio:4/5;max-height:80vh;margin:0 auto 2.2rem;background:#1a0f2e;overflow:hidden;cursor:pointer;border-radius:2px;}
 .photo-story img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 1.6s ease;}
 .photo-story img.on{opacity:1;}
@@ -629,8 +630,9 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
     <div class="identity-city">Springfield, MO</div>
     <div class="identity-collection">3 Songs for Prince</div>
 <div class="identity-artwork"><div class="identity-artwork-title">Goodnight, Sweet Prince <span class="identity-artwork-year">2016</span></div><div class="identity-artwork-title">Pretty Much Purple <span class="identity-artwork-year">2025</span></div><div class="identity-artwork-title">Same Lifetime <span class="identity-artwork-year">2025</span></div><div class="identity-artwork-medium">Original music</div></div>
-    <div class="identity-dual-songs"><div class="song-line"><button type="button" class="song-play" data-apple="1421417206" aria-pressed="false" disabled><span class="song-note" aria-hidden="true">♪</span><span class="song-t">The Most Beautiful Girl in the World</span></button></div>
-<div class="song-credit" aria-live="polite" hidden>Tap ♪ for a 30-second preview · courtesy of Apple Music</div></div>
+    <div class="identity-dual-songs"><div class="songs-label">Songs chosen by Paul</div>
+<div class="song-line"><button type="button" class="song-play" data-apple="1421417206" aria-pressed="false" disabled><span class="song-note" aria-hidden="true">♪</span><span class="song-t">The Most Beautiful Girl in the World</span></button></div>
+<div class="song-credit" aria-live="polite" hidden>Tap ♪ for a 30-second preview · Apple Music</div></div>
   </div>
   <div class="portrait-dual">
     <img src="../portraits-web/paul-thomlinson-portrait-2.jpeg" alt="Paul Thomlinson" loading="eager">
@@ -645,14 +647,13 @@ footer.site-footer.sf-white .sf-dot{color:#c4a0e0;}
 <div class="bio"><p>I'm a guitar playing, singing, songwriting psychologist who has been inspired by Prince since my college days in the 1980s. His fearless creativity, genre-defying musicianship, and spiritual intensity have shaped not only my music, but my understanding of artistry itself. I perform across multiple projects, including rock, yacht rock, and disco bands — most notably The Yachties, voted Best Tribute Band in Kansas City last year. I've had the privilege of participating multiple times in Kansas City's largest Prince celebration, Purple Jam at Knuckleheads, as well as Purple Grain in Springfield, Missouri. Our home even includes a purple Prince tribute room — complete with artwork and a purple Cloud guitar. Choosing a favorite song feels impossible, but The Most Beautiful Girl in the World will always hold a special place in my heart. <br>Photo credit (with guitar): Chet Smith.</p></div>
 
 
-<div class="museum-section"><h2 class="museum-heading">At the Museum — Roberts Gallery</h2><div class="install-rows"><div class="lay-d"><figure class="img-solo"><img src="../install-web/paul-thomlinson-kt-01.jpg" width="1200" height="798" alt="Installation view — Paul Thomlinson, Goodnight, Sweet Prince" loading="lazy" data-lb data-caption="Photo: Kirk Thoren"></figure></div><div class="lay-m"><figure class="img-solo"><img src="../install-web/paul-thomlinson-kt-01.jpg" width="1200" height="798" alt="Installation view — Paul Thomlinson, Goodnight, Sweet Prince" loading="lazy" data-lb data-caption="Photo: Kirk Thoren"></figure></div></div><div class="strip strip-one event-rows"><figure class="img-solo"><img src="../events-web/capriaudience-jb-01.jpeg" width="1200" height="900" alt="Event photo — Paul Thomlinson at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Jill Boogren"></figure></div><div class="exh-links"><a class="exh-link" href="../exhibitions/roberts.html"><span class="exh-img"><img src="../thumbs-web/roberts-090-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></span><span class="exh-text"><span class="exh-k">Exhibitions</span><span class="exh-t">View the exhibition at Roberts Gallery <span class="ar" aria-hidden="true">&rarr;</span></span><span class="exh-s">Way Back Home &middot; Minneapolis, June 2026</span><span class="exh-r" aria-hidden="true"></span></span></a></div></div>
+<div class="museum-section"><h2 class="museum-heading">At the Museum — Roberts Gallery</h2><div class="install-rows"><div class="lay-d"><figure class="img-solo"><img src="../install-web/paul-thomlinson-kt-01.jpg" width="1200" height="798" alt="Installation view — Paul Thomlinson, Goodnight, Sweet Prince" loading="lazy" data-lb data-caption="Photo: Kirk Thoren"></figure></div><div class="lay-m"><figure class="img-solo"><img src="../install-web/paul-thomlinson-kt-01.jpg" width="1200" height="798" alt="Installation view — Paul Thomlinson, Goodnight, Sweet Prince" loading="lazy" data-lb data-caption="Photo: Kirk Thoren"></figure></div></div><div class="strip strip-one event-rows"><figure class="img-solo"><img src="../events-web/capriaudience-jb-01.jpeg" width="1200" height="900" alt="Event photo — Paul Thomlinson at The People&#x27;s Museum for Prince" loading="lazy" data-lb data-caption="Photo: Jill Boogren"></figure></div></div>
 
 
 
 
 
-
-
+<div class="exh-links"><a class="exh-link" href="../exhibitions/roberts.html"><span class="exh-img"><img src="../thumbs-web/roberts-090-dp-w720.jpg" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"></span><span class="exh-text"><span class="exh-k">Exhibitions</span><span class="exh-t">View the exhibition at Roberts Gallery <span class="ar" aria-hidden="true">&rarr;</span></span><span class="exh-s">Way Back Home &middot; Minneapolis, June 2026</span><span class="exh-r" aria-hidden="true"></span></span></a></div>
 <div class="credits-block"><div class="credits-label">Image credits</div><p class="credits-line"><strong>Artwork images:</strong> courtesy of the contributors. All rights reserved.</p><p class="credits-line credits-photo"><span class="cr"><strong>Installation photography:</strong> Kirk Thoren</span><span class="cr"><strong>Event photography:</strong> Jill Boogren</span></p></div>
 </div>
 
