@@ -1477,7 +1477,7 @@
   "season": "2026",
   "noindex": false,
   "card_image": "artworks-web/christopher-scott-artwork-01.jpg",
-  "card_alt": "",
+  "card_alt": "portraits-web/christopher-scott-portrait.jpg",
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
@@ -1487,7 +1487,7 @@
   ],
   "second_card": null,
   "card_video": "",
-  "portrait": "",
+  "portrait": "portraits-web/christopher-scott-portrait.jpg",
   "connected": []
  },
  {
@@ -2253,12 +2253,12 @@
   "walk_order_2": [],
   "season": "2026",
   "noindex": false,
-  "card_image": "portraits-web/giuseppe-craca-portrait.jpeg",
-  "card_alt": "events-web/robertsopening-jb-01.jpeg",
+  "card_image": "artworks-web/giuseppe-craca-mosaic.jpg",
+  "card_alt": "portraits-web/giuseppe-craca-portrait.jpeg",
   "card_position": "",
   "card_alt_position": "",
   "card_text": "My Good Friend Prince",
-  "text_on_mosaic_image": false,
+  "text_on_mosaic_image": true,
   "favourite_prince_song": [
    "Sometimes It Snows in April"
   ],
