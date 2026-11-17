@@ -946,7 +946,7 @@
   "season": "2026",
   "noindex": false,
   "card_image": "artworks-web/rebecca-langason-mosaic.jpg",
-  "card_alt": "portraits-web/rebecca-langason-portrait.jpeg",
+  "card_alt": "portraits-web/rebecca-langason-portrait-02.jpg",
   "card_position": "",
   "card_alt_position": "",
   "card_text": "",
@@ -957,7 +957,7 @@
   ],
   "second_card": null,
   "card_video": "",
-  "portrait": "portraits-web/rebecca-langason-portrait.jpeg",
+  "portrait": "portraits-web/rebecca-langason-portrait-02.jpg",
   "connected": []
  },
  {
@@ -2238,14 +2238,14 @@
   "connected": []
  },
  {
-  "name": "Giuseppe Craca",
-  "slug": "giuseppe-craca",
-  "url": "participants/giuseppe-craca.html",
-  "first_name": "Giuseppe",
+  "name": "Pino",
+  "slug": "pino",
+  "url": "participants/pino.html",
+  "first_name": "Pino",
   "last_name": "Craca",
   "city": "Bad Wildbad",
   "state_or_country": "Germany",
-  "title": "My Good Friend Prince",
+  "title": "Untitled",
   "venues": [
    "Roberts Gallery"
   ],
